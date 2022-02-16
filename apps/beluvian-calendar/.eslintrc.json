@@ -13,7 +13,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "bry",
+            "prefix": "bc",
             "style": "camelCase"
           }
         ],
@@ -21,7 +21,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "bry",
+            "prefix": "bc",
             "style": "kebab-case"
           }
         ]

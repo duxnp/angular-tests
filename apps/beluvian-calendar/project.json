@@ -2,7 +2,7 @@
   "projectType": "application",
   "root": "apps/beluvian-calendar",
   "sourceRoot": "apps/beluvian-calendar/src",
-  "prefix": "bry",
+  "prefix": "bc",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
@@ -18,7 +18,10 @@
           "apps/beluvian-calendar/src/favicon.ico",
           "apps/beluvian-calendar/src/assets"
         ],
-        "styles": ["apps/beluvian-calendar/src/styles.scss"],
+        "styles": [
+          "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+          "apps/beluvian-calendar/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -90,5 +93,9 @@
       }
     }
   },
-  "tags": ["application:", "scope:", "type:app"]
+  "tags": [
+    "application:beluvian-calendar",
+    "scope:beluvian-calendar",
+    "type:app"
+  ]
 }
