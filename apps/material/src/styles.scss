@@ -1,0 +1,110 @@
+// This makes it easy to adjust breakpoints
+@import "styles-variables";
+
+// // Bootstrap 4 = importing pre built
+@import "~bootstrap/scss/bootstrap-reboot";
+// @import '~bootstrap/scss/bootstrap-grid';
+// @import '~bootstrap/scss/utilities';
+
+// Certain other resets after importing bootstrap
+@import "styles-reset";
+
+// Prebuilt Angular Material Theme
+// @import "@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+// Customize Material Theme
+@import "~@angular/material/theming";
+
+@include mat-core();
+
+@import "default-theme.scss";
+@import "light-theme.scss";
+@import "black-theme.scss";
+
+@import "styles-global";
+@import "styles-reset.scss-theme";
+@import "styles-global.scss-theme";
+
+@mixin custom-components-theme($theme) {
+  @include anms-styles-reset-theme($theme);
+  @include anms-styles-global-theme($theme);
+}
+
+// Seems that if this is enclosed in a class name something funky happens to the selectors in the generated CSS file
+@include angular-material-theme($anms-theme);
+@include custom-components-theme($anms-theme);
+
+// .default-theme {
+//   @include angular-material-theme($anms-theme);
+//   @include custom-components-theme($anms-theme);
+// }
+
+.light-theme {
+  @include angular-material-theme($anms-light-theme);
+  @include custom-components-theme($anms-light-theme);
+}
+
+.black-theme {
+  @include angular-material-theme($anms-black-theme);
+  @include custom-components-theme($anms-black-theme);
+}
+
+// Material Design Icons
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: url(~material-design-icons/iconfont/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local("Material Icons"), local("MaterialIcons-Regular"),
+    url(~material-design-icons/iconfont/MaterialIcons-Regular.woff2)
+      format("woff2"),
+    url(~material-design-icons/iconfont/MaterialIcons-Regular.woff)
+      format("woff"),
+    url(~material-design-icons/iconfont/MaterialIcons-Regular.ttf)
+      format("truetype");
+}
+
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px; /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: "liga";
+}
+
+// These helper classes aren't included with Material Icons
+.material-icons.md-18 {
+  font-size: 18px;
+}
+.material-icons.md-24 {
+  font-size: 24px;
+}
+.material-icons.md-36 {
+  font-size: 36px;
+}
+.material-icons.md-48 {
+  font-size: 48px;
+}
+
+// Roboto font for Material Typography
+$roboto-font-path: "../node_modules/roboto-fontface/fonts";
+@import "../node_modules/roboto-fontface/css/roboto/sass/roboto-fontface-light";
+@import "../node_modules/roboto-fontface/css/roboto/sass/roboto-fontface-regular";
+@import "../node_modules/roboto-fontface/css/roboto/sass/roboto-fontface-medium";

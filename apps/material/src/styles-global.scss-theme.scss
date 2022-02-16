@@ -1,0 +1,59 @@
+@import '~@angular/material/theming';
+
+@mixin anms-styles-global-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  mat-sidenav-container {
+    mat-toolbar {
+      // I had to add this to get anchor tags to look like button tags in toolbar
+      a {
+        color: currentColor;
+        &:hover {
+          color: currentColor;
+        }
+      }
+
+      a,
+      button {
+        &.active {
+          color: mat-color($accent, default-contrast);
+          background-color: mat-color($accent);
+        }
+      }
+
+      .sign-in-button {
+        color: mat-color($accent, default-contrast);
+        border: 1px solid mat-color($accent);
+      }
+
+      .link {
+        color: mat-color($primary, default-contrast);
+      }
+    }
+
+    mat-sidenav {
+      a {
+        &.active {
+          color: mat-color($accent, default-contrast);
+          background-color: mat-color($accent);
+        }
+      }
+    }
+
+    .footer {
+      color: mat-color($primary, default-contrast);
+      background-color: mat-color($primary, darker);
+
+      .links,
+      .signature {
+        a {
+          color: mat-color($primary, default-contrast);
+          &:hover {
+            color: mat-color($accent);
+          }
+        }
+      }
+    }
+  }
+}

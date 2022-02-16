@@ -1,0 +1,30 @@
+<mat-toolbar color="accent"
+             class="primary-toolbar"
+             [class.mat-elevation-z2]="applyShadow">
+  <span *ngIf="popText">Egghead.io</span>
+</mat-toolbar>
+<mat-toolbar color="accent"
+             class="secondary-toolbar">
+  <span *ngIf="!popText">Material Toolbars</span>
+</mat-toolbar>
+
+<div class="lesson-content">
+  <h1>Toolbar Colors</h1>
+  <mat-toolbar>Basic Toolbar</mat-toolbar>
+  <mat-toolbar color="primary">Primary</mat-toolbar>
+  <mat-toolbar color="accent">Accent</mat-toolbar>
+  <mat-toolbar color="warn">Warn</mat-toolbar>
+
+  <h1>Toolbar Rows</h1>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>Row 1</mat-toolbar-row>
+    <mat-toolbar-row>Row 2</mat-toolbar-row>
+    <mat-toolbar-row>Row 3</mat-toolbar-row>
+  </mat-toolbar>
+
+  <p>Filler Content</p>
+  <p>Filler Content</p>
+  <p>Filler Content</p>
+  <p>Filler Content</p>
+  <p>Filler Content</p>
+</div>

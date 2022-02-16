@@ -1,0 +1,16 @@
+<div class="mat-typography mat-app-background"
+     [@routerTransition]="o.isActivated && o.activatedRoute.routeConfig.path">
+  <router-outlet #o="outlet"></router-outlet>
+</div>
+<button class="app-menu"
+        mat-mini-fab
+        color="primary"
+        [matMenuTriggerFor]="appMenu">
+  <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #appMenu="matMenu">
+  <a *ngFor="let nav of navigation" mat-menu-item [routerLink]="nav.link">
+    <mat-icon>link</mat-icon>
+    <span>{{nav.label}}</span>
+  </a>
+</mat-menu>

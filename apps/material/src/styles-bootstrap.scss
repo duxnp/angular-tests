@@ -1,0 +1,14 @@
+// Bootstrap 4 Custom - compile your own
+$enable-flex:               true;
+$enable-grid-classes:       true;
+
+// Required
+// Sometimes you do need the tilde?????
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+// Optional
+@import '~bootstrap/scss/reboot';
+@import '~bootstrap/scss/grid';
+@import '~bootstrap/scss/utilities';

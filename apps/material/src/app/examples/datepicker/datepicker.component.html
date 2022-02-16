@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+  <span>Tabs</span>
+</mat-toolbar>
+
+<div class="lesson-content">
+  <h1>Basic Datepicker</h1>
+  <mat-form-field>
+    <input matInput
+           [matDatepicker]="datepicker"
+           [min]="minDate"
+           [max]="maxDate">
+    <mat-datepicker-toggle matSuffix
+                           [for]="datepicker"></mat-datepicker-toggle>
+    <mat-datepicker #datepicker
+                    startView="month"
+                    [startAt]="startDate"
+                    [touchUi]="isTouchDevice"></mat-datepicker>
+  </mat-form-field>
+</div>

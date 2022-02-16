@@ -1,0 +1,47 @@
+<mat-toolbar color="primary">
+  <span>Inputs</span>
+</mat-toolbar>
+
+<div class="lesson-content">
+  <h1>Basic Input Field</h1>
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input type="password"
+            #passwordInput="ngModel"
+            [(ngModel)]="password"
+            [ngModelOptions]="{standalone: true}"
+            [errorStateMatcher]="customErrorStateMatcher"
+            placeholder="Password"
+            matInput
+            minlength="6"
+            required>
+      <button mat-button
+              *ngIf="password"
+              matSuffix
+              mat-icon-button
+              aria-label="Clear"
+              (click)="password=''">
+          <mat-icon>close</mat-icon>
+      </button>
+      <mat-error *ngIf="passwordInput.errors?.required">
+        This field is required.
+      </mat-error>
+      <mat-error *ngIf="passwordInput.errors?.minlength">
+        6 characters required.
+      </mat-error>
+      <mat-hint align="start">Password must be at least 6 characters</mat-hint>
+      <mat-hint align="end">{{password?.length}}/16</mat-hint>
+    </mat-form-field>
+  </form>
+
+<div>
+  <mat-form-field>
+      <input matInput placeholder="Favorite food" value="Sushi">
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Leave a comment"></textarea>
+    </mat-form-field>
+</div>
+
+</div>

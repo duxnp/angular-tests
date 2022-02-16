@@ -1,0 +1,38 @@
+<mat-toolbar color="primary">
+  <span>Loading</span>
+</mat-toolbar>
+
+<div class="lesson-content">
+  <h1>Progress Bars</h1>
+
+  <h2>Determinate</h2>
+  <mat-progress-bar [value]="loadingPercent"></mat-progress-bar>
+  <mat-progress-bar [value]="loadingPercent" color="accent"></mat-progress-bar>
+  <mat-progress-bar [value]="loadingPercent" color="warn"></mat-progress-bar>
+
+  <h2>Indeterminate</h2>
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+
+  <h2>Query</h2>
+  <mat-progress-bar color="accent"
+                    [mode]="queryMode"
+                    [value]="loadingPercent"></mat-progress-bar>
+
+  <h2>Buffer</h2>
+  <mat-progress-bar color="warn"
+                    mode="buffer"
+                    [value]="loadingPercent"
+                    [bufferValue]="currentPlayback"></mat-progress-bar>
+
+  <h1>Spinners</h1>
+
+  <h2>Indeterminate (default)</h2>
+  <mat-spinner></mat-spinner>
+  <mat-spinner color="accent"></mat-spinner>
+  <mat-spinner color="warn"></mat-spinner>
+
+  <h2>Determinate</h2>
+  <mat-progress-spinner *ngIf="loadingPercent < 100"
+                        [value]="loadingPercent"
+                        [@fadeOut]="'in'"></mat-progress-spinner>
+</div>
