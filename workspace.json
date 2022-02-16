@@ -2,6 +2,7 @@
   "version": 2,
   "projects": {
     "beluvian-calendar": "apps/beluvian-calendar",
-    "material": "apps/material"
+    "material": "apps/material",
+    "ngx-bootstrap": "apps/ngx-bootstrap"
   }
 }
