@@ -1,29 +1,29 @@
 // This makes it easy to adjust breakpoints
-@import "styles-variables";
+@import 'styles-variables';
 
 // // Bootstrap 4 = importing pre built
-@import "~bootstrap/scss/bootstrap-reboot";
+@import '~bootstrap/scss/bootstrap-reboot';
 // @import '~bootstrap/scss/bootstrap-grid';
 // @import '~bootstrap/scss/utilities';
 
 // Certain other resets after importing bootstrap
-@import "styles-reset";
+@import 'styles-reset';
 
 // Prebuilt Angular Material Theme
 // @import "@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 // Customize Material Theme
-@import "~@angular/material/theming";
+@import '~@angular/material/theming';
 
 @include mat-core();
 
-@import "default-theme.scss";
-@import "light-theme.scss";
-@import "black-theme.scss";
+@import 'themes/default-theme.scss';
+@import 'themes/light-theme.scss';
+@import 'themes/black-theme.scss';
 
-@import "styles-global";
-@import "styles-reset.scss-theme";
-@import "styles-global.scss-theme";
+@import 'styles-global';
+@import 'styles-reset.scss-theme';
+@import 'styles-global.scss-theme';
 
 @mixin custom-components-theme($theme) {
   @include anms-styles-reset-theme($theme);
@@ -51,21 +51,21 @@
 
 // Material Design Icons
 @font-face {
-  font-family: "Material Icons";
+  font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
   src: url(~material-design-icons/iconfont/MaterialIcons-Regular.eot); /* For IE6-8 */
-  src: local("Material Icons"), local("MaterialIcons-Regular"),
+  src: local('Material Icons'), local('MaterialIcons-Regular'),
     url(~material-design-icons/iconfont/MaterialIcons-Regular.woff2)
-      format("woff2"),
+      format('woff2'),
     url(~material-design-icons/iconfont/MaterialIcons-Regular.woff)
-      format("woff"),
+      format('woff'),
     url(~material-design-icons/iconfont/MaterialIcons-Regular.ttf)
-      format("truetype");
+      format('truetype');
 }
 
 .material-icons {
-  font-family: "Material Icons";
+  font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
   font-size: 24px; /* Preferred icon size */
@@ -86,7 +86,7 @@
   -moz-osx-font-smoothing: grayscale;
 
   /* Support for IE. */
-  font-feature-settings: "liga";
+  font-feature-settings: 'liga';
 }
 
 // These helper classes aren't included with Material Icons
@@ -104,7 +104,7 @@
 }
 
 // Roboto font for Material Typography
-$roboto-font-path: "../node_modules/roboto-fontface/fonts";
-@import "../node_modules/roboto-fontface/css/roboto/sass/roboto-fontface-light";
-@import "../node_modules/roboto-fontface/css/roboto/sass/roboto-fontface-regular";
-@import "../node_modules/roboto-fontface/css/roboto/sass/roboto-fontface-medium";
+$roboto-font-path: '~roboto-fontface/fonts';
+@import '~roboto-fontface/css/roboto/sass/roboto-fontface-light';
+@import '~roboto-fontface/css/roboto/sass/roboto-fontface-regular';
+@import '~roboto-fontface/css/roboto/sass/roboto-fontface-medium';

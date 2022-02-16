@@ -1,19 +1,13 @@
-import { Component, OnInit, } from '@angular/core';
+import { Component } from '@angular/core';
 
-import { routerTransition } from '@app/core';
+import { routerTransition } from '../../core';
 
 @Component({
   selector: 'anms-examples',
   templateUrl: './examples.component.html',
   styleUrls: ['./examples.component.scss'],
-  animations: [routerTransition]
+  animations: [routerTransition],
 })
-export class ExamplesComponent implements OnInit {
-  examples = [
-    { link: 'material', label: 'Material Components' }
-  ];
-
-  constructor() {}
-
-  ngOnInit() {}
+export class ExamplesComponent {
+  examples = [{ link: 'material', label: 'Material Components' }];
 }

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { SharedModule } from '@app/shared';
+import { SharedModule } from '../shared';
 
 import { ExamplesRoutingModule } from './examples-routing.module';
 import { ExamplesComponent } from './examples/examples.component';
@@ -15,10 +15,7 @@ import { SnackbarComponent } from './snackbar/snackbar.component';
 import { DatatableComponent } from './datatable/datatable.component';
 
 @NgModule({
-  imports: [
-    SharedModule,
-    ExamplesRoutingModule
-  ],
+  imports: [SharedModule, ExamplesRoutingModule],
   declarations: [
     ExamplesComponent,
     SidenavComponent,
@@ -29,10 +26,8 @@ import { DatatableComponent } from './datatable/datatable.component';
     TabsComponent,
     DatepickerComponent,
     SnackbarComponent,
-    DatatableComponent
+    DatatableComponent,
   ],
-  providers: []
+  providers: [],
 })
-export class ExamplesModule {
-  constructor() {}
-}
+export class ExamplesModule {}

@@ -23,10 +23,10 @@
               (click)="password=''">
           <mat-icon>close</mat-icon>
       </button>
-      <mat-error *ngIf="passwordInput.errors?.required">
+      <mat-error *ngIf="passwordInput.errors && passwordInput.errors['required']">
         This field is required.
       </mat-error>
-      <mat-error *ngIf="passwordInput.errors?.minlength">
+      <mat-error *ngIf="passwordInput.errors && passwordInput.errors['minlength']">
         6 characters required.
       </mat-error>
       <mat-hint align="start">Password must be at least 6 characters</mat-hint>

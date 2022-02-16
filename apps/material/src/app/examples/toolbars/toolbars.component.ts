@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
-import { Observable,  Subject, fromEvent } from 'rxjs';
+import { Observable, Subject, fromEvent } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 // import { fromEvent } from 'rxjs/observable/fromEvent';
 
@@ -11,11 +11,11 @@ export const PRIMARY_SHADOW_THRESHOLD = 78;
 @Component({
   selector: 'app-toolbars',
   templateUrl: './toolbars.component.html',
-  styleUrls: ['./toolbars.component.scss']
+  styleUrls: ['./toolbars.component.scss'],
 })
 export class ToolbarsComponent implements OnInit, OnDestroy {
-  public popText: boolean;
-  public applyShadow: boolean;
+  public popText!: boolean;
+  public applyShadow!: boolean;
   private _onDestroy = new Subject();
 
   // This isn't used in the egghead lesson. I was just trying this to troubleshoot.
@@ -26,18 +26,19 @@ export class ToolbarsComponent implements OnInit, OnDestroy {
   //    console.log(verticalOffset);
   // }
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     const container = document.querySelector(SCROLL_CONTAINER);
 
     // For some reason you can't target <html> tag with the scroll event
     // You have to attach it to the entire document
-    fromEvent(document, 'scroll', { passive: true }).pipe(
-      takeUntil(this._onDestroy)
-    )
-      .subscribe(_ => {
-        this.determineHeader(document.scrollingElement.scrollTop);
+    fromEvent(document, 'scroll', { passive: true })
+      .pipe(takeUntil(this._onDestroy))
+      .subscribe(() => {
+        if (document.scrollingElement !== null) {
+          this.determineHeader(document.scrollingElement.scrollTop);
+        }
       });
   }
 
@@ -58,5 +59,4 @@ export class ToolbarsComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this._onDestroy.next();
   }
-
 }

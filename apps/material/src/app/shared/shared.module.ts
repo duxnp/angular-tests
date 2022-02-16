@@ -75,11 +75,9 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
     MatStepperModule,
 
     PlatformModule,
-    MatMomentDateModule
+    MatMomentDateModule,
   ],
-  declarations: [
-
-  ],
+  declarations: [],
   exports: [
     CommonModule,
     FormsModule,
@@ -118,7 +116,7 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
     MatStepperModule,
 
     PlatformModule,
-    MatMomentDateModule
-  ]
+    MatMomentDateModule,
+  ],
 })
 export class SharedModule {}

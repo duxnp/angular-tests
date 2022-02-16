@@ -1,7 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { trigger, state, style, transition, animate } from '@angular/animations';
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate,
+} from '@angular/animations';
 import { concat, interval } from 'rxjs';
 import { map, takeWhile, take, tap, ignoreElements } from 'rxjs/operators';
+import { ProgressBarMode } from '@angular/material/progress-bar';
 
 @Component({
   selector: 'app-loading',
@@ -13,44 +20,41 @@ import { map, takeWhile, take, tap, ignoreElements } from 'rxjs/operators';
         animate(
           `.5s ease-out`,
           style({
-            opacity: 0
+            opacity: 0,
           })
-        )
-      ])
-    ])
+        ),
+      ]),
+    ]),
   ],
-  styleUrls: ['./loading.component.scss']
+  styleUrls: ['./loading.component.scss'],
 })
 export class LoadingComponent implements OnInit {
   public loadingPercent = 0;
   public currentPlayback = 0;
   public queryValue = 0;
-  public queryMode = 'query';
+  public queryMode: ProgressBarMode = 'query';
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
-    this.loadingProgress(500)
-      .subscribe(i => (this.loadingPercent = i));
+    this.loadingProgress(500).subscribe((i) => (this.loadingPercent = i));
 
-    this.loadingProgress(250)
-      .subscribe(i => (this.currentPlayback = i));
+    this.loadingProgress(250).subscribe((i) => (this.currentPlayback = i));
 
     concat(
       interval(2000).pipe(
         take(1),
-        tap(_ => (this.queryMode = 'determinate')),
+        tap((_) => (this.queryMode = 'determinate')),
         ignoreElements()
       ),
       this.loadingProgress(500)
-    ).subscribe(i => (this.queryValue = i));
+    ).subscribe((i) => (this.queryValue = i));
   }
 
   loadingProgress(speed: number) {
-    return interval(speed)
-      .pipe(
-        map(i => i * 10),
-        takeWhile(i => i <= 100)
-      );
+    return interval(speed).pipe(
+      map((i) => i * 10),
+      takeWhile((i) => i <= 100)
+    );
   }
 }
