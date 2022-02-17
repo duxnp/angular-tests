@@ -18,7 +18,10 @@
           "apps/ngrx-ultimate/src/favicon.ico",
           "apps/ngrx-ultimate/src/assets"
         ],
-        "styles": ["apps/ngrx-ultimate/src/styles.scss"],
+        "styles": [
+          "apps/ngrx-ultimate/src/styles.scss",
+          "apps/ngrx-ultimate/src/assets/css/style.css"
+        ],
         "scripts": []
       },
       "configurations": {

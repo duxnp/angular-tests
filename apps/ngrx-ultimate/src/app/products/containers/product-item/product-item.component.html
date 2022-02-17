@@ -1,0 +1,24 @@
+<!-- Another method for dealing with possibly null observables -->
+<!-- <div class="product-item" *ngIf="pizza$ | async as pizza;"> -->
+<!-- </div> -->
+
+<pizza-form [pizza]="pizza$ | async"
+            [toppings]="toppings$ | async"
+            (selected)="onSelect($event)"
+            (changed)="onChanged($event)"
+            (create)="onCreate($event)"
+            (update)="onUpdate($event)"
+            (remove)="onRemove($event)">
+  <div *ngIf="draft$ | async as draft">
+    <pizza-display [pizza]="draft">
+    </pizza-display>
+  </div>
+</pizza-form>
+
+<div *ngIf="draftUtil$ | async as draftUtil;">
+  {{ draftUtil.isPepPep }}
+</div>
+
+<div *ngIf="test$ | async as test;">
+  {{ test.name }}
+</div>

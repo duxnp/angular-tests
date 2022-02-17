@@ -1,0 +1,13 @@
+<p>params works!</p>
+
+<button (click)="paramOneChange('foo')">Param One: Foo</button>
+<button (click)="paramOneChange('bar')">Param Two: Bar</button>
+<br>
+<button (click)="paramTwoChange('one')">Param Two: One</button>
+<button (click)="paramTwoChange('two')">Param Two: Two</button>
+<br>
+<button (click)="queryChange('foo')">Query Param 1</button>
+<button (click)="queryChange('bar')">Query Param 2</button>
+
+<pre>{{ routeParams$ | async | json }}</pre>
+<!-- <pre>{{ route$ | async | json }}</pre> -->
