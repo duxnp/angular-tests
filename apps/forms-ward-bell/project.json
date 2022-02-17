@@ -1,0 +1,94 @@
+{
+  "projectType": "application",
+  "root": "apps/forms-ward-bell",
+  "sourceRoot": "apps/forms-ward-bell/src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/forms-ward-bell",
+        "index": "apps/forms-ward-bell/src/index.html",
+        "main": "apps/forms-ward-bell/src/main.ts",
+        "polyfills": "apps/forms-ward-bell/src/polyfills.ts",
+        "tsConfig": "apps/forms-ward-bell/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/forms-ward-bell/src/favicon.ico",
+          "apps/forms-ward-bell/src/assets"
+        ],
+        "styles": ["apps/forms-ward-bell/src/styles.css"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/forms-ward-bell/src/environments/environment.ts",
+              "with": "apps/forms-ward-bell/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "forms-ward-bell:build:production"
+        },
+        "development": {
+          "browserTarget": "forms-ward-bell:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "forms-ward-bell:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/forms-ward-bell/src/**/*.ts",
+          "apps/forms-ward-bell/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/forms-ward-bell"],
+      "options": {
+        "jestConfig": "apps/forms-ward-bell/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["application:", "scope:", "type:app"]
+}

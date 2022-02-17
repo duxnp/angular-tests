@@ -2,8 +2,8 @@
   "version": 2,
   "projects": {
     "beluvian-calendar": "apps/beluvian-calendar",
+    "forms-ward-bell": "apps/forms-ward-bell",
     "material": "apps/material",
-    "ngx-bootstrap": "apps/ngx-bootstrap",
-    "ward-bell-forms": "apps/ward-bell-forms"
+    "ngx-bootstrap": "apps/ngx-bootstrap"
   }
 }

@@ -9,7 +9,7 @@
     "start:beluvian-calendar": "ng serve beluvian-calendar --open",
     "start:material": "nx serve material --open",
     "start:ngx-bootstrap": "nx serve ngx-bootstrap --open",
-    "start:ward-bell-forms": "nx serve ward-bell-forms --open",
+    "start:forms-ward-bell": "nx serve forms-ward-bell --open",
     "build": "ng build",
     "test": "ng test",
     "lint": "nx workspace-lint && ng lint",
