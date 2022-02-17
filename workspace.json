@@ -4,6 +4,7 @@
     "beluvian-calendar": "apps/beluvian-calendar",
     "forms-ward-bell": "apps/forms-ward-bell",
     "material": "apps/material",
+    "ngrx-ultimate": "apps/ngrx-ultimate",
     "ngx-bootstrap": "apps/ngx-bootstrap"
   }
 }
