@@ -3,6 +3,7 @@
   "projects": {
     "beluvian-calendar": "apps/beluvian-calendar",
     "material": "apps/material",
-    "ngx-bootstrap": "apps/ngx-bootstrap"
+    "ngx-bootstrap": "apps/ngx-bootstrap",
+    "ward-bell-forms": "apps/ward-bell-forms"
   }
 }
