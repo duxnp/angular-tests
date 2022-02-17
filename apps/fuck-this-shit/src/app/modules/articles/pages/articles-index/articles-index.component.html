@@ -1,0 +1,17 @@
+<h1>Articles</h1>
+
+<div *ngFor="let article of articles">
+  <h2>{{ article.title }}</h2>
+  <p>{{ article.excerpt }}</p>
+  <a [routerLink]="['/articles', article.id]">Read more!</a>
+  <hr />
+</div>
+
+<ngb-pagination
+  [(page)]="currentPage"
+  [pageSize]="paginator.per_page"
+  [collectionSize]="paginator.total || 0"
+  (pageChange)="ngbPaginatorClicked($event)"
+></ngb-pagination>
+
+<a [routerLink]="['/articles/create']">Create a new article!</a>

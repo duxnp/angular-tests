@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import 'assets/scss/variables';
+// @import '../node_modules/bootstrap/scss/bootstrap';
+
+.simple-content {
+  display: flex;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
