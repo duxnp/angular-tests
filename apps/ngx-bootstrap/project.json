@@ -2,7 +2,7 @@
   "projectType": "application",
   "root": "apps/ngx-bootstrap",
   "sourceRoot": "apps/ngx-bootstrap/src",
-  "prefix": "bry",
+  "prefix": "nbt",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",

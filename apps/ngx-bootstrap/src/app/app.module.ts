@@ -1,13 +1,33 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgModule, ApplicationRef } from '@angular/core';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NxWelcomeComponent } from './nx-welcome.component';
+
+import { CoreModule } from './core';
+import { SharedModule } from './shared';
+import { StaticModule } from './static/static.module';
 
 @NgModule({
-  declarations: [AppComponent, NxWelcomeComponent],
-  imports: [BrowserModule],
+  declarations: [AppComponent],
+  imports: [
+    // angular
+    BrowserModule,
+    BrowserAnimationsModule,
+
+    // core & shared
+    CoreModule,
+    SharedModule,
+
+    // features
+    StaticModule,
+
+    AppRoutingModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(public appRef: ApplicationRef) {}
+}

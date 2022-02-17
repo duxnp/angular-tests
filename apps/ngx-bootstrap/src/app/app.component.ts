@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'bry-root',
+  selector: 'nbt-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  encapsulation: ViewEncapsulation.Emulated,
 })
-export class AppComponent {
-  title = 'ngx-bootstrap';
+export class AppComponent implements OnInit {
+  ngOnInit() {
+    console.log('AppComponent ngOnInit');
+  }
 }

@@ -1,0 +1,48 @@
+<div class="btn-group" dropdown>
+  <button id="button-animated" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+          aria-controls="dropdown-animated">
+    Default config <span class="caret"></span>
+  </button>
+  <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu"
+      role="menu" aria-labelledby="button-animated">
+    <li role="menuitem"><a class="dropdown-item" >Action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+  </ul>
+</div>
+&nbsp;
+<div class="btn-group" dropdown [isAnimated]="false">
+  <button id="button-animated" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+          aria-controls="dropdown-animated">
+    Override config <span class="caret"></span>
+  </button>
+  <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu"
+      role="menu" aria-labelledby="button-animated">
+    <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+  </ul>
+</div>
+&nbsp;
+<nbt-demo-dropdown></nbt-demo-dropdown>
+
+<div>
+  <div class="btn-group" dropdown #dd="bs-dropdown" [autoClose]="false">
+  <button id="button-animated" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+          aria-controls="dropdown-animated">
+    Template reference <span class="caret"></span>
+  </button>
+  <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu"
+      role="menu" aria-labelledby="button-animated">
+    <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+  </ul>
+</div>
+<button type="button" class="btn btn-secondary" (click)="toggleDropdown()">
+  Toggle in component class
+</button>
+<button type="button" class="btn btn-primary" (click)="dd.toggle(true)">Toggle</button>
+<button type="button" class="btn btn-primary" (click)="dd.show()">Show</button>
+<button type="button" class="btn btn-primary" (click)="dd.hide()">Hide</button>
+</div>

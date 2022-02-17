@@ -1,0 +1,29 @@
+/* .container usually has lots of empty space on the left and right sides.
+  We wanted to make use of the full width of the browser window.
+  However, .container-fluid can be too wide on really big screens.
+
+  1200px is the XL breakpoint for Bootstrap. */
+.container-fluid {
+  max-width: 1200px;
+}
+
+/* Setting the max-width of .container-fluid has a side effect on the navbar when the browser window is
+  > 1200px. Setting this padding lines everything up again... */
+.navbar-expand > .container,
+.navbar-expand > .container-fluid {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* However, changing the padding above has a side effect on the navbar when the browser window is
+  < 1200px. Setting THIS padding lines everything up FOR GOOD! */
+.navbar {
+  padding: 0.5rem 0;
+}
+
+// New global alert style
+.alert-md-color {
+  background-color: #7b1fa2;
+  border-color: #4a148c;
+  color: #fff;
+}
