@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
 
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-})
-export class AppComponent { }
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}
 
 
 /*
