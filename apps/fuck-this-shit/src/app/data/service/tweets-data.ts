@@ -1,4 +1,3 @@
-// import * as faker from 'faker';
 import { timer } from 'rxjs';
 import { mapTo } from 'rxjs/operators';
 import { randNumber, randUserName, randText } from '@ngneat/falso';
@@ -7,11 +6,6 @@ const count = 30;
 const data = [];
 
 for (let i = 0; i < count; i++) {
-  // data.push({
-  //   id: faker.random.number(),
-  //   username: faker.name.findName(),
-  //   text: faker.lorem.sentence()
-  // });
   data.push({
     id: randNumber(),
     username: randUserName(),

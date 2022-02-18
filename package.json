@@ -13,6 +13,7 @@
     "start:ngrx-ultimate": "nx serve ngrx-ultimate --open",
     "start:ngx-bootstrap": "nx serve ngx-bootstrap --open",
     "build": "ng build",
+    "build:fuck-this-shit": "ng build fuck-this-shit",
     "test": "ng test",
     "lint": "nx workspace-lint && ng lint",
     "e2e": "ng e2e",
