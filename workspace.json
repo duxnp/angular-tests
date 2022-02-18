@@ -1,7 +1,7 @@
 {
   "version": 2,
   "projects": {
-    "beluvian-calendar": "apps/beluvian-calendar",
+    "b-cal": "apps/b-cal",
     "forms-ward-bell": "apps/forms-ward-bell",
     "fuck-this-shit": "apps/fuck-this-shit",
     "material": "apps/material",

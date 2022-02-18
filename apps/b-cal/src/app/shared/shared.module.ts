@@ -17,26 +17,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [], // components here
-  imports: [ // modules here
-    CommonModule,
-
-    FlexLayoutModule,
-
-    MatButtonModule,
-    MatCardModule,
-    MatCheckboxModule,
-    MatIconModule,
-    MatInputModule,
-    MatListModule,
-    MatRippleModule,
-    MatSelectModule,
-    MatSidenavModule,
-    MatSnackBarModule,
-    MatSortModule,
-    MatTableModule,
-    MatToolbarModule
-  ],
-  exports: [ // export everything here
+  imports: [
+    // modules here
     CommonModule,
 
     FlexLayoutModule,
@@ -54,6 +36,26 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatSortModule,
     MatTableModule,
     MatToolbarModule,
-  ]
+  ],
+  exports: [
+    // export everything here
+    CommonModule,
+
+    FlexLayoutModule,
+
+    MatButtonModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatTableModule,
+    MatToolbarModule,
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}

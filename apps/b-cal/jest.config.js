@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'beluvian-calendar',
+  displayName: 'b-cal',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -8,7 +8,7 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../coverage/apps/beluvian-calendar',
+  coverageDirectory: '../../coverage/apps/b-cal',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },
