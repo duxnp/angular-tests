@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Route } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { LayoutComponent } from './layout/layout.component';
+import { BCalSharedDataAccessModule } from '@angular-tests/b-cal/shared/data-access';
 
 const routes: Route[] = [
   {
@@ -22,6 +23,7 @@ const routes: Route[] = [
   imports: [
     CommonModule,
     RouterModule.forRoot(routes, { scrollPositionRestoration: 'top' }),
+    BCalSharedDataAccessModule,
   ],
   exports: [RouterModule],
 })

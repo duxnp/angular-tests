@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/shared/domain",
+  "sourceRoot": "libs/shared/domain/src",
+  "prefix": "bry",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/shared/domain"],
+      "options": {
+        "jestConfig": "libs/shared/domain/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/domain/src/**/*.ts",
+          "libs/shared/domain/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["application:shared", "scope:shared", "type:util"]
+}

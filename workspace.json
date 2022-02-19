@@ -3,6 +3,7 @@
   "projects": {
     "b-cal": "apps/b-cal",
     "b-cal-calendar-feature": "libs/b-cal/calendar/feature",
+    "b-cal-shared-data-access": "libs/b-cal/shared/data-access",
     "b-cal-shared-domain": "libs/b-cal/shared/domain",
     "b-cal-shared-util": "libs/b-cal/shared/util",
     "b-cal-shell-feature": "libs/b-cal/shell/feature",
@@ -11,6 +12,9 @@
     "material": "apps/material",
     "ngrx-ultimate": "apps/ngrx-ultimate",
     "ngx-bootstrap": "apps/ngx-bootstrap",
-    "shared-data-access": "libs/shared/data-access"
+    "shared-data-access": "libs/shared/data-access",
+    "shared-domain": "libs/shared/domain",
+    "shared-environments": "libs/shared/environments",
+    "shared-util": "libs/shared/util"
   }
 }

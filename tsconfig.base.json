@@ -18,6 +18,9 @@
       "@angular-tests/b-cal/calendar/feature": [
         "libs/b-cal/calendar/feature/src/index.ts"
       ],
+      "@angular-tests/b-cal/shared/data-access": [
+        "libs/b-cal/shared/data-access/src/index.ts"
+      ],
       "@angular-tests/b-cal/shared/domain": [
         "libs/b-cal/shared/domain/src/index.ts"
       ],
@@ -29,7 +32,12 @@
       ],
       "@angular-tests/shared/data-access": [
         "libs/shared/data-access/src/index.ts"
-      ]
+      ],
+      "@angular-tests/shared/domain": ["libs/shared/domain/src/index.ts"],
+      "@angular-tests/shared/environments": [
+        "libs/shared/environments/src/index.ts"
+      ],
+      "@angular-tests/shared/util": ["libs/shared/util/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
