@@ -10,6 +10,7 @@
     "fuck-this-shit": "apps/fuck-this-shit",
     "material": "apps/material",
     "ngrx-ultimate": "apps/ngrx-ultimate",
-    "ngx-bootstrap": "apps/ngx-bootstrap"
+    "ngx-bootstrap": "apps/ngx-bootstrap",
+    "shared-data-access": "libs/shared/data-access"
   }
 }

@@ -26,6 +26,9 @@
       ],
       "@angular-tests/b-cal/shell/feature": [
         "libs/b-cal/shell/feature/src/index.ts"
+      ],
+      "@angular-tests/shared/data-access": [
+        "libs/shared/data-access/src/index.ts"
       ]
     }
   },
