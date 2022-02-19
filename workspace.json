@@ -2,6 +2,10 @@
   "version": 2,
   "projects": {
     "b-cal": "apps/b-cal",
+    "b-cal-calendar-feature": "libs/b-cal/calendar/feature",
+    "b-cal-shared-domain": "libs/b-cal/shared/domain",
+    "b-cal-shared-util": "libs/b-cal/shared/util",
+    "b-cal-shell-feature": "libs/b-cal/shell/feature",
     "forms-ward-bell": "apps/forms-ward-bell",
     "fuck-this-shit": "apps/fuck-this-shit",
     "material": "apps/material",

@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/b-cal/shared/domain",
+  "sourceRoot": "libs/b-cal/shared/domain/src",
+  "prefix": "bc",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/b-cal/shared/domain"],
+      "options": {
+        "jestConfig": "libs/b-cal/shared/domain/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/b-cal/shared/domain/src/**/*.ts",
+          "libs/b-cal/shared/domain/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["application:b-cal", "scope:shared", "type:util"]
+}

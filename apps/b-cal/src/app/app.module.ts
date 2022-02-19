@@ -2,13 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
+import { BCalShellModule } from '@angular-tests/b-cal/shell/feature';
 import { AppComponent } from './app.component';
-import { SharedModule } from './shared';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, BrowserAnimationsModule, SharedModule],
-  providers: [],
+  imports: [BrowserModule, BrowserAnimationsModule, BCalShellModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

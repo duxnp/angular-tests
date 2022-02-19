@@ -14,7 +14,20 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@angular-tests/b-cal/calendar/feature": [
+        "libs/b-cal/calendar/feature/src/index.ts"
+      ],
+      "@angular-tests/b-cal/shared/domain": [
+        "libs/b-cal/shared/domain/src/index.ts"
+      ],
+      "@angular-tests/b-cal/shared/util": [
+        "libs/b-cal/shared/util/src/index.ts"
+      ],
+      "@angular-tests/b-cal/shell/feature": [
+        "libs/b-cal/shell/feature/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

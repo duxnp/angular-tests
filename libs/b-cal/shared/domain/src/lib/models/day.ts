@@ -7,16 +7,12 @@ export class Day {
   ) {}
 
   isWeekDay(): boolean {
-    return (
-      this.dayOfYear !== undefined &&
-      (this.dayOfWeek >= 2 || this.dayOfWeek <= 6)
-    );
+    return this.dayOfYear !== 0 && (this.dayOfWeek >= 2 || this.dayOfWeek <= 6);
   }
 
   isWeekEnd(): boolean {
     return (
-      this.dayOfYear !== undefined &&
-      (this.dayOfWeek === 1 || this.dayOfWeek === 7)
+      this.dayOfYear !== 0 && (this.dayOfWeek === 1 || this.dayOfWeek === 7)
     );
   }
 }
