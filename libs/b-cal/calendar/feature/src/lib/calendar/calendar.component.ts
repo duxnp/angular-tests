@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
 import { DateTime } from 'luxon';
-import { Day, Week } from '@angular-tests/b-cal/shared/domain';
+import { DayClass, WeekClass } from '@angular-tests/b-cal/shared/domain';
 import { generateCalendar } from '@angular-tests/b-cal/shared/util';
 
 @Component({
@@ -14,7 +14,7 @@ import { generateCalendar } from '@angular-tests/b-cal/shared/util';
 })
 export class CalendarComponent {
   year: number = DateTime.now().year;
-  weeks: Week[] = [];
+  weeks: WeekClass[] = [];
 
   constructor() {
     this.weeks = generateCalendar(this.year);
@@ -30,7 +30,7 @@ export class CalendarComponent {
     this.weeks = generateCalendar(this.year);
   }
 
-  isToday(day: Day) {
+  isToday(day: DayClass) {
     return (
       day.dayOfYear !== undefined &&
       day.dayOfYear === DateTime.now().ordinal &&

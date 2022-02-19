@@ -1,17 +1,21 @@
 import { DateTime } from 'luxon';
-import { Week, DayNames, Day } from '@angular-tests/b-cal/shared/domain';
+import {
+  WeekClass,
+  DayNames,
+  DayClass,
+} from '@angular-tests/b-cal/shared/domain';
 
-export function generateCalendar(year: number): Week[] {
+export function generateCalendar(year: number): WeekClass[] {
   // Go to the first day of the requested year
   // This will be reassigned as the loop goes through each day of the year
   let calendar = DateTime.fromObject({ year }).startOf('year');
   const weeksInYear = calendar.weeksInWeekYear;
   const dayNames = new DayNames();
-  const weeks: Week[] = [];
+  const weeks: WeekClass[] = [];
 
   // Each week of the year
   for (let i = 0; i <= weeksInYear; i++) {
-    weeks.push(new Week(i + 1, []));
+    weeks.push(new WeekClass(i + 1, []));
 
     // Each day of each week
     for (let j = 0; j < 7; j++) {
@@ -26,10 +30,10 @@ export function generateCalendar(year: number): Week[] {
       // Starting at Sunday, add empty calendar days if not at the first day of the year yet.
       // Also add empty calendar days if past the last day of the year
       if (j < weekday || daysBetween.days >= calendar.daysInYear) {
-        weeks[i].days.push(new Day(j + 1, 0, 0, ''));
+        weeks[i].days.push(new DayClass(j + 1, 0, 0, ''));
       } else {
         weeks[i].days.push(
-          new Day(
+          new DayClass(
             j + 1,
             calendar.ordinal,
             calendar.year,

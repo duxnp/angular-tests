@@ -1,4 +1,4 @@
-export class Day {
+export class DayClass {
   constructor(
     public dayOfWeek: number,
     public dayOfYear: number,
@@ -16,3 +16,10 @@ export class Day {
     );
   }
 }
+
+export interface Day {
+  dayOfWeek: number;
+  dayOfYear: number;
+}
+
+export type Days = Day[];

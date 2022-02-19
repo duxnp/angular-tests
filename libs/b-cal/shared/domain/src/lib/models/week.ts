@@ -1,5 +1,13 @@
-import { Day } from './day';
+import { Days } from '.';
+import { DayClass } from './day';
 
-export class Week {
-  constructor(public weekOfYear: number, public days: Day[]) {}
+export class WeekClass {
+  constructor(public weekOfYear: number, public days: DayClass[]) {}
 }
+
+export interface Week {
+  weekOfYear: number;
+  days: Days;
+}
+
+export type Weeks = Week[];
