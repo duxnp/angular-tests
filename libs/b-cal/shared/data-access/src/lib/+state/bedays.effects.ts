@@ -23,6 +23,23 @@ export class BedaysEffects {
     })
   );
 
+  // Alternative to dataPersistence
+  //   init$ = createEffect(() =>
+  //   this.actions$.pipe(
+  //     ofType(FooActions.init),
+  //     fetch({
+  //       run: (action) => {
+  //         // Your custom service 'load' logic goes here. For now just return a success action...
+  //         return FooActions.loadFooSuccess({ foo: [] });
+  //       },
+  //       onError: (action, error) => {
+  //         console.error('Error', error);
+  //         return FooActions.loadFooFailure({ error });
+  //       },
+  //     })
+  //   )
+  // );
+
   constructor(
     private readonly actions$: Actions,
     private readonly dataPersistence: DataPersistence<BedaysFeature.BedaysPartialState>

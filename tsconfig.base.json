@@ -30,6 +30,12 @@
       "@angular-tests/b-cal/shell/feature": [
         "libs/b-cal/shell/feature/src/index.ts"
       ],
+      "@angular-tests/b-cal/year/data-access": [
+        "libs/b-cal/year/data-access/src/index.ts"
+      ],
+      "@angular-tests/b-cal/year/feature": [
+        "libs/b-cal/year/feature/src/index.ts"
+      ],
       "@angular-tests/shared/data-access": [
         "libs/shared/data-access/src/index.ts"
       ],

@@ -15,6 +15,12 @@ const routes: Route[] = [
           (await import('@angular-tests/b-cal/calendar/feature'))
             .BCalCalendarFeatureModule,
       },
+      {
+        path: 'year',
+        loadChildren: async () =>
+          (await import('@angular-tests/b-cal/year/feature'))
+            .BCalYearFeatureModule,
+      },
     ],
   },
 ];
