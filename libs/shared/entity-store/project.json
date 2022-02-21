@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/shared/entity-store",
+  "sourceRoot": "libs/shared/entity-store/src",
+  "prefix": "bry",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/shared/entity-store"],
+      "options": {
+        "jestConfig": "libs/shared/entity-store/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/entity-store/src/**/*.ts",
+          "libs/shared/entity-store/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["application:shared", "scope:shared", "type:data-access"]
+}

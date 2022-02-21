@@ -16,6 +16,7 @@
     "ngx-bootstrap": "apps/ngx-bootstrap",
     "shared-data-access": "libs/shared/data-access",
     "shared-domain": "libs/shared/domain",
+    "shared-entity-store": "libs/shared/entity-store",
     "shared-environments": "libs/shared/environments",
     "shared-util": "libs/shared/util"
   }

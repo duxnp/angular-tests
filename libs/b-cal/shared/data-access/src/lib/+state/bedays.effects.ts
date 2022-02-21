@@ -1,20 +1,24 @@
 import { Injectable } from '@angular/core';
-import { createEffect, Actions, ofType } from '@ngrx/effects';
+import { createEffect, Actions, ofType, OnInitEffects } from '@ngrx/effects';
 import { DataPersistence } from '@nrwl/angular';
 
 import * as BedaysActions from './bedays.actions';
 import * as BedaysFeature from './bedays.reducer';
 
+import { bedays } from './bedays.models';
+
 @Injectable()
-export class BedaysEffects {
+export class BedaysEffects implements OnInitEffects {
   init$ = createEffect(() =>
     this.dataPersistence.fetch(BedaysActions.init, {
       run: (
         action: ReturnType<typeof BedaysActions.init>,
         state: BedaysFeature.BedaysPartialState
       ) => {
-        // Your custom service 'load' logic goes here. For now just return a success action...
-        return BedaysActions.loadBedaysSuccess({ bedays: [] });
+        // Normally you'd be requesting data from a backend.
+        // I may put this data in some backend some day as a programming excercie,
+        // but for now I just have this array hard coded.
+        return BedaysActions.loadBedaysSuccess({ bedays });
       },
       onError: (action: ReturnType<typeof BedaysActions.init>, error) => {
         console.error('Error', error);
@@ -44,4 +48,9 @@ export class BedaysEffects {
     private readonly actions$: Actions,
     private readonly dataPersistence: DataPersistence<BedaysFeature.BedaysPartialState>
   ) {}
+
+  // Dispatch the init action as soon as the effects are initialized
+  ngrxOnInitEffects() {
+    return BedaysActions.init();
+  }
 }

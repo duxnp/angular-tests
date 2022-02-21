@@ -40,6 +40,9 @@
         "libs/shared/data-access/src/index.ts"
       ],
       "@angular-tests/shared/domain": ["libs/shared/domain/src/index.ts"],
+      "@angular-tests/shared/entity-store": [
+        "libs/shared/entity-store/src/index.ts"
+      ],
       "@angular-tests/shared/environments": [
         "libs/shared/environments/src/index.ts"
       ],

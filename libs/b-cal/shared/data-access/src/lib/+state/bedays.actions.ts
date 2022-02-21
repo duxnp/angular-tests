@@ -1,7 +1,7 @@
 import { createAction, props } from '@ngrx/store';
 import { BedaysEntity } from './bedays.models';
 
-export const init = createAction('[Bedays Page] Init');
+export const init = createAction('[Bedays] Init');
 
 export const loadBedaysSuccess = createAction(
   '[Bedays/API] Load Bedays Success',
