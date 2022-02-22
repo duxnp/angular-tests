@@ -1,5 +1,5 @@
 import { Params, ActivatedRouteSnapshot } from '@angular/router';
-import { UrlParams } from '@hmi-doors/shared/domain';
+import { UrlParams } from '@angular-tests/shared/domain';
 import { SerializedRouterStateSnapshot } from '@ngrx/router-store';
 
 function flattenRouteParams(routerState: SerializedRouterStateSnapshot) {

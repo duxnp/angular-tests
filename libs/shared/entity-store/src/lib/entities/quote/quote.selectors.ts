@@ -1,4 +1,4 @@
-import { PagedSelectors, Quote } from '@hmi-doors/shared/domain';
+import { PagedSelectors, Quote } from '@angular-tests/shared/domain';
 import { EntitySelectorsFactory } from '@ngrx/data';
 import { metadata } from './quote.metadata';
 

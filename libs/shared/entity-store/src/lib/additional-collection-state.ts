@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Injectable } from '@angular/core';
-import { EntityPage } from '@hmi-doors/shared/domain';
+import { EntityPage } from '@angular-tests/shared/domain';
 import {
   DefaultPersistenceResultHandler,
   EntityAction,

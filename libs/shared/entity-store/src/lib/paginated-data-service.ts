@@ -1,5 +1,5 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { ApiPaginated } from '@hmi-doors/shared/domain';
+import { ApiPaginated } from '@angular-tests/shared/domain';
 import {
   DefaultDataService,
   HttpUrlGenerator,

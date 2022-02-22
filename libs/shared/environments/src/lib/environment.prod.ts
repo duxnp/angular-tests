@@ -1,4 +1,4 @@
-import { AppConfig } from '@hmi-doors/shared/domain';
+import { AppConfig } from '@angular-tests/shared/domain';
 
 export const environment: AppConfig = {
   production: false,

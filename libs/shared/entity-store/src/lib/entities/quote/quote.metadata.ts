@@ -1,5 +1,5 @@
-import { SortComparers } from '@hmi-doors/shared/util';
-import { additionalCollectionState } from '@hmi-doors/shared/domain';
+import { SortComparers } from '@angular-tests/shared/util';
+import { additionalCollectionState } from '@angular-tests/shared/domain';
 
 /** Used to help create the entity selectors */
 export const metadata = {

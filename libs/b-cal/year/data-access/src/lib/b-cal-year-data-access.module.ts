@@ -12,6 +12,6 @@ import { YearsFacade } from './+state/years.facade';
     StoreModule.forFeature(fromYears.YEARS_FEATURE_KEY, fromYears.reducer),
     EffectsModule.forFeature([YearsEffects]),
   ],
-  providers: [YearsFacade],
+  // providers: [YearsFacade],
 })
 export class BCalYearDataAccessModule {}

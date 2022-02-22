@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Quote } from '@hmi-doors/shared/domain';
+import { Quote } from '@angular-tests/shared/domain';
 import { DefaultDataServiceConfig, HttpUrlGenerator, Logger } from '@ngrx/data';
 import { PaginatedDataService } from '../../paginated-data-service';
 

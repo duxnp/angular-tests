@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Unit } from '@hmi-doors/shared/domain';
+import { Unit } from '@angular-tests/shared/domain';
 import {
   EntityCollectionServiceBase,
   EntityCollectionServiceElementsFactory,

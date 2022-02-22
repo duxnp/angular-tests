@@ -1,12 +1,12 @@
 import { Inject, Injectable } from '@angular/core';
-import { EntityPageState } from '@hmi-doors/shared/domain';
+import { EntityPageState } from '@angular-tests/shared/domain';
 import { ComponentStore } from '@ngrx/component-store';
 import { EntityServices, QueryParams } from '@ngrx/data';
 import { Store } from '@ngrx/store';
 import { combineLatest, Observable, throwError } from 'rxjs';
 import { catchError, filter, map, tap, withLatestFrom } from 'rxjs/operators';
-import { ToastsActions } from '@hmi-doors/shared/toasts/data-access';
-import { RootSelectors } from '@hmi-doors/shared/root/data-access';
+import { ToastsActions } from '@angular-tests/shared/toasts/data-access';
+import { RootSelectors } from '@angular-tests/shared/root/data-access';
 
 // TODO: may be able to change this
 type MassAssignable<T> = Pick<EntityPageState<T>, 'hasMore' | 'loading'>;

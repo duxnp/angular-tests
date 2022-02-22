@@ -34,3 +34,8 @@ export const getSelected = createSelector(
   getSelectedId,
   (entities, selectedId) => (selectedId ? entities[selectedId] : undefined)
 );
+
+export const getToday = createSelector(
+  getYearsState,
+  (state: State) => state.today
+);

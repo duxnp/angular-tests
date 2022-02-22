@@ -12,7 +12,7 @@ export const bCalYearFeatureRoutes: Route[] = [
     children: [],
   },
   {
-    path: ':year',
+    path: ':yearId',
     component: YearComponent,
   },
 ];
