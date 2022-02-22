@@ -36,6 +36,7 @@
       "@angular-tests/b-cal/year/feature": [
         "libs/b-cal/year/feature/src/index.ts"
       ],
+      "@angular-tests/b-cal/year/ui": ["libs/b-cal/year/ui/src/index.ts"],
       "@angular-tests/shared/data-access": [
         "libs/shared/data-access/src/index.ts"
       ],

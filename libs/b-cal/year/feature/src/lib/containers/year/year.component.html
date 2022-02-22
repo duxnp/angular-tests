@@ -13,21 +13,18 @@
     </button>
   </div>
 
+  <bc-calendar>
+    <ng-container *ngFor="let _ of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]">
+      <bc-day-card></bc-day-card>
+    </ng-container>
+  </bc-calendar>
+
   <div
     *ngFor="let week of vm.year.weeks"
     fxLayout="row"
     fxLayoutAlign="space-between stretch"
   >
-    <div
-      *ngFor="let day of week.days"
-      class="col"
-      [ngClass]="{
-        today:
-          day.dayOfYear === vm.today.dayOfYear && vm.year.id === vm.today.year,
-        weekend: day.isWeekend,
-        weekday: !day.isWeekend && day.dayOfYear !== 0
-      }"
-    >
+    <div *ngFor="let day of week.days" class="col">
       <ng-container *ngIf="day.beday">
         <span ngClass.gt-sm="d-none">{{ day.beday?.id }}</span>
         <span class="d-none" [ngClass.gt-sm]="{ 'd-none': false }"

@@ -4,8 +4,6 @@ import * as YearsFeature from './lib/+state/years.reducer';
 
 import * as YearsSelectors from './lib/+state/years.selectors';
 
-export * from './lib/+state/years.facade';
-
 export * from './lib/+state/years.models';
 
 export { YearsActions, YearsFeature, YearsSelectors };

@@ -9,6 +9,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { combineLatest } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { filterNullish } from '@angular-tests/shared/util';
+import { CalendarModule, DayCardModule } from '@angular-tests/b-cal/year/ui';
 
 @Component({
   selector: 'bc-year',
@@ -43,6 +44,8 @@ export class YearComponent {
     RouterModule,
     FlexLayoutModule,
     MatButtonModule,
+    DayCardModule,
+    CalendarModule,
   ],
   declarations: [YearComponent],
   exports: [YearComponent],

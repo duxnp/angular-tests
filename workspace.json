@@ -9,6 +9,7 @@
     "b-cal-shell-feature": "libs/b-cal/shell/feature",
     "b-cal-year-data-access": "libs/b-cal/year/data-access",
     "b-cal-year-feature": "libs/b-cal/year/feature",
+    "b-cal-year-ui": "libs/b-cal/year/ui",
     "forms-ward-bell": "apps/forms-ward-bell",
     "fuck-this-shit": "apps/fuck-this-shit",
     "material": "apps/material",
