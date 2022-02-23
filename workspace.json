@@ -12,7 +12,7 @@
     "b-cal-year-ui": "libs/b-cal/year/ui",
     "b-cal-year-util": "libs/b-cal/year/util",
     "forms-ward-bell": "apps/forms-ward-bell",
-    "fuck-this-shit": "apps/fuck-this-shit",
+    "fts": "apps/fts",
     "material": "apps/material",
     "ngrx-ultimate": "apps/ngrx-ultimate",
     "ngx-bootstrap": "apps/ngx-bootstrap",

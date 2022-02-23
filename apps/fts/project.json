@@ -1,0 +1,88 @@
+{
+  "projectType": "application",
+  "root": "apps/fts",
+  "sourceRoot": "apps/fts/src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/fts",
+        "index": "apps/fts/src/index.html",
+        "main": "apps/fts/src/main.ts",
+        "polyfills": "apps/fts/src/polyfills.ts",
+        "tsConfig": "apps/fts/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/fts/src/favicon.ico", "apps/fts/src/assets"],
+        "styles": ["apps/fts/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/fts/src/environments/environment.ts",
+              "with": "apps/fts/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "fts:build:production"
+        },
+        "development": {
+          "browserTarget": "fts:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "fts:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/fts/src/**/*.ts", "apps/fts/src/**/*.html"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/fts"],
+      "options": {
+        "jestConfig": "apps/fts/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["application:fuck-this-shit", "scope:fuck-this-shit", "type:app"]
+}
