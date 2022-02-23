@@ -1,15 +1,16 @@
-import { Component, ChangeDetectionStrategy, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Store } from '@ngrx/store';
-import { ReactiveComponentModule } from '@ngrx/component';
-import { YearsSelectors } from '@angular-tests/b-cal/year/data-access';
+import { Component, ChangeDetectionStrategy, NgModule } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { Store } from '@ngrx/store';
+import { ReactiveComponentModule } from '@ngrx/component';
 import { combineLatest } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
+import { YearsSelectors } from '@angular-tests/b-cal/year/data-access';
 import { filterNullish } from '@angular-tests/shared/util';
 import { CalendarModule, DayCardModule } from '@angular-tests/b-cal/year/ui';
+import { Day } from '@angular-tests/b-cal/year/util';
 
 @Component({
   selector: 'bc-year',
@@ -34,6 +35,10 @@ export class YearComponent {
   nextYear(year: number) {
     year++;
     this.router.navigate([year]);
+  }
+
+  onDayClick(day: Day) {
+    this.router.navigate([day.year, day.beday?.id]);
   }
 }
 

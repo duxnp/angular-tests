@@ -5,7 +5,7 @@ import { DataPersistence } from '@nrwl/angular';
 import * as BedaysActions from './bedays.actions';
 import * as BedaysFeature from './bedays.reducer';
 
-import { bedays } from './bedays.models';
+import { bedays } from '@angular-tests/b-cal/shared/util';
 
 @Injectable()
 export class BedaysEffects implements OnInitEffects {

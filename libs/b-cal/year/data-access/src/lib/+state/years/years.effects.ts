@@ -1,33 +1,29 @@
 import { Injectable } from '@angular/core';
 import { concatLatestFrom, createEffect, Actions, ofType } from '@ngrx/effects';
-import { routerNavigationAction } from '@ngrx/router-store';
+import { routerNavigatedAction } from '@ngrx/router-store';
 import { Store } from '@ngrx/store';
-import { filter, map, switchMap, tap } from 'rxjs/operators';
-import { interval, timer } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
+import { timer } from 'rxjs';
 
-import {
-  distinctRouteParam,
-  getKeyByValue,
-  ofEntityTypeOpMapData,
-  ofRouteMapParams,
-} from '@angular-tests/shared/util';
+import { distinctRouteParam } from '@angular-tests/shared/util';
 import { BedaysSelectors } from '@angular-tests/b-cal/shared/data-access';
 import { DateTime } from 'luxon';
 
 import * as YearsActions from './years.actions';
 import * as YearsFeature from './years.reducer';
 import * as YearsSelectors from './years.selectors';
-import { getYear, getDay } from '../service/get-year';
+import { getYear, getDay } from '../../service';
 
 @Injectable()
 export class YearsEffects {
   bedays$ = this.store.select(BedaysSelectors.getBedaysEntities);
   years$ = this.store.select(YearsSelectors.getYearsEntities);
 
-  // Repond to router event
+  // Repond to router navigated event.
+  // Will not fire if a route guard cancels the navigation.
   yearIdParamChange$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(routerNavigationAction),
+      ofType(routerNavigatedAction),
       distinctRouteParam('yearId'),
       map((yearId) => +yearId),
       map((yearId) => YearsActions.yearSelected({ yearId }))
@@ -53,17 +49,28 @@ export class YearsEffects {
       concatLatestFrom(() => this.bedays$),
       map(([yearId, bedays]) => {
         const year = getYear(yearId, bedays);
-        console.log(year);
-        return YearsActions.loadYearSuccess({ year });
+
+        if (year.days.length > 0) {
+          return YearsActions.loadYearSuccess({ year });
+        } else {
+          return YearsActions.loadYearFailure({
+            year,
+            error: 'Luxon returned 0 days.',
+          });
+        }
       })
     )
   );
 
   todayTick$ = createEffect(() =>
-    timer(0, 1000 * 60).pipe(
+    timer(0, 1000 * 5).pipe(
       concatLatestFrom(() => this.bedays$),
-      map(([, bedays]) => {
-        let day = getDay(DateTime.now(), bedays);
+      map(([i, bedays]) => {
+        // let day = getDay(DateTime.now(), bedays);
+
+        // TIME WARP
+        let day = getDay(DateTime.now().plus({ days: i }), bedays);
+
         day = { ...day, year: DateTime.now().year };
         return YearsActions.todayTicked({ day });
       })

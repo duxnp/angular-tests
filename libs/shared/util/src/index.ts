@@ -4,6 +4,7 @@ export * as InjectionTokens from './lib/injection-tokens';
 export * as SortComparers from './lib/sort-comparers';
 export * from './lib/array';
 export * from './lib/cookies';
+export * from './lib/dates';
 export * from './lib/interceptors';
 export * from './lib/remove-empty-properties';
 export * from './lib/remove-trailing-slash';

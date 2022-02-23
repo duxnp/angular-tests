@@ -1,10 +1,15 @@
 import {
   Component,
-  OnInit,
   ChangeDetectionStrategy,
   NgModule,
+  Input,
+  Output,
+  EventEmitter,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Day } from '@angular-tests/b-cal/year/util';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { DayPipeModule } from '@angular-tests/b-cal/shared/util';
 
 @Component({
   selector: 'bc-day-card',
@@ -12,10 +17,14 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./day-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DayCardComponent {}
+export class DayCardComponent {
+  @Input() day!: Day;
+  @Input() today!: Day;
+  @Output() dayClick = new EventEmitter<Day>();
+}
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, FlexLayoutModule, DayPipeModule],
   declarations: [DayCardComponent],
   exports: [DayCardComponent],
 })

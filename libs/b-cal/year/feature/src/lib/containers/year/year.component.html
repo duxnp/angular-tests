@@ -13,28 +13,17 @@
     </button>
   </div>
 
+  <!-- TODO: remember to use track by -->
   <bc-calendar>
-    <ng-container *ngFor="let _ of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]">
-      <bc-day-card></bc-day-card>
+    <ng-container *ngFor="let day of vm.year.days">
+      <bc-day-card
+        [day]="day"
+        [today]="vm.today"
+        (dayClick)="onDayClick($event)"
+      ></bc-day-card>
     </ng-container>
   </bc-calendar>
-
-  <div
-    *ngFor="let week of vm.year.weeks"
-    fxLayout="row"
-    fxLayoutAlign="space-between stretch"
-  >
-    <div *ngFor="let day of week.days" class="col">
-      <ng-container *ngIf="day.beday">
-        <span ngClass.gt-sm="d-none">{{ day.beday?.id }}</span>
-        <span class="d-none" [ngClass.gt-sm]="{ 'd-none': false }"
-          >{{ day.beday?.name }}day</span
-        >
-        <!-- <span [fxShow.gt-sm]="false">{{ day.dayOfYear }}</span>
-      <span fxHide [fxShow.gt-sm]="true">{{ day.dayName }}</span> -->
-      </ng-container>
-    </div>
-  </div>
 </ng-container>
 
 <!-- <pre>{{ year$ | async | json }}</pre> -->
+<router-outlet></router-outlet>

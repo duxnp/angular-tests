@@ -29,7 +29,7 @@ const routes: Route[] = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes, { scrollPositionRestoration: 'top' }),
+    RouterModule.forRoot(routes, { scrollPositionRestoration: 'disabled' }),
     BCalSharedDataAccessModule,
   ],
   exports: [RouterModule],

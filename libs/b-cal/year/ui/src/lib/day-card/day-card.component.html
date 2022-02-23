@@ -1,1 +1,21 @@
-<p>day-card works!</p>
+<ng-container *ngIf="day.beday">
+  <div
+    class="card"
+    [ngClass]="{
+      today: day.dayOfYear === today.dayOfYear && day.year === today.year,
+      weekend: day.isWeekend,
+      weekday: !day.isWeekend
+    }"
+    (click)="dayClick.emit(day)"
+  >
+    <span class="d-none" [ngClass.lt-sm]="{ 'd-none': false }">{{
+      day.dayOfYear
+    }}</span>
+    <span class="d-none" [ngClass.sm]="{ 'd-none': false }">{{
+      day.beday?.abbreviation
+    }}</span>
+    <span class="d-none" [ngClass.gt-sm]="{ 'd-none': false }">{{
+      day.beday?.name | day
+    }}</span>
+  </div>
+</ng-container>

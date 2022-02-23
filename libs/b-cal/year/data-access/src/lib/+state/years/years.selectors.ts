@@ -29,10 +29,21 @@ export const getSelectedId = createSelector(
   (state: State) => state.selectedId
 );
 
+/**
+ * This way is bad if your entity id can potentially be 0:
+ * ```
+ * export const getSelected = createSelector(
+ *   getYearsEntities,
+ *   getSelectedId,
+ *   (entities, selectedId) => (selectedId ? entities[selectedId] : undefined)
+ * );
+ * ```
+ */
 export const getSelected = createSelector(
   getYearsEntities,
   getSelectedId,
-  (entities, selectedId) => (selectedId ? entities[selectedId] : undefined)
+  (entities, selectedId) =>
+    selectedId !== undefined ? entities[selectedId] : undefined
 );
 
 export const getToday = createSelector(

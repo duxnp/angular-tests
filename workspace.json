@@ -10,6 +10,7 @@
     "b-cal-year-data-access": "libs/b-cal/year/data-access",
     "b-cal-year-feature": "libs/b-cal/year/feature",
     "b-cal-year-ui": "libs/b-cal/year/ui",
+    "b-cal-year-util": "libs/b-cal/year/util",
     "forms-ward-bell": "apps/forms-ward-bell",
     "fuck-this-shit": "apps/fuck-this-shit",
     "material": "apps/material",
@@ -19,6 +20,7 @@
     "shared-domain": "libs/shared/domain",
     "shared-entity-store": "libs/shared/entity-store",
     "shared-environments": "libs/shared/environments",
+    "shared-ui": "libs/shared/ui",
     "shared-util": "libs/shared/util"
   }
 }

@@ -1,5 +1,6 @@
+import { Day } from '@angular-tests/b-cal/year/util';
 import { createAction, props } from '@ngrx/store';
-import { YearsEntity, Day } from './years.models';
+import { YearsEntity } from './years.models';
 
 export const yearSelected = createAction(
   '[Year] Year Selected',
@@ -18,7 +19,7 @@ export const loadYearSuccess = createAction(
 
 export const loadYearFailure = createAction(
   '[Years/API] Load Years Failure',
-  props<{ error: any }>()
+  props<{ year: YearsEntity; error: any }>()
 );
 
 export const todayTicked = createAction(

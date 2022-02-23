@@ -1,8 +1,9 @@
+import { Day } from '@angular-tests/b-cal/year/util';
 import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 import { createReducer, on, Action } from '@ngrx/store';
 
 import * as YearsActions from './years.actions';
-import { Day, YearsEntity } from './years.models';
+import { YearsEntity } from './years.models';
 
 export const YEARS_FEATURE_KEY = 'years';
 
@@ -31,13 +32,15 @@ const yearsReducer = createReducer(
   // on(YearsActions.loadYearsSuccess, (state, { years }) =>
   //   yearsAdapter.setAll(years, { ...state, loaded: true })
   // ),
-  // on(YearsActions.loadYearsFailure, (state, { error }) => ({ ...state, error }))
   on(YearsActions.yearSelected, (state, { yearId }) => ({
     ...state,
     selectedId: yearId,
   })),
   on(YearsActions.loadYearSuccess, (state, { year }) =>
-    yearsAdapter.setOne(year, { ...state, loaded: true })
+    yearsAdapter.setOne(year, { ...state, error: null, loaded: true })
+  ),
+  on(YearsActions.loadYearFailure, (state, { year, error }) =>
+    yearsAdapter.setOne(year, { ...state, error })
   ),
   on(YearsActions.todayTicked, (state, { day }) => ({ ...state, today: day }))
 );
