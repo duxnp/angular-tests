@@ -24,10 +24,12 @@
     ".angular": true,
     "dist/": true,
     "node_modules/": true,
-    "package-lock.json": true,
     ".editorconfig": true,
+    ".firebaserc": true,
     ".gitignore": true,
     ".prettierignore": true,
-    ".prettierrc": true
+    ".prettierrc": true,
+    "firebase*.json": true,
+    "package-lock.json": true
   }
 }

@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "default": "beluvian-calendar",
+    "b-cal": "beluvian-calendar"
+  },
+  "targets": {}
+}
