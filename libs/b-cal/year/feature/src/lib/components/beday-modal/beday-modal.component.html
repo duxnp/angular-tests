@@ -1,5 +1,9 @@
 <ng-container *ngIf="beday$ | async as beday">
-  <bry-mat-dialog-shell [title]="beday.name | day">
+  <bry-mat-dialog-shell>
+    <span title fxLayout="row" fxLayoutAlign="space-between center">
+      {{ beday.name | day }}
+      <bc-say-beday [beday]="beday"></bc-say-beday>
+    </span>
     <bc-beday-card [beday]="beday"></bc-beday-card>
   </bry-mat-dialog-shell>
 </ng-container>
