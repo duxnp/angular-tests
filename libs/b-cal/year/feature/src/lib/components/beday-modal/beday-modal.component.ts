@@ -2,9 +2,10 @@ import { Component, ChangeDetectionStrategy, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
 import { selectBedayEntity } from '@angular-tests/b-cal/year/data-access';
-import { BedayCardModule } from '@angular-tests/b-cal/year/ui';
+import { BedayCardModule, SayBedayModule } from '@angular-tests/b-cal/year/ui';
 import { MatDialogShellModule } from '@angular-tests/shared/ui';
 import { DayPipeModule } from '@angular-tests/b-cal/shared/util';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @Component({
   selector: 'bc-beday-modal',
@@ -19,7 +20,14 @@ export class BedayModalComponent {
 }
 
 @NgModule({
-  imports: [CommonModule, BedayCardModule, MatDialogShellModule, DayPipeModule],
+  imports: [
+    CommonModule,
+    BedayCardModule,
+    SayBedayModule,
+    MatDialogShellModule,
+    DayPipeModule,
+    FlexLayoutModule,
+  ],
   declarations: [BedayModalComponent],
   exports: [BedayModalComponent],
 })

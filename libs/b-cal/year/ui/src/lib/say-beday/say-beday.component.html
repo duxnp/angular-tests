@@ -1,0 +1,18 @@
+<ng-container *ngIf="beday">
+  <audio [controls]="showControls" #say>
+    <source
+      [src]="'/assets/pronunciations/' + beday.id + '.mp3'"
+      type="audio/mpeg"
+    />
+    Your browser does not support the audio element.
+  </audio>
+  <ng-container *ngIf="!showControls">
+    <button
+      mat-icon-button
+      aria-label="Play pronunciation"
+      (click)="say.play()"
+    >
+      <mat-icon>volume_up</mat-icon>
+    </button>
+  </ng-container>
+</ng-container>

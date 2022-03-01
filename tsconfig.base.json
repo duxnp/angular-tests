@@ -15,8 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@angular-tests/b-cal/calendar/feature": [
-        "libs/b-cal/calendar/feature/src/index.ts"
+      "@angular-tests/b-cal/shared/assets": [
+        "libs/b-cal/shared/assets/src/index.ts"
       ],
       "@angular-tests/b-cal/shared/data-access": [
         "libs/b-cal/shared/data-access/src/index.ts"
