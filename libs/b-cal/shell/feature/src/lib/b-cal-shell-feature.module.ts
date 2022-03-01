@@ -11,12 +11,6 @@ const routes: Route[] = [
     component: LayoutComponent,
     children: [
       {
-        path: 'calendar',
-        loadChildren: async () =>
-          (await import('@angular-tests/b-cal/calendar/feature'))
-            .BCalCalendarFeatureModule,
-      },
-      {
         path: '',
         loadChildren: async () =>
           (await import('@angular-tests/b-cal/year/feature'))

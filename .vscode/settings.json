@@ -5,31 +5,36 @@
   "jest.autoRun": {
     "watch": false,
     "onSave": "test-src-file",
-    "onStartup": ["all-tests"]
+    "onStartup": [
+      "all-tests"
+    ]
   },
   "jest.jestCommandLine": "jest",
-  "jest.testExplorer": { "enabled": true, "showInlineError": false },
+  "jest.testExplorer": {
+    "enabled": true,
+    "showInlineError": false
+  },
   "files.exclude": {
-    "**/*.js": true,
-    "**/.browserslistrc": true,
-    "**/.gitkeep": true,
-    "**/tsconfig.json": true,
-    "**/tsconfig.app.json": true,
-    "**/tsconfig.base.json": true,
-    "**/tsconfig.lib.json": true,
-    "**/tsconfig.spec.json": true,
-    "**/.eslintrc.json": true,
-    "**/project.json": true,
-    "**/test-setup.ts": true,
-    ".angular": true,
-    "dist/": true,
-    "node_modules/": true,
-    ".editorconfig": true,
-    ".firebaserc": true,
-    ".gitignore": true,
-    ".prettierignore": true,
-    ".prettierrc": true,
-    "firebase*.json": true,
-    "package-lock.json": true
+    // "**/*.js": true,
+    // "**/.browserslistrc": true,
+    // "**/.gitkeep": true,
+    // "**/tsconfig.json": true,
+    // "**/tsconfig.app.json": true,
+    // "**/tsconfig.base.json": true,
+    // "**/tsconfig.lib.json": true,
+    // "**/tsconfig.spec.json": true,
+    // "**/.eslintrc.json": true,
+    // "**/project.json": true,
+    // "**/test-setup.ts": true,
+    // ".angular": true,
+    // "dist/": true,
+    // "node_modules/": true,
+    // ".editorconfig": true,
+    // ".firebaserc": true,
+    // ".gitignore": true,
+    // ".prettierignore": true,
+    // ".prettierrc": true,
+    // "firebase*.json": true,
+    // "package-lock.json": true
   }
 }
