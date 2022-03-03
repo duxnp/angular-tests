@@ -10,6 +10,7 @@ import { ConfirmModalComponent } from './shared/components/confirm-modal/confirm
 import { ModalContent } from './core/service/confirm.service';
 import { LogoutPromptComponent } from './shared/components/logout-prompt/logout-prompt.component';
 import { catchError } from 'rxjs/operators';
+import { Logger } from './core/logger.service';
 
 @Component({
   selector: 'app-root',
@@ -38,6 +39,8 @@ export class AppComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
+    const logger = new Logger('App Component');
+
     this.sub = interval(1000).subscribe((value) => {
       // console.log(`value %c${value}`, 'background: #222; color: #fff; padding: 5px;');
     });
@@ -48,6 +51,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
     this.html.get('test.html').subscribe((res) => {
       this.htmlData = res;
+      logger.info([baseHref, this.htmlData]);
     });
 
     // withCredentials must be set to true for the browser to accept cookies in the response
