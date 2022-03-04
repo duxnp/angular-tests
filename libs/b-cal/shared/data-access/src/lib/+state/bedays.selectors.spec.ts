@@ -1,4 +1,4 @@
-import { BedaysEntity } from './bedays.models';
+import { BedaysEntity } from '@angular-tests/b-cal/shared/util';
 import {
   bedaysAdapter,
   BedaysPartialState,
@@ -9,10 +9,11 @@ import * as BedaysSelectors from './bedays.selectors';
 describe('Bedays Selectors', () => {
   const ERROR_MSG = 'No Error Available';
   const getBedaysId = (it: BedaysEntity) => it.id;
-  const createBedaysEntity = (id: string, name = '') =>
+  const createBedaysEntity = (id: number, name = '', abbreviation = '') =>
     ({
       id,
       name: name || `name-${id}`,
+      abbreviation,
     } as BedaysEntity);
 
   let state: BedaysPartialState;
@@ -20,14 +21,10 @@ describe('Bedays Selectors', () => {
   beforeEach(() => {
     state = {
       bedays: bedaysAdapter.setAll(
-        [
-          createBedaysEntity('PRODUCT-AAA'),
-          createBedaysEntity('PRODUCT-BBB'),
-          createBedaysEntity('PRODUCT-CCC'),
-        ],
+        [createBedaysEntity(1), createBedaysEntity(2), createBedaysEntity(3)],
         {
           ...initialState,
-          selectedId: 'PRODUCT-BBB',
+          selectedId: 2,
           error: ERROR_MSG,
           loaded: true,
         }
@@ -41,14 +38,14 @@ describe('Bedays Selectors', () => {
       const selId = getBedaysId(results[1]);
 
       expect(results.length).toBe(3);
-      expect(selId).toBe('PRODUCT-BBB');
+      expect(selId).toBe(2);
     });
 
     it('getSelected() should return the selected Entity', () => {
       const result = BedaysSelectors.getSelected(state) as BedaysEntity;
       const selId = getBedaysId(result);
 
-      expect(selId).toBe('PRODUCT-BBB');
+      expect(selId).toBe(2);
     });
 
     it('getBedaysLoaded() should return the current "loaded" status', () => {

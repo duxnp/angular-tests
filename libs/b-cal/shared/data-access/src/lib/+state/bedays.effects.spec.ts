@@ -9,6 +9,8 @@ import { Observable } from 'rxjs';
 import * as BedaysActions from './bedays.actions';
 import { BedaysEffects } from './bedays.effects';
 
+import { bedays } from '@angular-tests/b-cal/shared/util';
+
 describe('BedaysEffects', () => {
   let actions: Observable<Action>;
   let effects: BedaysEffects;
@@ -32,7 +34,7 @@ describe('BedaysEffects', () => {
       actions = hot('-a-|', { a: BedaysActions.init() });
 
       const expected = hot('-a-|', {
-        a: BedaysActions.loadBedaysSuccess({ bedays: [] }),
+        a: BedaysActions.loadBedaysSuccess({ bedays }),
       });
 
       expect(effects.init$).toBeObservable(expected);
