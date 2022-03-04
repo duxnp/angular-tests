@@ -9,10 +9,3 @@ export interface Day {
 }
 
 export type Days = Day[];
-
-export interface Week {
-  weekOfYear: number;
-  days: Days;
-}
-
-export type Weeks = Week[];

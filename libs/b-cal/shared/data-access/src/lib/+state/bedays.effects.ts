@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { createEffect, Actions, ofType, OnInitEffects } from '@ngrx/effects';
+import { createEffect, Actions, OnInitEffects } from '@ngrx/effects';
 import { DataPersistence } from '@nrwl/angular';
 
 import * as BedaysActions from './bedays.actions';
