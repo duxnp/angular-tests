@@ -48,6 +48,9 @@
       "@angular-tests/shared/environments": [
         "libs/shared/environments/src/index.ts"
       ],
+      "@angular-tests/shared/test-utils": [
+        "libs/shared/test-utils/src/index.ts"
+      ],
       "@angular-tests/shared/ui": ["libs/shared/ui/src/index.ts"],
       "@angular-tests/shared/util": ["libs/shared/util/src/index.ts"]
     }
