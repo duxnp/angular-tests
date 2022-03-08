@@ -21,8 +21,8 @@ describe('DayCardComponent', () => {
       isWeekend: false,
       beday: { id: 1, abbreviation: 'foo', name: 'foo' },
     };
-    component.day = mockDay;
-    component.today = mockDay;
+    // component.day = mockDay;
+    // component.today = mockDay;
     fixture.detectChanges();
   });
 

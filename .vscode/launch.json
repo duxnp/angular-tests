@@ -11,20 +11,6 @@
       "url": "http://localhost:4200",
       "webRoot": "${workspaceFolder}",
       "userDataDir": false
-    },
-    {
-      "type": "node",
-      "name": "vscode-jest-tests",
-      "request": "launch",
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "disableOptimisticBPs": true,
-      "program": "${workspaceFolder}\\jest",
-      "cwd": "${workspaceFolder}",
-      "args": [
-        "--runInBand",
-        "--watchAll=false"
-      ]
     }
   ]
 }

@@ -1,32 +1,26 @@
-import { TestBed, waitForAsync } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import {
-  Action,
-  combineReducers,
-  State,
-  Store,
-  StoreModule,
-} from '@ngrx/store';
-import { provideMockActions } from '@ngrx/effects/testing';
-import { provideMockStore } from '@ngrx/store/testing';
-import { NxModule, DataPersistence } from '@nrwl/angular';
-import { hot } from 'jasmine-marbles';
-import { Observable } from 'rxjs';
+import { hot } from "jasmine-marbles"
+import { Observable } from "rxjs"
+import { skip } from "rxjs/operators"
 
-import * as YearsActions from './years.actions';
-import { YearsEffects } from './years.effects';
-
+import { RootFeature, RootSelectors } from "@angular-tests/shared/data-access"
+import { MockTestComponent } from "@angular-tests/shared/test-utils"
+import { Component } from "@angular/core"
+import { TestBed, waitForAsync } from "@angular/core/testing"
+import { Router } from "@angular/router"
+import { RouterTestingModule } from "@angular/router/testing"
+import { provideMockActions } from "@ngrx/effects/testing"
 import {
   routerNavigationAction,
   RouterState,
   RouterStateSerializer,
-  StoreRouterConnectingModule,
-} from '@ngrx/router-store';
-import { Router } from '@angular/router';
-import { Component } from '@angular/core';
+  StoreRouterConnectingModule
+} from "@ngrx/router-store"
+import { Action, combineReducers, State, Store, StoreModule } from "@ngrx/store"
+import { provideMockStore } from "@ngrx/store/testing"
+import { DataPersistence, NxModule } from "@nrwl/angular"
 
-import { RootFeature, RootSelectors } from '@angular-tests/shared/data-access';
-import { skip } from 'rxjs/operators';
+import * as YearsActions from "./years.actions"
+import { YearsEffects } from "./years.effects"
 
 describe('YearsEffects', () => {
   let actions: Observable<Action>;
@@ -62,11 +56,6 @@ describe('YearsEffects', () => {
 });
 
 // https://stackoverflow.com/a/51038802/4187153
-@Component({
-  template: ``,
-})
-class MockTestComponent {}
-
 describe('My routes', () => {
   let router: Router;
   let store: Store;
