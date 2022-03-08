@@ -1,38 +1,16 @@
 import { take } from "rxjs/operators";
 
-import { MockTestComponent } from "@angular-tests/shared/test-utils";
 import { LuxonLimits } from "@angular-tests/shared/util";
-import { Location } from "@angular/common";
-import { NgZone } from "@angular/core";
-import { fakeAsync, TestBed, tick, waitForAsync } from "@angular/core/testing";
+import { TestBed } from "@angular/core/testing";
 import {
-  ActivatedRoute,
   ActivatedRouteSnapshot,
   Router,
   RouterStateSnapshot,
-  UrlSegment
+  UrlTree
 } from "@angular/router";
-import {
-  RouterTestingModule,
-  setupTestingRouter
-} from "@angular/router/testing";
-import { createRoutingFactory, SpectatorRouting } from "@ngneat/spectator/jest";
-import { RouteOptions } from "@ngneat/spectator/lib/spectator-routing/route-options";
+import { RouterTestingModule } from "@angular/router/testing";
 
 import { YearGuard } from "./year.guard";
-
-// describe('YearGuard', () => {
-//   let guard: YearGuard;
-
-//   beforeEach(() => {
-//     TestBed.configureTestingModule({});
-//     guard = TestBed.inject(YearGuard);
-//   });
-
-//   it('should be created', () => {
-//     expect(guard).toBeTruthy();
-//   });
-// });
 
 function fakeRouterState(url: string): RouterStateSnapshot {
   return {
@@ -41,86 +19,81 @@ function fakeRouterState(url: string): RouterStateSnapshot {
   } as RouterStateSnapshot;
 }
 
-// const mockActivatedRoute = {
-//   snapshot: {
-//     paramMap: {
-//       get() { return '1'; }
-//     }
-//   }
-// };
+const mockActivatedRouteSnapshot = {
+  params: { yearId: 2022 },
+} as unknown as ActivatedRouteSnapshot;
 
-// providers: [
-//   { provide: ActivatedRoute, useValue: mockActivatedRoute },
-// ],
+function getActivatedRouteSnapshotParams(name: string, value: string | number) {
+  const snapshot = {
+    params: {},
+  } as unknown as ActivatedRouteSnapshot;
+
+  snapshot.params[name] = value;
+
+  return snapshot;
+}
 
 describe('YearGuard', () => {
-  // let ngZone: NgZone;
   let router: Router;
-  // let route: ActivatedRoute;
-  // let guard: YearGuard;
+  let guard: YearGuard;
+  let canActivateResult: boolean | UrlTree;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule.withRoutes([
-          {
-            path: '',
-            component: MockTestComponent,
-            canActivate: [YearGuard],
-          },
-          {
-            path: ':yearId',
-            component: MockTestComponent,
-            canActivate: [YearGuard],
-          },
-        ]),
-      ],
-      declarations: [MockTestComponent],
+      imports: [RouterTestingModule.withRoutes([])],
+      declarations: [],
     }).compileComponents();
 
-    // ngZone = TestBed.inject(NgZone);
     router = TestBed.inject(Router);
-    // route = TestBed.inject(ActivatedRoute);
-    // guard = new YearGuard(router);
+    guard = new YearGuard(router);
   });
 
-  // beforeEach(async () => {
-  //   await ngZone.run(async () => await router.navigateByUrl('2022'));
-  // });
+  it('returns UrlTree for invalid year', () => {
+    const activated = getActivatedRouteSnapshotParams('undefined', '');
+    guard
+      .canActivate(activated, router.routerState.snapshot)
+      .pipe(take(1))
+      .subscribe((fts) => (canActivateResult = fts));
 
-  // it('grants route access', () => {
-  //   let foo;
+    // TODO: test value from root.children.primary.segments[0].path
+    expect(canActivateResult).toHaveProperty('root');
+  });
 
-  //   route.snapshot.params = { yearId: 2022 };
+  it('grants route access for valid year', () => {
+    const activated = getActivatedRouteSnapshotParams('yearId', 2022);
+    guard
+      .canActivate(activated, router.routerState.snapshot)
+      .pipe(take(1))
+      .subscribe((fts) => (canActivateResult = fts));
 
-  //   const canActivate = guard
-  //     .canActivate(route.snapshot, router.routerState.snapshot)
-  //     .subscribe((fts) => (foo = fts));
+    expect(canActivateResult).toBe(true);
+  });
 
-  //   expect(foo).toBe(true);
-  // });
+  it('returns UrlTree for maximum year', () => {
+    const activated = getActivatedRouteSnapshotParams(
+      'yearId',
+      LuxonLimits.YEAR_MAX + 1
+    );
+    guard
+      .canActivate(activated, router.routerState.snapshot)
+      .pipe(take(1))
+      .subscribe((fts) => (canActivateResult = fts));
 
-  it('should redirect to current year', fakeAsync(() => {
-    router.navigate(['']);
-    tick();
-    expect(router.url).toBe('/2022');
-  }));
+    // TODO: test value from root.children.primary.segments[0].path
+    expect(canActivateResult).toHaveProperty('root');
+  });
 
-  it('should allow navigation to valid year', fakeAsync(() => {
-    router.navigate([2023]);
-    tick();
-    expect(router.url).toBe('/2023');
-  }));
+  it('returns UrlTree for minimum year', () => {
+    const activated = getActivatedRouteSnapshotParams(
+      'yearId',
+      LuxonLimits.YEAR_MIN - 1
+    );
+    guard
+      .canActivate(activated, router.routerState.snapshot)
+      .pipe(take(1))
+      .subscribe((fts) => (canActivateResult = fts));
 
-  it('should redirect to maximum year', fakeAsync(() => {
-    router.navigate([LuxonLimits.YEAR_MAX + 1]);
-    tick();
-    expect(router.url).toBe(`/${LuxonLimits.YEAR_MAX}`);
-  }));
-
-  it('should redirect to minimum year', fakeAsync(() => {
-    router.navigate([LuxonLimits.YEAR_MIN - 1]);
-    tick();
-    expect(router.url).toBe(`/${LuxonLimits.YEAR_MIN}`);
-  }));
+    // TODO: test value from root.children.primary.segments[0].path
+    expect(canActivateResult).toHaveProperty('root');
+  });
 });
