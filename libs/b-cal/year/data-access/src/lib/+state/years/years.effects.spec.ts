@@ -1,38 +1,34 @@
 import { fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { Actions } from '@ngrx/effects';
 import { provideMockActions } from '@ngrx/effects/testing';
 import {
   MinimalRouterStateSerializer,
   routerNavigatedAction,
   RouterNavigatedPayload,
-  RouterState,
-  SerializedRouterStateSnapshot,
-  StoreRouterConnectingModule
+  SerializedRouterStateSnapshot
 } from '@ngrx/router-store';
-import { Action, Store, StoreModule } from '@ngrx/store';
+import { Action } from '@ngrx/store';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { hot } from 'jasmine-marbles';
 import { Observable } from 'rxjs';
-import { skip } from 'rxjs/operators';
 
-import { RootFeature, RootSelectors } from '@angular-tests/shared/data-access';
 import { MockTestComponent } from '@angular-tests/shared/test-utils';
-import { getRouteNestedParams } from '@angular-tests/shared/util';
 
 import * as YearsActions from './years.actions';
 import { YearsEffects } from './years.effects';
 
-// https://stackoverflow.com/a/51038802/4187153
-describe('My routes', () => {
+describe('YearsEffects', () => {
   let actions: Observable<Action>;
   let router: Router;
   let effects: YearsEffects;
-  let serializer: MinimalRouterStateSerializer;
   let store: MockStore;
+  let serializer: MinimalRouterStateSerializer;
 
-  const initialState = { years: { ids: {}, entities: {} } };
+  const initialState = {
+    bedays: { ids: [], entities: {} },
+    years: { ids: [], entities: {} },
+  };
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -54,11 +50,12 @@ describe('My routes', () => {
 
     router = TestBed.inject(Router);
     effects = TestBed.inject(YearsEffects);
+    store = TestBed.inject(MockStore);
     serializer = new MinimalRouterStateSerializer();
   });
 
-  describe('YearsEffects', () => {
-    it('reacts to yearId changes', fakeAsync(() => {
+  describe('yearIdParamChange$', () => {
+    it('dispatches yearSelected after distinct yearId', fakeAsync(() => {
       // Arrange
       router.navigateByUrl('/2022');
       tick();
@@ -89,19 +86,53 @@ describe('My routes', () => {
       // Assert
       expect(effects.yearIdParamChange$).toBeObservable(expected);
     }));
+  });
 
-    it('reacts to selected year changes', () => {
-      // Act
-      actions = hot('-a-|', {
-        a: YearsActions.yearSelected({ yearId: 2022 }),
+  describe('yearSelected$', () => {
+    it('dispatches loadYear for years not yet loaded', () => {
+      // Arrange
+      store.setState({
+        years: {
+          ids: [2022],
+          entities: { '2022': { id: 2022, name: '', days: [] } },
+        },
       });
 
-      const expected = hot('-a-|', {
-        a: YearsActions.loadYear({ yearId: 2022 }),
+      // Act
+      actions = hot('-a-b-|', {
+        a: YearsActions.yearSelected({ yearId: 2022 }),
+        b: YearsActions.yearSelected({ yearId: 2023 }),
+      });
+
+      const expected = hot('---b-|', {
+        b: YearsActions.loadYear({ yearId: 2023 }),
       });
 
       // Assert
       expect(effects.yearSelected$).toBeObservable(expected);
+    });
+  });
+
+  describe('loadYear$', () => {
+    it('dispatches loadYearSuccess', () => {
+      // TODO: either use getYear() here,
+      //   or refactor years.effect.ts to inject a service that acts as an API for getting the year,
+      //   or find a way to just check if loadYearSuccess was returned without caring about the payload
+
+      // Arrange
+      const year = { id: 2022, name: '', days: [] };
+
+      // Act
+      actions = hot('-a-|', {
+        a: YearsActions.loadYear({ yearId: 2022 }),
+      });
+
+      const expected = hot('-a-|', {
+        a: YearsActions.loadYearSuccess({ year }),
+      });
+
+      // Assert
+      expect(effects.loadYear$).toBeObservable(expected);
     });
   });
 });

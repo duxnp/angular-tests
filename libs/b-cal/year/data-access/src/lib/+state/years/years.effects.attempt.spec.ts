@@ -18,6 +18,7 @@ import { getRouteNestedParams } from '@angular-tests/shared/util';
 import * as YearsActions from './years.actions';
 import { YearsEffects } from './years.effects';
 
+// This was my test using @ngrx/router-store in tests
 // https://stackoverflow.com/a/51038802/4187153
 describe('My routes', () => {
   let actions: Actions;
