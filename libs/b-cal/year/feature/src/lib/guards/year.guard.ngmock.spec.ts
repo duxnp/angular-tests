@@ -1,3 +1,14 @@
+import { Location } from '@angular/common';
+import { Component, Injectable, NgModule } from '@angular/core';
+import { fakeAsync, tick } from '@angular/core/testing';
+import {
+  CanActivate,
+  Router,
+  RouterModule,
+  RouterOutlet
+} from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+import { DateTime } from 'luxon';
 import {
   MockBuilder,
   MockComponent,
@@ -5,22 +16,12 @@ import {
   MockRender,
   NG_MOCKS_GUARDS,
   ngMocks
-} from "ng-mocks";
+} from 'ng-mocks';
 
-import { MockTestComponent } from "@angular-tests/shared/test-utils";
-import { LuxonLimits } from "@angular-tests/shared/util";
-import { Location } from "@angular/common";
-import { Component, Injectable, NgModule } from "@angular/core";
-import { fakeAsync, tick } from "@angular/core/testing";
-import {
-  CanActivate,
-  Router,
-  RouterModule,
-  RouterOutlet
-} from "@angular/router";
-import { RouterTestingModule } from "@angular/router/testing";
+import { MockTestComponent } from '@angular-tests/shared/test-utils';
+import { LuxonLimits } from '@angular-tests/shared/util';
 
-import { YearGuard } from "./year.guard";
+import { YearGuard } from './year.guard';
 
 // A side guard, when it has been replaced with its mock copy
 // it blocks all routes, because `canActivate` returns undefined.
@@ -59,6 +60,7 @@ describe('TestRoutingGuard', () => {
   let fixture: MockedComponentFixture<RouterOutlet, RouterOutlet>;
   let router: Router;
   let location: Location;
+  let year: number;
 
   // Because we want to test the guard, it means that we want to
   // test its integration with RouterModule. Therefore, we pass
@@ -80,10 +82,11 @@ describe('TestRoutingGuard', () => {
     fixture = MockRender(RouterOutlet);
     router = fixture.point.injector.get(Router);
     location = fixture.point.injector.get(Location);
+    year = DateTime.now().year;
   });
 
   // It is important to run routing tests in fakeAsync.
-  it('redirects to current year', fakeAsync(() => {
+  it('redirects to current year initially', fakeAsync(() => {
     // First we need to initialize navigation.
     if (fixture.ngZone) {
       fixture.ngZone.run(() => router.initialNavigation());
@@ -92,18 +95,26 @@ describe('TestRoutingGuard', () => {
 
     // Because by default we are not logged, the guard should
     // redirect us /login page.
-    expect(location.path()).toEqual('/2022');
+    expect(location.path()).toEqual(`/${year}`);
     // expect(() => ngMocks.find(LoginComponent)).not.toThrow();
   }));
 
-  // It is important to run routing tests in fakeAsync.
-  it('allows valid year', fakeAsync(() => {
+  it('redirects to current year if NaN', fakeAsync(() => {
     if (fixture.ngZone) {
-      fixture.ngZone.run(() => router.navigate([2023]));
+      fixture.ngZone.run(() => router.navigate(['fubar']));
       tick();
     }
 
-    expect(location.path()).toEqual('/2023');
+    expect(location.path()).toEqual(`/${year}`);
+  }));
+
+  it('allows valid year', fakeAsync(() => {
+    if (fixture.ngZone) {
+      fixture.ngZone.run(() => router.navigate([year]));
+      tick();
+    }
+
+    expect(location.path()).toEqual(`/${year}`);
   }));
 
   it('redirects to maximum year', fakeAsync(() => {

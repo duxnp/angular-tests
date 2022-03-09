@@ -1,11 +1,13 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Route } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { MatDialogModule } from '@angular/material/dialog';
+import { Route, RouterModule } from '@angular/router';
+
 import { BCalYearDataAccessModule } from '@angular-tests/b-cal/year/data-access';
+
+import { BedayComponent } from './containers/beday/beday.component';
 import { YearComponent } from './containers/year/year.component';
 import { YearGuard } from './guards/year.guard';
-import { BedayComponent } from './containers/beday/beday.component';
-import { MatDialogModule } from '@angular/material/dialog';
 
 export const bCalYearFeatureRoutes: Route[] = [
   {

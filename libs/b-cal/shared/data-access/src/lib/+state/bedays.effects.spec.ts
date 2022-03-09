@@ -2,14 +2,14 @@ import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Action } from '@ngrx/store';
 import { provideMockStore } from '@ngrx/store/testing';
-import { NxModule, DataPersistence } from '@nrwl/angular';
+import { DataPersistence, NxModule } from '@nrwl/angular';
 import { hot } from 'jasmine-marbles';
 import { Observable } from 'rxjs';
 
+import { bedays } from '@angular-tests/b-cal/shared/util';
+
 import * as BedaysActions from './bedays.actions';
 import { BedaysEffects } from './bedays.effects';
-
-import { bedays } from '@angular-tests/b-cal/shared/util';
 
 describe('BedaysEffects', () => {
   let actions: Observable<Action>;

@@ -1,10 +1,12 @@
-import { MockTestComponent } from "@angular-tests/shared/test-utils";
-import { LuxonLimits } from "@angular-tests/shared/util";
-import { fakeAsync, TestBed, tick } from "@angular/core/testing";
-import { Router, RouterStateSnapshot } from "@angular/router";
-import { RouterTestingModule } from "@angular/router/testing";
+import { fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { Router, RouterStateSnapshot } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+import { DateTime } from 'luxon';
 
-import { YearGuard } from "./year.guard";
+import { MockTestComponent } from '@angular-tests/shared/test-utils';
+import { LuxonLimits } from '@angular-tests/shared/util';
+
+import { YearGuard } from './year.guard';
 
 // describe('YearGuard', () => {
 //   let guard: YearGuard;
@@ -85,10 +87,18 @@ describe('YearGuard', () => {
   //   expect(foo).toBe(true);
   // });
 
-  it('should redirect to current year', fakeAsync(() => {
+  it('should redirect to current year initially', fakeAsync(() => {
     router.navigate(['']);
     tick();
-    expect(router.url).toBe('/2022');
+    const year = DateTime.now().year;
+    expect(router.url).toBe(`/${year}`);
+  }));
+
+  it('should redirect to current year if NaN', fakeAsync(() => {
+    router.navigate(['fubar']);
+    tick();
+    const year = DateTime.now().year;
+    expect(router.url).toBe(`/${year}`);
   }));
 
   it('should allow navigation to valid year', fakeAsync(() => {

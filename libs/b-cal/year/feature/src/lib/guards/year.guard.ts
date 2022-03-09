@@ -1,15 +1,15 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   CanActivate,
   Router,
   RouterStateSnapshot,
   UrlTree
-} from "@angular/router";
-import { DateTime } from "luxon";
-import { Observable, of } from "rxjs";
+} from '@angular/router';
+import { DateTime } from 'luxon';
+import { Observable, of } from 'rxjs';
 
-import { LuxonLimits } from "@angular-tests/shared/util";
+import { LuxonLimits } from '@angular-tests/shared/util';
 
 @Injectable({
   providedIn: 'root',
