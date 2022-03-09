@@ -1,9 +1,9 @@
 import {
-  Component,
-  Input,
-  Output,
-  EventEmitter,
   ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output
 } from '@angular/core';
 
 @Component({

@@ -1,6 +1,3 @@
-import { take } from "rxjs/operators";
-
-import { LuxonLimits } from "@angular-tests/shared/util";
 import { TestBed } from "@angular/core/testing";
 import {
   ActivatedRouteSnapshot,
@@ -9,6 +6,10 @@ import {
   UrlTree
 } from "@angular/router";
 import { RouterTestingModule } from "@angular/router/testing";
+import { DateTime } from "luxon";
+import { take } from "rxjs/operators";
+
+import { LuxonLimits } from "@angular-tests/shared/util";
 
 import { YearGuard } from "./year.guard";
 
@@ -50,13 +51,16 @@ describe('YearGuard', () => {
 
   it('returns UrlTree for invalid year', () => {
     const activated = getActivatedRouteSnapshotParams('undefined', '');
+    const year = DateTime.now().year;
+    const exptectedUrlTree = router.createUrlTree([year]);
     guard
       .canActivate(activated, router.routerState.snapshot)
       .pipe(take(1))
-      .subscribe((fts) => (canActivateResult = fts));
+      .subscribe((ca) => (canActivateResult = ca));
 
     // TODO: test value from root.children.primary.segments[0].path
-    expect(canActivateResult).toHaveProperty('root');
+    // expect(canActivateResult).toHaveProperty('root');
+    expect(canActivateResult).toEqual(exptectedUrlTree);
   });
 
   it('grants route access for valid year', () => {
@@ -64,7 +68,7 @@ describe('YearGuard', () => {
     guard
       .canActivate(activated, router.routerState.snapshot)
       .pipe(take(1))
-      .subscribe((fts) => (canActivateResult = fts));
+      .subscribe((ca) => (canActivateResult = ca));
 
     expect(canActivateResult).toBe(true);
   });
@@ -74,13 +78,13 @@ describe('YearGuard', () => {
       'yearId',
       LuxonLimits.YEAR_MAX + 1
     );
+    const exptectedUrlTree = router.createUrlTree([LuxonLimits.YEAR_MAX]);
     guard
       .canActivate(activated, router.routerState.snapshot)
       .pipe(take(1))
-      .subscribe((fts) => (canActivateResult = fts));
+      .subscribe((ca) => (canActivateResult = ca));
 
-    // TODO: test value from root.children.primary.segments[0].path
-    expect(canActivateResult).toHaveProperty('root');
+    expect(canActivateResult).toEqual(exptectedUrlTree);
   });
 
   it('returns UrlTree for minimum year', () => {
@@ -88,12 +92,12 @@ describe('YearGuard', () => {
       'yearId',
       LuxonLimits.YEAR_MIN - 1
     );
+    const exptectedUrlTree = router.createUrlTree([LuxonLimits.YEAR_MIN]);
     guard
       .canActivate(activated, router.routerState.snapshot)
       .pipe(take(1))
-      .subscribe((fts) => (canActivateResult = fts));
+      .subscribe((ca) => (canActivateResult = ca));
 
-    // TODO: test value from root.children.primary.segments[0].path
-    expect(canActivateResult).toHaveProperty('root');
+    expect(canActivateResult).toEqual(exptectedUrlTree);
   });
 });

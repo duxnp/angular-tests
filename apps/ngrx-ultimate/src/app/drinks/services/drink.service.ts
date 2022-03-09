@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import {
   EntityCollectionServiceBase,
-  EntityCollectionServiceElementsFactory,
+  EntityCollectionServiceElementsFactory
 } from '@ngrx/data';
+
 import { Drink } from '../models/drink.model';
 
 @Injectable({

@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
+import { ngIfAnim } from '../animations';
 import { formViewProvider } from '../form-view-provider';
 import { HeroAndLikes, Like, nextNewId } from '../model';
-import { ngIfAnim } from '../animations';
 
 @Component({
   selector: 'app-likes-edit',

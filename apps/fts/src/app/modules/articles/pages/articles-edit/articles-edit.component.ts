@@ -1,13 +1,14 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subject, Subscription } from 'rxjs';
+
 import {
   ConfirmService,
-  ModalContent,
+  ModalContent
 } from '../../../../core/service/confirm.service';
 import { ToastService } from '../../../../core/service/toast.service';
 import { ArticlesApiService } from '../../../../data/service/articles-api.service';
 import { Article } from '../../../../data/types/article';
-import { Subject, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-articles-edit',

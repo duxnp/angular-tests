@@ -1,11 +1,11 @@
 import {
-    trigger,
-    animate,
-    style,
-    group,
-    query,
-    transition,
-    keyframes
+  animate,
+  group,
+  keyframes,
+  query,
+  style,
+  transition,
+  trigger
 } from '@angular/animations';
 
 // Another way to do this...

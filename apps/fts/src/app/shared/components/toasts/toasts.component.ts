@@ -1,4 +1,5 @@
 import { Component, HostBinding, OnInit, TemplateRef } from '@angular/core';
+
 import { ToastService } from '../../../core/service/toast.service';
 
 @Component({

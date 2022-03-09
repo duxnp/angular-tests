@@ -1,14 +1,14 @@
-import { Injectable } from '@angular/core';
 import {
   HttpClient,
-  HttpParams,
-  HttpHeaders,
   HttpErrorResponse,
+  HttpHeaders,
+  HttpParams
 } from '@angular/common/http';
-
-import { environment as env } from '../../../environments/environment';
+import { Injectable } from '@angular/core';
 import { Observable, ObservableInput, of, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+
+import { environment as env } from '../../../environments/environment';
 import { Article } from '../../data/types/article';
 
 @Injectable({

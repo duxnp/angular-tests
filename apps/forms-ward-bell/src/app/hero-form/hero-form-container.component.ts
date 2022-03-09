@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 
-import { deepClone, HeroAndLikes } from '../model';
-import { DataService } from '../data.service';
 import { ngIfAnim } from '../animations';
+import { DataService } from '../data.service';
+import { deepClone, HeroAndLikes } from '../model';
 
 @Component({
   selector: 'app-hero-form-container',

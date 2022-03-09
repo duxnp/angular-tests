@@ -2,8 +2,8 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { take } from 'rxjs/operators';
 
-import { Hero, HeroAndLikes } from '../model';
 import { DataService } from '../data.service';
+import { Hero, HeroAndLikes } from '../model';
 
 class RF_HeroFormContainerComponent {
   heroForm: FormGroup;

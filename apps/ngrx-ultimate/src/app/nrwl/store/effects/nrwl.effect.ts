@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Router } from '@angular/router';
-import { Store } from '@ngrx/store';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { routerNavigationAction } from '@ngrx/router-store';
+import { Store } from '@ngrx/store';
 import { navigation } from '@nrwl/angular';
 import { tap } from 'rxjs/operators';
 
-import { ParentComponent } from '../../containers';
 import { DrinkService } from '../../../drinks/services/drink.service';
 import { distinctRouteParam } from '../../../shared/utilities';
+import { ParentComponent } from '../../containers';
 
 // type foo = ActionType<rou
 @Injectable()

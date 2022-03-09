@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
+
 import { powers } from './model';
 
 /** Returns the array of power qualifers for the given super power */

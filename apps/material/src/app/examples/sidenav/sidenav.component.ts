@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { OverlayContainer } from '@angular/cdk/overlay';
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { OverlayContainer } from '@angular/cdk/overlay';
+import { Component, OnInit } from '@angular/core';
 import { pluck } from 'rxjs/operators';
 
 import { growInOut } from '../../core';

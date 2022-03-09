@@ -1,10 +1,10 @@
 import {
+  AfterViewInit,
   Component,
   EventEmitter,
   Input,
   Output,
-  ViewChild,
-  AfterViewInit,
+  ViewChild
 } from '@angular/core';
 import { NgForm, NgModelGroup } from '@angular/forms';
 

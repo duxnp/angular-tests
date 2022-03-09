@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { InfiniteScrollTestComponent } from './modules/concept-tests/pages/infinite-scroll-test/infinite-scroll-test.component';
+import { RouterModule, Routes } from '@angular/router';
+
 import { DeferLoadTestComponent } from './modules/concept-tests/pages/defer-load-test/defer-load-test.component';
+import { InfiniteScrollTestComponent } from './modules/concept-tests/pages/infinite-scroll-test/infinite-scroll-test.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },

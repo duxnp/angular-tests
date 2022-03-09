@@ -1,11 +1,13 @@
-import { ActionReducerMap, createFeatureSelector, createSelector } from "@ngrx/store";
+import {
+  ActionReducerMap,
+  createFeatureSelector,
+  createSelector
+} from '@ngrx/store';
 
-import * as fromRoot from '../../../store'
+import * as fromRoot from '../../../store';
+import { Topping } from '../../models/topping.model';
 import * as fromFeature from '../reducers';
 import * as fromToppings from '../reducers/toppings.reducer';
-
-import { Topping } from "../../models/topping.model";
-
 
 export const getToppingsState = createSelector(
   fromFeature.getProductsState,

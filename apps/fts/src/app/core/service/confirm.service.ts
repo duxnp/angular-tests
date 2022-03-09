@@ -1,10 +1,10 @@
 import { Injectable, OnDestroy, OnInit } from '@angular/core';
-import { Observable, Subject, Subscription } from 'rxjs';
 import {
   NgbModal,
   NgbModalOptions,
-  NgbModalRef,
+  NgbModalRef
 } from '@ng-bootstrap/ng-bootstrap';
+import { Observable, Subject, Subscription } from 'rxjs';
 
 import { ConfirmModalComponent } from '../../shared/components/confirm-modal/confirm-modal.component';
 

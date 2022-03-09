@@ -18,8 +18,28 @@
   "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "newLineEachExpressionAfterCountLimitExceptIfOnlyOne",
   "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 80,
   "importSorter.importStringConfiguration.tabSize": 2,
-  "importSorter.importStringConfiguration.quoteMark": "double",
+  "importSorter.importStringConfiguration.quoteMark": "single",
   "importSorter.importStringConfiguration.hasSemicolon": true,
+  "importSorter.sortConfiguration.customOrderingRules.rules": [
+    {
+      "type": "importMember",
+      "regex": "^$",
+      "orderLevel": 10,
+      "disableSort": true
+    },
+    {
+      "regex": "^@angular-tests",
+      "orderLevel": 30
+    },
+    {
+      "regex": "^[@]",
+      "orderLevel": 20
+    },
+    {
+      "regex": "^[.]",
+      "orderLevel": 40
+    }
+  ],
   "files.exclude": {
     "**/*.js": true,
     "**/.browserslistrc": true,

@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 
 import { SharedModule } from '../shared';
-
-import { StaticRoutingModule } from './static-routing.module';
 import { AboutComponent } from './about/about.component';
+import { StaticRoutingModule } from './static-routing.module';
 
 @NgModule({
   imports: [SharedModule, StaticRoutingModule],

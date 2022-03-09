@@ -1,7 +1,8 @@
 import { RouterNavigationAction } from '@ngrx/router-store';
 import { Observable, OperatorFunction } from 'rxjs';
 import { distinctUntilKeyChanged, filter, map, tap } from 'rxjs/operators';
-import { getRouteNestedConfigPath, getRouteNestedParams } from '.';
+
+import { getRouteNestedConfigPath, getRouteNestedParams } from './';
 
 // https://netbasal.com/creating-custom-operators-in-rxjs-32f052d69457
 

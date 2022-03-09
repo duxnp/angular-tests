@@ -1,10 +1,10 @@
 // Courtesy https://auth0.com/blog/real-world-angular-series-part-5/
 import {
-  trigger,
-  transition,
-  style,
   animate,
   state,
+  style,
+  transition,
+  trigger
 } from '@angular/animations';
 
 const expandCollapseAnimations = [

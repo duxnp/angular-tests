@@ -1,8 +1,8 @@
-import { ActionReducerMap, createFeatureSelector } from "@ngrx/store";
+import { ActionReducerMap, createFeatureSelector } from '@ngrx/store';
 
-import * as fromDraft from "./draft.reducer";
-import * as fromPizzas from "./pizzas.reducer";
-import * as fromToppiings from "./toppings.reducer";
+import * as fromDraft from './draft.reducer';
+import * as fromPizzas from './pizzas.reducer';
+import * as fromToppiings from './toppings.reducer';
 
 export interface ProductsState {
   draft: fromDraft.DraftState;

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+
 import { DeferLoadTestComponent } from './pages/defer-load-test/defer-load-test.component';
 import { InfiniteScrollTestComponent } from './pages/infinite-scroll-test/infinite-scroll-test.component';
 import { InjectTestComponent } from './pages/inject-test/inject-test.component';

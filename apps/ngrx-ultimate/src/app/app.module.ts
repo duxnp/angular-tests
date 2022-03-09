@@ -2,36 +2,32 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { NxModule } from '@nrwl/angular';
-import { StoreModule, MetaReducer } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
 import { DefaultDataServiceConfig, EntityDataModule } from '@ngrx/data';
-
+import { EffectsModule } from '@ngrx/effects';
 import {
-  StoreRouterConnectingModule,
-  RouterStateSerializer,
   DefaultRouterStateSerializer,
   MinimalRouterStateSerializer,
-  RouterState,
   routerReducer,
+  RouterState,
+  RouterStateSerializer,
+  StoreRouterConnectingModule
 } from '@ngrx/router-store';
+import { MetaReducer, StoreModule } from '@ngrx/store';
+// not used in production
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { NxModule } from '@nrwl/angular';
 
-// Custom reducers and serializer for @ngrx/router-store
-import { reducers, CustomSerializer } from './store';
-
-import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { defaultDataServiceConfig, entityConfig } from './entity-metadata';
+// Custom reducers and serializer for @ngrx/router-store
+import { CustomSerializer, reducers } from './store';
 
 // this would be done dynamically with webpack for builds
 const environment = {
   development: true,
   production: false,
 };
-
-// not used in production
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 export const metaReducers: MetaReducer<any>[] = !environment.production
   ? []

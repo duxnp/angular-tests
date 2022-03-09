@@ -2,13 +2,13 @@
 
 import {
   Component,
-  OnInit,
-  OnDestroy,
-  Input,
-  Output,
-  ViewChild,
-  EventEmitter,
   ElementRef,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+  ViewChild
 } from '@angular/core';
 
 @Component({

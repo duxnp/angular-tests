@@ -1,8 +1,8 @@
 import { Component, TemplateRef } from '@angular/core';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { ModalContentComponent } from './modal-content/modal-content.component';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 import { getModalConfig } from '../../shared/config/modal-defaults';
+import { ModalContentComponent } from './modal-content/modal-content.component';
 
 @Component({
   selector: 'nbt-modals',

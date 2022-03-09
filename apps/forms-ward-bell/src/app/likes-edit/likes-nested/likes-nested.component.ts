@@ -3,12 +3,12 @@ import {
   EventEmitter,
   Input,
   Output,
-  ViewChild,
+  ViewChild
 } from '@angular/core';
 import { NgModelGroup } from '@angular/forms';
 
-import { Like } from '../../model';
 import { formViewProvider } from '../../form-view-provider';
+import { Like } from '../../model';
 
 @Component({
   selector: 'app-likes-nested-form',

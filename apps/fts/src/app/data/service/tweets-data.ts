@@ -1,6 +1,6 @@
+import { randNumber, randText, randUserName } from '@ngneat/falso';
 import { timer } from 'rxjs';
 import { mapTo } from 'rxjs/operators';
-import { randNumber, randUserName, randText } from '@ngneat/falso';
 
 const count = 30;
 const data = [];
