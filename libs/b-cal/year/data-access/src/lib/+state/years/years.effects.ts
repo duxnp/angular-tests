@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
-import { concatLatestFrom, createEffect, Actions, ofType } from '@ngrx/effects';
+import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
 import { routerNavigatedAction } from '@ngrx/router-store';
 import { Store } from '@ngrx/store';
-import { filter, map } from 'rxjs/operators';
-import { timer } from 'rxjs';
-
-import { distinctRouteParam } from '@angular-tests/shared/util';
-import { BedaysSelectors } from '@angular-tests/b-cal/shared/data-access';
 import { DateTime } from 'luxon';
+import { timer } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 
+import { BedaysSelectors } from '@angular-tests/b-cal/shared/data-access';
+import { distinctRouteParam } from '@angular-tests/shared/util';
+
+import { getDay, getYear } from '../../service';
 import * as YearsActions from './years.actions';
 import * as YearsFeature from './years.reducer';
 import * as YearsSelectors from './years.selectors';
-import { getYear, getDay } from '../../service';
 
 @Injectable()
 export class YearsEffects {
@@ -63,7 +63,7 @@ export class YearsEffects {
   );
 
   todayTick$ = createEffect(() =>
-    timer(0, 1000 * 5).pipe(
+    timer(0, 1000 * 60 * 60).pipe(
       concatLatestFrom(() => this.bedays$),
       map(([i, bedays]) => {
         // let day = getDay(DateTime.now(), bedays);
