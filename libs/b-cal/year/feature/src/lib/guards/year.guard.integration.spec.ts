@@ -1,5 +1,5 @@
 import { fakeAsync, TestBed, tick } from '@angular/core/testing';
-import { Router, RouterStateSnapshot } from '@angular/router';
+import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { DateTime } from 'luxon';
 
@@ -21,12 +21,12 @@ import { YearGuard } from './year.guard';
 //   });
 // });
 
-function fakeRouterState(url: string): RouterStateSnapshot {
-  return {
-    url,
-    root: {},
-  } as RouterStateSnapshot;
-}
+// function fakeRouterState(url: string): RouterStateSnapshot {
+//   return {
+//     url,
+//     root: {},
+//   } as RouterStateSnapshot;
+// }
 
 // const mockActivatedRoute = {
 //   snapshot: {

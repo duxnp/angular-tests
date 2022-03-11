@@ -11,13 +11,18 @@ import { distinctRouteParam } from '@angular-tests/shared/util';
 
 import { getDay, getYear } from '../../service';
 import * as YearsActions from './years.actions';
-import * as YearsFeature from './years.reducer';
+// import * as YearsFeature from './years.reducer';
 import * as YearsSelectors from './years.selectors';
 
 @Injectable()
 export class YearsEffects {
   bedays$ = this.store.select(BedaysSelectors.getBedaysEntities);
   years$ = this.store.select(YearsSelectors.getYearsEntities);
+  // timer$ = timer(0, 1000 * 60 * 60);
+  timer$ = timer(0, 1000 * 6);
+
+  getDay = getDay;
+  getYear = getYear;
 
   // Repond to router navigated event.
   // Will not fire if a route guard cancels the navigation.
@@ -48,7 +53,7 @@ export class YearsEffects {
       map((payload) => payload.yearId),
       concatLatestFrom(() => this.bedays$),
       map(([yearId, bedays]) => {
-        const year = getYear(yearId, bedays);
+        const year = this.getYear(yearId, bedays);
 
         if (year.days.length > 0) {
           return YearsActions.loadYearSuccess({ year });
@@ -63,14 +68,13 @@ export class YearsEffects {
   );
 
   todayTick$ = createEffect(() =>
-    timer(0, 1000 * 60 * 60).pipe(
+    this.timer$.pipe(
       concatLatestFrom(() => this.bedays$),
       map(([i, bedays]) => {
-        // let day = getDay(DateTime.now(), bedays);
-
         // TIME WARP
-        let day = getDay(DateTime.now().plus({ days: i }), bedays);
+        // let day = getDay(DateTime.now().plus({ days: i }), bedays);
 
+        let day = this.getDay(DateTime.now(), bedays);
         day = { ...day, year: DateTime.now().year };
         return YearsActions.todayTicked({ day });
       })

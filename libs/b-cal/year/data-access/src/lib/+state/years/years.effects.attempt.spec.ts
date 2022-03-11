@@ -91,23 +91,5 @@ describe('My routes', () => {
 
       // expect(effects.yearIdParamChange$).toBeObservable(expected);
     });
-
-    it('routerNavigatedAction', fakeAsync(() => {
-      router.navigateByUrl('/2022');
-      tick();
-
-      const serializer = new MinimalRouterStateSerializer();
-      const serialized = serializer.serialize(router.routerState.snapshot);
-
-      const expected = hot('-a-|', {
-        a: YearsActions.yearSelected({ yearId: 2022 }),
-      });
-
-      effects.yearIdParamChange$.subscribe((payload) => {
-        expect(payload.yearId).toBe(serialized);
-      });
-
-      expect(effects.yearIdParamChange$).toBeObservable(expected);
-    }));
   });
 });

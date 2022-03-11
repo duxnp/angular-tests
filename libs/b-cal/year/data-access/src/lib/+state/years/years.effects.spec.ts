@@ -2,6 +2,7 @@ import { fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
+import { Dictionary } from '@ngrx/entity';
 import {
   MinimalRouterStateSerializer,
   routerNavigatedAction,
@@ -10,13 +11,37 @@ import {
 } from '@ngrx/router-store';
 import { Action } from '@ngrx/store';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
-import { hot } from 'jasmine-marbles';
+import { cold, hot } from 'jasmine-marbles';
+import { DateTime } from 'luxon';
 import { Observable } from 'rxjs';
 
+import { BedaysEntity } from '@angular-tests/b-cal/shared/util';
+import { Day } from '@angular-tests/b-cal/year/util';
 import { MockTestComponent } from '@angular-tests/shared/test-utils';
 
+import { getYear } from '../../service';
 import * as YearsActions from './years.actions';
 import { YearsEffects } from './years.effects';
+import { YearsEntity } from './years.models';
+
+const getYearMock = (
+  year: number,
+  bedays: Dictionary<BedaysEntity>
+): YearsEntity => ({ id: 2022, name: '', days: [getDayMock()] });
+
+export function getDayMock(
+  calendar: DateTime = DateTime.now(),
+  bedays: Dictionary<BedaysEntity> = {}
+) {
+  const day: Day = {
+    dayOfWeek: 0,
+    dayOfYear: 0,
+    isWeekend: false,
+    year: 2022,
+  };
+
+  return day;
+}
 
 describe('YearsEffects', () => {
   let actions: Observable<Action>;
@@ -116,11 +141,11 @@ describe('YearsEffects', () => {
   describe('loadYear$', () => {
     it('dispatches loadYearSuccess', () => {
       // TODO: either use getYear() here,
+      //   or refactor years.effect.ts to store getYear() as a class method
       //   or refactor years.effect.ts to inject a service that acts as an API for getting the year,
-      //   or find a way to just check if loadYearSuccess was returned without caring about the payload
 
       // Arrange
-      const year = { id: 2022, name: '', days: [] };
+      const year = getYear(2022, {});
 
       // Act
       actions = hot('-a-|', {
@@ -133,6 +158,46 @@ describe('YearsEffects', () => {
 
       // Assert
       expect(effects.loadYear$).toBeObservable(expected);
+    });
+
+    it('calls getYear', () => {
+      // Arrange
+      effects.getYear = getYearMock;
+      const year = getYearMock(2022, {});
+
+      // Act
+      actions = hot('-a-|', {
+        a: YearsActions.loadYear({ yearId: 2022 }),
+      });
+
+      const expected = hot('-a-|', {
+        a: YearsActions.loadYearSuccess({ year }),
+      });
+
+      // Assert
+      expect(effects.loadYear$).toBeObservable(expected);
+    });
+  });
+
+  describe('todayTick$', () => {
+    it('calls getDay', () => {
+      // Arrange
+      effects.getDay = getDayMock;
+      const day = getDayMock();
+
+      // Act
+      effects.timer$ = hot('-a-b-|', {
+        a: 1,
+        b: 2,
+      });
+
+      const expected = hot('-a-b-|', {
+        a: YearsActions.todayTicked({ day }),
+        b: YearsActions.todayTicked({ day }),
+      });
+
+      // Assert
+      expect(effects.todayTick$).toBeObservable(expected);
     });
   });
 });
