@@ -1,5 +1,7 @@
-import { Day } from '@angular-tests/b-cal/year/util';
 import { createAction, props } from '@ngrx/store';
+
+import { Day } from '@angular-tests/b-cal/year/util';
+
 import { YearsEntity } from './years.models';
 
 export const yearSelected = createAction(

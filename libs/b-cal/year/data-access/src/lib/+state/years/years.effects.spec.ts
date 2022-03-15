@@ -1,47 +1,29 @@
-import { fakeAsync, TestBed, tick } from '@angular/core/testing';
+import {
+  discardPeriodicTasks,
+  fakeAsync,
+  TestBed,
+  tick,
+} from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
-import { Dictionary } from '@ngrx/entity';
 import {
   MinimalRouterStateSerializer,
   routerNavigatedAction,
   RouterNavigatedPayload,
-  SerializedRouterStateSnapshot
+  SerializedRouterStateSnapshot,
 } from '@ngrx/router-store';
 import { Action } from '@ngrx/store';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
-import { cold, hot } from 'jasmine-marbles';
-import { DateTime } from 'luxon';
+import { hot } from 'jasmine-marbles';
 import { Observable } from 'rxjs';
 
-import { BedaysEntity } from '@angular-tests/b-cal/shared/util';
-import { Day } from '@angular-tests/b-cal/year/util';
 import { MockTestComponent } from '@angular-tests/shared/test-utils';
 
 import { getYear } from '../../service';
 import * as YearsActions from './years.actions';
 import { YearsEffects } from './years.effects';
-import { YearsEntity } from './years.models';
-
-const getYearMock = (
-  year: number,
-  bedays: Dictionary<BedaysEntity>
-): YearsEntity => ({ id: 2022, name: '', days: [getDayMock()] });
-
-export function getDayMock(
-  calendar: DateTime = DateTime.now(),
-  bedays: Dictionary<BedaysEntity> = {}
-) {
-  const day: Day = {
-    dayOfWeek: 0,
-    dayOfYear: 0,
-    isWeekend: false,
-    year: 2022,
-  };
-
-  return day;
-}
+import { getDayMock, getYearMock } from './years.testing';
 
 describe('YearsEffects', () => {
   let actions: Observable<Action>;
@@ -180,24 +162,25 @@ describe('YearsEffects', () => {
   });
 
   describe('todayTick$', () => {
-    it('calls getDay', () => {
+    it('ticks immediately then hourly', fakeAsync(() => {
       // Arrange
       effects.getDay = getDayMock;
       const day = getDayMock();
 
-      // Act
-      effects.timer$ = hot('-a-b-|', {
-        a: 1,
-        b: 2,
+      let output = undefined;
+      effects.todayTick$.subscribe((action) => {
+        output = action;
       });
 
-      const expected = hot('-a-b-|', {
-        a: YearsActions.todayTicked({ day }),
-        b: YearsActions.todayTicked({ day }),
-      });
+      // Act / Assert
+      expect(output).toBeUndefined();
+      tick();
+      expect(output).toEqual(YearsActions.todayTicked({ day }));
 
-      // Assert
-      expect(effects.todayTick$).toBeObservable(expected);
-    });
+      output = undefined;
+      tick(1000 * 60 * 60);
+      discardPeriodicTasks();
+      expect(output).toEqual(YearsActions.todayTicked({ day }));
+    }));
   });
 });

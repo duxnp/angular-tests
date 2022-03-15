@@ -18,8 +18,8 @@ import * as YearsSelectors from './years.selectors';
 export class YearsEffects {
   bedays$ = this.store.select(BedaysSelectors.getBedaysEntities);
   years$ = this.store.select(YearsSelectors.getYearsEntities);
-  // timer$ = timer(0, 1000 * 60 * 60);
-  timer$ = timer(0, 1000 * 6);
+  timer$ = timer(0, 1000 * 60 * 60);
+  // timer$ = timer(60000, 1000 * 6);
 
   getDay = getDay;
   getYear = getYear;

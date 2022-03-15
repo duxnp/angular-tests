@@ -1,5 +1,7 @@
-import { mockPipe } from '@angular-tests/shared/test-utils';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { mockPipe } from '@angular-tests/shared/test-utils';
+
 import { DayCardComponent } from './day-card.component';
 
 describe('DayCardComponent', () => {
@@ -21,8 +23,8 @@ describe('DayCardComponent', () => {
       isWeekend: false,
       beday: { id: 1, abbreviation: 'foo', name: 'foo' },
     };
-    // component.day = mockDay;
-    // component.today = mockDay;
+    component.day = mockDay;
+    component.today = mockDay;
     fixture.detectChanges();
   });
 

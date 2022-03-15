@@ -1,6 +1,8 @@
 import { Dictionary } from '@ngrx/entity';
-import { DateTime } from 'luxon';
-import { bedays, BedaysEntity } from '@angular-tests/b-cal/shared/util';
+
+import { BedaysEntity } from '@angular-tests/b-cal/shared/util';
+
+import { getYear } from './get-year';
 
 describe('getYear', () => {
   it('should return a year', () => {
@@ -10,9 +12,11 @@ describe('getYear', () => {
     };
 
     // Act
+    const year = getYear(2022, entities);
+    const nonEmptyDays = year.days.filter((day) => day.dayOfYear > 0);
 
     // Assert
-    // What was originally 7 for Sunday should become 1 and all other weekday numbers should be incremented by 1
-    expect(entities[1]?.name).toEqual('foo');
+    expect(year.id).toEqual(2022);
+    expect(nonEmptyDays.length).toEqual(365);
   });
 });
