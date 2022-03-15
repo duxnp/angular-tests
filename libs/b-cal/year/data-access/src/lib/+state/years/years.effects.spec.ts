@@ -18,12 +18,12 @@ import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { hot } from 'jasmine-marbles';
 import { Observable } from 'rxjs';
 
+import { getDayMock, getYearMock } from '@ng-tests/b-cal/year/util';
 import { MockTestComponent } from '@ng-tests/shared/test-utils';
 
 import { getYear } from '../../service';
 import * as YearsActions from './years.actions';
 import { YearsEffects } from './years.effects';
-import { getDayMock, getYearMock } from './years.testing';
 
 describe('YearsEffects', () => {
   let actions: Observable<Action>;

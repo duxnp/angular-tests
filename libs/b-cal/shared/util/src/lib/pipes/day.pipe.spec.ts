@@ -9,7 +9,7 @@ describe('DayPipe', () => {
     expect(pipe).toBeTruthy();
   });
 
-  it('should add a "day" suffix', () => {
+  it('adds a "day" suffix', () => {
     const day = pipe.transform('foo');
     expect(day).toBe('fooday');
   });

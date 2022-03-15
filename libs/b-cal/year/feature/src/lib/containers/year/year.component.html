@@ -4,11 +4,17 @@
       mat-raised-button
       color="primary"
       (click)="previousYear(vm.year.id)"
+      data-testid="previous-button"
     >
       Previous
     </button>
-    <span class="mat-display-1">{{ vm.year.id }}</span>
-    <button mat-raised-button color="primary" (click)="nextYear(vm.year.id)">
+    <span class="mat-display-1" data-testid="year-span">{{ vm.year.id }}</span>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="nextYear(vm.year.id)"
+      data-testid="next-button"
+    >
       Next
     </button>
   </div>

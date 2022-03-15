@@ -30,7 +30,7 @@ describe('BedaysEffects', () => {
   });
 
   describe('init$', () => {
-    it('should work', () => {
+    it('works', () => {
       actions = hot('-a-|', { a: BedaysActions.init() });
 
       const expected = hot('-a-|', {

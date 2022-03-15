@@ -17,7 +17,7 @@ describe('Bedays Reducer', () => {
   });
 
   describe('valid Bedays actions', () => {
-    it('loadBedaysSuccess should return the list of known Bedays', () => {
+    it('loadBedaysSuccess returns the list of known Bedays', () => {
       const bedays = [
         createBedaysEntity(1, 'Foo', 'Foo'),
         createBedaysEntity(2, 'Bar', 'Bar'),
@@ -30,7 +30,7 @@ describe('Bedays Reducer', () => {
       expect(result.ids.length).toBe(2);
     });
 
-    it('loadBedaysFailure should return an error message', () => {
+    it('loadBedaysFailure returns an error message', () => {
       const ERROR_MSG = 'No Error Available';
       const action = BedaysActions.loadBedaysFailure({ error: ERROR_MSG });
 
@@ -41,7 +41,7 @@ describe('Bedays Reducer', () => {
   });
 
   describe('unknown action', () => {
-    it('should return the previous state', () => {
+    it('returns the previous state', () => {
       const action = {} as Action;
 
       const result = reducer(initialState, action);

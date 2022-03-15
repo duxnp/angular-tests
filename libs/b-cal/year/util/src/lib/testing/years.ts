@@ -2,9 +2,7 @@ import { Dictionary } from '@ngrx/entity';
 import { DateTime } from 'luxon';
 
 import { BedaysEntity } from '@ng-tests/b-cal/shared/util';
-import { Day } from '@ng-tests/b-cal/year/util';
-
-import { YearsEntity } from './years.models';
+import { Day, YearsEntity } from '@ng-tests/b-cal/year/util';
 
 export const createYearsEntity = (id: number, name = ''): YearsEntity => ({
   id,

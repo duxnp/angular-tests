@@ -75,10 +75,10 @@
                 "onlyDependOnLibsWithTags": [
                   "type:util",
                   "type:environments"
-                ],
-                "bannedExternalImports": [
-                  "*angular*"
                 ]
+                // "bannedExternalImports": [
+                //   "*angular*"
+                // ]
               },
               {
                 "sourceTag": "type:environments",

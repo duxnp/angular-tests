@@ -1,10 +1,9 @@
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { Action, createReducer, on } from '@ngrx/store';
 
-import { Day } from '@ng-tests/b-cal/year/util';
+import { Day, YearsEntity } from '@ng-tests/b-cal/year/util';
 
 import * as YearsActions from './years.actions';
-import { YearsEntity } from './years.models';
 
 export const YEARS_FEATURE_KEY = 'years';
 

@@ -5,7 +5,7 @@ import { BedaysEntity } from '@ng-tests/b-cal/shared/util';
 import { getYear } from './get-year';
 
 describe('getYear', () => {
-  it('should return a year', () => {
+  it('returns a year entity', () => {
     // Arrange
     const entities: Dictionary<BedaysEntity> = {
       '1': { id: 1, name: 'foo', abbreviation: 'foo' },

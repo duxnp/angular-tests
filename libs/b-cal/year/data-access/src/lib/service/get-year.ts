@@ -1,8 +1,8 @@
 import { Dictionary } from '@ngrx/entity';
 
 import { BedaysEntity } from '@ng-tests/b-cal/shared/util';
+import { YearsEntity } from '@ng-tests/b-cal/year/util';
 
-import { YearsEntity } from '../+state/years/years.models';
 import { getYearDays } from './';
 
 // For if you are generating Year: Days[]

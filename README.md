@@ -2,10 +2,10 @@
 
 ## Deploying to Firebase
 
-```
-npm install -g firebase-tools
-firebase login
-firebase deploy -P b-cal --only hosting --config firebase.b-cal.json
+```shell
+$ npm install -g firebase-tools
+$ firebase login
+$ firebase deploy -P b-cal --only hosting --config firebase.b-cal.json
 ```
 
 ## Unit Tests
@@ -34,10 +34,21 @@ firebase deploy -P b-cal --only hosting --config firebase.b-cal.json
   },
 ```
 
-- The extension is expecting the Jest CLI to be available globally
+- Configure the root jest.config.js for code coverage reporting
 
+```ts
+const { getJestProjects } = require('@nrwl/jest');
+
+module.exports = {
+  projects: getJestProjects(),
+  collectCoverage: true,
+};
 ```
-npm install jest --global
+
+- Generate a full coverage report by simply running jest
+
+```shell
+$ npx jest
 ```
 
 This project was generated using [Nx](https://nx.dev).

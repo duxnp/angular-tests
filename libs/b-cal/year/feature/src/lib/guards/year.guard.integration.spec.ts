@@ -16,7 +16,7 @@ import { YearGuard } from './year.guard';
 //     guard = TestBed.inject(YearGuard);
 //   });
 
-//   it('should be created', () => {
+//   it('initializes', () => {
 //     expect(guard).toBeTruthy();
 //   });
 // });
@@ -87,33 +87,33 @@ describe('YearGuard', () => {
   //   expect(foo).toBe(true);
   // });
 
-  it('should redirect to current year initially', fakeAsync(() => {
+  it('redirects to current year initially', fakeAsync(() => {
     router.navigate(['']);
     tick();
     const year = DateTime.now().year;
     expect(router.url).toBe(`/${year}`);
   }));
 
-  it('should redirect to current year if NaN', fakeAsync(() => {
+  it('redirects to current year if NaN', fakeAsync(() => {
     router.navigate(['fubar']);
     tick();
     const year = DateTime.now().year;
     expect(router.url).toBe(`/${year}`);
   }));
 
-  it('should allow navigation to valid year', fakeAsync(() => {
+  it('allows navigation to valid year', fakeAsync(() => {
     router.navigate([2023]);
     tick();
     expect(router.url).toBe('/2023');
   }));
 
-  it('should redirect to maximum year', fakeAsync(() => {
+  it('redirects to maximum year', fakeAsync(() => {
     router.navigate([LuxonLimits.YEAR_MAX + 1]);
     tick();
     expect(router.url).toBe(`/${LuxonLimits.YEAR_MAX}`);
   }));
 
-  it('should redirect to minimum year', fakeAsync(() => {
+  it('redirects to minimum year', fakeAsync(() => {
     router.navigate([LuxonLimits.YEAR_MIN - 1]);
     tick();
     expect(router.url).toBe(`/${LuxonLimits.YEAR_MIN}`);
