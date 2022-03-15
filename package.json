@@ -35,7 +35,7 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help",
     "clean": "npx rimraf node_modules package-lock.json",
-    "json-server": "json-server --watch apps/ngrx-ultimate/db.json --routes apps/ngrx-ultimate/routes.json"
+    "ngrx-ult:json-server": "json-server --watch apps/ngrx-ultimate/db.json --routes apps/ngrx-ultimate/routes.json"
   },
   "private": true,
   "dependencies": {
