@@ -1,9 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+
 import { AuthService } from '../../../../core/service/auth.service';
 import { ArticlesApiService } from '../../../../data/service/articles-api.service';
 import { Article } from '../../../../data/types/article';
 import { Paginator } from '../../../../data/types/paginator';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-articles-index',

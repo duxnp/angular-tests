@@ -1,6 +1,7 @@
-import { Params, ActivatedRouteSnapshot } from '@angular/router';
-import { UrlParams } from '@angular-tests/shared/domain';
+import { ActivatedRouteSnapshot, Params } from '@angular/router';
 import { SerializedRouterStateSnapshot } from '@ngrx/router-store';
+
+import { UrlParams } from '@ng-tests/shared/domain';
 
 function flattenRouteParams(routerState: SerializedRouterStateSnapshot) {
   let currentRoute = routerState?.root;

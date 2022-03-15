@@ -1,7 +1,13 @@
-import { createEntityAdapter, EntityAdapter, EntityState, Update } from '@ngrx/entity';
+import {
+  createEntityAdapter,
+  EntityAdapter,
+  EntityState,
+  Update
+} from '@ngrx/entity';
 import { createReducer, on } from '@ngrx/store';
-import * as fromPizzas from '../actions/pizzas.action';
+
 import { defaultPizza, Pizza } from '../../models/pizza.model';
+import * as fromPizzas from '../actions/pizzas.action';
 
 export interface PizzaState extends EntityState<Pizza>{
   loaded: boolean;

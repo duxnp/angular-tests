@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
+import { DatatableComponent } from './datatable/datatable.component';
+import { DatepickerComponent } from './datepicker/datepicker.component';
 import { ExamplesComponent } from './examples/examples.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
-import { ToolbarsComponent } from './toolbars/toolbars.component';
 import { IconsComponent } from './icons/icons.component';
 import { InputsComponent } from './inputs/inputs.component';
 import { LoadingComponent } from './loading/loading.component';
-import { TabsComponent } from './tabs/tabs.component';
-import { DatepickerComponent } from './datepicker/datepicker.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
 import { SnackbarComponent } from './snackbar/snackbar.component';
-import { DatatableComponent } from './datatable/datatable.component';
+import { TabsComponent } from './tabs/tabs.component';
+import { ToolbarsComponent } from './toolbars/toolbars.component';
 
 const routes: Routes = [
   {

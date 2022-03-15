@@ -1,4 +1,4 @@
-import { Params, ActivatedRouteSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, Params } from '@angular/router';
 import { SerializedRouterStateSnapshot } from '@ngrx/router-store';
 
 export function getRouteNestedParams(

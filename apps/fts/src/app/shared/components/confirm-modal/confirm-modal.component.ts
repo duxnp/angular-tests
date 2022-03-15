@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { ModalContent } from '../../../core/service/confirm.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+
+import { ModalContent } from '../../../core/service/confirm.service';
 
 @Component({
   selector: 'app-confirm-modal',

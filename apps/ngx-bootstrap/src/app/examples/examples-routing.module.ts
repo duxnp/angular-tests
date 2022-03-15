@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+
 import { AccordionComponent } from './accordion/accordion.component';
 import { AlertsComponent } from './alerts/alerts.component';
 import { ButtonsComponent } from './buttons/buttons.component';

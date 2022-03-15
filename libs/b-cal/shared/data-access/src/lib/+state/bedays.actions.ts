@@ -1,5 +1,6 @@
 import { createAction, props } from '@ngrx/store';
-import { BedaysEntity } from '@angular-tests/b-cal/shared/util';
+
+import { BedaysEntity } from '@ng-tests/b-cal/shared/util';
 
 export const init = createAction('[Bedays] Init');
 

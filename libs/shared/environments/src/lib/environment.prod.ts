@@ -1,4 +1,4 @@
-import { AppConfig } from '@angular-tests/shared/domain';
+import { AppConfig } from '@ng-tests/shared/domain';
 
 export const environment: AppConfig = {
   production: false,

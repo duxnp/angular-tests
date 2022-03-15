@@ -1,15 +1,16 @@
-import {
-  Component,
-  ChangeDetectionStrategy,
-  NgModule,
-  Input,
-  Output,
-  EventEmitter,
-} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Day } from '@angular-tests/b-cal/year/util';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  NgModule,
+  Output
+} from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { DayPipeModule } from '@angular-tests/b-cal/shared/util';
+
+import { DayPipeModule } from '@ng-tests/b-cal/shared/util';
+import { Day } from '@ng-tests/b-cal/year/util';
 
 @Component({
   selector: 'bc-day-card',

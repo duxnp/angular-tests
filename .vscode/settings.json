@@ -14,27 +14,53 @@
     "enabled": true,
     "showInlineError": false
   },
+  "importSorter.generalConfiguration.sortOnBeforeSave": true,
+  "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "newLineEachExpressionAfterCountLimitExceptIfOnlyOne",
+  "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 80,
+  "importSorter.importStringConfiguration.tabSize": 2,
+  "importSorter.importStringConfiguration.quoteMark": "single",
+  "importSorter.importStringConfiguration.hasSemicolon": true,
+  "importSorter.sortConfiguration.customOrderingRules.rules": [
+    {
+      "type": "importMember",
+      "regex": "^$",
+      "orderLevel": 10,
+      "disableSort": true
+    },
+    {
+      "regex": "^@ng-tests",
+      "orderLevel": 30
+    },
+    {
+      "regex": "^[@]",
+      "orderLevel": 20
+    },
+    {
+      "regex": "^[.]",
+      "orderLevel": 40
+    }
+  ],
   "files.exclude": {
-    "**/*.js": true,
-    "**/.browserslistrc": true,
-    "**/.gitkeep": true,
-    "**/tsconfig.json": true,
-    "**/tsconfig.app.json": true,
-    "**/tsconfig.base.json": true,
-    "**/tsconfig.lib.json": true,
-    "**/tsconfig.spec.json": true,
-    "**/.eslintrc.json": true,
-    "**/project.json": true,
-    "**/test-setup.ts": true,
-    ".angular": true,
-    "dist/": true,
-    "node_modules/": true,
-    ".editorconfig": true,
-    ".firebaserc": true,
-    ".gitignore": true,
-    ".prettierignore": true,
-    ".prettierrc": true,
-    "firebase*.json": true,
-    "package-lock.json": true
+    // "**/*.js": true,
+    // "**/.browserslistrc": true,
+    // "**/.gitkeep": true,
+    // "**/tsconfig.json": true,
+    // "**/tsconfig.app.json": true,
+    // "**/tsconfig.base.json": true,
+    // "**/tsconfig.lib.json": true,
+    // "**/tsconfig.spec.json": true,
+    // "**/.eslintrc.json": true,
+    // "**/project.json": true,
+    // "**/test-setup.ts": true,
+    // ".angular": true,
+    // "dist/": true,
+    // "node_modules/": true,
+    // ".editorconfig": true,
+    // ".firebaserc": true,
+    // ".gitignore": true,
+    // ".prettierignore": true,
+    // ".prettierrc": true,
+    // "firebase*.json": true,
+    // "package-lock.json": true
   }
 }

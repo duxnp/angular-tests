@@ -1,5 +1,5 @@
 {
-  "name": "angular-tests",
+  "name": "ng-tests",
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
@@ -35,7 +35,7 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help",
     "clean": "npx rimraf node_modules package-lock.json",
-    "json-server": "json-server --watch apps/ngrx-ultimate/db.json --routes apps/ngrx-ultimate/routes.json"
+    "ngrx-ult:json-server": "json-server --watch apps/ngrx-ultimate/db.json --routes apps/ngrx-ultimate/routes.json"
   },
   "private": true,
   "dependencies": {
@@ -83,6 +83,7 @@
     "@angular/cli": "13.2.3",
     "@angular/compiler-cli": "13.2.2",
     "@angular/language-service": "13.2.2",
+    "@ngneat/spectator": "^10.0.0",
     "@ngrx/schematics": "~13.0.0",
     "@ngrx/store-devtools": "^13.0.2",
     "@nrwl/cli": "13.8.1",
@@ -106,6 +107,7 @@
     "jest": "27.2.3",
     "jest-preset-angular": "11.0.0",
     "json-server": "^0.17.0",
+    "ng-mocks": "^13.1.0",
     "prettier": "2.5.1",
     "ts-jest": "27.0.5",
     "ts-node": "~9.1.1",

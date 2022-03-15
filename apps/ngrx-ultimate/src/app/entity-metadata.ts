@@ -1,7 +1,7 @@
 import {
-  EntityMetadataMap,
-  EntityDataModuleConfig,
   DefaultDataServiceConfig,
+  EntityDataModuleConfig,
+  EntityMetadataMap
 } from '@ngrx/data';
 
 const entityMetadata: EntityMetadataMap = {

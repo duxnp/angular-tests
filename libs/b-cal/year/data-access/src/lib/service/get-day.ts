@@ -1,8 +1,10 @@
-import { BedaysEntity } from '@angular-tests/b-cal/shared/util';
-import { Day } from '@angular-tests/b-cal/year/util';
-import { normalizeWeekday } from '@angular-tests/shared/util';
 import { Dictionary } from '@ngrx/entity';
 import { DateTime } from 'luxon';
+
+import { BedaysEntity } from '@ng-tests/b-cal/shared/util';
+import { Day } from '@ng-tests/b-cal/year/util';
+import { normalizeWeekday } from '@ng-tests/shared/util';
+
 import { getBeday } from './get-beday';
 
 export function getDay(calendar: DateTime, bedays: Dictionary<BedaysEntity>) {

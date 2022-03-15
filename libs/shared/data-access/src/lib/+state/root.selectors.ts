@@ -1,9 +1,10 @@
-import { createSelector } from '@ngrx/store';
 import * as fromRouter from '@ngrx/router-store';
+import { createSelector } from '@ngrx/store';
+
 import {
   getRouteNestedConfigPath,
-  getRouteNestedParams,
-} from '@angular-tests/shared/util';
+  getRouteNestedParams
+} from '@ng-tests/shared/util';
 
 export const {
   selectCurrentRoute, // select the current route

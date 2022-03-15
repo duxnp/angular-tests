@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, Input, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { delay, skip } from 'rxjs/operators';
 

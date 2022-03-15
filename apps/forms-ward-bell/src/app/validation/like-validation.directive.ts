@@ -2,8 +2,8 @@ import { Directive, Input } from '@angular/core';
 import {
   AbstractControl,
   NG_VALIDATORS,
-  Validator,
   ValidationErrors,
+  Validator
 } from '@angular/forms';
 
 import { forbiddenNameValidator } from './like-validation';

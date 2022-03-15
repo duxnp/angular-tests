@@ -1,5 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { YEARS_FEATURE_KEY, State, yearsAdapter } from './years.reducer';
+
+import { State, YEARS_FEATURE_KEY, yearsAdapter } from './years.reducer';
 
 // Lookup the 'Years' feature state managed by NgRx
 export const getYearsState = createFeatureSelector<State>(YEARS_FEATURE_KEY);

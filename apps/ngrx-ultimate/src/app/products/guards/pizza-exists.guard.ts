@@ -1,11 +1,20 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router, UrlTree } from '@angular/router';
-
 import { Store } from '@ngrx/store';
 import { concat, EMPTY, Observable, of } from 'rxjs';
-import { catchError, filter, finalize, skip, switchMap, take, takeLast, takeUntil, tap } from 'rxjs/operators';
-import { Pizza } from '../models/pizza.model';
+import {
+  catchError,
+  filter,
+  finalize,
+  skip,
+  switchMap,
+  take,
+  takeLast,
+  takeUntil,
+  tap
+} from 'rxjs/operators';
 
+import { Pizza } from '../models/pizza.model';
 import * as fromStore from '../store';
 
 @Injectable()

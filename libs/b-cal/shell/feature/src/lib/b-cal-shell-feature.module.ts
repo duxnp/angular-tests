@@ -1,8 +1,10 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Route } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { Route, RouterModule } from '@angular/router';
+
+import { BCalSharedDataAccessModule } from '@ng-tests/b-cal/shared/data-access';
+
 import { LayoutComponent } from './layout/layout.component';
-import { BCalSharedDataAccessModule } from '@angular-tests/b-cal/shared/data-access';
 
 const routes: Route[] = [
   // { path: '', redirectTo: 'year', pathMatch: 'full' },
@@ -13,8 +15,7 @@ const routes: Route[] = [
       {
         path: '',
         loadChildren: async () =>
-          (await import('@angular-tests/b-cal/year/feature'))
-            .BCalYearFeatureModule,
+          (await import('@ng-tests/b-cal/year/feature')).BCalYearFeatureModule,
       },
     ],
   },

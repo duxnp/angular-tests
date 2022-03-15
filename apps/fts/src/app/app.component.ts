@@ -1,15 +1,17 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnDestroy, OnInit, TemplateRef } from '@angular/core';
-import { environment as env } from '../environments/environment';
-import { HtmlService } from './data/service/html.service';
-import { interval, Subscription, throwError } from 'rxjs';
-import { User } from './data/types/user';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ConfirmModalComponent } from './shared/components/confirm-modal/confirm-modal.component';
-import { ModalContent } from './core/service/confirm.service';
-import { LogoutPromptComponent } from './shared/components/logout-prompt/logout-prompt.component';
+import { interval, Subscription, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+
+import { environment as env } from '../environments/environment';
+import { Logger } from './core/logger.service';
+import { ModalContent } from './core/service/confirm.service';
+import { HtmlService } from './data/service/html.service';
+import { User } from './data/types/user';
+import { ConfirmModalComponent } from './shared/components/confirm-modal/confirm-modal.component';
+import { LogoutPromptComponent } from './shared/components/logout-prompt/logout-prompt.component';
 
 @Component({
   selector: 'app-root',
@@ -38,6 +40,8 @@ export class AppComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
+    const logger = new Logger('App Component');
+
     this.sub = interval(1000).subscribe((value) => {
       // console.log(`value %c${value}`, 'background: #222; color: #fff; padding: 5px;');
     });
@@ -48,6 +52,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
     this.html.get('test.html').subscribe((res) => {
       this.htmlData = res;
+      logger.info([baseHref, this.htmlData]);
     });
 
     // withCredentials must be set to true for the browser to accept cookies in the response

@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Quote, QuoteUtil } from '@angular-tests/shared/domain';
 import {
   EntityCollectionServiceBase,
-  EntityCollectionServiceElementsFactory,
+  EntityCollectionServiceElementsFactory
 } from '@ngrx/data';
+
+import { Quote, QuoteUtil } from '@ng-tests/shared/domain';
 
 @Injectable({ providedIn: 'root' })
 export class QuotesService extends EntityCollectionServiceBase<Quote> {

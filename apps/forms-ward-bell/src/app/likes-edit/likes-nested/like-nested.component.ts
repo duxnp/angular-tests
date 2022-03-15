@@ -1,16 +1,16 @@
 import {
+  AfterViewInit,
   Component,
   EventEmitter,
   Input,
   Output,
-  ViewChild,
-  AfterViewInit,
+  ViewChild
 } from '@angular/core';
 import { NgModel, Validators } from '@angular/forms';
 
-import { forbiddenNameValidator } from '../../validation/like-validation';
-import { Like } from '../../model';
 import { formViewProvider } from '../../form-view-provider';
+import { Like } from '../../model';
+import { forbiddenNameValidator } from '../../validation/like-validation';
 
 @Component({
   selector: 'app-like-nested-form',

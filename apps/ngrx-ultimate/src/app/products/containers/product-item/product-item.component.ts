@@ -1,13 +1,11 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { combineLatest, Observable } from 'rxjs';
-import * as fromStore from '../../store'
-
-import { PizzaUtil, Pizza } from '../../models/pizza.model';
-import { Topping } from '../../models/topping.model';
 import { map, switchMap } from 'rxjs/operators';
 
+import { Pizza, PizzaUtil } from '../../models/pizza.model';
+import { Topping } from '../../models/topping.model';
+import * as fromStore from '../../store';
 
 @Component({
   selector: 'product-item',

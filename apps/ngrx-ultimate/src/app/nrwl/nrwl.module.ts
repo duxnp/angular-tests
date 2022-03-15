@@ -1,18 +1,13 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { EffectsModule } from '@ngrx/effects';
 
 import * as fromContainers from './containers';
-import {
-  ChildOneComponent,
-  ChildTwoComponent,
-  ParentComponent,
-} from './containers';
-import { effects } from './store/effects';
-import { EffectsModule } from '@ngrx/effects';
 import { ParamsComponent } from './containers/params/params.component';
+import { effects } from './store/effects';
 
 export const ROUTES: Routes = [
   { path: '', component: ParentComponent },

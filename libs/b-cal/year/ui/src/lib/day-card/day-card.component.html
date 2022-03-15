@@ -1,4 +1,4 @@
-<ng-container *ngIf="day.beday">
+<ng-container *ngIf="day?.beday">
   <div
     class="card"
     [ngClass]="{
@@ -8,14 +8,14 @@
     }"
     (click)="dayClick.emit(day)"
   >
-    <span class="d-none" [ngClass.lt-sm]="{ 'd-none': false }">{{
-      day.dayOfYear
-    }}</span>
-    <span class="d-none" [ngClass.sm]="{ 'd-none': false }">{{
-      day.beday?.abbreviation
-    }}</span>
-    <span class="d-none" [ngClass.gt-sm]="{ 'd-none': false }">{{
-      day.beday?.name | day
-    }}</span>
+    <span class="d-none" [ngClass.lt-sm]="{ 'd-none': false }">
+      {{ day.dayOfYear }}
+    </span>
+    <span class="d-none" [ngClass.sm]="{ 'd-none': false }">
+      {{ day.beday?.abbreviation }}
+    </span>
+    <span class="d-none" [ngClass.gt-sm]="{ 'd-none': false }">
+      {{ day.beday?.name | day }}
+    </span>
   </div>
 </ng-container>

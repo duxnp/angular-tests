@@ -1,15 +1,12 @@
 import { YearsEntity } from './years.models';
-import { yearsAdapter, YearsPartialState, initialState } from './years.reducer';
+import { initialState, yearsAdapter, YearsPartialState } from './years.reducer';
 import * as YearsSelectors from './years.selectors';
+import { createYearsEntity, getDayMock } from './years.testing';
 
 describe('Years Selectors', () => {
   const ERROR_MSG = 'No Error Available';
+  const TODAY = getDayMock();
   const getYearsId = (it: YearsEntity) => it.id;
-  const createYearsEntity = (id: string, name = '') =>
-    ({
-      id,
-      name: name || `name-${id}`,
-    } as YearsEntity);
 
   let state: YearsPartialState;
 
@@ -17,15 +14,16 @@ describe('Years Selectors', () => {
     state = {
       years: yearsAdapter.setAll(
         [
-          createYearsEntity('PRODUCT-AAA'),
-          createYearsEntity('PRODUCT-BBB'),
-          createYearsEntity('PRODUCT-CCC'),
+          createYearsEntity(2022),
+          createYearsEntity(2023),
+          createYearsEntity(2024),
         ],
         {
           ...initialState,
-          selectedId: 'PRODUCT-BBB',
+          selectedId: 2022,
           error: ERROR_MSG,
           loaded: true,
+          today: TODAY,
         }
       ),
     };
@@ -37,14 +35,14 @@ describe('Years Selectors', () => {
       const selId = getYearsId(results[1]);
 
       expect(results.length).toBe(3);
-      expect(selId).toBe('PRODUCT-BBB');
+      expect(selId).toBe(2023);
     });
 
     it('getSelected() should return the selected Entity', () => {
       const result = YearsSelectors.getSelected(state) as YearsEntity;
       const selId = getYearsId(result);
 
-      expect(selId).toBe('PRODUCT-BBB');
+      expect(selId).toBe(2022);
     });
 
     it('getYearsLoaded() should return the current "loaded" status', () => {
@@ -57,6 +55,12 @@ describe('Years Selectors', () => {
       const result = YearsSelectors.getYearsError(state);
 
       expect(result).toBe(ERROR_MSG);
+    });
+
+    it('getToday() should return the current day', () => {
+      const result = YearsSelectors.getToday(state);
+
+      expect(result).toEqual(TODAY);
     });
   });
 });

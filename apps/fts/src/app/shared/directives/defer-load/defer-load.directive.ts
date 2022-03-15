@@ -1,12 +1,12 @@
 /* https://blog.angularindepth.com/a-modern-solution-to-lazy-loading-using-intersection-observer-9280c149bbc */
 
 import {
-  Directive,
-  Output,
-  EventEmitter,
-  ElementRef,
   AfterViewInit,
+  Directive,
+  ElementRef,
+  EventEmitter,
   OnDestroy,
+  Output
 } from '@angular/core';
 
 // selector would be <appDeferLoad> if you wanted it to be an element directive

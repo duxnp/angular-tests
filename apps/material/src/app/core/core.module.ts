@@ -1,13 +1,12 @@
-import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { NgModule, Optional, SkipSelf } from '@angular/core';
 // import { MAT_LABEL_GLOBAL_OPTIONS } from '@angular/material/core';
 import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 
-import { SettingsService } from './settings/settings.service';
-
 import { dialogOptions } from './config/mat-dialog';
 import { inputOptions } from './config/mat-input';
+import { SettingsService } from './settings/settings.service';
 
 @NgModule({
   imports: [

@@ -1,16 +1,16 @@
 import {
+  AfterViewInit,
   Component,
   EventEmitter,
   Input,
   Output,
-  ViewChild,
-  AfterViewInit,
+  ViewChild
 } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, map, skip } from 'rxjs/operators';
 
-import { Hero, HeroAndLikes } from '../model';
 import { ngIfAnim } from '../animations';
+import { Hero, HeroAndLikes } from '../model';
 
 @Component({
   selector: 'app-hero-form',

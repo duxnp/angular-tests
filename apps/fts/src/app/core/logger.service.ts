@@ -46,10 +46,18 @@ export enum LogLevel {
  * Log output handler function.
  */
 export type LogOutput = (
-  source: string,
+  source: string | undefined,
   level: LogLevel,
   ...objects: any[]
 ) => void;
+
+export type ConsoleMethodNames = 'log' | 'info' | 'warn' | 'error';
+
+export type ConsoleMethods =
+  | Console['log']
+  | Console['info']
+  | Console['warn']
+  | Console['error'];
 
 export class Logger {
   /**
@@ -105,14 +113,24 @@ export class Logger {
     this.log(console.error, LogLevel.Error, objects);
   }
 
-  private log(func: Function, level: LogLevel, objects: any[]) {
+  private log(func: ConsoleMethods, level: LogLevel, objects: any[]) {
+    // Compare number value of LogLevel enum
     if (level <= Logger.level) {
+      // If a value was supplied to the Logger constructor for the source member,
+      // put the string in a single element array, then combine it with the array of objects.
       const log = this.source
         ? ['[' + this.source + ']'].concat(objects)
         : objects;
+
+      // Apply the method given to the func parameter to the console, giving the log array as arguments to the method
+      // So, if this.info(...) was called:
+      //   console.info(log);
+      // Not sure if there's any advantage over just doing "func(log);"
       func.apply(console, log);
+
+      //
       Logger.outputs.forEach((output) =>
-        output.apply(output, [this.source, level].concat(objects))
+        output.apply(output, [this.source, level, objects])
       );
     }
   }

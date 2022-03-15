@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import {
-  Router,
-  Resolve,
-  RouterStateSnapshot,
   ActivatedRouteSnapshot,
+  Resolve,
+  Router,
+  RouterStateSnapshot
 } from '@angular/router';
+import { Observable, of } from 'rxjs';
+
 import { ArticlesApiService } from '../../data/service/articles-api.service';
 import { ArticlesEditComponent } from '../../modules/articles/pages/articles-edit/articles-edit.component';
 import { ArticlesShowComponent } from '../../modules/articles/pages/articles-show/articles-show.component';
-import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',

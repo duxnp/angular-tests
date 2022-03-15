@@ -4,11 +4,12 @@ import {
   CanActivate,
   Router,
   RouterStateSnapshot,
-  UrlTree,
+  UrlTree
 } from '@angular/router';
-import { Observable, of } from 'rxjs';
 import { DateTime } from 'luxon';
-import { LuxonLimits } from '@angular-tests/shared/util';
+import { Observable, of } from 'rxjs';
+
+import { LuxonLimits } from '@ng-tests/shared/util';
 
 @Injectable({
   providedIn: 'root',

@@ -1,11 +1,12 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SharedDataAccessModule } from '@angular-tests/shared/data-access';
-import { StoreModule } from '@ngrx/store';
+import { NgModule } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
-import * as fromBedays from './+state/bedays.reducer';
+import { StoreModule } from '@ngrx/store';
+
+import { SharedDataAccessModule } from '@ng-tests/shared/data-access';
+
 import { BedaysEffects } from './+state/bedays.effects';
-import { BedaysFacade } from './+state/bedays.facade';
+import * as fromBedays from './+state/bedays.reducer';
 
 @NgModule({
   imports: [
@@ -14,6 +15,5 @@ import { BedaysFacade } from './+state/bedays.facade';
     StoreModule.forFeature(fromBedays.BEDAYS_FEATURE_KEY, fromBedays.reducer),
     EffectsModule.forFeature([BedaysEffects]),
   ],
-  providers: [BedaysFacade],
 })
 export class BCalSharedDataAccessModule {}

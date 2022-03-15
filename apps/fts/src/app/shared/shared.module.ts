@@ -1,20 +1,19 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-
 import {
   NgbModalModule,
   NgbPaginationModule,
-  NgbToastModule,
+  NgbToastModule
 } from '@ng-bootstrap/ng-bootstrap';
 
-import { InfiniteScrollComponent } from './components/infinite-scroll/infinite-scroll.component';
-import { DeferLoadDirective } from './directives/defer-load/defer-load.directive';
 import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.component';
-import { ToastsComponent } from './components/toasts/toasts.component';
+import { InfiniteScrollComponent } from './components/infinite-scroll/infinite-scroll.component';
 import { LogoutPromptComponent } from './components/logout-prompt/logout-prompt.component';
 import { ModalContentComponent } from './components/modal-content/modal-content.component';
+import { ToastsComponent } from './components/toasts/toasts.component';
+import { DeferLoadDirective } from './directives/defer-load/defer-load.directive';
 
 @NgModule({
   imports: [

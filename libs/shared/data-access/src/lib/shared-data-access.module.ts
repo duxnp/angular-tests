@@ -1,12 +1,14 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { EffectsModule } from '@ngrx/effects';
 import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-import { NxModule } from '@nrwl/angular';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { NxModule } from '@nrwl/angular';
+
+import { environment } from '@ng-tests/shared/environments';
+
 import * as fromReducers from './+state/root.reducer';
-import { environment } from '@angular-tests/shared/environments';
 
 @NgModule({
   imports: [

@@ -1,6 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
-import * as fromDraft from '../actions/draft.action';
+
 import { defaultPizza, Pizza } from '../../models/pizza.model';
+import * as fromDraft from '../actions/draft.action';
 
 export interface DraftState {
   entity: Pizza;

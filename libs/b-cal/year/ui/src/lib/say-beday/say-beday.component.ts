@@ -1,13 +1,14 @@
-import {
-  Component,
-  ChangeDetectionStrategy,
-  NgModule,
-  Input,
-} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BedaysEntity } from '@angular-tests/b-cal/shared/util';
-import { MatIconModule } from '@angular/material/icon';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  NgModule
+} from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+
+import { BedaysEntity } from '@ng-tests/b-cal/shared/util';
 
 @Component({
   selector: 'bc-say-beday',

@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
-
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
-import { switchMap, map, catchError } from 'rxjs/operators';
+import { catchError, map, switchMap } from 'rxjs/operators';
 
-import * as toppingsActions from '../actions/toppings.action'
 import * as fromServices from '../../services/toppings.service';
+import * as toppingsActions from '../actions/toppings.action';
 
 @Injectable()
 export class ToppingsEffects {

@@ -1,7 +1,8 @@
 import { createReducer, on } from '@ngrx/store';
-import * as fromToppings from '../actions/toppings.action';
+
+import * as utils from '../../../shared/utilities';
 import { Topping } from '../../models/topping.model';
-import * as utils from '../../../shared/utilities'
+import * as fromToppings from '../actions/toppings.action';
 
 export interface ToppingsState {
   entities: { [id: number]: Topping };

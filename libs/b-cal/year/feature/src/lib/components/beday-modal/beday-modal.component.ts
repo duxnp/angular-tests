@@ -1,11 +1,12 @@
-import { Component, ChangeDetectionStrategy, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Store } from '@ngrx/store';
-import { selectBedayEntity } from '@angular-tests/b-cal/year/data-access';
-import { BedayCardModule, SayBedayModule } from '@angular-tests/b-cal/year/ui';
-import { MatDialogShellModule } from '@angular-tests/shared/ui';
-import { DayPipeModule } from '@angular-tests/b-cal/shared/util';
+import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { Store } from '@ngrx/store';
+
+import { DayPipeModule } from '@ng-tests/b-cal/shared/util';
+import { selectBedayEntity } from '@ng-tests/b-cal/year/data-access';
+import { BedayCardModule, SayBedayModule } from '@ng-tests/b-cal/year/ui';
+import { MatDialogShellModule } from '@ng-tests/shared/ui';
 
 @Component({
   selector: 'bc-beday-modal',

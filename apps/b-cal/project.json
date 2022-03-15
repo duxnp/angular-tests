@@ -106,8 +106,8 @@
     }
   },
   "tags": [
-    "application:beluvian-calendar",
-    "scope:beluvian-calendar",
+    "application:b-cal",
+    "scope:b-cal",
     "type:app"
   ]
 }

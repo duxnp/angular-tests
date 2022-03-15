@@ -1,10 +1,9 @@
-import { Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
-import { OverlayContainer } from '@angular/cdk/overlay';
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { OverlayContainer } from '@angular/cdk/overlay';
+import { Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
 import { pluck } from 'rxjs/operators';
 
-import { routerTransition, growInOut } from './core';
-
+import { growInOut, routerTransition } from './core';
 // TODO: maybe add SettingsService to the core index.ts
 import { SettingsService } from './core/settings/settings.service';
 

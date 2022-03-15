@@ -1,6 +1,7 @@
-import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
-import { Observable, Subject, fromEvent } from 'rxjs';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { fromEvent, Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+
 // import { fromEvent } from 'rxjs/observable/fromEvent';
 
 // export const SCROLL_CONTAINER = '.mat-drawer-content';

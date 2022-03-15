@@ -1,9 +1,11 @@
 import { Dictionary } from '@ngrx/entity';
 import { DateTime } from 'luxon';
-import { BedaysEntity } from '@angular-tests/b-cal/shared/util';
-import { Day } from '@angular-tests/b-cal/year/util';
-import { getDay, getEmptyDay } from '.';
-import { normalizeWeekday } from '@angular-tests/shared/util';
+
+import { BedaysEntity } from '@ng-tests/b-cal/shared/util';
+import { Day } from '@ng-tests/b-cal/year/util';
+import { normalizeWeekday } from '@ng-tests/shared/util';
+
+import { getDay, getEmptyDay } from './';
 
 export function getYearDays(
   year: number,

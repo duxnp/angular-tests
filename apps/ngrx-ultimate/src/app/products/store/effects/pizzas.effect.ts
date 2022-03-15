@@ -1,25 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { ROUTER_NAVIGATED } from '@ngrx/router-store';
+import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
 import {
-  switchMap,
-  map,
   catchError,
-  exhaustMap,
-  tap,
   distinctUntilChanged,
   distinctUntilKeyChanged,
+  exhaustMap,
   filter,
+  map,
+  switchMap,
+  tap
 } from 'rxjs/operators';
 
-import * as draftActions from '../actions/draft.action';
-import * as pizzaActions from '../actions/pizzas.action';
 import * as fromServices from '../../services';
 import * as fromStore from '../../store';
-import { Store } from '@ngrx/store';
-import { ROUTER_NAVIGATED } from '@ngrx/router-store';
+import * as draftActions from '../actions/draft.action';
+import * as pizzaActions from '../actions/pizzas.action';
 
 @Injectable()
 export class PizzasEffects {

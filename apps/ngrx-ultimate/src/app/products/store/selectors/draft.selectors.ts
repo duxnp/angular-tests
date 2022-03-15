@@ -1,11 +1,13 @@
-import { ActionReducerMap, createFeatureSelector, createSelector } from "@ngrx/store";
+import {
+  ActionReducerMap,
+  createFeatureSelector,
+  createSelector
+} from '@ngrx/store';
 
-import * as fromRoot from '../../../store'
+import * as fromRoot from '../../../store';
+import { Pizza, PizzaUtil } from '../../models/pizza.model';
 import * as fromFeature from '../reducers';
 import * as fromDraft from '../reducers/draft.reducer';
-
-import { Pizza, PizzaUtil } from "../../models/pizza.model";
-
 
 export const getDraftState = createSelector(
   fromFeature.getProductsState,

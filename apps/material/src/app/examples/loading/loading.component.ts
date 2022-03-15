@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
 import {
-  trigger,
+  animate,
   state,
   style,
   transition,
-  animate,
+  trigger
 } from '@angular/animations';
-import { concat, interval } from 'rxjs';
-import { map, takeWhile, take, tap, ignoreElements } from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
 import { ProgressBarMode } from '@angular/material/progress-bar';
+import { concat, interval } from 'rxjs';
+import { ignoreElements, map, take, takeWhile, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-loading',

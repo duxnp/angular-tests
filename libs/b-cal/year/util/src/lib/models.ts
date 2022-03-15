@@ -1,4 +1,4 @@
-import { BedaysEntity } from '@angular-tests/b-cal/shared/util';
+import { BedaysEntity } from '@ng-tests/b-cal/shared/util';
 
 export interface Day {
   dayOfWeek: number;
@@ -9,10 +9,3 @@ export interface Day {
 }
 
 export type Days = Day[];
-
-export interface Week {
-  weekOfYear: number;
-  days: Days;
-}
-
-export type Weeks = Week[];

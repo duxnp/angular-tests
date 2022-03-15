@@ -1,5 +1,5 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
-import { transition, style, animate, trigger } from '@angular/animations';
+import { animate, style, transition, trigger } from '@angular/animations';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 import { Pizza } from '../../models/pizza.model';
 import { Topping } from '../../models/topping.model';

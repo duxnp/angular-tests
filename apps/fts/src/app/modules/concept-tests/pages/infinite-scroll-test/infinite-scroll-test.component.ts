@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { randNumber, randUserName, randText } from '@ngneat/falso';
+import { randNumber, randText, randUserName } from '@ngneat/falso';
+
 import { Tweet } from '../../../../data/types/tweet';
 
 @Component({

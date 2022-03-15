@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+
 import { Tweet } from '../../../../data/types/tweet';
 
 @Component({
