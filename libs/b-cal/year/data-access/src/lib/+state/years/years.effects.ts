@@ -70,7 +70,7 @@ export class YearsEffects {
   todayTick$ = createEffect(() =>
     this.timer$.pipe(
       concatLatestFrom(() => this.bedays$),
-      map(([i, bedays]) => {
+      map(([, bedays]) => {
         // TIME WARP
         // let day = getDay(DateTime.now().plus({ days: i }), bedays);
 
