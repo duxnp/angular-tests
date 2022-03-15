@@ -1,8 +1,8 @@
 import { Dictionary } from '@ngrx/entity';
 import { DateTime } from 'luxon';
 
-import { BedaysEntity } from '@angular-tests/b-cal/shared/util';
-import { Day } from '@angular-tests/b-cal/year/util';
+import { BedaysEntity } from '@ng-tests/b-cal/shared/util';
+import { Day } from '@ng-tests/b-cal/year/util';
 
 import { YearsEntity } from './years.models';
 

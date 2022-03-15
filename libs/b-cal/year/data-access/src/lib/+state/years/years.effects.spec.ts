@@ -2,7 +2,7 @@ import {
   discardPeriodicTasks,
   fakeAsync,
   TestBed,
-  tick,
+  tick
 } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -11,14 +11,14 @@ import {
   MinimalRouterStateSerializer,
   routerNavigatedAction,
   RouterNavigatedPayload,
-  SerializedRouterStateSnapshot,
+  SerializedRouterStateSnapshot
 } from '@ngrx/router-store';
 import { Action } from '@ngrx/store';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { hot } from 'jasmine-marbles';
 import { Observable } from 'rxjs';
 
-import { MockTestComponent } from '@angular-tests/shared/test-utils';
+import { MockTestComponent } from '@ng-tests/shared/test-utils';
 
 import { getYear } from '../../service';
 import * as YearsActions from './years.actions';

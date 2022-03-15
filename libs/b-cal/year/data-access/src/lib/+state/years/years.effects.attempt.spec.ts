@@ -11,9 +11,9 @@ import { Store, StoreModule } from '@ngrx/store';
 import { hot } from 'jasmine-marbles';
 import { skip } from 'rxjs/operators';
 
-import { RootFeature, RootSelectors } from '@angular-tests/shared/data-access';
-import { MockTestComponent } from '@angular-tests/shared/test-utils';
-import { getRouteNestedParams } from '@angular-tests/shared/util';
+import { RootFeature, RootSelectors } from '@ng-tests/shared/data-access';
+import { MockTestComponent } from '@ng-tests/shared/test-utils';
+import { getRouteNestedParams } from '@ng-tests/shared/util';
 
 import * as YearsActions from './years.actions';
 import { YearsEffects } from './years.effects';

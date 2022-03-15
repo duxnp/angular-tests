@@ -6,7 +6,7 @@ import { DataPersistence, NxModule } from '@nrwl/angular';
 import { hot } from 'jasmine-marbles';
 import { Observable } from 'rxjs';
 
-import { bedays } from '@angular-tests/b-cal/shared/util';
+import { bedays } from '@ng-tests/b-cal/shared/util';
 
 import * as BedaysActions from './bedays.actions';
 import { BedaysEffects } from './bedays.effects';

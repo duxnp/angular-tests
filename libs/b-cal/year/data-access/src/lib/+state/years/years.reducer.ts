@@ -1,6 +1,7 @@
-import { Day } from '@angular-tests/b-cal/year/util';
-import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
-import { createReducer, on, Action } from '@ngrx/store';
+import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
+import { Action, createReducer, on } from '@ngrx/store';
+
+import { Day } from '@ng-tests/b-cal/year/util';
 
 import * as YearsActions from './years.actions';
 import { YearsEntity } from './years.models';

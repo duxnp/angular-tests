@@ -1,8 +1,9 @@
-import { BedaysEntity } from '@angular-tests/b-cal/shared/util';
 import { Action } from '@ngrx/store';
 
+import { BedaysEntity } from '@ng-tests/b-cal/shared/util';
+
 import * as BedaysActions from './bedays.actions';
-import { State, initialState, reducer } from './bedays.reducer';
+import { initialState, reducer, State } from './bedays.reducer';
 
 describe('Bedays Reducer', () => {
   const createBedaysEntity = (

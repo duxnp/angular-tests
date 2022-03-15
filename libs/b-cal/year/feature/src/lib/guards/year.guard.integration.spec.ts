@@ -3,8 +3,8 @@ import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { DateTime } from 'luxon';
 
-import { MockTestComponent } from '@angular-tests/shared/test-utils';
-import { LuxonLimits } from '@angular-tests/shared/util';
+import { MockTestComponent } from '@ng-tests/shared/test-utils';
+import { LuxonLimits } from '@ng-tests/shared/util';
 
 import { YearGuard } from './year.guard';
 

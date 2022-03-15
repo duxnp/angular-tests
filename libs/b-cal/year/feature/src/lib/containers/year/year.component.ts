@@ -8,10 +8,10 @@ import { Store } from '@ngrx/store';
 import { combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { YearsSelectors } from '@angular-tests/b-cal/year/data-access';
-import { CalendarModule, DayCardModule } from '@angular-tests/b-cal/year/ui';
-import { Day } from '@angular-tests/b-cal/year/util';
-import { filterNullish } from '@angular-tests/shared/util';
+import { YearsSelectors } from '@ng-tests/b-cal/year/data-access';
+import { CalendarModule, DayCardModule } from '@ng-tests/b-cal/year/ui';
+import { Day } from '@ng-tests/b-cal/year/util';
+import { filterNullish } from '@ng-tests/shared/util';
 
 @Component({
   selector: 'bc-year',

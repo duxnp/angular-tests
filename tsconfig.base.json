@@ -10,50 +10,66 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@angular-tests/b-cal/shared/assets": [
+      "@ng-tests/b-cal/shared/assets": [
         "libs/b-cal/shared/assets/src/index.ts"
       ],
-      "@angular-tests/b-cal/shared/data-access": [
+      "@ng-tests/b-cal/shared/data-access": [
         "libs/b-cal/shared/data-access/src/index.ts"
       ],
-      "@angular-tests/b-cal/shared/domain": [
+      "@ng-tests/b-cal/shared/domain": [
         "libs/b-cal/shared/domain/src/index.ts"
       ],
-      "@angular-tests/b-cal/shared/util": [
+      "@ng-tests/b-cal/shared/util": [
         "libs/b-cal/shared/util/src/index.ts"
       ],
-      "@angular-tests/b-cal/shell/feature": [
+      "@ng-tests/b-cal/shell/feature": [
         "libs/b-cal/shell/feature/src/index.ts"
       ],
-      "@angular-tests/b-cal/year/data-access": [
+      "@ng-tests/b-cal/year/data-access": [
         "libs/b-cal/year/data-access/src/index.ts"
       ],
-      "@angular-tests/b-cal/year/feature": [
+      "@ng-tests/b-cal/year/feature": [
         "libs/b-cal/year/feature/src/index.ts"
       ],
-      "@angular-tests/b-cal/year/ui": ["libs/b-cal/year/ui/src/index.ts"],
-      "@angular-tests/b-cal/year/util": ["libs/b-cal/year/util/src/index.ts"],
-      "@angular-tests/shared/data-access": [
+      "@ng-tests/b-cal/year/ui": [
+        "libs/b-cal/year/ui/src/index.ts"
+      ],
+      "@ng-tests/b-cal/year/util": [
+        "libs/b-cal/year/util/src/index.ts"
+      ],
+      "@ng-tests/shared/data-access": [
         "libs/shared/data-access/src/index.ts"
       ],
-      "@angular-tests/shared/domain": ["libs/shared/domain/src/index.ts"],
-      "@angular-tests/shared/entity-store": [
+      "@ng-tests/shared/domain": [
+        "libs/shared/domain/src/index.ts"
+      ],
+      "@ng-tests/shared/entity-store": [
         "libs/shared/entity-store/src/index.ts"
       ],
-      "@angular-tests/shared/environments": [
+      "@ng-tests/shared/environments": [
         "libs/shared/environments/src/index.ts"
       ],
-      "@angular-tests/shared/test-utils": [
+      "@ng-tests/shared/test-utils": [
         "libs/shared/test-utils/src/index.ts"
       ],
-      "@angular-tests/shared/ui": ["libs/shared/ui/src/index.ts"],
-      "@angular-tests/shared/util": ["libs/shared/util/src/index.ts"]
+      "@ng-tests/shared/ui": [
+        "libs/shared/ui/src/index.ts"
+      ],
+      "@ng-tests/shared/util": [
+        "libs/shared/util/src/index.ts"
+      ]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }

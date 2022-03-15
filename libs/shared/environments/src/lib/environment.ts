@@ -2,7 +2,7 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-import { AppConfig } from '@angular-tests/shared/domain';
+import { AppConfig } from '@ng-tests/shared/domain';
 
 // The apiURL begins with '//' instead of 'http://' to trick Angular into thinking it's a relative path
 // so it will add the X-XSRF-HEADER to requests.

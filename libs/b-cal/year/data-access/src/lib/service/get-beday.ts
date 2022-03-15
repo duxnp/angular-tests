@@ -1,6 +1,7 @@
-import { BedaysEntity } from '@angular-tests/b-cal/shared/util';
 import { Dictionary } from '@ngrx/entity';
 import { DateTime } from 'luxon';
+
+import { BedaysEntity } from '@ng-tests/b-cal/shared/util';
 
 export function getBeday(calendar: DateTime, bedays: Dictionary<BedaysEntity>) {
   let index = calendar.ordinal;

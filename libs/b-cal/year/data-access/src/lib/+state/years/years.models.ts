@@ -1,4 +1,4 @@
-import { Days } from '@angular-tests/b-cal/year/util';
+import { Days } from '@ng-tests/b-cal/year/util';
 
 /**
  * Interface for the 'Years' data

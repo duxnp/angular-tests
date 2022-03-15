@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { mockPipe } from '@angular-tests/shared/test-utils';
+import { mockPipe } from '@ng-tests/shared/test-utils';
 
 import { DayCardComponent } from './day-card.component';
 

@@ -1,6 +1,6 @@
 import { Dictionary } from '@ngrx/entity';
 
-import { BedaysEntity } from '@angular-tests/b-cal/shared/util';
+import { BedaysEntity } from '@ng-tests/b-cal/shared/util';
 
 import { getYear } from './get-year';
 

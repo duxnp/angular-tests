@@ -1,13 +1,14 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { ApiPaginated } from '@angular-tests/shared/domain';
 import {
   DefaultDataService,
-  HttpUrlGenerator,
   DefaultDataServiceConfig,
-  QueryParams,
+  HttpUrlGenerator,
+  QueryParams
 } from '@ngrx/data';
 import { Observable, of } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
+
+import { ApiPaginated } from '@ng-tests/shared/domain';
 
 /**
  * DataService class that handles Laravel's paginated responses.

@@ -1,8 +1,9 @@
-import { BedaysEntity } from '@angular-tests/b-cal/shared/util';
+import { BedaysEntity } from '@ng-tests/b-cal/shared/util';
+
 import {
   bedaysAdapter,
   BedaysPartialState,
-  initialState,
+  initialState
 } from './bedays.reducer';
 import * as BedaysSelectors from './bedays.selectors';
 

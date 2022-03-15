@@ -1,5 +1,5 @@
-import { SortComparers } from '@angular-tests/shared/util';
-import { additionalCollectionState } from '@angular-tests/shared/domain';
+import { additionalCollectionState } from '@ng-tests/shared/domain';
+import { SortComparers } from '@ng-tests/shared/util';
 
 /** Used to help create the entity selectors */
 export const metadata = {

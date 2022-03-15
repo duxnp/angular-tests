@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Company, Unit, User } from '@angular-tests/shared/domain';
 import { EntityServicesBase, EntityServicesElements } from '@ngrx/data';
+
+import { Company, Unit, User } from '@ng-tests/shared/domain';
+
 import { fromQuote, fromUnit } from './entities';
 
 @Injectable()

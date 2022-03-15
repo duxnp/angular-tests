@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { createEffect, Actions, OnInitEffects } from '@ngrx/effects';
+import { Actions, createEffect, OnInitEffects } from '@ngrx/effects';
 import { DataPersistence } from '@nrwl/angular';
+
+import { bedays } from '@ng-tests/b-cal/shared/util';
 
 import * as BedaysActions from './bedays.actions';
 import * as BedaysFeature from './bedays.reducer';
-
-import { bedays } from '@angular-tests/b-cal/shared/util';
 
 @Injectable()
 export class BedaysEffects implements OnInitEffects {

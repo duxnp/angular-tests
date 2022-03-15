@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Unit } from '@angular-tests/shared/domain';
 import {
   EntityCollectionServiceBase,
-  EntityCollectionServiceElementsFactory,
+  EntityCollectionServiceElementsFactory
 } from '@ngrx/data';
+
+import { Unit } from '@ng-tests/shared/domain';
 
 @Injectable({ providedIn: 'root' })
 export class UnitsService extends EntityCollectionServiceBase<Unit> {

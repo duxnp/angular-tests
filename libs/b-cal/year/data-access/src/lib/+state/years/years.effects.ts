@@ -6,8 +6,8 @@ import { DateTime } from 'luxon';
 import { timer } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 
-import { BedaysSelectors } from '@angular-tests/b-cal/shared/data-access';
-import { distinctRouteParam } from '@angular-tests/shared/util';
+import { BedaysSelectors } from '@ng-tests/b-cal/shared/data-access';
+import { distinctRouteParam } from '@ng-tests/shared/util';
 
 import { getDay, getYear } from '../../service';
 import * as YearsActions from './years.actions';

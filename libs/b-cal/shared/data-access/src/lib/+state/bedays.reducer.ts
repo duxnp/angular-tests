@@ -1,8 +1,9 @@
-import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
-import { createReducer, on, Action } from '@ngrx/store';
+import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
+import { Action, createReducer, on } from '@ngrx/store';
+
+import { BedaysEntity } from '@ng-tests/b-cal/shared/util';
 
 import * as BedaysActions from './bedays.actions';
-import { BedaysEntity } from '@angular-tests/b-cal/shared/util';
 
 export const BEDAYS_FEATURE_KEY = 'bedays';
 

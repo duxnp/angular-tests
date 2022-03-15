@@ -10,7 +10,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { DateTime } from 'luxon';
 import { take } from 'rxjs/operators';
 
-import { LuxonLimits } from '@angular-tests/shared/util';
+import { LuxonLimits } from '@ng-tests/shared/util';
 
 import { YearGuard } from './year.guard';
 

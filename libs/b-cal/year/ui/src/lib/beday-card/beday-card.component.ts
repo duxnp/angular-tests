@@ -1,12 +1,14 @@
-import {
-  Component,
-  OnInit,
-  ChangeDetectionStrategy,
-  NgModule,
-  Input,
-} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BedaysEntity } from '@angular-tests/b-cal/shared/util';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  NgModule,
+  OnInit
+} from '@angular/core';
+
+import { BedaysEntity } from '@ng-tests/b-cal/shared/util';
+
 import { SayBedayModule } from '../say-beday/say-beday.component';
 
 @Component({

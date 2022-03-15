@@ -1,11 +1,13 @@
+import { EntitySelectorsFactory } from '@ngrx/data';
+
 import {
   Company,
   PagedSelectors,
   Quote,
   Unit,
-  User,
-} from '@angular-tests/shared/domain';
-import { EntitySelectorsFactory } from '@ngrx/data';
+  User
+} from '@ng-tests/shared/domain';
+
 import { metadata as quoteMetadata } from './quote/quote.metadata';
 
 export const companySelectors = new EntitySelectorsFactory().create<Company>(

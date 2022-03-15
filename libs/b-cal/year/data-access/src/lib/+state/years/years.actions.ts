@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 
-import { Day } from '@angular-tests/b-cal/year/util';
+import { Day } from '@ng-tests/b-cal/year/util';
 
 import { YearsEntity } from './years.models';
 

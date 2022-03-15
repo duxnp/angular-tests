@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Injectable } from '@angular/core';
-import { EntityPage } from '@angular-tests/shared/domain';
 import {
   DefaultPersistenceResultHandler,
   EntityAction,
@@ -8,9 +7,11 @@ import {
   EntityCollectionReducerMethodMap,
   EntityCollectionReducerMethods,
   EntityDefinition,
-  EntityDefinitionService,
+  EntityDefinitionService
 } from '@ngrx/data';
 import { Action } from '@ngrx/store';
+
+import { EntityPage } from '@ng-tests/shared/domain';
 
 @Injectable()
 export class AdditionalPersistenceResultHandler extends DefaultPersistenceResultHandler {

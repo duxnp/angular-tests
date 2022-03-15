@@ -9,7 +9,7 @@ import {
 import { DateTime } from 'luxon';
 import { Observable, of } from 'rxjs';
 
-import { LuxonLimits } from '@angular-tests/shared/util';
+import { LuxonLimits } from '@ng-tests/shared/util';
 
 @Injectable({
   providedIn: 'root',
