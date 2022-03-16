@@ -1,4 +1,9 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Component, Pipe, PipeTransform } from '@angular/core';
+
+@Component({
+  template: ``,
+})
+export class MockTestComponent {}
 
 /**
  * https://stackoverflow.com/a/56701741/4187153

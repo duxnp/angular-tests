@@ -1,17 +1,15 @@
 import { Action } from '@ngrx/store';
 
-import { getDayMock, YearsEntity } from '@ng-tests/b-cal/year/util';
+import {
+  createYearsEntity,
+  getDayMock,
+  YearsEntity
+} from '@ng-tests/b-cal/year/util';
 
 import * as YearsActions from './years.actions';
 import { initialState, reducer, State } from './years.reducer';
 
 describe('Years Reducer', () => {
-  const createYearsEntity = (id: number, name = ''): YearsEntity => ({
-    id,
-    name: name || `name-${id}`,
-    days: [],
-  });
-
   describe('valid Years actions', () => {
     it('yearSelected returns the selected year', () => {
       const yearId = 2022;
