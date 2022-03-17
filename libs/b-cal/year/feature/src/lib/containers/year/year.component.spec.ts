@@ -93,7 +93,7 @@ describe('YearComponent', () => {
 
   /**
    * Using the component selector instead of 'data-testid'
-   * A component already has a unique way of finding it.
+   * A component already has a unique way of being found.
    * Also, using a test id would make the element type arbitrary.
    */
   it('renders the calendar', () => {
