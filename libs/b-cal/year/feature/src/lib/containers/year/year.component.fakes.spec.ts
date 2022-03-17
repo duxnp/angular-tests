@@ -41,7 +41,7 @@ export class FakeDayCardComponent implements Partial<DayCardComponent> {
  *
  * year.component.ng-mock.spec.ts demonstrates a more mature solution.
  * */
-describe('YearComponent', () => {
+describe('YearComponent:fakes', () => {
   let component: YearComponent;
   let fixture: ComponentFixture<YearComponent>;
   let router: Router;
