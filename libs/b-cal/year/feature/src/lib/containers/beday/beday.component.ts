@@ -23,7 +23,6 @@ export class BedayComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.router.navigate(['../'], { relativeTo: this.route });
     this.dialog
       .open(BedayModalComponent)
       .afterClosed()

@@ -1,5 +1,5 @@
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import {
   MockBuilder,
@@ -12,6 +12,7 @@ import { of } from 'rxjs';
 import { BedayModalComponent } from '../../components/beday-modal/beday-modal.component';
 import { BedayComponent, BedayModule } from './beday.component';
 
+/** https://medium.com/@aleixsuau/testing-angular-components-with-material-dialog-mddialog-1ae658b4e4b3 */
 export class MatDialogMock {
   // When the component calls this.dialog.open(...) we'll return an object
   // with an afterClosed method that allows to subscribe to the dialog result observable.
@@ -64,6 +65,7 @@ describe('BedayComponent', () => {
   it('opens dialog and routes to previous page on close', () => {
     fixture.detectChanges();
     expect(dialogSpy).toBeCalled();
-    expect(routerSpy).toBeCalled();
+    expect(routerSpy).toBeCalledTimes(1);
+    expect(routerSpy).toHaveBeenLastCalledWith(['../'], <NavigationExtras>);
   });
 });
