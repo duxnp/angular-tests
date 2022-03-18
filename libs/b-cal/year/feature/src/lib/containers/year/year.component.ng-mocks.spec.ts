@@ -6,7 +6,7 @@ import {
   MockBuilder,
   MockedComponentFixture,
   MockRender,
-  ngMocks
+  ngMocks,
 } from 'ng-mocks';
 
 import { YearsSelectors } from '@ng-tests/b-cal/year/data-access';
@@ -19,9 +19,12 @@ import { YearComponent, YearModule } from './year.component';
  * This test suite using the ng-mocks library
  * */
 describe('YearComponent:ng-mocks', () => {
+  ngMocks.faster();
+
   let component: YearComponent;
   let fixture: MockedComponentFixture<YearComponent>;
   let router: Router;
+  let routerSpy: jest.SpyInstance;
 
   const YEAR = createYearsEntity(2022);
   const TODAY = getDayMock();
@@ -36,18 +39,22 @@ describe('YearComponent:ng-mocks', () => {
     ],
   });
 
-  beforeEach(() =>
+  beforeAll(() =>
     MockBuilder(YearComponent, YearModule)
       .keep(ReactiveComponentModule)
       .keep(RouterTestingModule.withRoutes([]))
       .provide(mockStore)
   );
 
-  beforeEach(() => {
+  beforeAll(() => {
     fixture = MockRender(YearComponent);
     component = fixture.point.componentInstance;
     router = fixture.point.injector.get(Router);
-    jest.spyOn(router, 'navigate').mockImplementation();
+    routerSpy = jest.spyOn(router, 'navigate').mockImplementation();
+  });
+
+  beforeEach(() => {
+    routerSpy.mockClear();
   });
 
   /** Smoke test. It merely proves that the Component renders without errors. */
@@ -78,7 +85,7 @@ describe('YearComponent:ng-mocks', () => {
 
   /**
    * Using the component selector instead of 'data-testid'
-   * A component already has a unique way of finding it.
+   * A component already has a unique way of being found.
    * Also, using a test id would make the element type arbitrary.
    */
   it('renders the calendar', () => {

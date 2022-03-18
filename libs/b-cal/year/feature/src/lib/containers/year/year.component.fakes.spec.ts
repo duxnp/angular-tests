@@ -3,7 +3,7 @@ import {
   EventEmitter,
   Input,
   NO_ERRORS_SCHEMA,
-  Output
+  Output,
 } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
@@ -130,7 +130,7 @@ describe('YearComponent:fakes', () => {
 
   /**
    * Using the component selector instead of 'data-testid'
-   * A component already has a unique way of finding it.
+   * A component already has a unique way of being found.
    * Also, using a test id would make the element type arbitrary.
    */
   it('renders the calendar', () => {
