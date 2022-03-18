@@ -18,7 +18,7 @@ import { YearComponent } from './year.component';
  *
  * year.component.ng-mock.spec.ts demonstrates a more mature solution.
  * */
-describe('YearComponent:fakes', () => {
+describe('YearComponent:spectator', () => {
   let spectator: Spectator<YearComponent>;
   let component: YearComponent;
   let fixture: ComponentFixture<YearComponent>;

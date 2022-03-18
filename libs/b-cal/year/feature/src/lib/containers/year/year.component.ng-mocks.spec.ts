@@ -6,7 +6,7 @@ import {
   MockBuilder,
   MockedComponentFixture,
   MockRender,
-  ngMocks,
+  ngMocks
 } from 'ng-mocks';
 
 import { YearsSelectors } from '@ng-tests/b-cal/year/data-access';

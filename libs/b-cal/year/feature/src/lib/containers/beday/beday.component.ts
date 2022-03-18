@@ -1,12 +1,12 @@
-import {
-  Component,
-  OnInit,
-  ChangeDetectionStrategy,
-  NgModule,
-} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  NgModule,
+  OnInit
+} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { BedayModalComponent } from '../../components/beday-modal/beday-modal.component';
 
@@ -23,6 +23,7 @@ export class BedayComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.router.navigate(['../'], { relativeTo: this.route });
     this.dialog
       .open(BedayModalComponent)
       .afterClosed()
