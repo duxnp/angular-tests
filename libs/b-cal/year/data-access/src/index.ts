@@ -7,4 +7,3 @@ export { YearsActions, YearsFeature, YearsSelectors };
 
 // Module
 export * from './lib/b-cal-year-data-access.module';
-export * from './lib/+state';

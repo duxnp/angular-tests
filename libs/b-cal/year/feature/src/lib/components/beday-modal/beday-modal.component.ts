@@ -1,12 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ReactiveComponentModule } from '@ngrx/component';
 import { Store } from '@ngrx/store';
 
+import { SharedSelectors } from '@ng-tests/b-cal/shared/data-access';
 import { DayPipeModule } from '@ng-tests/b-cal/shared/util';
-import { selectBedayEntity } from '@ng-tests/b-cal/year/data-access';
 import { BedayCardModule, SayBedayModule } from '@ng-tests/b-cal/year/ui';
 import { MatDialogShellModule } from '@ng-tests/shared/ui';
+import { filterNullish } from '@ng-tests/shared/util';
 
 @Component({
   selector: 'bc-beday-modal',
@@ -15,7 +17,9 @@ import { MatDialogShellModule } from '@ng-tests/shared/ui';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BedayModalComponent {
-  beday$ = this.store.select(selectBedayEntity);
+  beday$ = this.store
+    .select(SharedSelectors.selectBedayEntity)
+    .pipe(filterNullish());
 
   constructor(private store: Store) {}
 }
@@ -24,6 +28,7 @@ export class BedayModalComponent {
   imports: [
     CommonModule,
     BedayCardModule,
+    ReactiveComponentModule,
     SayBedayModule,
     MatDialogShellModule,
     DayPipeModule,

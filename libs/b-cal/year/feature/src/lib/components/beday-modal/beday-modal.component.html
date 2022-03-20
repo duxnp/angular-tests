@@ -1,7 +1,7 @@
-<ng-container *ngIf="beday$ | async as beday">
+<ng-container *ngrxLet="beday$ as beday">
   <bry-mat-dialog-shell>
     <span title fxLayout="row" fxLayoutAlign="space-between center">
-      {{ beday.name | day }}
+      <span data-testid="modal-title">{{ beday.name | day }}</span>
       <bc-say-beday [beday]="beday"></bc-say-beday>
     </span>
     <bc-beday-card [beday]="beday"></bc-beday-card>

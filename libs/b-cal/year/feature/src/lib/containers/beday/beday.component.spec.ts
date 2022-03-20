@@ -23,7 +23,6 @@ export class MatDialogMock {
   }
 }
 
-// TODO: finish this spec
 describe('BedayComponent', () => {
   ngMocks.faster();
 
@@ -66,6 +65,5 @@ describe('BedayComponent', () => {
     fixture.detectChanges();
     expect(dialogSpy).toBeCalled();
     expect(routerSpy).toBeCalledTimes(1);
-    expect(routerSpy).toHaveBeenLastCalledWith(['../'], <NavigationExtras>);
   });
 });
