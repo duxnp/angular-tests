@@ -1,7 +1,9 @@
 <ng-container *ngIf="beday">
   <ul>
-    <li>Day {{ beday.id }}</li>
-    <li>Abbreviation: {{ beday.abbreviation }}</li>
+    <li data-testid="day-id">Day {{ beday.id }}</li>
+    <li data-testid="day-abbreviation">
+      Abbreviation: {{ beday.abbreviation }}
+    </li>
   </ul>
   <bc-say-beday [beday]="beday" [showControls]="true"></bc-say-beday>
 </ng-container>
