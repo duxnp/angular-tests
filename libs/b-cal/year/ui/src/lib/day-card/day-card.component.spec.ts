@@ -7,8 +7,7 @@ import { createHostFactory, SpectatorHost } from '@ngneat/spectator/jest';
 
 import { Day, getDayMock } from '@ng-tests/b-cal/year/util';
 
-import { DayCardModule } from '../..';
-import { DayCardComponent } from './day-card.component';
+import { DayCardComponent, DayCardModule } from './day-card.component';
 
 // https://stackoverflow.com/questions/65070594/how-to-write-unit-tests-for-angular-flex-layout-directives-fxhide-fxshow
 describe('DayCardComponent', () => {
@@ -84,23 +83,24 @@ describe('DayCardComponent', () => {
   });
 
   it('displays appropriate background color', () => {
-    // const weekday: Day = {...day, isWeekend: false };
     const cardDiv = spectator.query('[data-testid="card-div"]');
+    const year = today.year ? today.year - 1 : 2000;
+    const weekday: Day = { ...day, isWeekend: false };
+    const weekend: Day = { ...day, isWeekend: true };
+    const notToday: Day = { ...today, year };
 
     // Weekday
+    spectator.setInput('day', weekday);
     expect(cardDiv).toHaveClass('weekday');
     expect(cardDiv).not.toHaveClass('weekend');
 
     // Weekend
-    const weekend: Day = { ...day, isWeekend: true };
     spectator.setInput('day', weekend);
     expect(cardDiv).not.toHaveClass('weekday');
     expect(cardDiv).toHaveClass('weekend');
 
     // Today / Not Today
     expect(cardDiv).toHaveClass('today');
-    const year = today.year ? today.year - 1 : 2000;
-    const notToday: Day = { ...today, year };
     spectator.setInput('today', notToday);
     expect(cardDiv).not.toHaveClass('today');
   });
