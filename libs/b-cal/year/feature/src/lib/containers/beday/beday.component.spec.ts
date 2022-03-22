@@ -1,5 +1,5 @@
 import { MatDialog } from '@angular/material/dialog';
-import { NavigationExtras, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import {
   MockBuilder,
