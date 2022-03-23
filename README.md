@@ -45,10 +45,11 @@ module.exports = {
 };
 ```
 
-- Generate a full coverage report by simply running jest
+- Generate a full coverage report
 
 ```shell
-$ npx jest
+$ nx run-many --target=test --all
+$ npx serve coverage
 ```
 
 This project was generated using [Nx](https://nx.dev).
