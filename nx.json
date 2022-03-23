@@ -88,6 +88,9 @@
       "minimal": true,
       "syntax": "creators",
       "useDataPersistence": true
+    },
+    "@ngneat/spectator:spectator-component": {
+      "jest": true
     }
   },
   "defaultProject": "b-cal"

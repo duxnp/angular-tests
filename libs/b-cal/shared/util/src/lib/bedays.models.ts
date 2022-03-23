@@ -7,7 +7,7 @@ export interface BedaysEntity {
   abbreviation: string;
 }
 
-export const bedays: BedaysEntity[] = [
+export const bedaysEntities: BedaysEntity[] = [
   { id: 1, name: "Que'del'uirt", abbreviation: "Q'd'u" },
   { id: 2, name: "Bel'ny", abbreviation: "B'ny" },
   { id: 3, name: 'Essiss', abbreviation: 'Ess' },

@@ -1,7 +1,11 @@
-import { YearsEntity } from './years.models';
+import {
+  createYearsEntity,
+  getDayMock,
+  YearsEntity
+} from '@ng-tests/b-cal/year/util';
+
 import { initialState, yearsAdapter, YearsPartialState } from './years.reducer';
 import * as YearsSelectors from './years.selectors';
-import { createYearsEntity, getDayMock } from './years.testing';
 
 describe('Years Selectors', () => {
   const ERROR_MSG = 'No Error Available';
@@ -30,7 +34,7 @@ describe('Years Selectors', () => {
   });
 
   describe('Years Selectors', () => {
-    it('getAllYears() should return the list of Years', () => {
+    it('getAllYears() returns the list of Years', () => {
       const results = YearsSelectors.getAllYears(state);
       const selId = getYearsId(results[1]);
 
@@ -38,26 +42,26 @@ describe('Years Selectors', () => {
       expect(selId).toBe(2023);
     });
 
-    it('getSelected() should return the selected Entity', () => {
+    it('getSelected() returns the selected Entity', () => {
       const result = YearsSelectors.getSelected(state) as YearsEntity;
       const selId = getYearsId(result);
 
       expect(selId).toBe(2022);
     });
 
-    it('getYearsLoaded() should return the current "loaded" status', () => {
+    it('getYearsLoaded() returns the current "loaded" status', () => {
       const result = YearsSelectors.getYearsLoaded(state);
 
       expect(result).toBe(true);
     });
 
-    it('getYearsError() should return the current "error" state', () => {
+    it('getYearsError() returns the current "error" state', () => {
       const result = YearsSelectors.getYearsError(state);
 
       expect(result).toBe(ERROR_MSG);
     });
 
-    it('getToday() should return the current day', () => {
+    it('getToday() returns the current day', () => {
       const result = YearsSelectors.getToday(state);
 
       expect(result).toEqual(TODAY);

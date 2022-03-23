@@ -1,24 +1,43 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { createHostFactory, SpectatorHost } from '@ngneat/spectator/jest';
 
-import { MatDialogShellComponent } from './mat-dialog-shell.component';
+import {
+  MatDialogShellComponent,
+  MatDialogShellModule
+} from './mat-dialog-shell.component';
 
 describe('MatDialogShellComponent', () => {
-  let component: MatDialogShellComponent;
-  let fixture: ComponentFixture<MatDialogShellComponent>;
+  let spectator: SpectatorHost<MatDialogShellComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [MatDialogShellComponent],
-    }).compileComponents();
+  const createHost = createHostFactory({
+    component: MatDialogShellComponent,
+    imports: [MatDialogShellModule],
+    declareComponent: false,
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MatDialogShellComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    spectator = createHost(
+      `<bry-mat-dialog-shell [title]="title">
+        <div title>Projected Title</div>
+        <div>Projected Body</div>
+      </bry-mat-dialog-shell>`,
+      { hostProps: { title: 'Input Title' } }
+    );
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('initializes', () => {
+    expect(spectator.component).toBeTruthy();
+  });
+
+  it('displays title input', () => {
+    const h1 = spectator.query('h1[mat-dialog-title]');
+    expect(h1).toContainText('Input Title');
+  });
+
+  it('displays projected content', () => {
+    const h1 = spectator.query('h1[mat-dialog-title]');
+    expect(h1).toContainText('Projected Title');
+
+    const content = spectator.query('div[mat-dialog-content]');
+    expect(content).toContainText('Projected Body');
   });
 });

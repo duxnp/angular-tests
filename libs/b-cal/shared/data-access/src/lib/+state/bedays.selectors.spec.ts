@@ -34,7 +34,7 @@ describe('Bedays Selectors', () => {
   });
 
   describe('Bedays Selectors', () => {
-    it('getAllBedays() should return the list of Bedays', () => {
+    it('getAllBedays() returns the list of Bedays', () => {
       const results = BedaysSelectors.getAllBedays(state);
       const selId = getBedaysId(results[1]);
 
@@ -42,20 +42,20 @@ describe('Bedays Selectors', () => {
       expect(selId).toBe(2);
     });
 
-    it('getSelected() should return the selected Entity', () => {
+    it('getSelected() returns the selected Entity', () => {
       const result = BedaysSelectors.getSelected(state) as BedaysEntity;
       const selId = getBedaysId(result);
 
       expect(selId).toBe(2);
     });
 
-    it('getBedaysLoaded() should return the current "loaded" status', () => {
+    it('getBedaysLoaded() returns the current "loaded" status', () => {
       const result = BedaysSelectors.getBedaysLoaded(state);
 
       expect(result).toBe(true);
     });
 
-    it('getBedaysError() should return the current "error" state', () => {
+    it('getBedaysError() returns the current "error" state', () => {
       const result = BedaysSelectors.getBedaysError(state);
 
       expect(result).toBe(ERROR_MSG);

@@ -1,8 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 
-import { Day } from '@ng-tests/b-cal/year/util';
-
-import { YearsEntity } from './years.models';
+import { Day, YearsEntity } from '@ng-tests/b-cal/year/util';
 
 export const yearSelected = createAction(
   '[Year] Year Selected',

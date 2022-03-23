@@ -1,26 +1,24 @@
 import { Action } from '@ngrx/store';
 
+import {
+  createYearsEntity,
+  getDayMock,
+  YearsEntity
+} from '@ng-tests/b-cal/year/util';
+
 import * as YearsActions from './years.actions';
-import { YearsEntity } from './years.models';
 import { initialState, reducer, State } from './years.reducer';
-import { getDayMock } from './years.testing';
 
 describe('Years Reducer', () => {
-  const createYearsEntity = (id: number, name = ''): YearsEntity => ({
-    id,
-    name: name || `name-${id}`,
-    days: [],
-  });
-
   describe('valid Years actions', () => {
-    it('yearSelected should return the selected year', () => {
+    it('yearSelected returns the selected year', () => {
       const yearId = 2022;
       const action = YearsActions.yearSelected({ yearId });
       const result: State = reducer(initialState, action);
       expect(result.selectedId).toBe(yearId);
     });
 
-    it('loadYearsSuccess should return the selected year', () => {
+    it('loadYearsSuccess returns the selected year', () => {
       const year = createYearsEntity(2022);
       const action = YearsActions.loadYearSuccess({ year });
 
@@ -30,7 +28,7 @@ describe('Years Reducer', () => {
       expect(result.ids.length).toBe(1);
     });
 
-    it('loadYearsFailure should return the selected year with error message', () => {
+    it('loadYearsFailure returns the selected year with error message', () => {
       const year = createYearsEntity(2022);
       const error = 'Error.';
       const action = YearsActions.loadYearFailure({ year, error });
@@ -41,7 +39,7 @@ describe('Years Reducer', () => {
       expect(result.ids.length).toBe(1);
     });
 
-    it('todayTicked should return the current day', () => {
+    it('todayTicked returns the current day', () => {
       const day = getDayMock();
       const action = YearsActions.todayTicked({ day });
 
@@ -52,7 +50,7 @@ describe('Years Reducer', () => {
   });
 
   describe('unknown action', () => {
-    it('should return the previous state', () => {
+    it('returns the previous state', () => {
       const action = {} as Action;
 
       const result = reducer(initialState, action);

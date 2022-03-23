@@ -7,14 +7,27 @@
       weekday: !day.isWeekend
     }"
     (click)="dayClick.emit(day)"
+    data-testid="card-div"
   >
-    <span class="d-none" [ngClass.lt-sm]="{ 'd-none': false }">
+    <span
+      class="d-none"
+      [ngClass.lt-sm]="{ 'd-none': false }"
+      data-testid="ordinal-span"
+    >
       {{ day.dayOfYear }}
     </span>
-    <span class="d-none" [ngClass.sm]="{ 'd-none': false }">
+    <span
+      class="d-none"
+      [ngClass.sm]="{ 'd-none': false }"
+      data-testid="abbr-span"
+    >
       {{ day.beday?.abbreviation }}
     </span>
-    <span class="d-none" [ngClass.gt-sm]="{ 'd-none': false }">
+    <span
+      class="d-none"
+      [ngClass.gt-sm]="{ 'd-none': false }"
+      data-testid="name-span"
+    >
       {{ day.beday?.name | day }}
     </span>
   </div>

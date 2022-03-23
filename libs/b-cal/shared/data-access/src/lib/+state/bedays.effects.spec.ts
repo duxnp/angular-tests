@@ -6,7 +6,7 @@ import { DataPersistence, NxModule } from '@nrwl/angular';
 import { hot } from 'jasmine-marbles';
 import { Observable } from 'rxjs';
 
-import { bedays } from '@ng-tests/b-cal/shared/util';
+import { bedaysEntities } from '@ng-tests/b-cal/shared/util';
 
 import * as BedaysActions from './bedays.actions';
 import { BedaysEffects } from './bedays.effects';
@@ -30,11 +30,11 @@ describe('BedaysEffects', () => {
   });
 
   describe('init$', () => {
-    it('should work', () => {
+    it('works', () => {
       actions = hot('-a-|', { a: BedaysActions.init() });
 
       const expected = hot('-a-|', {
-        a: BedaysActions.loadBedaysSuccess({ bedays }),
+        a: BedaysActions.loadBedaysSuccess({ bedays: bedaysEntities }),
       });
 
       expect(effects.init$).toBeObservable(expected);

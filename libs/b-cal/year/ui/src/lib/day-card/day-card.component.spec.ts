@@ -1,34 +1,107 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  ɵMatchMedia,
+  ɵMockMatchMedia,
+  ɵMockMatchMediaProvider
+} from '@angular/flex-layout';
+import { createHostFactory, SpectatorHost } from '@ngneat/spectator/jest';
 
-import { mockPipe } from '@ng-tests/shared/test-utils';
+import { Day, getDayMock } from '@ng-tests/b-cal/year/util';
 
-import { DayCardComponent } from './day-card.component';
+import { DayCardComponent, DayCardModule } from './day-card.component';
 
+// https://stackoverflow.com/questions/65070594/how-to-write-unit-tests-for-angular-flex-layout-directives-fxhide-fxshow
 describe('DayCardComponent', () => {
-  let component: DayCardComponent;
-  let fixture: ComponentFixture<DayCardComponent>;
+  let spectator: SpectatorHost<DayCardComponent>;
+  let mediaController: ɵMockMatchMedia;
+  const day = getDayMock();
+  const today = getDayMock();
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [DayCardComponent, mockPipe({ name: 'day' }, 'foo')],
-    }).compileComponents();
+  const createHost = createHostFactory({
+    component: DayCardComponent,
+    imports: [DayCardModule],
+    providers: [ɵMockMatchMediaProvider],
+    declareComponent: false,
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DayCardComponent);
-    component = fixture.componentInstance;
-    const mockDay = {
-      dayOfWeek: 1,
-      dayOfYear: 1,
-      isWeekend: false,
-      beday: { id: 1, abbreviation: 'foo', name: 'foo' },
-    };
-    component.day = mockDay;
-    component.today = mockDay;
-    fixture.detectChanges();
+    spectator = createHost(
+      `<bc-day-card [day]="day" [today]="today"></bc-day-card>`,
+      { hostProps: { day, today } }
+    );
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  beforeEach(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    mediaController = spectator.inject(ɵMatchMedia) as any as ɵMockMatchMedia;
+  });
+
+  afterEach(() => {
+    mediaController.clearAll();
+  });
+
+  it('initializes', () => {
+    expect(spectator.component).toBeTruthy();
+  });
+
+  it('displays day information', () => {
+    const ordinalSpan = spectator.query('[data-testid="ordinal-span"]');
+    const abbrSpan = spectator.query('[data-testid="abbr-span"]');
+    const nameSpan = spectator.query('[data-testid="name-span"]');
+
+    expect(ordinalSpan).toHaveText(day.dayOfYear.toString());
+    if (day.beday) {
+      expect(abbrSpan).toHaveText(day.beday.abbreviation);
+      expect(nameSpan).toHaveText(day.beday.name);
+    }
+  });
+
+  it('responds to screen size', () => {
+    const ordinalSpan = spectator.query('[data-testid="ordinal-span"]');
+    const abbrSpan = spectator.query('[data-testid="abbr-span"]');
+    const nameSpan = spectator.query('[data-testid="name-span"]');
+
+    // Extra small
+    mediaController.activate('lt-sm');
+    spectator.fixture.detectChanges();
+    expect(ordinalSpan).not.toHaveClass('d-none');
+    expect(abbrSpan).toHaveClass('d-none');
+    expect(nameSpan).toHaveClass('d-none');
+
+    // Small
+    mediaController.activate('sm');
+    spectator.fixture.detectChanges();
+    expect(ordinalSpan).toHaveClass('d-none');
+    expect(abbrSpan).not.toHaveClass('d-none');
+    expect(nameSpan).toHaveClass('d-none');
+
+    // Medium
+    mediaController.activate('gt-sm');
+    spectator.fixture.detectChanges();
+    expect(ordinalSpan).toHaveClass('d-none');
+    expect(abbrSpan).toHaveClass('d-none');
+    expect(nameSpan).not.toHaveClass('d-none');
+  });
+
+  it('displays appropriate background color', () => {
+    const cardDiv = spectator.query('[data-testid="card-div"]');
+    const year = today.year ? today.year - 1 : 2000;
+    const weekday: Day = { ...day, isWeekend: false };
+    const weekend: Day = { ...day, isWeekend: true };
+    const notToday: Day = { ...today, year };
+
+    // Weekday
+    spectator.setInput('day', weekday);
+    expect(cardDiv).toHaveClass('weekday');
+    expect(cardDiv).not.toHaveClass('weekend');
+
+    // Weekend
+    spectator.setInput('day', weekend);
+    expect(cardDiv).not.toHaveClass('weekday');
+    expect(cardDiv).toHaveClass('weekend');
+
+    // Today / Not Today
+    expect(cardDiv).toHaveClass('today');
+    spectator.setInput('today', notToday);
+    expect(cardDiv).not.toHaveClass('today');
   });
 });

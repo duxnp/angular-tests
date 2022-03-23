@@ -9,3 +9,12 @@ export interface Day {
 }
 
 export type Days = Day[];
+
+/**
+ * Interface for the 'Years' data
+ */
+export interface YearsEntity {
+  id: number;
+  name: string;
+  days: Days;
+}

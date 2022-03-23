@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, OnInitEffects } from '@ngrx/effects';
 import { DataPersistence } from '@nrwl/angular';
 
-import { bedays } from '@ng-tests/b-cal/shared/util';
+import { bedaysEntities } from '@ng-tests/b-cal/shared/util';
 
 import * as BedaysActions from './bedays.actions';
 import * as BedaysFeature from './bedays.reducer';
@@ -18,7 +18,7 @@ export class BedaysEffects implements OnInitEffects {
         // Normally you'd be requesting data from a backend.
         // I may put this data in some backend some day as a programming excercie,
         // but for now I just have this array hard coded.
-        return BedaysActions.loadBedaysSuccess({ bedays });
+        return BedaysActions.loadBedaysSuccess({ bedays: bedaysEntities });
       },
       onError: (action: ReturnType<typeof BedaysActions.init>, error) => {
         console.error('Error', error);

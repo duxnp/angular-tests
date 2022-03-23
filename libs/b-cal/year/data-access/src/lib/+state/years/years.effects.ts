@@ -35,7 +35,7 @@ export class YearsEffects {
     )
   );
 
-  // Check if the year is already in the store
+  // Check if the year is already in the store.
   yearSelected$ = createEffect(() =>
     this.actions$.pipe(
       ofType(YearsActions.yearSelected),
