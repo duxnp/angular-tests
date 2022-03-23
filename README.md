@@ -46,10 +46,25 @@ module.exports = {
 ```
 
 - Generate a full coverage report
+  TODO: This still isn't generating a coverage report as expected
 
 ```shell
 $ nx run-many --target=test --all
 $ npx serve coverage
+```
+
+## End To End Tests
+
+Run headless test
+
+```shell
+nx e2e b-cal-e2e
+```
+
+Run test in watch mode
+
+```shell
+nx e2e b-cal-e2e --watch
 ```
 
 This project was generated using [Nx](https://nx.dev).
