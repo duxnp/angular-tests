@@ -60,8 +60,9 @@ describe('SayBedayComponent', () => {
     jest.spyOn(audio, 'play');
     const button = spectator.query('button') as HTMLButtonElement;
 
+    expect(audio.play).not.toHaveBeenCalled();
     spectator.click(button);
-
     expect(audio.play).toHaveBeenCalled();
+    expect('foo').toHaveText;
   });
 });
