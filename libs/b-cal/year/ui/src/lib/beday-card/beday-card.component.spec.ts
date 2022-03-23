@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+// import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { createComponentFactory, Spectator } from '@ngneat/spectator/jest';
 import { MockComponent } from 'ng-mocks';
 
@@ -10,7 +10,7 @@ import { BedayCardComponent, BedayCardModule } from './beday-card.component';
 describe('BedayCardComponent', () => {
   let spectator: Spectator<BedayCardComponent>;
   let component: BedayCardComponent;
-  let fixture: ComponentFixture<BedayCardComponent>;
+  // let fixture: ComponentFixture<BedayCardComponent>;
   let sayBeday: SayBedayComponent | null;
   const beday = bedaysEntities[0];
 
@@ -24,7 +24,7 @@ describe('BedayCardComponent', () => {
   beforeEach(() => (spectator = createComponent()));
 
   beforeEach(() => {
-    fixture = spectator.fixture;
+    // fixture = spectator.fixture;
     component = spectator.component;
     spectator.setInput({ beday });
   });
