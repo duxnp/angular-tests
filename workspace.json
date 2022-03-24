@@ -2,6 +2,7 @@
   "version": 2,
   "projects": {
     "b-cal": "apps/b-cal",
+    "b-cal-e2e": "apps/b-cal-e2e",
     "b-cal-shared-assets": "libs/b-cal/shared/assets",
     "b-cal-shared-data-access": "libs/b-cal/shared/data-access",
     "b-cal-shared-domain": "libs/b-cal/shared/domain",
