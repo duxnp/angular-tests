@@ -5,7 +5,6 @@ import {
   getDayCards,
   getDayName,
   getDayOrdinal,
-  getFirstSat,
   getNextButton,
   getPrevButton,
   getYearSpan
