@@ -55,13 +55,13 @@ $ npx serve coverage
 
 ## End To End Tests
 
-Run headless test
+Non-interactive Test Run (Headless)
 
 ```shell
 nx e2e b-cal-e2e
 ```
 
-Run test in watch mode
+Interactive Test Run
 
 ```shell
 nx e2e b-cal-e2e --watch
