@@ -1,31 +1,25 @@
-import {
-  getAudioPlayer,
-  getDialogTitle,
-  getFirstSat,
-  getMatDialog
-} from '../support/app.po';
+import { Beday } from '../pages/beday.page';
 
 describe('beday dialog', () => {
-  beforeEach(() => cy.visit('/'));
+  let page: Beday;
 
-  it('navigates and opens dialog on click', () => {
-    getFirstSat().click();
+  beforeEach(() => {
+    page = new Beday();
+    page.visit();
+  });
 
-    cy.url().should('include', '/2022/1');
-    getMatDialog().should('exist');
+  it('opens dialog', () => {
+    cy.url().should('include', '/2022/3');
+    page.matDialog().should('exist');
   });
 
   it('displays beday information', () => {
-    cy.visit('/2022/3');
-
-    getDialogTitle().contains('Essissday');
+    page.dialogTitle().contains('Essissday');
   });
 
   it('plays audio', () => {
-    cy.visit('/2022/3');
-
-    getAudioPlayer().then(([audioEl]) => {
-      // Muting the audio player so I don't get scared every time a watched test runs
+    page.audio().then(([audioEl]) => {
+      // Muting the audio player so I don't get scared every time an interactive test runs
       audioEl.muted = true;
       expect(audioEl.paused).to.equal(true);
       audioEl.play();

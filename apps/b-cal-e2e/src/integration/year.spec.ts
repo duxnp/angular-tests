@@ -36,6 +36,11 @@ describe('year feature', () => {
     cy.url().should('include', '/' + (luxon.year - 1));
   });
 
+  it('navigates to beday on click', () => {
+    page.firstSaturday().click();
+    cy.url().should('include', '/2022/1');
+  });
+
   it('displays day name for large screens', () => {
     page.dayOrdinal().should('not.be.visible');
     page.dayAbbr().should('not.be.visible');
