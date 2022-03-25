@@ -1,7 +1,7 @@
 name: NG Tests CI
 
 env:
-  node-version: '16'
+  node-version: 16.x
 
 on:
   push:
@@ -23,6 +23,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: ${{ env.node-version }}
+          cache: 'npm'
       - run: npm install
       - run: npx nx affected --target=build --parallel=3
       - run: npx nx affected --target=test --parallel=2
@@ -39,6 +40,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: ${{ env.node-version }}
+          cache: 'npm'
       - run: npm install
       - run: npx nx affected --target=build --parallel=3
       - run: npx nx affected --target=test --parallel=2
