@@ -30,26 +30,26 @@
         ],
         "styles": [
           {
-            "input": "libs/shared/styles/src/lib/themes/material/styles.scss"
+            "input": "libs/shared/styles/src/lib/material/styles.scss"
           },
           {
             "inject": false,
-            "input": "libs/shared/styles/src/lib/themes/material/custom/deeppurple-amber.scss",
+            "input": "libs/shared/styles/src/lib/material/themes/deeppurple-amber.scss",
             "bundleName": "deeppurple-amber"
           },
           {
             "inject": false,
-            "input": "libs/shared/styles/src/lib/themes/material/custom/indigo-pink.scss",
+            "input": "libs/shared/styles/src/lib/material/themes/indigo-pink.scss",
             "bundleName": "indigo-pink"
           },
           {
             "inject": false,
-            "input": "libs/shared/styles/src/lib/themes/material/custom/pink-bluegrey.scss",
+            "input": "libs/shared/styles/src/lib/material/themes/pink-bluegrey.scss",
             "bundleName": "pink-bluegrey"
           },
           {
             "inject": false,
-            "input": "libs/shared/styles/src/lib/themes/material/custom/purple-green.scss",
+            "input": "libs/shared/styles/src/lib/material/themes/purple-green.scss",
             "bundleName": "purple-green"
           }
         ],
