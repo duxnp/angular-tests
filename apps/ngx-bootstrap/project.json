@@ -6,7 +6,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/ngx-bootstrap",
         "index": "apps/ngx-bootstrap/src/index.html",
@@ -18,7 +20,9 @@
           "apps/ngx-bootstrap/src/favicon.ico",
           "apps/ngx-bootstrap/src/assets"
         ],
-        "styles": ["apps/ngx-bootstrap/src/styles.scss"],
+        "styles": [
+          "apps/ngx-bootstrap/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -32,7 +36,7 @@
             {
               "type": "anyComponentStyle",
               "maximumWarning": "2kb",
-              "maximumError": "4kb"
+              "maximumError": "6kb"
             }
           ],
           "fileReplacements": [
@@ -83,12 +87,18 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/ngx-bootstrap"],
+      "outputs": [
+        "coverage/apps/ngx-bootstrap"
+      ],
       "options": {
         "jestConfig": "apps/ngx-bootstrap/jest.config.js",
         "passWithNoTests": true
       }
     }
   },
-  "tags": ["application:ngx-bootstrap", "scope:ngx-bootstrap", "type:app"]
+  "tags": [
+    "application:ngx-bootstrap",
+    "scope:ngx-bootstrap",
+    "type:app"
+  ]
 }

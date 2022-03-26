@@ -10,12 +10,12 @@ import { ParamsComponent } from './containers/params/params.component';
 import { effects } from './store/effects';
 
 export const ROUTES: Routes = [
-  { path: '', component: ParentComponent },
-  { path: 'one', component: ChildOneComponent },
-  { path: 'two', component: ChildTwoComponent },
+  { path: '', component: fromContainers.ParentComponent },
+  { path: 'one', component: fromContainers.ChildOneComponent },
+  { path: 'two', component: fromContainers.ChildTwoComponent },
   {
     path: 'params/:paramOne',
-    component: ParentComponent,
+    component: fromContainers.ParentComponent,
     children: [{ path: ':paramTwo', component: ParamsComponent }],
   },
 ];
