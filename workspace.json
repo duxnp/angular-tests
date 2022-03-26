@@ -21,6 +21,7 @@
     "shared-domain": "libs/shared/domain",
     "shared-entity-store": "libs/shared/entity-store",
     "shared-environments": "libs/shared/environments",
+    "shared-styles": "libs/shared/styles",
     "shared-test-utils": "libs/shared/test-utils",
     "shared-ui": "libs/shared/ui",
     "shared-util": "libs/shared/util"

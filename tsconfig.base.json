@@ -42,6 +42,7 @@
       "@ng-tests/shared/environments": [
         "libs/shared/environments/src/index.ts"
       ],
+      "@ng-tests/shared/styles": ["libs/shared/styles/src/index.ts"],
       "@ng-tests/shared/test-utils": ["libs/shared/test-utils/src/index.ts"],
       "@ng-tests/shared/ui": ["libs/shared/ui/src/index.ts"],
       "@ng-tests/shared/util": ["libs/shared/util/src/index.ts"]
