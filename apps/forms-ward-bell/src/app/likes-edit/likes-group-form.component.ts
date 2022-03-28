@@ -25,10 +25,12 @@ export class LikesGroupFormComponent implements AfterViewInit {
   constructor(private form: NgForm) {}
 
   ngAfterViewInit() {
-    // Ng Quirk: Wait a tick in order to see the NgGroup control.
+    // NG Quirk: Wait a tick in order to see the NgGroup control.
     setTimeout(() => {
+      /* eslint-disable @typescript-eslint/no-unused-vars */
       const g = this.group;
       const f = this.form;
+      /* eslint-disable */
     }, 1);
   }
 }

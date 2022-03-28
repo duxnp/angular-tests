@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable @typescript-eslint/ban-types */
+/* eslint-disable @angular-eslint/component-selector */
 import {
   ChangeDetectionStrategy,
   Component,
@@ -23,10 +27,11 @@ const PIZZA_TOPPINGS_ACCESSOR = {
     <div class="pizza-toppings">
       <div
         class="pizza-toppings-item"
-        *ngFor="let topping of toppings;"
+        *ngFor="let topping of toppings"
         (click)="selectTopping(topping)"
-        [class.active]="existsInToppings(topping)">
-        <img src="/assets/img/toppings/singles/{{ topping.name }}.svg">
+        [class.active]="existsInToppings(topping)"
+      >
+        <img src="/assets/img/toppings/singles/{{ topping.name }}.svg" />
         {{ topping.name }}
       </div>
     </div>
@@ -37,8 +42,8 @@ export class PizzaToppingsComponent implements ControlValueAccessor {
 
   value: Topping[] = [];
 
-  onModelChange: any = () => { };
-  onTouch: any = () => { };
+  onModelChange: any = () => {};
+  onTouch: any = () => {};
 
   registerOnChange(fn: Function) {
     this.onModelChange = fn;
@@ -54,7 +59,7 @@ export class PizzaToppingsComponent implements ControlValueAccessor {
 
   selectTopping(topping: Topping) {
     if (this.existsInToppings(topping)) {
-      this.value = this.value.filter(item => item.id !== topping.id);
+      this.value = this.value.filter((item) => item.id !== topping.id);
     } else {
       this.value = [...this.value, topping];
     }
@@ -63,6 +68,6 @@ export class PizzaToppingsComponent implements ControlValueAccessor {
   }
 
   existsInToppings(topping: Topping) {
-    return this.value.some(val => val.id === topping.id);
+    return this.value.some((val) => val.id === topping.id);
   }
 }

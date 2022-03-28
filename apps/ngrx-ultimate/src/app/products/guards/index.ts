@@ -3,7 +3,13 @@ import { PizzaExistsGuard } from './pizza-exists.guard';
 import { PizzasGuard } from './pizzas.guard';
 import { ToppingsGuard } from './toppings.guard';
 
-export const guards: any[] = [DraftGuard, PizzasGuard, PizzaExistsGuard, ToppingsGuard];
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const guards: any[] = [
+  DraftGuard,
+  PizzasGuard,
+  PizzaExistsGuard,
+  ToppingsGuard,
+];
 
 export * from './draft.guard';
 export * from './pizzas.guard';

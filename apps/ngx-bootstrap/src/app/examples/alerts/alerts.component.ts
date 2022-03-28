@@ -7,7 +7,7 @@ import { AlertComponent } from 'ngx-bootstrap/alert/alert.component';
   styleUrls: ['./alerts.component.scss'],
 })
 export class AlertsComponent {
-  alerts: any[] = [
+  alerts = [
     {
       type: 'success',
       msg: `Well done! You successfully read this important alert message. (added: ${new Date().toLocaleTimeString()})`,

@@ -1,7 +1,8 @@
+/* eslint-disable @angular-eslint/component-selector */
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { combineLatest, Observable } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 import { Pizza, PizzaUtil } from '../../models/pizza.model';
 import { Topping } from '../../models/topping.model';
@@ -11,7 +12,7 @@ import * as fromStore from '../../store';
   selector: 'product-item',
   styleUrls: ['product-item.component.scss'],
   templateUrl: 'product-item.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductItemComponent implements OnInit {
   draft$!: Observable<Pizza>;
@@ -21,9 +22,7 @@ export class ProductItemComponent implements OnInit {
 
   test$!: Observable<Pizza>;
 
-  constructor(
-    private store: Store<fromStore.ProductsState>
-  ) {}
+  constructor(private store: Store<fromStore.ProductsState>) {}
 
   ngOnInit() {
     this.draft$ = this.store.select(fromStore.getDraftEntity);
@@ -38,9 +37,9 @@ export class ProductItemComponent implements OnInit {
     //   map(([id, pizzas]) => pizzas[id] as Pizza)
     // );
 
-    this.test$ = this.store.select(fromStore.selectAnId).pipe(
-      switchMap((id) => this.store.select(fromStore.selectPizza(id)))
-    )
+    this.test$ = this.store
+      .select(fromStore.selectAnId)
+      .pipe(switchMap((id) => this.store.select(fromStore.selectPizza(id))));
 
     // this.visualise$ = this.store.select(fromStore.getVisualizedPizza);
     // this.pizza$.subscribe(
@@ -71,7 +70,7 @@ export class ProductItemComponent implements OnInit {
   }
 
   onUpdate(event: Pizza) {
-    this.store.dispatch(fromStore.updatePizza({ pizza: event }))
+    this.store.dispatch(fromStore.updatePizza({ pizza: event }));
   }
 
   onRemove(event: Pizza) {

@@ -19,7 +19,7 @@ export function getRouteNestedParams(
 export function getRouteNestedConfigPath(
   routerState: SerializedRouterStateSnapshot
 ): string {
-  let segments: string[] = [];
+  const segments: string[] = [];
 
   let state: ActivatedRouteSnapshot = routerState.root;
   while (state.firstChild) {

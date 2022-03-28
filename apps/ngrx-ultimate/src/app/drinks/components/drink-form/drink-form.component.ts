@@ -1,15 +1,5 @@
+import { Component, EventEmitter, Output } from '@angular/core';
 import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  OnInit,
-  Output,
-  SimpleChanges
-} from '@angular/core';
-import {
-  FormArray,
   FormBuilder,
   FormControl,
   FormGroup,

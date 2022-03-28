@@ -46,10 +46,6 @@ export class DeferLoadTestComponent implements OnInit {
     },
   ];
 
-  constructor() {}
-
-  ngOnInit() {}
-
   get totalImagesShown(): number {
     return (
       this.imageItemCollection.filter((imageItem) => imageItem.show) || []

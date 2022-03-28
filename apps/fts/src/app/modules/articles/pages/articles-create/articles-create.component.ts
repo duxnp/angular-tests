@@ -19,6 +19,7 @@ export class ArticlesCreateComponent implements OnInit {
   }
 
   onSubmit() {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     this.articleApi.store(this.article).subscribe((data: any) => {
       console.log(data);
       this.router.navigate(['/articles']);

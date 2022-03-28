@@ -1,8 +1,4 @@
-import {
-  ActionReducerMap,
-  createFeatureSelector,
-  createSelector
-} from '@ngrx/store';
+import { createSelector } from '@ngrx/store';
 
 import * as fromRoot from '../../../store';
 import { Pizza, PizzaUtil } from '../../models/pizza.model';

@@ -1,15 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'nbt-bs-containers',
   templateUrl: './bs-containers.component.html',
-  styleUrls: ['./bs-containers.component.scss']
+  styleUrls: ['./bs-containers.component.scss'],
 })
-export class BsContainersComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class BsContainersComponent {}

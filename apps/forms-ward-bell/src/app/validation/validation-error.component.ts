@@ -44,6 +44,7 @@ function getErrorMessage(control: AbstractControl) {
   if (control instanceof FormGroup) {
     const controls = Object.values(control.controls);
     for (const c of controls) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const msg: any = getErrorMessage(c);
       if (msg) {
         return msg;

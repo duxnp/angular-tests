@@ -1,10 +1,6 @@
 import { Params } from '@angular/router';
-import {
-  createRouterSelector,
-  getSelectors,
-  RouterReducerState
-} from '@ngrx/router-store';
-import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { createRouterSelector, getSelectors } from '@ngrx/router-store';
+import { createSelector } from '@ngrx/store';
 
 import { getRouteNestedParams } from '../../shared/utilities';
 

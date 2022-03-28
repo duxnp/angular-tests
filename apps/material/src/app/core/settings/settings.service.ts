@@ -7,11 +7,6 @@ export class SettingsService {
   public themeChoices = [
     { value: 'default-theme', label: 'Default' },
     { value: 'light-theme', label: 'Light' },
-    { value: 'black-theme', label: 'Black' }
+    { value: 'black-theme', label: 'Black' },
   ];
-
-  constructor() {
-
-  }
-
 }

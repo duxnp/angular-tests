@@ -12,6 +12,7 @@ export class ToastsComponent {
 
   constructor(public toastService: ToastService) {}
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   isTemplate(toast: any) {
     return toast.textOrTpl instanceof TemplateRef;
   }

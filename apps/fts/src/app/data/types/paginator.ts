@@ -1,7 +1,6 @@
 import { PaginatorLink } from './paginator-link';
 
-/* eslint-disable @typescript-eslint/naming-convention */
-export interface Paginator {
+export interface Paginator<T> {
   total?: number;
   per_page: number;
   current_page: number;
@@ -14,5 +13,5 @@ export interface Paginator {
   path: string;
   from: number;
   to: number;
-  data: any;
+  data: T[];
 }

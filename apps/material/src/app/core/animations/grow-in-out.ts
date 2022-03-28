@@ -1,8 +1,6 @@
 import {
   animate,
-  group,
   keyframes,
-  query,
   style,
   transition,
   trigger
@@ -13,20 +11,22 @@ import {
 // transition: '* => in'
 // transition: 'in => *'
 export const growInOut = trigger('growInOut', [
-    transition(':enter',
-    [
-        animate('0.1s',
-            keyframes([
-                style({ transform: 'scale(0)' }),
-                style({ transform: 'scale(1)' })
-            ]))
-    ]),
-    transition(':leave',
-    [
-        animate('0.1s',
-            keyframes([
-                style({ transform: 'scale(1)' }),
-                style({ transform: 'scale(0)' })
-            ]))
-    ]),
+  transition(':enter', [
+    animate(
+      '0.1s',
+      keyframes([
+        style({ transform: 'scale(0)' }),
+        style({ transform: 'scale(1)' }),
+      ])
+    ),
+  ]),
+  transition(':leave', [
+    animate(
+      '0.1s',
+      keyframes([
+        style({ transform: 'scale(1)' }),
+        style({ transform: 'scale(0)' }),
+      ])
+    ),
+  ]),
 ]);

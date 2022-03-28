@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { AbstractControl, ValidatorFn } from '@angular/forms';
 
 /**
