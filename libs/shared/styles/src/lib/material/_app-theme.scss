@@ -9,25 +9,23 @@
   $warn: map.get($theme, warn);
   $background: map.get($theme, background);
   $foreground: map.get($theme, foreground);
-  $next-theme: mat.define-palette(mat.$red-palette);
+  $is-dark-theme: map.get($theme, is-dark);
 
-  body {
-    background: mat.get-color-from-palette($background, background);
-  }
+  // Not sure what the Angular Material docs are using this for
+  // $next-theme: mat.define-palette(mat.$red-palette);
 
+  $today-hue: if($is-dark-theme, 700, 300);
   .today {
-    background: lightskyblue !important;
+    background: mat.get-color-from-palette($primary, $today-hue) !important;
   }
 
+  $greyscale: mat.define-palette(mat.$grey-palette);
+  $weekday-hue: if($is-dark-theme, 700, 100);
   .weekday {
-    background: rgb(235, 235, 235);
+    background: mat.get-color-from-palette($greyscale, $weekday-hue);
   }
-
+  $weekend-hue: if($is-dark-theme, 800, 200);
   .weekend {
-    background: lightgrey;
-  }
-
-  .empty {
-    background: white;
+    background: mat.get-color-from-palette($greyscale, $weekend-hue);
   }
 }
