@@ -32,10 +32,9 @@ export class Year {
   public firstSaturday = () =>
     cy.get(':nth-child(7) > [data-testid="card-div"]');
 
-  public dayOrdinal = () =>
-    this.firstSaturday().get('[data-testid="ordinal-span"]');
+  public dayOrdinal = () => this.firstSaturday().byTestId('ordinal-span');
 
-  public dayAbbr = () => this.firstSaturday().get('[data-testid="abbr-span"]');
+  public dayAbbr = () => this.firstSaturday().byTestId('abbr-span');
 
-  public dayName = () => this.firstSaturday().get('[data-testid="name-span"]');
+  public dayName = () => this.firstSaturday().byTestId('name-span');
 }
