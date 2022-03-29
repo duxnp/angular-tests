@@ -4,9 +4,5 @@
   "sourceRoot": "libs/b-cal/shared/assets/src",
   "prefix": "bc",
   "targets": {},
-  "tags": [
-    "application:b-cal",
-    "scope:shared",
-    "type:assets"
-  ]
+  "tags": ["application:b-cal", "scope:shared", "type:assets"]
 }

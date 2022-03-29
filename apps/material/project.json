@@ -6,9 +6,7 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/material",
         "index": "apps/material/src/index.html",
@@ -16,13 +14,8 @@
         "polyfills": "apps/material/src/polyfills.ts",
         "tsConfig": "apps/material/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": [
-          "apps/material/src/favicon.ico",
-          "apps/material/src/assets"
-        ],
-        "styles": [
-          "apps/material/src/styles.scss"
-        ],
+        "assets": ["apps/material/src/favicon.ico", "apps/material/src/assets"],
+        "styles": ["apps/material/src/styles.scss"],
         "scripts": []
       },
       "configurations": {
@@ -87,18 +80,12 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/apps/material"
-      ],
+      "outputs": ["coverage/apps/material"],
       "options": {
         "jestConfig": "apps/material/jest.config.js",
         "passWithNoTests": true
       }
     }
   },
-  "tags": [
-    "application:",
-    "scope:",
-    "type:app"
-  ]
+  "tags": ["application:", "scope:", "type:app"]
 }

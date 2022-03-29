@@ -6,9 +6,7 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/b-cal",
         "index": "apps/b-cal/src/index.html",
@@ -30,26 +28,26 @@
         ],
         "styles": [
           {
-            "input": "libs/shared/styles/src/lib/material/styles.scss"
+            "input": "libs/shared/material/styles/src/lib/styles.scss"
           },
           {
             "inject": false,
-            "input": "libs/shared/styles/src/lib/material/themes/deeppurple-amber.scss",
+            "input": "libs/shared/material/styles/src/lib/themes/deeppurple-amber.scss",
             "bundleName": "deeppurple-amber"
           },
           {
             "inject": false,
-            "input": "libs/shared/styles/src/lib/material/themes/indigo-pink.scss",
+            "input": "libs/shared/material/styles/src/lib/themes/indigo-pink.scss",
             "bundleName": "indigo-pink"
           },
           {
             "inject": false,
-            "input": "libs/shared/styles/src/lib/material/themes/pink-bluegrey.scss",
+            "input": "libs/shared/material/styles/src/lib/themes/pink-bluegrey.scss",
             "bundleName": "pink-bluegrey"
           },
           {
             "inject": false,
-            "input": "libs/shared/styles/src/lib/material/themes/purple-green.scss",
+            "input": "libs/shared/material/styles/src/lib/themes/purple-green.scss",
             "bundleName": "purple-green"
           }
         ],
@@ -117,18 +115,12 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/apps/b-cal"
-      ],
+      "outputs": ["coverage/apps/b-cal"],
       "options": {
         "jestConfig": "apps/b-cal/jest.config.js",
         "passWithNoTests": true
       }
     }
   },
-  "tags": [
-    "application:b-cal",
-    "scope:b-cal",
-    "type:app"
-  ]
+  "tags": ["application:b-cal", "scope:b-cal", "type:app"]
 }
