@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterModule } from '@angular/router';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { Store } from '@ngrx/store';
@@ -50,6 +51,7 @@ export class YearComponent {
     RouterModule,
     FlexLayoutModule,
     MatButtonModule,
+    MatIconModule,
     DayCardModule,
     CalendarModule,
   ],
