@@ -1,1 +1,3 @@
-export * from './lib/shared-material-theme-picker-feature.module';
+export * from './lib/theme-picker';
+export * from './lib/theme-picker/theme-storage/theme-storage';
+export * from './lib/style-manager';

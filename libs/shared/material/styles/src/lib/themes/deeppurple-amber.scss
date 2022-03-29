@@ -1,5 +1,6 @@
 @use '@angular/material' as mat;
 @use '../app-theme';
+@use '../general';
 
 @include mat.core();
 
@@ -9,3 +10,4 @@ $_accent: mat.define-palette(mat.$amber-palette, A200, A100, A400);
 $_theme: mat.define-light-theme($_primary, $_accent);
 
 @include mat.all-component-themes($_theme);
+@include app-theme.theme($_theme);

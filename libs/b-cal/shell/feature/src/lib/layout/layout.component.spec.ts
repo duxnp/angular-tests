@@ -1,4 +1,3 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import {
   MockBuilder,
@@ -7,22 +6,22 @@ import {
   ngMocks
 } from 'ng-mocks';
 
-import { LayoutComponent, LayoutModule } from './layout.component';
+import { AppLayoutComponent, AppLayoutModule } from './layout.component';
 
 describe('LayoutComponent', () => {
   ngMocks.faster();
 
-  let component: LayoutComponent;
-  let fixture: MockedComponentFixture<LayoutComponent>;
+  let component: AppLayoutComponent;
+  let fixture: MockedComponentFixture<AppLayoutComponent>;
 
   beforeAll(() =>
-    MockBuilder(LayoutComponent, LayoutModule).keep(
+    MockBuilder(AppLayoutComponent, AppLayoutModule).keep(
       RouterTestingModule.withRoutes([])
     )
   );
 
   beforeAll(() => {
-    fixture = MockRender(LayoutComponent);
+    fixture = MockRender(AppLayoutComponent);
     component = fixture.point.componentInstance;
   });
 
