@@ -7,7 +7,8 @@ import { AlertComponent } from 'ngx-bootstrap/alert/alert.component';
   styleUrls: ['./alerts.component.scss'],
 })
 export class AlertsComponent {
-  alerts = [
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  alerts: any[] = [
     {
       type: 'success',
       msg: `Well done! You successfully read this important alert message. (added: ${new Date().toLocaleTimeString()})`,
