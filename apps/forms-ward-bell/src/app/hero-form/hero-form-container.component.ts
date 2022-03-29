@@ -21,6 +21,9 @@ export class HeroFormContainerComponent {
 
   editing = true;
 
+  /** Index of the selected "Likes" UI implementation */
+  selectedUi$ = this.dataService.selectedUi$;
+
   save(vm: HeroAndLikes) {
     this.dataService.saveHeroAndLikes(vm);
     this.editing = false;
@@ -29,9 +32,6 @@ export class HeroFormContainerComponent {
   close() {
     this.editing = false;
   }
-
-  /** Index of the selected "Likes" UI implementation */
-  selectedUi$ = this.dataService.selectedUi$;
 
   updateSelectedUi(selectedUi: string) {
     this.dataService.updateSelectedUi(selectedUi);

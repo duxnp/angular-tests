@@ -3,7 +3,7 @@ import { timer } from 'rxjs';
 import { mapTo } from 'rxjs/operators';
 
 const count = 30;
-const data = [];
+const data: { id: number; username: string; text: string }[] = [];
 
 for (let i = 0; i < count; i++) {
   data.push({
@@ -29,5 +29,6 @@ export const getData = (params = { page: 1 }) => {
   };
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const getTweets = (params?: any) =>
   timer(1000).pipe(mapTo(getData(params)));

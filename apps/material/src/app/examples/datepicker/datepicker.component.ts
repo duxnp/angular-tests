@@ -1,24 +1,19 @@
 import { Platform } from '@angular/cdk/platform';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 // import * as moment from 'moment';
 
 @Component({
   selector: 'app-datepicker',
   templateUrl: './datepicker.component.html',
-  styleUrls: ['./datepicker.component.scss']
+  styleUrls: ['./datepicker.component.scss'],
 })
-export class DatepickerComponent implements OnInit {
+export class DatepickerComponent {
   public startDate = new Date(2018, 0, 1);
   public minDate = new Date(2018, 0, 1);
   public maxDate = new Date(2018, 0, 25);
 
-  constructor(
-    private _platform: Platform
-  ) { }
-
-  ngOnInit() {
-  }
+  constructor(private _platform: Platform) {}
 
   // Used to present the mobile version of the date picker
   // Use along with @angular/material-moment-adapter
@@ -26,5 +21,4 @@ export class DatepickerComponent implements OnInit {
     return this._platform.ANDROID || this._platform.IOS;
     // return true;
   }
-
 }

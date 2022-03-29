@@ -10,8 +10,11 @@ export class ToppingsService {
   constructor(private http: HttpClient) {}
 
   getToppings(): Observable<Topping[]> {
-    return this.http
-      .get<Topping[]>(`http://localhost:3000/api/toppings`)
-      .pipe(catchError((error: any) => throwError(error.json())));
+    return (
+      this.http
+        .get<Topping[]>(`http://localhost:3000/api/toppings`)
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        .pipe(catchError((error: any) => throwError(error.json())))
+    );
   }
 }

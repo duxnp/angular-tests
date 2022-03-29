@@ -1,4 +1,4 @@
-import { Component, Injectable, OnInit } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 
@@ -6,6 +6,7 @@ import { ErrorStateMatcher } from '@angular/material/core';
 export class CustomErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
     control: FormControl | null,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     form: FormGroupDirective | NgForm | null
   ): boolean {
     return !!(control && control.invalid && control.dirty);
@@ -16,17 +17,10 @@ export class CustomErrorStateMatcher implements ErrorStateMatcher {
   selector: 'app-inputs',
   templateUrl: './inputs.component.html',
   providers: [CustomErrorStateMatcher],
-  styleUrls: ['./inputs.component.scss']
+  styleUrls: ['./inputs.component.scss'],
 })
-export class InputsComponent implements OnInit {
-
+export class InputsComponent {
   public password = '';
 
-  constructor(
-    public customErrorStateMatcher: CustomErrorStateMatcher
-  ) { }
-
-  ngOnInit() {
-  }
-
+  constructor(public customErrorStateMatcher: CustomErrorStateMatcher) {}
 }

@@ -1,16 +1,13 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Component, OnDestroy, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { interval, Subscription, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { environment as env } from '../environments/environment';
 import { Logger } from './core/logger.service';
-import { ModalContent } from './core/service/confirm.service';
 import { HtmlService } from './data/service/html.service';
-import { User } from './data/types/user';
-import { ConfirmModalComponent } from './shared/components/confirm-modal/confirm-modal.component';
+import { IUser, User } from './data/types/user';
 import { LogoutPromptComponent } from './shared/components/logout-prompt/logout-prompt.component';
 
 @Component({
@@ -43,7 +40,10 @@ export class AppComponent implements OnInit, OnDestroy {
     const logger = new Logger('App Component');
 
     this.sub = interval(1000).subscribe((value) => {
-      // console.log(`value %c${value}`, 'background: #222; color: #fff; padding: 5px;');
+      console.log(
+        `value %c${value}`,
+        'background: #222; color: #fff; padding: 5px;'
+      );
     });
 
     // let baseHref = window.location.pathname;
@@ -57,8 +57,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
     // withCredentials must be set to true for the browser to accept cookies in the response
     this.http
-      .get<any>(`${this.apiUrl}/sanctum/csrf-cookie`, { withCredentials: true })
-      .subscribe((_) => console.log('CSRF token received'));
+      .get(`${this.apiUrl}/sanctum/csrf-cookie`, { withCredentials: true })
+      .subscribe(() => console.log('CSRF token received'));
   }
 
   ngOnDestroy() {
@@ -91,7 +91,7 @@ export class AppComponent implements OnInit, OnDestroy {
       password_confirmation: this.password,
     };
     this.http
-      .post<any>(`${this.apiUrl}/register`, payload, { withCredentials: true })
+      .post(`${this.apiUrl}/register`, payload, { withCredentials: true })
       .subscribe(console.log);
   }
 
@@ -101,7 +101,7 @@ export class AppComponent implements OnInit, OnDestroy {
       email: this.email,
     };
     this.http
-      .post<any>(`${this.apiUrl}/forgot-password`, payload, {
+      .post(`${this.apiUrl}/forgot-password`, payload, {
         withCredentials: true,
       })
       .subscribe(console.log);
@@ -116,7 +116,7 @@ export class AppComponent implements OnInit, OnDestroy {
       remember: this.remember,
     };
     this.http
-      .post<any>(`${this.apiUrl}/login`, payload, { withCredentials: true })
+      .post(`${this.apiUrl}/login`, payload, { withCredentials: true })
       .pipe(catchError(this.handleError))
       .subscribe(console.log);
   }
@@ -125,7 +125,7 @@ export class AppComponent implements OnInit, OnDestroy {
     console.log('Check Login');
     // withCredentials must be set to true for Angular to include cookies in the request
     this.http
-      .get<any>(`${this.apiUrl}/api/user`, { withCredentials: true })
+      .get<IUser>(`${this.apiUrl}/api/user`, { withCredentials: true })
       .subscribe((user) => {
         console.log(user);
         this.user = new User(user);
@@ -137,6 +137,7 @@ export class AppComponent implements OnInit, OnDestroy {
   checkPermissions() {
     console.log('Check Permissions');
     this.http
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       .get<any>(`${this.apiUrl}/api/user/permissions`, {
         withCredentials: true,
       })
@@ -150,7 +151,7 @@ export class AppComponent implements OnInit, OnDestroy {
   logout() {
     console.log('Logout');
     this.http
-      .post<any>(`${this.apiUrl}/logout`, {}, { withCredentials: true })
+      .post(`${this.apiUrl}/logout`, {}, { withCredentials: true })
       .subscribe(console.log);
   }
 

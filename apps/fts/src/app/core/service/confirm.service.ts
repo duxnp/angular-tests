@@ -1,10 +1,10 @@
-import { Injectable, OnDestroy, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import {
   NgbModal,
   NgbModalOptions,
   NgbModalRef
 } from '@ng-bootstrap/ng-bootstrap';
-import { Observable, Subject, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 import { ConfirmModalComponent } from '../../shared/components/confirm-modal/confirm-modal.component';
 
@@ -20,6 +20,7 @@ export interface ModalContent {
 })
 export class ConfirmService {
   defaultOptions: NgbModalOptions;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   defaultState: any;
   defaultContent: ModalContent;
   modalRefClosed!: Subscription;

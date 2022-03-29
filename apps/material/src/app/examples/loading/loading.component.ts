@@ -34,8 +34,6 @@ export class LoadingComponent implements OnInit {
   public queryValue = 0;
   public queryMode: ProgressBarMode = 'query';
 
-  constructor() {}
-
   ngOnInit() {
     this.loadingProgress(500).subscribe((i) => (this.loadingPercent = i));
 
@@ -44,7 +42,7 @@ export class LoadingComponent implements OnInit {
     concat(
       interval(2000).pipe(
         take(1),
-        tap((_) => (this.queryMode = 'determinate')),
+        tap(() => (this.queryMode = 'determinate')),
         ignoreElements()
       ),
       this.loadingProgress(500)

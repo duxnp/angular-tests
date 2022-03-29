@@ -5,11 +5,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DefaultDataServiceConfig, EntityDataModule } from '@ngrx/data';
 import { EffectsModule } from '@ngrx/effects';
 import {
-  DefaultRouterStateSerializer,
-  MinimalRouterStateSerializer,
   routerReducer,
   RouterState,
-  RouterStateSerializer,
   StoreRouterConnectingModule
 } from '@ngrx/router-store';
 import { MetaReducer, StoreModule } from '@ngrx/store';
@@ -20,8 +17,9 @@ import { NxModule } from '@nrwl/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { defaultDataServiceConfig, entityConfig } from './entity-metadata';
+
 // Custom reducers and serializer for @ngrx/router-store
-import { CustomSerializer, reducers } from './store';
+// import { CustomSerializer, reducers } from './store';
 
 // this would be done dynamically with webpack for builds
 const environment = {
@@ -29,6 +27,7 @@ const environment = {
   production: false,
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const metaReducers: MetaReducer<any>[] = !environment.production
   ? []
   : [];

@@ -1,3 +1,4 @@
+/* eslint-disable @angular-eslint/component-selector */
 import { animate, style, transition, trigger } from '@angular/animations';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
@@ -29,7 +30,7 @@ export const DROP_ANIMATION = trigger('drop', [
   template: `
     <div class="pizza-display">
       <div class="pizza-display__base">
-        <img src="/assets/img/pizza.svg">
+        <img src="/assets/img/pizza.svg" />
         <img
           *ngFor="
             let topping of pizza?.toppings;
@@ -39,7 +40,8 @@ export const DROP_ANIMATION = trigger('drop', [
           src="/assets/img/toppings/{{ topping.name }}.svg"
           [style.zIndex]="i"
           class="pizza-display__topping"
-          @drop>
+          @drop
+        />
       </div>
     </div>
   `,

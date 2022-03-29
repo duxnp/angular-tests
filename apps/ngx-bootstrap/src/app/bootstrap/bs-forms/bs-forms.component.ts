@@ -1,15 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'nbt-bs-forms',
   templateUrl: './bs-forms.component.html',
-  styleUrls: ['./bs-forms.component.scss']
+  styleUrls: ['./bs-forms.component.scss'],
 })
-export class BsFormsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class BsFormsComponent {}

@@ -6,10 +6,10 @@ import {
 } from '@ngrx/entity';
 import { createReducer, on } from '@ngrx/store';
 
-import { defaultPizza, Pizza } from '../../models/pizza.model';
+import { Pizza } from '../../models/pizza.model';
 import * as fromPizzas from '../actions/pizzas.action';
 
-export interface PizzaState extends EntityState<Pizza>{
+export interface PizzaState extends EntityState<Pizza> {
   loaded: boolean;
   loading: boolean;
 }
@@ -32,26 +32,30 @@ export const reducer = createReducer(
   on(fromPizzas.loadPizzasSuccess, (state, action) => {
     const pizzas = action.payload;
     const newState = adapter.addMany(pizzas, state);
-    return ({ ...newState, loading: false, loaded: true });
+    return { ...newState, loading: false, loaded: true };
   }),
 
-  on(fromPizzas.loadPizzasFail, (state) => ({ ...state, loading: false, loaded: false })),
+  on(fromPizzas.loadPizzasFail, (state) => ({
+    ...state,
+    loading: false,
+    loaded: false,
+  })),
 
-  on(fromPizzas.createPizzaSuccess,
-    (state, { pizza }) => adapter.addOne(pizza, state)
+  on(fromPizzas.createPizzaSuccess, (state, { pizza }) =>
+    adapter.addOne(pizza, state)
   ),
 
-  on(fromPizzas.updatePizzaSuccess, (state, {pizza}) => {
+  on(fromPizzas.updatePizzaSuccess, (state, { pizza }) => {
     const update: Update<Pizza> = {
       id: pizza.id,
-      changes: pizza
+      changes: pizza,
     };
     return adapter.updateOne(update, state);
   }),
 
-  on(fromPizzas.removePizzaSuccess,
-    (state, { pizza }) => adapter.removeOne(pizza.id, state)
-  ),
+  on(fromPizzas.removePizzaSuccess, (state, { pizza }) =>
+    adapter.removeOne(pizza.id, state)
+  )
 );
 
 // Normal functions used by the selectors for convenience

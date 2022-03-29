@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-defer-load-test',
   templateUrl: './defer-load-test.component.html',
   styleUrls: ['./defer-load-test.component.scss'],
 })
-export class DeferLoadTestComponent implements OnInit {
+export class DeferLoadTestComponent {
   /* eslint-disable max-len */
   imageItemCollection = [
     {
@@ -45,10 +45,6 @@ export class DeferLoadTestComponent implements OnInit {
       show: false,
     },
   ];
-
-  constructor() {}
-
-  ngOnInit() {}
 
   get totalImagesShown(): number {
     return (

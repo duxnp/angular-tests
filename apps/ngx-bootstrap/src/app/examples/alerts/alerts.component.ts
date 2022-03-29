@@ -7,6 +7,7 @@ import { AlertComponent } from 'ngx-bootstrap/alert/alert.component';
   styleUrls: ['./alerts.component.scss'],
 })
 export class AlertsComponent {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   alerts: any[] = [
     {
       type: 'success',

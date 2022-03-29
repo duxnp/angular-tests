@@ -5,7 +5,6 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 
 import { dialogOptions } from './config/mat-dialog';
-import { inputOptions } from './config/mat-input';
 import { SettingsService } from './settings/settings.service';
 
 @NgModule({

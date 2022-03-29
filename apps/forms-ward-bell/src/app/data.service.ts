@@ -26,6 +26,12 @@ export class DataService {
   /** Observable of cached application data (the store) */
   data$ = this.cache.asObservable();
 
+  /** Observable index of the currently selected "Likes" form implementation. */
+  selectedUi$ = this.data$.pipe(
+    distinctUntilChanged((p, c) => p.selectedUi === c.selectedUi),
+    map((d) => d.selectedUi)
+  );
+
   /** Return cached data at the moment of this method's execution.
    * Convenience method for internal service use only. */
   private dataNow() {
@@ -34,12 +40,6 @@ export class DataService {
     this.data$.pipe(first()).subscribe((d) => (data = d));
     return data;
   }
-
-  /** Observable index of the currently selected "Likes" form implementation. */
-  selectedUi$ = this.data$.pipe(
-    distinctUntilChanged((p, c) => p.selectedUi === c.selectedUi),
-    map((d) => d.selectedUi)
-  );
 
   saveHeroAndLikes({ hero, likes: heroLikes = [] }: HeroAndLikes) {
     const data = this.dataNow();
@@ -63,7 +63,7 @@ export class DataService {
         id: idCounter++,
         currentHeroId,
       }));
-      currentHeroId = currentHeroId;
+      // currentHeroId = currentHeroId;
       heroes = heroes.concat(hero);
       likes = likes.concat(heroLikes);
     }

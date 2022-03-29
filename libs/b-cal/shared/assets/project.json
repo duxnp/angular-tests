@@ -3,24 +3,6 @@
   "root": "libs/b-cal/shared/assets",
   "sourceRoot": "libs/b-cal/shared/assets/src",
   "prefix": "bc",
-  "targets": {
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/b-cal/shared/assets"],
-      "options": {
-        "jestConfig": "libs/b-cal/shared/assets/jest.config.js",
-        "passWithNoTests": true
-      }
-    },
-    "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/b-cal/shared/assets/src/**/*.ts",
-          "libs/b-cal/shared/assets/src/**/*.html"
-        ]
-      }
-    }
-  },
+  "targets": {},
   "tags": ["application:b-cal", "scope:shared", "type:assets"]
 }

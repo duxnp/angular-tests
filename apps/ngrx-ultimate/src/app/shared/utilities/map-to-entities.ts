@@ -8,6 +8,7 @@ export const mapToEntitiesNonTyped = (
   return array.reduce(
     // Reducer function
     // Arguments: (accumulator, currentValue)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (entities: { [id: number]: Entity }, currentValue: any) => {
       return {
         ...entities,

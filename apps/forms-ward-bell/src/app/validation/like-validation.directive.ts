@@ -1,3 +1,4 @@
+/* eslint-disable @angular-eslint/directive-selector */
 import { Directive, Input } from '@angular/core';
 import {
   AbstractControl,

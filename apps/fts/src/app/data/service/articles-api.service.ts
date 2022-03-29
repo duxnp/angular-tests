@@ -1,12 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   HttpClient,
   HttpErrorResponse,
-  HttpHeaders,
   HttpParams
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, ObservableInput, of, throwError } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { Observable, of, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 import { environment as env } from '../../../environments/environment';
 import { Article } from '../../data/types/article';

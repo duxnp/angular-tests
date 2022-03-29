@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'nbt-modal-content',
@@ -9,6 +9,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 export class ModalContentComponent implements OnInit {
   title!: string;
   closeBtnName!: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   list: any[] = [];
 
   constructor(public bsModalRef: BsModalRef) {}

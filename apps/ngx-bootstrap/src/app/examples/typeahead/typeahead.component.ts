@@ -1,15 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'nbt-typeahead',
   templateUrl: './typeahead.component.html',
-  styleUrls: ['./typeahead.component.scss']
+  styleUrls: ['./typeahead.component.scss'],
 })
-export class TypeaheadComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}
+export class TypeaheadComponent {}

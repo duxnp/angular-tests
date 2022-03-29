@@ -1,15 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'nbt-bs-dialogs',
   templateUrl: './bs-dialogs.component.html',
-  styleUrls: ['./bs-dialogs.component.scss']
+  styleUrls: ['./bs-dialogs.component.scss'],
 })
-export class BsDialogsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class BsDialogsComponent {}

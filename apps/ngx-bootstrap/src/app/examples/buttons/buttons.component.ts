@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./buttons.component.scss'],
 })
 export class ButtonsComponent implements OnInit {
-  checkModel: any = { left: false, middle: true, right: false };
+  checkModel = { left: false, middle: true, right: false };
   singleModel = '1';
   myForm!: FormGroup;
   radioModel = 'Middle';

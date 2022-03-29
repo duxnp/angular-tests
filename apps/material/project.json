@@ -2,7 +2,7 @@
   "projectType": "application",
   "root": "apps/material",
   "sourceRoot": "apps/material/src",
-  "prefix": "bry",
+  "prefix": "app",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",

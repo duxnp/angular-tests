@@ -1,6 +1,6 @@
 module.exports = {
-  displayName: 'b-cal-shared-assets',
-  preset: '../../../../jest.preset.js',
+  displayName: 'shared-material-theme-picker-feature',
+  preset: '../../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -8,7 +8,8 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../../../coverage/libs/b-cal/shared/assets',
+  coverageDirectory:
+    '../../../../../coverage/libs/shared/material/theme-picker/feature',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },

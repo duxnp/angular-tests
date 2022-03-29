@@ -14,6 +14,7 @@ import { SettingsService } from './core/settings/settings.service';
   animations: [routerTransition, growInOut],
 })
 export class AppComponent implements OnInit, OnDestroy {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   @HostBinding('class') componentCssClass: any;
 
   private themeSubscription = this.settings.$appTheme.subscribe(
@@ -39,6 +40,7 @@ export class AppComponent implements OnInit, OnDestroy {
     { link: 'examples/snackbar', label: 'Snackbar' },
     { link: 'examples/datatable', label: 'Datatable' },
   ];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   themes: any[] = [];
 
   constructor(
@@ -71,6 +73,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
 // Function I saw in the Egghead lesson to create a list of items from I think the router service
 // Not really sure exactly what it does yet but it might come in handy
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function createRouteMap(routes: any[]) {
   return routes.reduce((acc: { [key: string]: string }, route) => {
     return { ...acc, [route.path]: route.data.title };

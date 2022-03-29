@@ -12,8 +12,6 @@ export class ModalContentComponent {
   @Input() cancelText = 'No';
   @Output() closed: EventEmitter<boolean> = new EventEmitter();
 
-  constructor() {}
-
   confirm() {
     this.closed.emit(true);
   }

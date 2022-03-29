@@ -21,9 +21,12 @@ export class NrwlEffects {
           console.log('ParentComponent navigated');
           console.log(snapshot.params);
         },
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         onError: (snapshot: ActivatedRouteSnapshot, error: any) => {
           // we can log and error here and return null
           // we can also navigate back
+          console.log(snapshot.params);
+          console.log(error);
           return null;
         },
       })

@@ -1,5 +1,5 @@
-import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
-import { fromEvent, Observable, Subject } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { fromEvent, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 // import { fromEvent } from 'rxjs/observable/fromEvent';
@@ -27,9 +27,8 @@ export class ToolbarsComponent implements OnInit, OnDestroy {
   //    console.log(verticalOffset);
   // }
 
-  constructor() {}
-
   ngOnInit() {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const container = document.querySelector(SCROLL_CONTAINER);
 
     // For some reason you can't target <html> tag with the scroll event

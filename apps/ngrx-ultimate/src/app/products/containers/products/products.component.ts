@@ -1,3 +1,4 @@
+/* eslint-disable @angular-eslint/component-selector */
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -9,14 +10,12 @@ import * as fromStore from '../../store';
   selector: 'products',
   styleUrls: ['products.component.scss'],
   templateUrl: 'products.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductsComponent implements OnInit {
   pizzas$!: Observable<Pizza[]>;
 
-  constructor(
-    private store: Store<fromStore.ProductsState>
-  ) {}
+  constructor(private store: Store<fromStore.ProductsState>) {}
 
   ngOnInit() {
     // These are now dispatched from within the guards

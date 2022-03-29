@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -6,10 +6,8 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './logout-prompt.component.html',
   styleUrls: ['./logout-prompt.component.scss'],
 })
-export class LogoutPromptComponent implements OnInit {
+export class LogoutPromptComponent {
   constructor(public activeModal: NgbActiveModal) {}
-
-  ngOnInit(): void {}
 
   onClosed(result: boolean) {
     this.activeModal.close(result);

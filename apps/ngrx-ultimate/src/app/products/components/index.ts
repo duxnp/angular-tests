@@ -3,6 +3,7 @@ import { PizzaFormComponent } from './pizza-form/pizza-form.component';
 import { PizzaItemComponent } from './pizza-item/pizza-item.component';
 import { PizzaToppingsComponent } from './pizza-toppings/pizza-toppings.component';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const components: any[] = [
   PizzaItemComponent,
   PizzaFormComponent,

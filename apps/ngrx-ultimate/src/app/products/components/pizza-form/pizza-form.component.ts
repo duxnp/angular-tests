@@ -1,3 +1,4 @@
+/* eslint-disable @angular-eslint/component-selector */
 import {
   ChangeDetectionStrategy,
   Component,
@@ -9,13 +10,11 @@ import {
   SimpleChanges
 } from '@angular/core';
 import {
-  FormArray,
   FormBuilder,
   FormControl,
   FormGroup,
   Validators
 } from '@angular/forms';
-import { map } from 'rxjs/operators';
 
 import { Pizza } from '../../models/pizza.model';
 import { Topping } from '../../models/topping.model';
@@ -24,7 +23,7 @@ import { Topping } from '../../models/topping.model';
   selector: 'pizza-form',
   styleUrls: ['pizza-form.component.scss'],
   templateUrl: 'pizza-form.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PizzaFormComponent implements OnChanges, OnInit {
   exists = false;
@@ -54,6 +53,8 @@ export class PizzaFormComponent implements OnChanges, OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
+    console.log(changes);
+
     // this.pizza MUST be undefined when creating a new pizza
     if (this.pizza && this.pizza.id) {
       this.exists = true;
@@ -71,7 +72,7 @@ export class PizzaFormComponent implements OnChanges, OnInit {
   }
 
   ngOnInit() {
-    this.form.valueChanges.subscribe(value => this.changed.emit(value));
+    this.form.valueChanges.subscribe((value) => this.changed.emit(value));
   }
 
   createPizza(form: FormGroup) {
