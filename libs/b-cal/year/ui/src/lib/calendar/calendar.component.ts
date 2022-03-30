@@ -1,5 +1,10 @@
-import { Component, ChangeDetectionStrategy, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  NgModule
+} from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 @Component({
@@ -8,7 +13,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   styleUrls: ['./calendar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CalendarComponent {}
+export class CalendarComponent {
+  @Input() mini = false;
+}
 
 @NgModule({
   imports: [CommonModule, FlexLayoutModule],

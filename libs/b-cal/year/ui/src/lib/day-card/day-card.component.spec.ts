@@ -13,8 +13,10 @@ import { DayCardComponent, DayCardModule } from './day-card.component';
 describe('DayCardComponent', () => {
   let spectator: SpectatorHost<DayCardComponent>;
   let mediaController: ɵMockMatchMedia;
+
   const day = getDayMock();
   const today = getDayMock();
+  const showContent = true;
 
   const createHost = createHostFactory({
     component: DayCardComponent,
@@ -25,8 +27,12 @@ describe('DayCardComponent', () => {
 
   beforeEach(() => {
     spectator = createHost(
-      `<bc-day-card [day]="day" [today]="today"></bc-day-card>`,
-      { hostProps: { day, today } }
+      `<bc-day-card
+        [day]="day"
+        [today]="today"
+        [showContent]="showContent">
+      </bc-day-card>`,
+      { hostProps: { day, today, showContent } }
     );
   });
 
@@ -41,6 +47,16 @@ describe('DayCardComponent', () => {
 
   it('initializes', () => {
     expect(spectator.component).toBeTruthy();
+  });
+
+  it('shows or hides content', () => {
+    spectator.setInput('showContent', true);
+    const nameSpan1 = spectator.query('[data-testid="name-span"]');
+    expect(nameSpan1).toExist();
+
+    spectator.setInput('showContent', false);
+    const nameSpan2 = spectator.query('[data-testid="name-span"]');
+    expect(nameSpan2).not.toExist();
   });
 
   it('displays day information', () => {
@@ -104,4 +120,8 @@ describe('DayCardComponent', () => {
     spectator.setInput('today', notToday);
     expect(cardDiv).not.toHaveClass('today');
   });
+
+  // TODO: may want to test if dayClick emits when DayCard is clicked
+
+  // TODO: may want to test if tooltips appear when a mini daycard is hovered
 });

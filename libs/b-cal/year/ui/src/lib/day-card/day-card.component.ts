@@ -8,6 +8,7 @@ import {
   Output
 } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { DayPipeModule } from '@ng-tests/b-cal/shared/util';
 import { Day } from '@ng-tests/b-cal/year/util';
@@ -21,11 +22,12 @@ import { Day } from '@ng-tests/b-cal/year/util';
 export class DayCardComponent {
   @Input() day!: Day;
   @Input() today!: Day;
+  @Input() showContent = true;
   @Output() dayClick = new EventEmitter<Day>();
 }
 
 @NgModule({
-  imports: [CommonModule, FlexLayoutModule, DayPipeModule],
+  imports: [CommonModule, FlexLayoutModule, DayPipeModule, MatTooltipModule],
   declarations: [DayCardComponent],
   exports: [DayCardComponent],
 })

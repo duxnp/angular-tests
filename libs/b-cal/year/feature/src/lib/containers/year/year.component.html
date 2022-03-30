@@ -1,62 +1,42 @@
 <ng-container *ngrxLet="vm$ as vm">
-  <div fxLayout="row" fxLayoutAlign="space-between start">
-    <span class="mat-display-1" data-testid="year-span">{{ vm.year.id }}</span>
+  <mat-toolbar color="secondary" class="secondary-toolbar">
+    <span data-testid="year-span">{{ vm.year.id }}</span>
+    <span class="flex-spacer"></span>
     <span>
-      <button
-        mat-icon-button
-        color="primary"
-        (click)="previousYear(vm.year.id)"
-        data-testid="previous-button"
-        matTooltip="Previous Year"
-      >
-        <mat-icon>chevron_left</mat-icon>
-      </button>
-      <button
-        mat-icon-button
-        color="primary"
-        (click)="nextYear(vm.year.id)"
-        data-testid="next-button"
-        matTooltip="Next Year"
-      >
-        <mat-icon>chevron_right</mat-icon>
-      </button>
-      <button
-        mat-icon-button
-        color="primary"
-        aria-label="Example icon button with a delete icon"
-        [mat-menu-trigger-for]="yearNavMenu"
-      >
-        <mat-icon>more_vert</mat-icon>
-      </button>
+      <bc-year-nav
+        [year]="vm.year.id"
+        (gotoYear)="gotoYear($event)"
+      ></bc-year-nav>
     </span>
-  </div>
-
-  <mat-menu
-    #yearNavMenu="matMenu"
-    xPosition="before"
-    data-testid="year-nav-menu"
-  >
-    <button mat-menu-item data-testid="first" (click)="firstYear()">
-      <span>First</span>
-    </button>
-    <button mat-menu-item data-testid="current" (click)="currentYear()">
-      <span>Current</span>
-    </button>
-    <button mat-menu-item data-testid="last" (click)="lastYear()">
-      <span>Last</span>
-    </button>
-  </mat-menu>
+  </mat-toolbar>
 
   <!-- TODO: remember to use track by -->
-  <bc-calendar>
-    <ng-container *ngFor="let day of vm.year.days">
-      <bc-day-card
-        [day]="day"
-        [today]="vm.today"
-        (dayClick)="onDayClick($event)"
-      ></bc-day-card>
-    </ng-container>
-  </bc-calendar>
+  <div fxLayout="row" fxLayoutGap="20px" fxFlexFill class="container">
+    <div fxFlex="none" fxHide.lt-md>
+      <bc-calendar [mini]="true">
+        <ng-container *ngFor="let day of vm.year.days">
+          <bc-day-card
+            [day]="day"
+            [today]="vm.today"
+            [showContent]="false"
+            (dayClick)="onDayScroll(day)"
+          ></bc-day-card>
+        </ng-container>
+      </bc-calendar>
+    </div>
+    <div fxFlex="auto">
+      <bc-calendar>
+        <ng-container *ngFor="let day of vm.year.days">
+          <bc-day-card
+            [day]="day"
+            [today]="vm.today"
+            (dayClick)="onDayClick($event)"
+            [id]="'day-' + day.dayOfYear"
+          ></bc-day-card>
+        </ng-container>
+      </bc-calendar>
+    </div>
+  </div>
 </ng-container>
 
 <router-outlet></router-outlet>

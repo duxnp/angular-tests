@@ -1,3 +1,4 @@
+import { ViewportScroller } from '@angular/common';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveComponentModule } from '@ngrx/component';
@@ -10,7 +11,11 @@ import {
 } from 'ng-mocks';
 
 import { YearsSelectors } from '@ng-tests/b-cal/year/data-access';
-import { CalendarComponent, DayCardComponent } from '@ng-tests/b-cal/year/ui';
+import {
+  CalendarComponent,
+  DayCardComponent,
+  YearNavComponent
+} from '@ng-tests/b-cal/year/ui';
 import { createYearsEntity, getDayMock } from '@ng-tests/b-cal/year/util';
 
 import { YearComponent, YearModule } from './year.component';
@@ -25,6 +30,8 @@ describe('YearComponent:ng-mocks', () => {
   let fixture: MockedComponentFixture<YearComponent>;
   let router: Router;
   let routerSpy: jest.SpyInstance;
+  let viewport: ViewportScroller;
+  let viewportSpy: jest.SpyInstance;
 
   const YEAR = createYearsEntity(2022);
   const TODAY = getDayMock();
@@ -43,6 +50,7 @@ describe('YearComponent:ng-mocks', () => {
     MockBuilder(YearComponent, YearModule)
       .keep(ReactiveComponentModule)
       .keep(RouterTestingModule.withRoutes([]))
+      .keep(ViewportScroller)
       .provide(mockStore)
   );
 
@@ -51,10 +59,13 @@ describe('YearComponent:ng-mocks', () => {
     component = fixture.point.componentInstance;
     router = fixture.point.injector.get(Router);
     routerSpy = jest.spyOn(router, 'navigate').mockImplementation();
+    viewport = fixture.point.injector.get(ViewportScroller);
+    viewportSpy = jest.spyOn(viewport, 'scrollToAnchor').mockImplementation();
   });
 
   beforeEach(() => {
     routerSpy.mockClear();
+    viewportSpy.mockClear();
   });
 
   /** Smoke test. It merely proves that the Component renders without errors. */
@@ -67,20 +78,10 @@ describe('YearComponent:ng-mocks', () => {
     expect(yearSpan.nativeElement.textContent).toBe('2022');
   });
 
-  it('navigates to next year', () => {
-    const nextButton = ngMocks.find(['data-testid', 'next-button']);
-    ngMocks.click(nextButton);
-
-    expect(router.navigate).toBeCalled();
-    expect(router.navigate).toBeCalledWith([YEAR.id + 1]);
-  });
-
-  it('navigates to previous year', () => {
-    // This seems to still work even though this fixture is MockedComponentFixture
-    // click(fixture, 'previous-button');
-    const previousButton = ngMocks.find(['data-testid', 'previous-button']);
-    ngMocks.click(previousButton);
-    expect(router.navigate).toHaveBeenLastCalledWith([YEAR.id - 1]);
+  it('navigates to another year', () => {
+    const yearNav = ngMocks.find(fixture, YearNavComponent).componentInstance;
+    yearNav.gotoYear.emit(9000);
+    expect(router.navigate).toHaveBeenLastCalledWith([9000]);
   });
 
   /**
@@ -112,9 +113,23 @@ describe('YearComponent:ng-mocks', () => {
     expect(dayCard.today).toEqual(TODAY);
   });
 
+  // TODO: some of these tests feel a bit flaky
+  // Need to refactor the app a bit to make the test Arrange section more solid
+  it('listens for mini DayCard dayClick output', () => {
+    const day = YEAR.days[0];
+    // Mini day card appears first
+    const dayCardEl = ngMocks.findAll(fixture, DayCardComponent)[0];
+    const dayCard = dayCardEl.componentInstance;
+    dayCard.dayClick.emit(day);
+    expect(viewport.scrollToAnchor).toHaveBeenLastCalledWith(
+      `day-${day.dayOfYear}`
+    );
+  });
+
   it('listens for DayCard dayClick output', () => {
     const day = YEAR.days[0];
-    const dayCardEl = ngMocks.find(fixture, DayCardComponent);
+    // Full size day card appears after the mini day card
+    const dayCardEl = ngMocks.findAll(fixture, DayCardComponent)[1];
     const dayCard = dayCardEl.componentInstance;
     dayCard.dayClick.emit(day);
     expect(router.navigate).toHaveBeenLastCalledWith([YEAR.id, day.beday?.id]);

@@ -1,9 +1,10 @@
+import { ViewportScroller } from '@angular/common';
 import {
   Component,
   EventEmitter,
   Input,
   NO_ERRORS_SCHEMA,
-  Output,
+  Output
 } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
@@ -13,9 +14,13 @@ import { ReactiveComponentModule } from '@ngrx/component';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 
 import { YearsSelectors } from '@ng-tests/b-cal/year/data-access';
-import { CalendarComponent, DayCardComponent } from '@ng-tests/b-cal/year/ui';
+import {
+  CalendarComponent,
+  DayCardComponent,
+  YearNavComponent
+} from '@ng-tests/b-cal/year/ui';
 import { createYearsEntity, Day, getDayMock } from '@ng-tests/b-cal/year/util';
-import { click } from '@ng-tests/shared/test-utils';
+import { findDirectiveComponent } from '@ng-tests/shared/test-utils';
 
 import { YearComponent } from './year.component';
 
@@ -32,7 +37,17 @@ export class FakeCalendarComponent implements Partial<CalendarComponent> {}
 export class FakeDayCardComponent implements Partial<DayCardComponent> {
   @Input() day!: Day;
   @Input() today!: Day;
+  @Input() showContent = true;
   @Output() dayClick = new EventEmitter<Day>();
+}
+
+@Component({
+  selector: 'bc-year-nav',
+  template: ``,
+})
+export class FakeYearNavComponent implements Partial<YearNavComponent> {
+  @Input() year!: number;
+  @Output() gotoYear = new EventEmitter<number>();
 }
 
 /**
@@ -45,9 +60,11 @@ describe('YearComponent:fakes', () => {
   let component: YearComponent;
   let fixture: ComponentFixture<YearComponent>;
   let router: Router;
+  let viewport: ViewportScroller;
 
   let calendar: FakeCalendarComponent;
-  let dayCard: FakeDayCardComponent;
+  let miniDayCard: FakeDayCardComponent;
+  let yearNav: FakeYearNavComponent;
 
   const YEAR = createYearsEntity(2022);
   const TODAY = getDayMock();
@@ -58,6 +75,7 @@ describe('YearComponent:fakes', () => {
         YearComponent,
         FakeCalendarComponent,
         FakeDayCardComponent,
+        FakeYearNavComponent,
       ],
       imports: [ReactiveComponentModule, RouterTestingModule.withRoutes([])],
       providers: [
@@ -78,22 +96,17 @@ describe('YearComponent:fakes', () => {
   beforeEach(() => {
     router = TestBed.inject(Router);
     jest.spyOn(router, 'navigate').mockImplementation();
+    viewport = TestBed.inject(ViewportScroller);
+    jest.spyOn(viewport, 'scrollToAnchor').mockImplementation();
     TestBed.inject(MockStore);
 
     fixture = TestBed.createComponent(YearComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
 
-    const calendarEl = fixture.debugElement.query(
-      By.directive(FakeCalendarComponent)
-    );
-    // calendar = calendarEl.injector.get(FakeCalendarComponent);
-    calendar = calendarEl.componentInstance;
-
-    const dayCardEl = fixture.debugElement.query(
-      By.directive(FakeDayCardComponent)
-    );
-    dayCard = dayCardEl.componentInstance;
+    calendar = findDirectiveComponent(fixture, FakeCalendarComponent);
+    miniDayCard = findDirectiveComponent(fixture, FakeDayCardComponent);
+    yearNav = findDirectiveComponent(fixture, FakeYearNavComponent);
   });
 
   /** Smoke test. It merely proves that the Component renders without errors. */
@@ -110,22 +123,9 @@ describe('YearComponent:fakes', () => {
     expect(yearSpan.nativeElement.textContent).toBe('2022');
   });
 
-  it('navigates to next year', () => {
-    // Using no test helper
-    const nextButton = fixture.debugElement.query(
-      By.css('[data-testid="next-button"]')
-    );
-    // nextButton.triggerEventHandler('click', { target: { value: 2023 } });
-    nextButton.triggerEventHandler('click', null);
-
-    expect(router.navigate).toBeCalled();
-    expect(router.navigate).toBeCalledWith([YEAR.id + 1]);
-  });
-
-  it('navigates to previous year', () => {
-    // Using test helper
-    click(fixture, 'previous-button');
-    expect(router.navigate).toHaveBeenLastCalledWith([YEAR.id - 1]);
+  it('navigates to another year', () => {
+    yearNav.gotoYear.emit(3000);
+    expect(router.navigate).toHaveBeenLastCalledWith([3000]);
   });
 
   /**
@@ -135,7 +135,7 @@ describe('YearComponent:fakes', () => {
    */
   it('renders the calendar', () => {
     expect(calendar).toBeTruthy();
-    expect(dayCard).toBeTruthy();
+    expect(miniDayCard).toBeTruthy();
   });
 
   /**
@@ -144,15 +144,29 @@ describe('YearComponent:fakes', () => {
    * */
   it('passes the day to DayCard', () => {
     const day = YEAR.days[0];
-    expect(dayCard.day).toEqual(day);
+    expect(miniDayCard.day).toEqual(day);
   });
 
   it('passes today to DayCard', () => {
-    expect(dayCard.today).toEqual(TODAY);
+    expect(miniDayCard.today).toEqual(TODAY);
   });
 
-  it('listens for DayCard dayClick output', () => {
+  it('listens for mini DayCard dayclick', () => {
     const day = YEAR.days[0];
+
+    miniDayCard.dayClick.emit(day);
+    expect(viewport.scrollToAnchor).toHaveBeenLastCalledWith(
+      `day-${day.dayOfYear}`
+    );
+  });
+
+  it('listens for DayCard dayClick', () => {
+    const day = YEAR.days[0];
+
+    const dayCard = fixture.debugElement.query(
+      By.css(`[id="day-${day.dayOfYear}"]`)
+    ).componentInstance;
+
     dayCard.dayClick.emit(day);
     expect(router.navigate).toHaveBeenLastCalledWith([YEAR.id, day.beday?.id]);
   });

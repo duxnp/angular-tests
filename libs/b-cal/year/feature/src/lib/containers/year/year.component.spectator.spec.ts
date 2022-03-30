@@ -1,3 +1,4 @@
+import { ViewportScroller } from '@angular/common';
 import { ComponentFixture } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -7,7 +8,11 @@ import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { MockComponents } from 'ng-mocks';
 
 import { YearsSelectors } from '@ng-tests/b-cal/year/data-access';
-import { CalendarComponent, DayCardComponent } from '@ng-tests/b-cal/year/ui';
+import {
+  CalendarComponent,
+  DayCardComponent,
+  YearNavComponent
+} from '@ng-tests/b-cal/year/ui';
 import { createYearsEntity, getDayMock } from '@ng-tests/b-cal/year/util';
 
 import { YearComponent } from './year.component';
@@ -23,9 +28,12 @@ describe('YearComponent:spectator', () => {
   let component: YearComponent;
   let fixture: ComponentFixture<YearComponent>;
   let router: Router;
+  let viewport: ViewportScroller;
 
   let calendar: CalendarComponent | null;
+  let miniDayCard: DayCardComponent | null;
   let dayCard: DayCardComponent | null;
+  let yearNav: YearNavComponent | null;
 
   const YEAR = createYearsEntity(2022);
   const TODAY = getDayMock();
@@ -44,7 +52,9 @@ describe('YearComponent:spectator', () => {
     component: YearComponent,
     imports: [ReactiveComponentModule, RouterTestingModule.withRoutes([])],
     providers: [mockStore],
-    declarations: [...MockComponents(CalendarComponent, DayCardComponent)],
+    declarations: [
+      ...MockComponents(CalendarComponent, DayCardComponent, YearNavComponent),
+    ],
     componentProviders: [], // Override the component's providers
     componentViewProviders: [], // Override the component's view providers
     overrideModules: [], // Override modules
@@ -63,13 +73,17 @@ describe('YearComponent:spectator', () => {
     router = spectator.inject(Router);
     jest.spyOn(router, 'navigate').mockImplementation();
     spectator.inject(MockStore);
+    viewport = spectator.inject(ViewportScroller);
+    jest.spyOn(viewport, 'scrollToAnchor').mockImplementation();
 
     fixture = spectator.fixture;
     component = spectator.component;
     // spectator.detectChanges();
 
     calendar = spectator.query(CalendarComponent);
-    dayCard = spectator.query(DayCardComponent);
+    miniDayCard = spectator.query(DayCardComponent);
+    dayCard = spectator.queryLast(DayCardComponent);
+    yearNav = spectator.query(YearNavComponent);
   });
 
   /** Smoke test. It merely proves that the Component renders without errors. */
@@ -82,19 +96,9 @@ describe('YearComponent:spectator', () => {
     expect(yearSpan?.textContent).toBe('2022');
   });
 
-  it('navigates to next year', () => {
-    const nextButton = spectator.query('[data-testid="next-button"]');
-    if (nextButton) {
-      spectator.click(nextButton);
-    }
-
-    expect(router.navigate).toBeCalled();
-    expect(router.navigate).toBeCalledWith([YEAR.id + 1]);
-  });
-
-  it('navigates to previous year', () => {
-    spectator.click('[data-testid="previous-button"]');
-    expect(router.navigate).toHaveBeenLastCalledWith([YEAR.id - 1]);
+  it('navigates to another year', () => {
+    yearNav?.gotoYear.emit(9000);
+    expect(router.navigate).toHaveBeenLastCalledWith([9000]);
   });
 
   /**
@@ -118,6 +122,14 @@ describe('YearComponent:spectator', () => {
 
   it('passes today to DayCard', () => {
     expect(dayCard?.today).toEqual(TODAY);
+  });
+
+  it('listens for mini DayCard dayClick output', () => {
+    const day = YEAR.days[0];
+    miniDayCard?.dayClick.emit(day);
+    expect(viewport.scrollToAnchor).toHaveBeenLastCalledWith(
+      `day-${day.dayOfYear}`
+    );
   });
 
   it('listens for DayCard dayClick output', () => {
