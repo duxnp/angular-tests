@@ -24,6 +24,10 @@ export class Year {
     cy.byTestId('year-span');
   public nextButton = () => cy.byTestId('next-button');
   public prevButton = () => cy.byTestId('previous-button');
+  public navMenu = () => cy.byTestId('year-nav-menu');
+  public navFirst = () => cy.byTestId('first');
+  public navCurrent = () => cy.byTestId('current');
+  public navLast = () => cy.byTestId('last');
 
   // Day cards acting as padding don't contain the div element
   public dayCards = () => cy.get('bc-day-card > div');

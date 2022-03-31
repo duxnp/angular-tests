@@ -11,7 +11,7 @@ import { YearsSelectors } from '@ng-tests/b-cal/year/data-access';
 import {
   CalendarComponent,
   DayCardComponent,
-  YearNavComponent
+  YearNavComponent,
 } from '@ng-tests/b-cal/year/ui';
 import { createYearsEntity, getDayMock } from '@ng-tests/b-cal/year/util';
 

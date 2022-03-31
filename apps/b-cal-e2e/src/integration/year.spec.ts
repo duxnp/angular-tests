@@ -22,7 +22,8 @@ describe('year feature', () => {
   });
 
   it('displays day cards', () => {
-    const days = luxon.daysInYear;
+    // With mini cards also displaying, the number should be double since the page is showing two calendars
+    const days = luxon.daysInYear * 2;
     page.dayCards().should((t) => expect(t.length).equal(days));
   });
 
@@ -36,8 +37,22 @@ describe('year feature', () => {
     cy.url().should('include', '/' + (luxon.year - 1));
   });
 
+  it('navigates to first year', () => {
+    page.navMenu().click();
+    page.navFirst().click();
+    cy.url().should('include', '/-271820');
+  });
+
+  it('navigates to current year', () => {
+    page.navMenu().click();
+    page.navCurrent().click();
+    cy.url().should('include', '/' + luxon.year);
+  });
+
   it('navigates to beday on click', () => {
-    page.firstSaturday().click();
+    // This will find two items since two calendars are displaying.
+    // aJust clicking both for now until I can decide on how to differentiate them.
+    page.firstSaturday().click({ multiple: true });
     cy.url().should('include', '/2022/1');
   });
 

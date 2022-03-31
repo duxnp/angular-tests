@@ -22,12 +22,13 @@
     color="primary"
     aria-label="Year quick navigation"
     [mat-menu-trigger-for]="yearNavMenu"
+    data-testid="year-nav-menu"
   >
     <mat-icon>more_vert</mat-icon>
   </button>
 </ng-container>
 
-<mat-menu #yearNavMenu="matMenu" xPosition="before" data-testid="year-nav-menu">
+<mat-menu #yearNavMenu="matMenu" xPosition="before">
   <button mat-menu-item data-testid="first" (click)="firstYear()">
     <span>First</span>
   </button>
