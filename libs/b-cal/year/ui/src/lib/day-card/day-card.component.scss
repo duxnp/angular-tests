@@ -4,10 +4,20 @@
 
 .card {
   cursor: pointer;
-  padding: 20px;
   border-radius: 2px;
   border: 1px solid darkgray;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  min-height: 15px;
+  min-width: 15px;
+
+  .content {
+    margin: 12%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .mini {
+    height: 15px;
+    width: 100%;
+  }
 }

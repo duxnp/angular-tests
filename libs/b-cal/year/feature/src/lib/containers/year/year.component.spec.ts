@@ -1,3 +1,4 @@
+import { ViewportScroller } from '@angular/common';
 import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
@@ -17,7 +18,7 @@ import { YearComponent } from './year.component';
  * They still appear in the DOM and can be selected by CSS,
  * but no associated component class is instanciated. Not even a mocked one.
  *
- * year.component.fakes.spec.ts demonstrates manually mocking a component .
+ * year.component.fakes.spec.ts demonstrates manually mocking a component.
  * */
 describe('YearComponent', () => {
   let component: YearComponent;
@@ -25,6 +26,7 @@ describe('YearComponent', () => {
   let debugElement: DebugElement;
   let router: Router;
   let store: MockStore;
+  let viewport: ViewportScroller;
 
   const YEAR = createYearsEntity(2022);
   const TODAY = getDayMock();
@@ -53,6 +55,8 @@ describe('YearComponent', () => {
     // RouterTestingModule is imported without any routes since we aren't really interested in routing.
     // Therefore, mockImplementation() must be used to on router.navigate to prevent router errors.
     jest.spyOn(router, 'navigate').mockImplementation();
+    viewport = TestBed.inject(ViewportScroller);
+    jest.spyOn(viewport, 'scrollToAnchor').mockImplementation();
     store = TestBed.inject(MockStore);
 
     fixture = TestBed.createComponent(YearComponent);
@@ -73,22 +77,10 @@ describe('YearComponent', () => {
     expect(yearSpan.nativeElement.textContent).toBe('2022');
   });
 
-  it('navigates to next year', () => {
-    // Using no test helper
-    const nextButton = debugElement.query(
-      By.css('[data-testid="next-button"]')
-    );
-    // nextButton.triggerEventHandler('click', { target: { value: 2023 } });
-    nextButton.triggerEventHandler('click', null);
-
-    expect(router.navigate).toBeCalled();
-    expect(router.navigate).toBeCalledWith([YEAR.id + 1]);
-  });
-
-  it('navigates to previous year', () => {
-    // Using test helper
-    click(fixture, 'previous-button');
-    expect(router.navigate).toHaveBeenLastCalledWith([YEAR.id - 1]);
+  it('navigates to another year', () => {
+    const yearNav = findComponent(fixture, 'bc-year-nav');
+    yearNav.triggerEventHandler('gotoYear', 9000);
+    expect(router.navigate).toHaveBeenLastCalledWith([9000]);
   });
 
   /**
@@ -118,9 +110,20 @@ describe('YearComponent', () => {
     expect(dayCard.properties['today']).toEqual(TODAY);
   });
 
+  it('listens for mini DayCard dayClick output', () => {
+    const day = YEAR.days[0];
+    const miniDayCard = findComponent(fixture, 'bc-day-card');
+    miniDayCard.triggerEventHandler('dayClick', day);
+    expect(viewport.scrollToAnchor).toHaveBeenLastCalledWith(
+      `day-${day.dayOfYear}`
+    );
+  });
+
   it('listens for DayCard dayClick output', () => {
     const day = YEAR.days[0];
-    const dayCard = findComponent(fixture, 'bc-day-card');
+    const dayCard = fixture.debugElement.query(
+      By.css(`[id="day-${day.dayOfYear}"]`)
+    );
     dayCard.triggerEventHandler('dayClick', day);
     expect(router.navigate).toHaveBeenLastCalledWith([YEAR.id, day.beday?.id]);
   });

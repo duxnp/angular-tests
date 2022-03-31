@@ -1,0 +1,41 @@
+<ng-container *ngIf="year">
+  <button
+    mat-icon-button
+    color="primary"
+    (click)="previousYear()"
+    data-testid="previous-button"
+    matTooltip="Previous Year"
+  >
+    <mat-icon>chevron_left</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    color="primary"
+    (click)="nextYear()"
+    data-testid="next-button"
+    matTooltip="Next Year"
+  >
+    <mat-icon>chevron_right</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    color="primary"
+    aria-label="Year quick navigation"
+    [mat-menu-trigger-for]="yearNavMenu"
+    data-testid="year-nav-menu"
+  >
+    <mat-icon>more_vert</mat-icon>
+  </button>
+</ng-container>
+
+<mat-menu #yearNavMenu="matMenu" xPosition="before">
+  <button mat-menu-item data-testid="first" (click)="firstYear()">
+    <span>First</span>
+  </button>
+  <button mat-menu-item data-testid="current" (click)="currentYear()">
+    <span>Current</span>
+  </button>
+  <button mat-menu-item data-testid="last" (click)="lastYear()">
+    <span>Last</span>
+  </button>
+</mat-menu>

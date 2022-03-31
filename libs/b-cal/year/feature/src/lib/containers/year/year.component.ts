@@ -1,7 +1,7 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, ViewportScroller } from '@angular/common';
 import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { Router, RouterModule } from '@angular/router';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { Store } from '@ngrx/store';
@@ -9,7 +9,11 @@ import { combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { YearsSelectors } from '@ng-tests/b-cal/year/data-access';
-import { CalendarModule, DayCardModule } from '@ng-tests/b-cal/year/ui';
+import {
+  CalendarModule,
+  DayCardModule,
+  YearNavModule
+} from '@ng-tests/b-cal/year/ui';
 import { Day } from '@ng-tests/b-cal/year/util';
 import { filterNullish } from '@ng-tests/shared/util';
 
@@ -26,20 +30,24 @@ export class YearComponent {
     map(([year, today]) => ({ year, today }))
   );
 
-  constructor(private router: Router, private store: Store) {}
-
-  previousYear(year: number) {
-    year--;
-    this.router.navigate([year]);
+  constructor(
+    private router: Router,
+    private store: Store,
+    private viewportScroller: ViewportScroller
+  ) {
+    this.viewportScroller.setOffset([0, 128]);
   }
 
-  nextYear(year: number) {
-    year++;
+  gotoYear(year: number) {
     this.router.navigate([year]);
   }
 
   onDayClick(day: Day) {
     this.router.navigate([day.year, day.beday?.id]);
+  }
+
+  onDayScroll(day: Day) {
+    this.viewportScroller.scrollToAnchor(`day-${day.dayOfYear}`);
   }
 }
 
@@ -49,9 +57,10 @@ export class YearComponent {
     ReactiveComponentModule,
     RouterModule,
     FlexLayoutModule,
-    MatButtonModule,
     DayCardModule,
     CalendarModule,
+    YearNavModule,
+    MatToolbarModule,
   ],
   declarations: [YearComponent],
   exports: [YearComponent],
