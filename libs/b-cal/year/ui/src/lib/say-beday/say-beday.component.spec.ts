@@ -57,7 +57,7 @@ describe('SayBedayComponent', () => {
 
   it('plays audio on button click', () => {
     const audio = spectator.query('audio') as HTMLAudioElement;
-    jest.spyOn(audio, 'play');
+    jest.spyOn(audio, 'play').mockImplementation();
     const button = spectator.query('button') as HTMLButtonElement;
 
     expect(audio.play).not.toHaveBeenCalled();

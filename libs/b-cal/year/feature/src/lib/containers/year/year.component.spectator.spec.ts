@@ -1,5 +1,6 @@
 import { ViewportScroller } from '@angular/common';
 import { ComponentFixture } from '@angular/core/testing';
+import { ɵMockMatchMediaProvider } from '@angular/flex-layout';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { createComponentFactory, Spectator } from '@ngneat/spectator/jest';
@@ -11,11 +12,11 @@ import { YearsSelectors } from '@ng-tests/b-cal/year/data-access';
 import {
   CalendarComponent,
   DayCardComponent,
-  YearNavComponent,
+  YearNavComponent
 } from '@ng-tests/b-cal/year/ui';
 import { createYearsEntity, getDayMock } from '@ng-tests/b-cal/year/util';
 
-import { YearComponent } from './year.component';
+import { YearComponent, YearModule } from './year.component';
 
 /**
  * This test suite demonstrated manually mocking components,
@@ -26,7 +27,7 @@ import { YearComponent } from './year.component';
 describe('YearComponent:spectator', () => {
   let spectator: Spectator<YearComponent>;
   let component: YearComponent;
-  let fixture: ComponentFixture<YearComponent>;
+  // let fixture: ComponentFixture<YearComponent>;
   let router: Router;
   let viewport: ViewportScroller;
 
@@ -50,8 +51,12 @@ describe('YearComponent:spectator', () => {
 
   const createComponent = createComponentFactory({
     component: YearComponent,
-    imports: [ReactiveComponentModule, RouterTestingModule.withRoutes([])],
-    providers: [mockStore],
+    imports: [
+      YearModule,
+      ReactiveComponentModule,
+      RouterTestingModule.withRoutes([]),
+    ],
+    providers: [mockStore, ɵMockMatchMediaProvider],
     declarations: [
       ...MockComponents(CalendarComponent, DayCardComponent, YearNavComponent),
     ],
@@ -62,7 +67,7 @@ describe('YearComponent:spectator', () => {
     componentMocks: [], // Component providers that will automatically be mocked
     componentViewProvidersMocks: [], // Component view providers that will be automatically mocked
     detectChanges: true, // Defaults to true
-    declareComponent: true, // Defaults to true
+    declareComponent: false, // Defaults to true
     disableAnimations: true, // Defaults to true
     shallow: false, // Defaults to false
   });
@@ -76,7 +81,7 @@ describe('YearComponent:spectator', () => {
     viewport = spectator.inject(ViewportScroller);
     jest.spyOn(viewport, 'scrollToAnchor').mockImplementation();
 
-    fixture = spectator.fixture;
+    // fixture = spectator.fixture;
     component = spectator.component;
     // spectator.detectChanges();
 
