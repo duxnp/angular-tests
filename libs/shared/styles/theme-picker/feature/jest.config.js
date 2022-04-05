@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'shared-material-theme-picker-feature',
+  displayName: 'shared-styles-theme-picker-feature',
   preset: '../../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -9,7 +9,7 @@ module.exports = {
     },
   },
   coverageDirectory:
-    '../../../../../coverage/libs/shared/material/theme-picker/feature',
+    '../../../../../coverage/libs/shared/styles/theme-picker/feature',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },

@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/shared/styles/theme-picker/data-access",
+  "sourceRoot": "libs/shared/styles/theme-picker/data-access/src",
+  "prefix": "bry",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/shared/styles/theme-picker/data-access"],
+      "options": {
+        "jestConfig": "libs/shared/styles/theme-picker/data-access/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/styles/theme-picker/data-access/src/**/*.ts",
+          "libs/shared/styles/theme-picker/data-access/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["application:shared", "scope:theme-picker", "type:data-access"]
+}

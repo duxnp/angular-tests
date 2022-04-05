@@ -17,22 +17,12 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "apps/b-cal-e2e/**/*.{js,ts}"
-        ]
+        "lintFilePatterns": ["apps/b-cal-e2e/**/*.{js,ts}"]
       }
     }
   },
-  "tags": [
-    "application:b-cal",
-    "scope:b-cal",
-    "type:app"
-  ],
-  "implicitDependencies": [
-    "b-cal"
-  ]
+  "tags": ["application:b-cal", "scope:b-cal", "type:app"],
+  "implicitDependencies": ["b-cal"]
 }

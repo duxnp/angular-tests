@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/shared/styles/theme-picker/feature",
+  "sourceRoot": "libs/shared/styles/theme-picker/feature/src",
+  "prefix": "bry",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/shared/styles/theme-picker/feature"],
+      "options": {
+        "jestConfig": "libs/shared/styles/theme-picker/feature/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/styles/theme-picker/feature/src/**/*.ts",
+          "libs/shared/styles/theme-picker/feature/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["application:shared", "scope:theme-picker", "type:feature"]
+}

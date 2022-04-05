@@ -17,8 +17,11 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { StyleManager } from '../style-manager';
-import { SiteTheme, ThemeStorage } from './theme-storage/theme-storage';
+import {
+  SiteTheme,
+  ThemeStorage
+} from '@ng-tests/shared/styles/theme-picker/data-access';
+import { StyleManager } from '@ng-tests/shared/styles/theme-picker/util';
 
 @Component({
   selector: 'bry-theme-picker',

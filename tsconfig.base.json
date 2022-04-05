@@ -42,11 +42,20 @@
       "@ng-tests/shared/environments": [
         "libs/shared/environments/src/index.ts"
       ],
-      "@ng-tests/shared/material/styles": [
-        "libs/shared/material/styles/src/index.ts"
+      "@ng-tests/shared/styles/bootstrap": [
+        "libs/shared/styles/bootstrap/src/index.ts"
       ],
-      "@ng-tests/shared/material/theme-picker/feature": [
-        "libs/shared/material/theme-picker/feature/src/index.ts"
+      "@ng-tests/shared/styles/material": [
+        "libs/shared/styles/material/src/index.ts"
+      ],
+      "@ng-tests/shared/styles/theme-picker/data-access": [
+        "libs/shared/styles/theme-picker/data-access/src/index.ts"
+      ],
+      "@ng-tests/shared/styles/theme-picker/feature": [
+        "libs/shared/styles/theme-picker/feature/src/index.ts"
+      ],
+      "@ng-tests/shared/styles/theme-picker/util": [
+        "libs/shared/styles/theme-picker/util/src/index.ts"
       ],
       "@ng-tests/shared/test-utils": ["libs/shared/test-utils/src/index.ts"],
       "@ng-tests/shared/ui": ["libs/shared/ui/src/index.ts"],
