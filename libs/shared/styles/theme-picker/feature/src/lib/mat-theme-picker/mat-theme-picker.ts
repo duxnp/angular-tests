@@ -91,6 +91,8 @@ export class MatThemePickerComponent implements OnInit, OnDestroy {
     }
   }
 
+  // Setting the theme with a query param is not really utilized in any of these apps
+  // I'm just leaving it in here as an exampole
   ngOnInit() {
     this._queryParamSubscription = this._activatedRoute.queryParamMap
       .pipe(map((params: ParamMap) => params.get('theme')))

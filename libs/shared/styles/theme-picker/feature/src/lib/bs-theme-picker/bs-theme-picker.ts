@@ -1,21 +1,20 @@
-import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
   NgModule,
-  OnDestroy,
-  OnInit,
   ViewEncapsulation
 } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
-import { ActivatedRoute, ParamMap } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {
+  faCircle,
+  faCircleDot,
+  faFillDrip,
+  faWindowMinimize
+} from '@fortawesome/free-solid-svg-icons';
+import { BsDropdownConfig, BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 import {
   SiteTheme,
@@ -24,45 +23,42 @@ import {
 import { StyleManager } from '@ng-tests/shared/styles/theme-picker/util';
 
 @Component({
-  selector: 'bry-theme-picker',
-  templateUrl: 'theme-picker.html',
-  styleUrls: ['theme-picker.scss'],
+  selector: 'bry-bs-theme-picker',
+  templateUrl: 'bs-theme-picker.html',
+  styleUrls: ['bs-theme-picker.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
+  providers: [
+    {
+      provide: BsDropdownConfig,
+      useValue: { isAnimated: false, autoClose: true },
+    },
+  ],
 })
-export class ThemePickerComponent implements OnInit, OnDestroy {
-  private _queryParamSubscription = Subscription.EMPTY;
+export class BsThemePickerComponent {
   currentTheme: SiteTheme | undefined;
 
+  menuIcon = faFillDrip;
+  unselected = faCircle;
+  selected = faCircleDot;
+  underline = faWindowMinimize;
+
   // The below colors need to align with the themes defined in theme-picker.scss
+  // TODO: polish up the bootstrap theme picking
   themes: SiteTheme[] = [
-    {
-      primary: '#673AB7',
-      accent: '#FFC107',
-      displayName: 'Deep Purple & Amber',
-      name: 'deeppurple-amber',
-      isDark: false,
-    },
     {
       primary: '#3F51B5',
       accent: '#E91E63',
-      displayName: 'Indigo & Pink',
-      name: 'indigo-pink',
+      displayName: 'Flatly',
+      name: 'flatly',
       isDark: false,
       isDefault: true,
     },
     {
       primary: '#E91E63',
       accent: '#607D8B',
-      displayName: 'Pink & Blue-grey',
-      name: 'pink-bluegrey',
-      isDark: true,
-    },
-    {
-      primary: '#9C27B0',
-      accent: '#4CAF50',
-      displayName: 'Purple & Green',
-      name: 'purple-green',
+      displayName: 'Darkly',
+      name: 'darkly',
       isDark: true,
     },
   ];
@@ -70,8 +66,6 @@ export class ThemePickerComponent implements OnInit, OnDestroy {
   constructor(
     public styleManager: StyleManager,
     private _themeStorage: ThemeStorage,
-    private _activatedRoute: ActivatedRoute,
-    private liveAnnouncer: LiveAnnouncer,
     iconRegistry: MatIconRegistry,
     sanitizer: DomSanitizer
   ) {
@@ -89,20 +83,6 @@ export class ThemePickerComponent implements OnInit, OnDestroy {
         }
       });
     }
-  }
-
-  ngOnInit() {
-    this._queryParamSubscription = this._activatedRoute.queryParamMap
-      .pipe(map((params: ParamMap) => params.get('theme')))
-      .subscribe((themeName: string | null) => {
-        if (themeName) {
-          this.selectTheme(themeName);
-        }
-      });
-  }
-
-  ngOnDestroy() {
-    this._queryParamSubscription.unsubscribe();
   }
 
   selectTheme(themeName: string) {
@@ -123,26 +103,15 @@ export class ThemePickerComponent implements OnInit, OnDestroy {
     }
 
     if (this.currentTheme) {
-      this.liveAnnouncer.announce(
-        `${theme.displayName} theme selected.`,
-        'polite',
-        3000
-      );
       this._themeStorage.storeTheme(this.currentTheme);
     }
   }
 }
 
 @NgModule({
-  imports: [
-    CommonModule,
-    MatButtonModule,
-    MatIconModule,
-    MatMenuModule,
-    MatTooltipModule,
-  ],
-  exports: [ThemePickerComponent],
-  declarations: [ThemePickerComponent],
+  imports: [CommonModule, BsDropdownModule, FontAwesomeModule],
+  exports: [BsThemePickerComponent],
+  declarations: [BsThemePickerComponent],
   providers: [StyleManager, ThemeStorage],
 })
-export class ThemePickerModule {}
+export class BsThemePickerModule {}

@@ -2,6 +2,8 @@ import { ApplicationRef, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { BsThemePickerModule } from '@ng-tests/shared/styles/theme-picker/feature';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core';
@@ -23,6 +25,8 @@ import { StaticModule } from './static/static.module';
     StaticModule,
 
     AppRoutingModule,
+
+    BsThemePickerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

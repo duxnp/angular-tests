@@ -1,0 +1,24 @@
+<li class="nav-item dropdown" dropdown>
+  <a class="nav-link dropdown-toggle" dropdownToggle href (click)="(false)">
+    <fa-layers [fixedWidth]="true">
+      <fa-icon [icon]="menuIcon"></fa-icon>
+      <fa-icon [icon]="underline" transform="down-4"></fa-icon>
+    </fa-layers>
+  </a>
+  <div *dropdownMenu class="dropdown-menu dropdown-menu-right">
+    <a
+      class="dropdown-item"
+      href="#"
+      *ngFor="let theme of themes"
+      (click)="selectTheme(theme.name)"
+      [attr.data-testid]="theme.name"
+    >
+      <fa-icon
+        [icon]="currentTheme === theme ? selected : unselected"
+        [fixedWidth]="true"
+        class="pe-2"
+      ></fa-icon>
+      {{theme.displayName}}
+    </a>
+  </div>
+</li>
