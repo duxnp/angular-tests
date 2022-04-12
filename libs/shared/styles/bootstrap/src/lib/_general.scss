@@ -1,0 +1,189 @@
+/* You can add global styles to this file, and also import other style files */
+
+.color-thumbnail {
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  display: block;
+  /*width: 100px;*/
+  height: 40px;
+}
+
+/* This will center a form label vertically */
+.col-form-label-long {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: inherit;
+  line-height: 1.5;
+}
+
+.flip-horizontal {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: 'FlipH';
+}
+
+.rotate {
+  /* Safari */
+  -webkit-transform: rotate(-90deg);
+  /* Firefox */
+  -moz-transform: rotate(-90deg);
+  /* IE */
+  -ms-transform: rotate(-90deg);
+  /* Opera */
+  -o-transform: rotate(-90deg);
+  /* Standard */
+  transform: rotate(-90deg);
+  /* Internet Explorer */
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
+/* https://stackoverflow.com/questions/14580346/vertical-divider-between-two-columns-in-bootstrap */
+@media (min-width: 576px) {
+  .col-sm-border:not(:last-child) {
+    border-right: 1px solid #d7d7d7;
+  }
+  .col-sm-border + .col-sm-border {
+    border-left: 1px solid #d7d7d7;
+    margin-left: -1px;
+  }
+}
+
+@media (min-width: 992px) {
+  .col-md-border:not(:last-child) {
+    border-right: 1px solid #d7d7d7;
+  }
+  .col-md-border + .col-md-border {
+    border-left: 1px solid #d7d7d7;
+    margin-left: -1px;
+  }
+}
+
+.fieldset-help {
+  font-weight: bold;
+  font-style: italic;
+  display: block;
+}
+
+/* Override Bootstrap's default behavior which is to only show the feedback if the sibling input has the .is-invalid class */
+.invalid-feedback {
+  display: block;
+}
+
+/* Prevent tab navigation by clicking. Can't disable the link element or programmatic navigation will stop working. */
+/* Also had to remove data-toggle attribute */
+.nav.nav-tabs > li.disabled {
+  pointer-events: none;
+}
+
+/* Helpers to size table columns */
+.table .col-1 {
+  width: 10%;
+}
+.table .col-2 {
+  width: 20%;
+}
+.table .col-3 {
+  width: 30%;
+}
+.table .col-4 {
+  width: 40%;
+}
+.table tr td {
+  vertical-align: middle;
+}
+.table tr td .profile-photo {
+  width: 30px;
+  height: 30px;
+}
+
+.tr-light {
+  background-color: #eeeeee;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+/* margin-bottom was 60px but buttons on the bottom were getting cut off */
+body {
+  margin-bottom: 67px; /* Margin bottom by footer height */
+}
+/* footer is hidden while printing so margin should be reduced so there is no empty space at the bottom */
+@media print {
+  body {
+    margin-bottom: 1px; /* Margin bottom by footer height */
+  }
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* height: 100px;  Set the fixed height of the footer here */
+  /* line-height: 60px;  Vertically center the text there */
+  /* background-color: #f5f5f5; */
+}
+.footer p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* .container usually has lots of empty space on the left and right sides.
+  We wanted to make use of the full width of the browser window.
+  However, .container-fluid can be too wide on really big screens.
+
+  1200px is the XL breakpoint for Bootstrap. */
+.container-fluid {
+  max-width: 1200px;
+}
+/* Setting the max-width of .container-fluid has a side effect on the navbar when the browser window is
+ > 1200px. Setting this padding lines everything up again... */
+.navbar-expand > .container,
+.navbar-expand > .container-fluid {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+/* However, changing the padding above has a side effect on the navbar when the browser window is
+ < 1200px. Setting THIS padding lines everything up FOR GOOD! */
+.navbar {
+  padding: 0.5rem 0;
+}
+
+/* The HMI Doors logo didn't fit well in the navbar with the default margins. */
+.navbar-brand img {
+  margin-bottom: -12px;
+  margin-top: -12px;
+  margin-right: 5px;
+}
+
+/* https://stackoverflow.com/a/35244932 */
+/* default .loading styles, .loading should be invisible, opacity: 0, z-index: -1 */
+.loading {
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: #fff;
+  z-index: -1;
+}
+/* .loading screen is visible when app is not bootstrapped yet, my-app is empty */
+hmi-root:empty + .loading {
+  opacity: 1;
+  z-index: 100;
+}
+
+// New global alert style
+.alert-md-color {
+  background-color: #7b1fa2;
+  border-color: #4a148c;
+  color: #fff;
+}

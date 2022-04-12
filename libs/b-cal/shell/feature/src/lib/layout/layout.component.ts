@@ -7,11 +7,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterModule } from '@angular/router';
 
-import {
-  StyleManager,
-  ThemePickerModule,
-  ThemeStorage
-} from '@ng-tests/shared/material/theme-picker/feature';
+import { MatThemePickerModule } from '@ng-tests/shared/styles/theme-picker/feature';
 
 @Component({
   selector: 'bc-app-layout',
@@ -30,10 +26,9 @@ export class AppLayoutComponent {}
     MatMenuModule,
     MatTooltipModule,
     RouterModule,
-    ThemePickerModule,
+    MatThemePickerModule,
   ],
   declarations: [AppLayoutComponent],
   exports: [AppLayoutComponent],
-  providers: [StyleManager, ThemeStorage],
 })
 export class AppLayoutModule {}

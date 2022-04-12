@@ -1,120 +1,160 @@
-<nav class="navbar navbar-expand navbar-dark bg-primary mb-3"
-     role="navigation">
+<nav class="navbar navbar-expand navbar-dark bg-primary mb-3" role="navigation">
   <div class="container-fluid">
     <span class="navbar-brand mb-0 h1">ngx-bootstrap</span>
-    <div class="collapse navbar-collapse"
-         id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link"
-             [routerLinkActive]="'active'"
-             [routerLink]="['/about']">
+          <a
+            class="nav-link"
+            [routerLinkActive]="'active'"
+            [routerLink]="['/about']"
+          >
             About
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"
-             href="#">
-            Item 2
-          </a>
+          <a class="nav-link" href="#"> Item 2 </a>
         </li>
-        <li class="nav-item dropdown"
-            dropdown>
-          <a class="nav-link dropdown-toggle"
-             dropdownToggle
-             href
-             (click)="(false)">
+        <li class="nav-item dropdown" dropdown>
+          <a
+            class="nav-link dropdown-toggle"
+            dropdownToggle
+            href
+            (click)="(false)"
+          >
             Examples
           </a>
-          <div *dropdownMenu
-               class="dropdown-menu">
-            <a class="dropdown-item"
-               [routerLink]="['/examples/accordion']"
-               [routerLinkActive]="'active'">Accordion</a>
-            <a class="dropdown-item"
-               [routerLink]="['/examples/alerts']"
-               [routerLinkActive]="'active'">Alerts</a>
-            <a class="dropdown-item"
-               [routerLink]="['/examples/buttons']"
-               [routerLinkActive]="'active'">Buttons</a>
-            <a class="dropdown-item"
-               [routerLink]="['/examples/carousel']"
-               [routerLinkActive]="'active'">Carousel</a>
-            <a class="dropdown-item"
-               [routerLink]="['/examples/collapse']"
-               [routerLinkActive]="'active'">Collapse</a>
-            <a class="dropdown-item"
-               [routerLink]="['/examples/datepicker']"
-               [routerLinkActive]="'active'">Datepicker</a>
-            <a class="dropdown-item"
-               [routerLink]="['/examples/dropdowns']"
-               [routerLinkActive]="'active'">Dropdowns</a>
-            <a class="dropdown-item"
-               [routerLink]="['/examples/modals']"
-               [routerLinkActive]="'active'">Modals</a>
-            <a class="dropdown-item"
-               [routerLink]="['/examples/pagination']"
-               [routerLinkActive]="'active'">Pagination</a>
-            <a class="dropdown-item"
-               [routerLink]="['/examples/popover']"
-               [routerLinkActive]="'active'">Popover</a>
-            <a class="dropdown-item"
-               [routerLink]="['/examples/progressbar']"
-               [routerLinkActive]="'active'">Progressbar</a>
-            <a class="dropdown-item"
-               [routerLink]="['/examples/rating']"
-               [routerLinkActive]="'active'">Rating</a>
-            <a class="dropdown-item"
-               [routerLink]="['/examples/sortable']"
-               [routerLinkActive]="'active'">Sortable</a>
-            <a class="dropdown-item"
-               [routerLink]="['/examples/tabs']"
-               [routerLinkActive]="'active'">Tabs</a>
-            <a class="dropdown-item"
-               [routerLink]="['/examples/timepicker']"
-               [routerLinkActive]="'active'">Timepicker</a>
-            <a class="dropdown-item"
-               [routerLink]="['/examples/tooltip']"
-               [routerLinkActive]="'active'">Tooltip</a>
-            <a class="dropdown-item"
-               [routerLink]="['/examples/typeahead']"
-               [routerLinkActive]="'active'">Typeahead</a>
+          <div *dropdownMenu class="dropdown-menu">
+            <a
+              class="dropdown-item"
+              [routerLink]="['/examples/accordion']"
+              [routerLinkActive]="'active'"
+              >Accordion</a
+            >
+            <a
+              class="dropdown-item"
+              [routerLink]="['/examples/alerts']"
+              [routerLinkActive]="'active'"
+              >Alerts</a
+            >
+            <a
+              class="dropdown-item"
+              [routerLink]="['/examples/buttons']"
+              [routerLinkActive]="'active'"
+              >Buttons</a
+            >
+            <a
+              class="dropdown-item"
+              [routerLink]="['/examples/carousel']"
+              [routerLinkActive]="'active'"
+              >Carousel</a
+            >
+            <a
+              class="dropdown-item"
+              [routerLink]="['/examples/collapse']"
+              [routerLinkActive]="'active'"
+              >Collapse</a
+            >
+            <a
+              class="dropdown-item"
+              [routerLink]="['/examples/datepicker']"
+              [routerLinkActive]="'active'"
+              >Datepicker</a
+            >
+            <a
+              class="dropdown-item"
+              [routerLink]="['/examples/dropdowns']"
+              [routerLinkActive]="'active'"
+              >Dropdowns</a
+            >
+            <a
+              class="dropdown-item"
+              [routerLink]="['/examples/modals']"
+              [routerLinkActive]="'active'"
+              >Modals</a
+            >
+            <a
+              class="dropdown-item"
+              [routerLink]="['/examples/pagination']"
+              [routerLinkActive]="'active'"
+              >Pagination</a
+            >
+            <a
+              class="dropdown-item"
+              [routerLink]="['/examples/popover']"
+              [routerLinkActive]="'active'"
+              >Popover</a
+            >
+            <a
+              class="dropdown-item"
+              [routerLink]="['/examples/progressbar']"
+              [routerLinkActive]="'active'"
+              >Progressbar</a
+            >
+            <a
+              class="dropdown-item"
+              [routerLink]="['/examples/rating']"
+              [routerLinkActive]="'active'"
+              >Rating</a
+            >
+            <a
+              class="dropdown-item"
+              [routerLink]="['/examples/sortable']"
+              [routerLinkActive]="'active'"
+              >Sortable</a
+            >
+            <a
+              class="dropdown-item"
+              [routerLink]="['/examples/tabs']"
+              [routerLinkActive]="'active'"
+              >Tabs</a
+            >
+            <a
+              class="dropdown-item"
+              [routerLink]="['/examples/timepicker']"
+              [routerLinkActive]="'active'"
+              >Timepicker</a
+            >
+            <a
+              class="dropdown-item"
+              [routerLink]="['/examples/tooltip']"
+              [routerLinkActive]="'active'"
+              >Tooltip</a
+            >
+            <a
+              class="dropdown-item"
+              [routerLink]="['/examples/typeahead']"
+              [routerLinkActive]="'active'"
+              >Typeahead</a
+            >
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item"
-               [routerLink]="['/bootstrap']"
-               [routerLinkActive]="'active'">
+            <a
+              class="dropdown-item"
+              [routerLink]="['/bootstrap']"
+              [routerLinkActive]="'active'"
+            >
               Bootstrap Extravaganza!
             </a>
-            <a class="dropdown-item"
-               href
-               (click)="(false)">Sorry nothing.</a>
+            <a class="dropdown-item" href (click)="(false)">Sorry nothing.</a>
           </div>
         </li>
       </ul>
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link"
-             href="#">
-            <i class="fas fa-sign-out-alt"></i> Logout
-          </a>
-        </li>
-        <li class="nav-item dropdown"
-            dropdown>
-          <a class="nav-link dropdown-toggle"
-             dropdownToggle
-             href
-             (click)="(false)">
+        <bry-bs-theme-picker></bry-bs-theme-picker>
+        <li class="nav-item dropdown" dropdown>
+          <a
+            class="nav-link dropdown-toggle"
+            dropdownToggle
+            href
+            (click)="(false)"
+          >
             User
           </a>
-          <div *dropdownMenu
-               class="dropdown-menu dropdown-menu-right">
-            <a class="dropdown-item"
-               href="#">Action</a>
-            <a class="dropdown-item"
-               href="#">Another action</a>
+          <div *dropdownMenu class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item"
-               href="#">Something else here</a>
+            <a class="dropdown-item" href="#">Something else here</a>
           </div>
         </li>
       </ul>

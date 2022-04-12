@@ -1,0 +1,8 @@
+{
+  "projectType": "library",
+  "root": "libs/shared/styles/bootstrap",
+  "sourceRoot": "libs/shared/styles/bootstrap/src",
+  "prefix": "bry",
+  "targets": {},
+  "tags": ["application:shared", "scope:shared", "type:util"]
+}

@@ -1,8 +1,0 @@
-{
-  "projectType": "library",
-  "root": "libs/shared/material/styles",
-  "sourceRoot": "libs/shared/material/styles/src",
-  "prefix": "bry",
-  "targets": {},
-  "tags": ["application:shared", "scope:shared", "type:util"]
-}

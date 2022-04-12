@@ -1,0 +1,14 @@
+// Your variable overrides can go here, e.g.:
+// $h1-font-size: 3rem;
+$yellow: #ffc107 !default;
+
+// Theme variables
+@import '~bootswatch/dist/cerulean/variables';
+
+// Bootstrap proper
+@import '~bootstrap/scss/bootstrap';
+
+// Additional mixins and such
+@import '~bootswatch/dist/cerulean/bootswatch';
+
+@import '../general';

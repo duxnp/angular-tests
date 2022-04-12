@@ -1,0 +1,13 @@
+// Your variable overrides can go here, e.g.:
+// $h1-font-size: 3rem;
+
+// Theme variables
+@import '~bootswatch/dist/flatly/variables';
+
+// Bootstrap proper
+@import '~bootstrap/scss/bootstrap';
+
+// Additional mixins and such
+@import '~bootswatch/dist/flatly/bootswatch';
+
+@import '../general';

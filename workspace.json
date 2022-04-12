@@ -21,8 +21,11 @@
     "shared-domain": "libs/shared/domain",
     "shared-entity-store": "libs/shared/entity-store",
     "shared-environments": "libs/shared/environments",
-    "shared-material-styles": "libs/shared/material/styles",
-    "shared-material-theme-picker-feature": "libs/shared/material/theme-picker/feature",
+    "shared-styles-bootstrap": "libs/shared/styles/bootstrap",
+    "shared-styles-material": "libs/shared/styles/material",
+    "shared-styles-theme-picker-data-access": "libs/shared/styles/theme-picker/data-access",
+    "shared-styles-theme-picker-feature": "libs/shared/styles/theme-picker/feature",
+    "shared-styles-theme-picker-util": "libs/shared/styles/theme-picker/util",
     "shared-test-utils": "libs/shared/test-utils",
     "shared-ui": "libs/shared/ui",
     "shared-util": "libs/shared/util"
