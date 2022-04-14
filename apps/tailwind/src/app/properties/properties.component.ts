@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Property } from '../models/Property';
 
 @Component({
   selector: 'tw-properties',
   templateUrl: './properties.component.html',
-  styles: []
+  styles: [],
 })
-export class PropertiesComponent implements OnInit {
+export class PropertiesComponent {
   property: Property;
 
   constructor() {
@@ -19,11 +20,7 @@ export class PropertiesComponent implements OnInit {
       priceInCents: 190000,
       formattedPrice: '$1,900.00',
       reviewCount: 34,
-      rating: 4
-    }
+      rating: 4,
+    };
   }
-
-  ngOnInit() {
-  }
-
 }

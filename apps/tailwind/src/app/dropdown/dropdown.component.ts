@@ -1,11 +1,11 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'tw-dropdown',
   templateUrl: './dropdown.component.html',
-  styles: []
+  styles: [],
 })
-export class DropdownComponent implements OnInit {
+export class DropdownComponent {
   isOpen: boolean;
 
   // https://juristr.com/blog/2016/09/ng2-event-registration-document/
@@ -28,8 +28,4 @@ export class DropdownComponent implements OnInit {
   constructor() {
     this.isOpen = false;
   }
-
-  ngOnInit() {
-  }
-
 }

@@ -6,6 +6,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ArticleComponent } from './article/article.component';
+import { ButtonTestComponent } from './button-test/button-test.component';
 import { CityCardComponent } from './city-card/city-card.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -23,6 +24,7 @@ import { WorkcationComponent } from './workcation/workcation.component';
     PropertiesComponent,
     NavbarComponent,
     DropdownComponent,
+    ButtonTestComponent,
   ],
   imports: [
     BrowserModule,
