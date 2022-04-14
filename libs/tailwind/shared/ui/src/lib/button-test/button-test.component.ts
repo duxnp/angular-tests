@@ -3,12 +3,11 @@ import {
   ChangeDetectionStrategy,
   Component,
   HostBinding,
-  NgModule,
-  OnInit
+  NgModule
 } from '@angular/core';
 
 @Component({
-  selector: 'bry-button-test',
+  selector: 'tw-button-test',
   templateUrl: './button-test.component.html',
   styleUrls: ['./button-test.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

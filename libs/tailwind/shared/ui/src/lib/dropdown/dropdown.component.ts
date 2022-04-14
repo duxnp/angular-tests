@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, NgModule, OnInit } from '@angular/core';
+import { Component, HostListener, NgModule } from '@angular/core';
 
 @Component({
   selector: 'tw-dropdown',
