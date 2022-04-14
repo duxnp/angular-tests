@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/tailwind/workcation/feature",
+  "sourceRoot": "libs/tailwind/workcation/feature/src",
+  "prefix": "bry",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/tailwind/workcation/feature"],
+      "options": {
+        "jestConfig": "libs/tailwind/workcation/feature/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/tailwind/workcation/feature/src/**/*.ts",
+          "libs/tailwind/workcation/feature/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["application:tailwind", "scope:workcation", "type:feature"]
+}

@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/tailwind/shared/ui",
+  "sourceRoot": "libs/tailwind/shared/ui/src",
+  "prefix": "bry",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/tailwind/shared/ui"],
+      "options": {
+        "jestConfig": "libs/tailwind/shared/ui/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/tailwind/shared/ui/src/**/*.ts",
+          "libs/tailwind/shared/ui/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["application:tailwind", "scope:shared", "type:ui"]
+}

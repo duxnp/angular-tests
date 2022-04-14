@@ -59,7 +59,14 @@
       ],
       "@ng-tests/shared/test-utils": ["libs/shared/test-utils/src/index.ts"],
       "@ng-tests/shared/ui": ["libs/shared/ui/src/index.ts"],
-      "@ng-tests/shared/util": ["libs/shared/util/src/index.ts"]
+      "@ng-tests/shared/util": ["libs/shared/util/src/index.ts"],
+      "@ng-tests/tailwind/shared/ui": ["libs/tailwind/shared/ui/src/index.ts"],
+      "@ng-tests/tailwind/shell/feature": [
+        "libs/tailwind/shell/feature/src/index.ts"
+      ],
+      "@ng-tests/tailwind/workcation/feature": [
+        "libs/tailwind/workcation/feature/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
