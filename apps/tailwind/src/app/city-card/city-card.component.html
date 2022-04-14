@@ -1,0 +1,9 @@
+<div class="flex items-center rounded-lg bg-white shadow-lg overflow-hidden">
+  <img class="h-32 w-32 flex-shrink-0" [src]="destination.imageUrl" [alt]="destination.imageAlt">
+  <div class="px-4 py-3">
+    <h3 class="text-lg font-semibold text-gray-800">{{destination.city}}</h3>
+    <p class="text-gray-600">${{destination.averagePrice}} / night average</p>
+    <div class="mt-4">
+      <a [routerLink]="'/properties'" class="text-indigo-500 hover:text-indigo-400 font-semibold">Explore {{destination.propertyCount}} properties</a>
+    </div>
+  </div>

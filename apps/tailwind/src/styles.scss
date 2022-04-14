@@ -1,5 +1,50 @@
 @tailwind base;
 @tailwind components;
+
+body {
+  @apply antialiased text-gray-900 bg-gray-300;
+}
+
+.badge {
+  @apply inline-block bg-teal-300 text-teal-800 text-xs px-2 rounded-full uppercase font-semibold tracking-wide;
+}
+
+.btn {
+  @apply inline-block px-5 py-3 rounded-lg text-sm uppercase tracking-wider font-semibold;
+}
+.btn:focus {
+  @apply outline-none ring;
+}
+
+.btn-indigo {
+  @apply bg-indigo-500 text-white;
+}
+.btn-indigo:hover {
+  @apply bg-indigo-400;
+}
+.btn-indigo:active {
+  @apply bg-indigo-600;
+}
+
+.btn-gray {
+  @apply bg-gray-500 text-gray-800;
+}
+.btn-gray:hover {
+  @apply bg-gray-400;
+}
+.btn-gray:active {
+  @apply bg-gray-600;
+}
+
+/* This is an example of how you can use tailwind breakpoints */
+/* but you might not screen breakpoints to apply to everything */
+/* @screen sm {
+  .btn {
+    @apply text-base;
+  }
+} */
+
+/* tailwind utilities must come at the end otherwise your custom classes could override some of the tailwind utility classes */
 @tailwind utilities;
 
 /* You can add global styles to this file, and also import other style files */
