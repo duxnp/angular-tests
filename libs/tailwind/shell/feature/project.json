@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/tailwind/shell/feature",
+  "sourceRoot": "libs/tailwind/shell/feature/src",
+  "prefix": "bry",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/tailwind/shell/feature"],
+      "options": {
+        "jestConfig": "libs/tailwind/shell/feature/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/tailwind/shell/feature/src/**/*.ts",
+          "libs/tailwind/shell/feature/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["application:tailwind", "scope:shell", "type:feature"]
+}

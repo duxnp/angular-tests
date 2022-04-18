@@ -61,6 +61,18 @@
                 ]
               },
               {
+                "sourceTag": "type:feature",
+                "onlyDependOnLibsWithTags": [
+                  "type:data-access",
+                  "type:feature",
+                  "type:ui",
+                  "type:util",
+                  "type:environments",
+                  "type:assets",
+                  "type:styles"
+                ]
+              },
+              {
                 "sourceTag": "type:ui",
                 "onlyDependOnLibsWithTags": [
                   "type:ui",

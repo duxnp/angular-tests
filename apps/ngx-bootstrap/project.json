@@ -6,9 +6,7 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/ngx-bootstrap",
         "index": "apps/ngx-bootstrap/src/index.html",
@@ -102,18 +100,12 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/apps/ngx-bootstrap"
-      ],
+      "outputs": ["coverage/apps/ngx-bootstrap"],
       "options": {
         "jestConfig": "apps/ngx-bootstrap/jest.config.js",
         "passWithNoTests": true
       }
     }
   },
-  "tags": [
-    "application:ngx-bootstrap",
-    "scope:ngx-bootstrap",
-    "type:app"
-  ]
+  "tags": ["application:ngx-bootstrap", "scope:ngx-bootstrap", "type:app"]
 }
