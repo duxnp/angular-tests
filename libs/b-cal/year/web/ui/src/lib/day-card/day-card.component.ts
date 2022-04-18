@@ -5,7 +5,7 @@ import {
   EventEmitter,
   Input,
   NgModule,
-  Output
+  Output,
 } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatTooltipModule } from '@angular/material/tooltip';

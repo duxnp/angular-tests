@@ -4,20 +4,23 @@ import {
   MockBuilder,
   MockedComponentFixture,
   MockRender,
-  ngMocks,
+  ngMocks
 } from 'ng-mocks';
 
 import { SharedSelectors } from '@ng-tests/b-cal/shared/data-access';
 import {
   bedaysEntities,
   DayPipe,
-  DayPipeModule,
+  DayPipeModule
 } from '@ng-tests/b-cal/shared/util';
-import { BedayCardComponent, SayBedayComponent } from '@ng-tests/b-cal/year/ui';
+import {
+  BedayCardComponent,
+  SayBedayComponent
+} from '@ng-tests/b-cal/year/web/ui';
 
 import {
   BedayModalComponent,
-  BedayModalComponentModule,
+  BedayModalComponentModule
 } from './beday-modal.component';
 
 describe('BedayModalComponent', () => {

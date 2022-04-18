@@ -13,8 +13,8 @@ import { Day } from '@ng-tests/b-cal/year/shared/util';
 import {
   CalendarModule,
   DayCardModule,
-  YearNavModule,
-} from '@ng-tests/b-cal/year/ui';
+  YearNavModule
+} from '@ng-tests/b-cal/year/web/ui';
 import { filterNullish } from '@ng-tests/shared/util';
 
 @Component({

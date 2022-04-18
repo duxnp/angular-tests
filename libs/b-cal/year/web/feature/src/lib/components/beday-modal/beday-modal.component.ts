@@ -6,7 +6,7 @@ import { Store } from '@ngrx/store';
 
 import { SharedSelectors } from '@ng-tests/b-cal/shared/data-access';
 import { DayPipeModule } from '@ng-tests/b-cal/shared/util';
-import { BedayCardModule, SayBedayModule } from '@ng-tests/b-cal/year/ui';
+import { BedayCardModule, SayBedayModule } from '@ng-tests/b-cal/year/web/ui';
 import { MatDialogShellModule } from '@ng-tests/shared/ui';
 import { filterNullish } from '@ng-tests/shared/util';
 

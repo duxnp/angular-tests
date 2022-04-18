@@ -1,6 +1,6 @@
 module.exports = {
-  displayName: 'b-cal-year-ui',
-  preset: '../../../../jest.preset.js',
+  displayName: 'b-cal-year-web-ui',
+  preset: '../../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -8,7 +8,7 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../../../coverage/libs/b-cal/year/ui',
+  coverageDirectory: '../../../../../coverage/libs/b-cal/year/web/ui',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },

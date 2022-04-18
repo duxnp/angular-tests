@@ -1,7 +1,7 @@
 import {
   ɵMatchMedia,
   ɵMockMatchMedia,
-  ɵMockMatchMediaProvider
+  ɵMockMatchMediaProvider,
 } from '@angular/flex-layout';
 import { createHostFactory, SpectatorHost } from '@ngneat/spectator/jest';
 

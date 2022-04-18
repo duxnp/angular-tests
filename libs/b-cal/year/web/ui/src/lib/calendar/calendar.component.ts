@@ -3,7 +3,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   Input,
-  NgModule
+  NgModule,
 } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 

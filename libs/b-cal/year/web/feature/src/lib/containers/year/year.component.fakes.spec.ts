@@ -4,7 +4,7 @@ import {
   EventEmitter,
   Input,
   NO_ERRORS_SCHEMA,
-  Output,
+  Output
 } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
@@ -17,13 +17,13 @@ import { YearsSelectors } from '@ng-tests/b-cal/year/shared/data-access';
 import {
   createYearsEntity,
   Day,
-  getDayMock,
+  getDayMock
 } from '@ng-tests/b-cal/year/shared/util';
 import {
   CalendarComponent,
   DayCardComponent,
-  YearNavComponent,
-} from '@ng-tests/b-cal/year/ui';
+  YearNavComponent
+} from '@ng-tests/b-cal/year/web/ui';
 import { findDirectiveComponent } from '@ng-tests/shared/test-utils';
 
 import { YearComponent } from './year.component';

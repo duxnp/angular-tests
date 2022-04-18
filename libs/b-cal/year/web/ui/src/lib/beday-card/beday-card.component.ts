@@ -4,7 +4,7 @@ import {
   Component,
   Input,
   NgModule,
-  OnInit
+  OnInit,
 } from '@angular/core';
 
 import { BedaysEntity } from '@ng-tests/b-cal/shared/util';
