@@ -32,4 +32,4 @@ const routes: Route[] = [
   ],
   exports: [RouterModule],
 })
-export class BCalShellModule {}
+export class BCalShellWebModule {}

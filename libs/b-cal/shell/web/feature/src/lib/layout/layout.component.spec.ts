@@ -3,7 +3,7 @@ import {
   MockBuilder,
   MockedComponentFixture,
   MockRender,
-  ngMocks
+  ngMocks,
 } from 'ng-mocks';
 
 import { AppLayoutComponent, AppLayoutModule } from './layout.component';

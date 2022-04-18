@@ -1,14 +1,14 @@
 {
   "projectType": "library",
-  "root": "libs/b-cal/shell/feature",
-  "sourceRoot": "libs/b-cal/shell/feature/src",
+  "root": "libs/b-cal/shell/web/feature",
+  "sourceRoot": "libs/b-cal/shell/web/feature/src",
   "prefix": "bc",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/b-cal/shell/feature"],
+      "outputs": ["coverage/libs/b-cal/shell/web/feature"],
       "options": {
-        "jestConfig": "libs/b-cal/shell/feature/jest.config.js",
+        "jestConfig": "libs/b-cal/shell/web/feature/jest.config.js",
         "passWithNoTests": true
       }
     },
@@ -16,8 +16,8 @@
       "executor": "@nrwl/linter:eslint",
       "options": {
         "lintFilePatterns": [
-          "libs/b-cal/shell/feature/src/**/*.ts",
-          "libs/b-cal/shell/feature/src/**/*.html"
+          "libs/b-cal/shell/web/feature/src/**/*.ts",
+          "libs/b-cal/shell/web/feature/src/**/*.html"
         ]
       }
     }

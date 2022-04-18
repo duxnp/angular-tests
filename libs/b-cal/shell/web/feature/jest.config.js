@@ -1,6 +1,6 @@
 module.exports = {
-  displayName: 'b-cal-shell-feature',
-  preset: '../../../../jest.preset.js',
+  displayName: 'b-cal-shell-web-feature',
+  preset: '../../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -8,7 +8,7 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../../../coverage/libs/b-cal/shell/feature',
+  coverageDirectory: '../../../../../coverage/libs/b-cal/shell/web/feature',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },
