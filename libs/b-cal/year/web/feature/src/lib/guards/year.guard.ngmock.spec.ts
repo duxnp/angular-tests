@@ -5,7 +5,7 @@ import {
   CanActivate,
   Router,
   RouterModule,
-  RouterOutlet
+  RouterOutlet,
 } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { DateTime } from 'luxon';
@@ -15,7 +15,7 @@ import {
   MockedComponentFixture,
   MockRender,
   NG_MOCKS_GUARDS,
-  ngMocks
+  ngMocks,
 } from 'ng-mocks';
 
 import { MockTestComponent } from '@ng-tests/shared/test-utils';

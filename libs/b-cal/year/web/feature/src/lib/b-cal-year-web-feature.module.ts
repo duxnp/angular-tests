@@ -31,4 +31,4 @@ export const bCalYearFeatureRoutes: Route[] = [
     MatDialogModule,
   ],
 })
-export class BCalYearFeatureModule {}
+export class BCalYearWebFeatureModule {}

@@ -1,5 +1,11 @@
 import { ViewportScroller } from '@angular/common';
-import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  NO_ERRORS_SCHEMA,
+  Output,
+} from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Router } from '@angular/router';
@@ -10,33 +16,71 @@ import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { YearsSelectors } from '@ng-tests/b-cal/year/shared/data-access';
 import {
   createYearsEntity,
-  getDayMock
+  Day,
+  getDayMock,
 } from '@ng-tests/b-cal/year/shared/util';
-import { click, findComponent } from '@ng-tests/shared/test-utils';
+import {
+  CalendarComponent,
+  DayCardComponent,
+  YearNavComponent,
+} from '@ng-tests/b-cal/year/ui';
+import { findDirectiveComponent } from '@ng-tests/shared/test-utils';
 
 import { YearComponent } from './year.component';
 
+@Component({
+  selector: 'bc-calendar',
+  template: `<ng-content></ng-content>`,
+})
+export class FakeCalendarComponent implements Partial<CalendarComponent> {}
+
+@Component({
+  selector: 'bc-day-card',
+  template: ``,
+})
+export class FakeDayCardComponent implements Partial<DayCardComponent> {
+  @Input() day!: Day;
+  @Input() today!: Day;
+  @Input() showContent = true;
+  @Output() dayClick = new EventEmitter<Day>();
+}
+
+@Component({
+  selector: 'bc-year-nav',
+  template: ``,
+})
+export class FakeYearNavComponent implements Partial<YearNavComponent> {
+  @Input() year!: number;
+  @Output() gotoYear = new EventEmitter<number>();
+}
+
 /**
- * This test suite essentially ignores all child components.
- * They still appear in the DOM and can be selected by CSS,
- * but no associated component class is instanciated. Not even a mocked one.
+ * This test suite demonstrated manually mocking components,
+ * but it does not create a robust, versatile fake.
  *
- * year.component.fakes.spec.ts demonstrates manually mocking a component.
+ * year.component.ng-mock.spec.ts demonstrates a more mature solution.
  * */
-describe('YearComponent', () => {
+describe('YearComponent:fakes', () => {
   let component: YearComponent;
   let fixture: ComponentFixture<YearComponent>;
-  let debugElement: DebugElement;
   let router: Router;
-  let store: MockStore;
   let viewport: ViewportScroller;
+
+  let calendar: FakeCalendarComponent;
+  let miniDayCard: FakeDayCardComponent;
+  let yearNav: FakeYearNavComponent;
 
   const YEAR = createYearsEntity(2022);
   const TODAY = getDayMock();
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [YearComponent],
+      declarations: [
+        YearComponent,
+        FakeCalendarComponent,
+        FakeDayCardComponent,
+        FakeYearNavComponent,
+      ],
       imports: [ReactiveComponentModule, RouterTestingModule.withRoutes([])],
       providers: [
         provideMockStore({
@@ -55,17 +99,18 @@ describe('YearComponent', () => {
 
   beforeEach(() => {
     router = TestBed.inject(Router);
-    // RouterTestingModule is imported without any routes since we aren't really interested in routing.
-    // Therefore, mockImplementation() must be used to on router.navigate to prevent router errors.
     jest.spyOn(router, 'navigate').mockImplementation();
     viewport = TestBed.inject(ViewportScroller);
     jest.spyOn(viewport, 'scrollToAnchor').mockImplementation();
-    store = TestBed.inject(MockStore);
+    TestBed.inject(MockStore);
 
     fixture = TestBed.createComponent(YearComponent);
     component = fixture.componentInstance;
-    debugElement = fixture.debugElement;
     fixture.detectChanges();
+
+    calendar = findDirectiveComponent(fixture, FakeCalendarComponent);
+    miniDayCard = findDirectiveComponent(fixture, FakeDayCardComponent);
+    yearNav = findDirectiveComponent(fixture, FakeYearNavComponent);
   });
 
   /** Smoke test. It merely proves that the Component renders without errors. */
@@ -76,14 +121,15 @@ describe('YearComponent', () => {
   it('displays year title', () => {
     // const { debugElement } = fixture;
     // const { nativeElement } = debugElement;
-    const yearSpan = debugElement.query(By.css('[data-testid="year-span"]'));
+    const yearSpan = fixture.debugElement.query(
+      By.css('[data-testid="year-span"]')
+    );
     expect(yearSpan.nativeElement.textContent).toBe('2022');
   });
 
   it('navigates to another year', () => {
-    const yearNav = findComponent(fixture, 'bc-year-nav');
-    yearNav.triggerEventHandler('gotoYear', 9000);
-    expect(router.navigate).toHaveBeenLastCalledWith([9000]);
+    yearNav.gotoYear.emit(3000);
+    expect(router.navigate).toHaveBeenLastCalledWith([3000]);
   });
 
   /**
@@ -92,10 +138,8 @@ describe('YearComponent', () => {
    * Also, using a test id would make the element type arbitrary.
    */
   it('renders the calendar', () => {
-    const calendar = findComponent(fixture, 'bc-calendar');
-    const dayCard = findComponent(fixture, 'bc-day-card');
     expect(calendar).toBeTruthy();
-    expect(dayCard).toBeTruthy();
+    expect(miniDayCard).toBeTruthy();
   });
 
   /**
@@ -104,30 +148,30 @@ describe('YearComponent', () => {
    * */
   it('passes the day to DayCard', () => {
     const day = YEAR.days[0];
-    const dayCard = findComponent(fixture, 'bc-day-card');
-    expect(dayCard.properties['day']).toEqual(day);
+    expect(miniDayCard.day).toEqual(day);
   });
 
   it('passes today to DayCard', () => {
-    const dayCard = findComponent(fixture, 'bc-day-card');
-    expect(dayCard.properties['today']).toEqual(TODAY);
+    expect(miniDayCard.today).toEqual(TODAY);
   });
 
-  it('listens for mini DayCard dayClick output', () => {
+  it('listens for mini DayCard dayclick', () => {
     const day = YEAR.days[0];
-    const miniDayCard = findComponent(fixture, 'bc-day-card');
-    miniDayCard.triggerEventHandler('dayClick', day);
+
+    miniDayCard.dayClick.emit(day);
     expect(viewport.scrollToAnchor).toHaveBeenLastCalledWith(
       `day-${day.dayOfYear}`
     );
   });
 
-  it('listens for DayCard dayClick output', () => {
+  it('listens for DayCard dayClick', () => {
     const day = YEAR.days[0];
+
     const dayCard = fixture.debugElement.query(
       By.css(`[id="day-${day.dayOfYear}"]`)
-    );
-    dayCard.triggerEventHandler('dayClick', day);
+    ).componentInstance;
+
+    dayCard.dayClick.emit(day);
     expect(router.navigate).toHaveBeenLastCalledWith([YEAR.id, day.beday?.id]);
   });
 });

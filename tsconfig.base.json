@@ -18,8 +18,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ng-tests/b-cal/year/shared/util": [
-        "libs/b-cal/year/shared/util/src/index.ts"
+      "@ng-tests/b-cal/year/web/feature": [
+        "libs/b-cal/year/web/feature/src/index.ts"
       ],
       "@ng-tests/b-cal/shared/assets": [
         "libs/b-cal/shared/assets/src/index.ts"
@@ -36,11 +36,11 @@
       "@ng-tests/b-cal/shell/web/feature": [
         "libs/b-cal/shell/web/feature/src/index.ts"
       ],
-      "@ng-tests/b-cal/year/feature": [
-        "libs/b-cal/year/feature/src/index.ts"
-      ],
       "@ng-tests/b-cal/year/shared/data-access": [
         "libs/b-cal/year/shared/data-access/src/index.ts"
+      ],
+      "@ng-tests/b-cal/year/shared/util": [
+        "libs/b-cal/year/shared/util/src/index.ts"
       ],
       "@ng-tests/b-cal/year/ui": [
         "libs/b-cal/year/ui/src/index.ts"

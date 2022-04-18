@@ -11,12 +11,12 @@ import { MockComponents } from 'ng-mocks';
 import { YearsSelectors } from '@ng-tests/b-cal/year/shared/data-access';
 import {
   createYearsEntity,
-  getDayMock
+  getDayMock,
 } from '@ng-tests/b-cal/year/shared/util';
 import {
   CalendarComponent,
   DayCardComponent,
-  YearNavComponent
+  YearNavComponent,
 } from '@ng-tests/b-cal/year/ui';
 
 import { YearComponent, YearModule } from './year.component';

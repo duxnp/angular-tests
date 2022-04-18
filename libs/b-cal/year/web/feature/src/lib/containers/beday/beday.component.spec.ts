@@ -5,7 +5,7 @@ import {
   MockBuilder,
   MockedComponentFixture,
   MockRender,
-  ngMocks
+  ngMocks,
 } from 'ng-mocks';
 import { of } from 'rxjs';
 

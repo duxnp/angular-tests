@@ -3,7 +3,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   NgModule,
-  OnInit
+  OnInit,
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';

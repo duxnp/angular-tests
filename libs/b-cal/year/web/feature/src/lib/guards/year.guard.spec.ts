@@ -4,7 +4,7 @@ import {
   Params,
   Router,
   RouterStateSnapshot,
-  UrlTree
+  UrlTree,
 } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { DateTime } from 'luxon';

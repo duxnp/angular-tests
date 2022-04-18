@@ -16,7 +16,8 @@ const routes: Route[] = [
       {
         path: '',
         loadChildren: async () =>
-          (await import('@ng-tests/b-cal/year/feature')).BCalYearFeatureModule,
+          (await import('@ng-tests/b-cal/year/web/feature'))
+            .BCalYearWebFeatureModule,
       },
     ],
   },
