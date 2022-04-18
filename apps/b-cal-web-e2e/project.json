@@ -1,17 +1,17 @@
 {
-  "root": "apps/b-cal-e2e",
-  "sourceRoot": "apps/b-cal-e2e/src",
+  "root": "apps/b-cal-web-e2e",
+  "sourceRoot": "apps/b-cal-web-e2e/src",
   "projectType": "application",
   "targets": {
     "e2e": {
       "executor": "@nrwl/cypress:cypress",
       "options": {
-        "cypressConfig": "apps/b-cal-e2e/cypress.json",
-        "devServerTarget": "b-cal:serve:development"
+        "cypressConfig": "apps/b-cal-web-e2e/cypress.json",
+        "devServerTarget": "b-cal-web:serve:development"
       },
       "configurations": {
         "production": {
-          "devServerTarget": "b-cal:serve:production"
+          "devServerTarget": "b-cal-web:serve:production"
         }
       }
     },
@@ -19,10 +19,10 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/b-cal-e2e/**/*.{js,ts}"]
+        "lintFilePatterns": ["apps/b-cal-web-e2e/**/*.{js,ts}"]
       }
     }
   },
   "tags": ["application:b-cal", "scope:b-cal", "type:app"],
-  "implicitDependencies": ["b-cal"]
+  "implicitDependencies": ["b-cal-web"]
 }

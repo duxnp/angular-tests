@@ -88,5 +88,5 @@
       "jest": true
     }
   },
-  "defaultProject": "b-cal"
+  "defaultProject": "b-cal-web"
 }

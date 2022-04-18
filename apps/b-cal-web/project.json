@@ -1,18 +1,18 @@
 {
   "projectType": "application",
-  "root": "apps/b-cal",
-  "sourceRoot": "apps/b-cal/src",
+  "root": "apps/b-cal-web",
+  "sourceRoot": "apps/b-cal-web/src",
   "prefix": "bc",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/b-cal",
-        "index": "apps/b-cal/src/index.html",
-        "main": "apps/b-cal/src/main.ts",
-        "polyfills": "apps/b-cal/src/polyfills.ts",
-        "tsConfig": "apps/b-cal/tsconfig.app.json",
+        "outputPath": "dist/apps/b-cal-web",
+        "index": "apps/b-cal-web/src/index.html",
+        "main": "apps/b-cal-web/src/main.ts",
+        "polyfills": "apps/b-cal-web/src/polyfills.ts",
+        "tsConfig": "apps/b-cal-web/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
           {
@@ -69,8 +69,8 @@
           ],
           "fileReplacements": [
             {
-              "replace": "apps/b-cal/src/environments/environment.ts",
-              "with": "apps/b-cal/src/environments/environment.prod.ts"
+              "replace": "apps/b-cal-web/src/environments/environment.ts",
+              "with": "apps/b-cal-web/src/environments/environment.prod.ts"
             }
           ],
           "outputHashing": "all"
@@ -90,10 +90,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "b-cal:build:production"
+          "browserTarget": "b-cal-web:build:production"
         },
         "development": {
-          "browserTarget": "b-cal:build:development"
+          "browserTarget": "b-cal-web:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -101,23 +101,23 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "b-cal:build"
+        "browserTarget": "b-cal-web:build"
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
         "lintFilePatterns": [
-          "apps/b-cal/src/**/*.ts",
-          "apps/b-cal/src/**/*.html"
+          "apps/b-cal-web/src/**/*.ts",
+          "apps/b-cal-web/src/**/*.html"
         ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/b-cal"],
+      "outputs": ["coverage/apps/b-cal-web"],
       "options": {
-        "jestConfig": "apps/b-cal/jest.config.js",
+        "jestConfig": "apps/b-cal-web/jest.config.js",
         "passWithNoTests": true
       }
     }

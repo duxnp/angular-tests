@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'b-cal',
+  displayName: 'b-cal-web',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -8,7 +8,7 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../coverage/apps/b-cal',
+  coverageDirectory: '../../coverage/apps/b-cal-web',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },
