@@ -8,13 +8,16 @@ import { ReactiveComponentModule } from '@ngrx/component';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { MockComponents } from 'ng-mocks';
 
-import { YearsSelectors } from '@ng-tests/b-cal/year/data-access';
+import { YearsSelectors } from '@ng-tests/b-cal/year/shared/data-access';
+import {
+  createYearsEntity,
+  getDayMock
+} from '@ng-tests/b-cal/year/shared/util';
 import {
   CalendarComponent,
   DayCardComponent,
   YearNavComponent
 } from '@ng-tests/b-cal/year/ui';
-import { createYearsEntity, getDayMock } from '@ng-tests/b-cal/year/util';
 
 import { YearComponent, YearModule } from './year.component';
 

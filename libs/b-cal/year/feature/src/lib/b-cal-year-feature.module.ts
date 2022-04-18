@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { Route, RouterModule } from '@angular/router';
 
-import { BCalYearDataAccessModule } from '@ng-tests/b-cal/year/data-access';
+import { BCalYearSharedDataAccessModule } from '@ng-tests/b-cal/year/shared/data-access';
 
 import { BedayComponent } from './containers/beday/beday.component';
 import { YearComponent } from './containers/year/year.component';
@@ -26,7 +26,7 @@ export const bCalYearFeatureRoutes: Route[] = [
 @NgModule({
   imports: [
     CommonModule,
-    BCalYearDataAccessModule,
+    BCalYearSharedDataAccessModule,
     RouterModule.forChild(bCalYearFeatureRoutes),
     MatDialogModule,
   ],

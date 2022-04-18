@@ -8,13 +8,13 @@ import { Store } from '@ngrx/store';
 import { combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { YearsSelectors } from '@ng-tests/b-cal/year/data-access';
+import { YearsSelectors } from '@ng-tests/b-cal/year/shared/data-access';
+import { Day } from '@ng-tests/b-cal/year/shared/util';
 import {
   CalendarModule,
   DayCardModule,
   YearNavModule
 } from '@ng-tests/b-cal/year/ui';
-import { Day } from '@ng-tests/b-cal/year/util';
 import { filterNullish } from '@ng-tests/shared/util';
 
 @Component({

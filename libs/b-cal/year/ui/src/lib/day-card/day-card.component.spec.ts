@@ -5,7 +5,7 @@ import {
 } from '@angular/flex-layout';
 import { createHostFactory, SpectatorHost } from '@ngneat/spectator/jest';
 
-import { Day, getDayMock } from '@ng-tests/b-cal/year/util';
+import { Day, getDayMock } from '@ng-tests/b-cal/year/shared/util';
 
 import { DayCardComponent, DayCardModule } from './day-card.component';
 

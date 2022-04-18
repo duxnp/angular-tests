@@ -11,7 +11,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { DayPipeModule } from '@ng-tests/b-cal/shared/util';
-import { Day } from '@ng-tests/b-cal/year/util';
+import { Day } from '@ng-tests/b-cal/year/shared/util';
 
 @Component({
   selector: 'bc-day-card',

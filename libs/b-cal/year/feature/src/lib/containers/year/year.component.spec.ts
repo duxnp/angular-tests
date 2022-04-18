@@ -7,8 +7,11 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 
-import { YearsSelectors } from '@ng-tests/b-cal/year/data-access';
-import { createYearsEntity, getDayMock } from '@ng-tests/b-cal/year/util';
+import { YearsSelectors } from '@ng-tests/b-cal/year/shared/data-access';
+import {
+  createYearsEntity,
+  getDayMock
+} from '@ng-tests/b-cal/year/shared/util';
 import { click, findComponent } from '@ng-tests/shared/test-utils';
 
 import { YearComponent } from './year.component';
