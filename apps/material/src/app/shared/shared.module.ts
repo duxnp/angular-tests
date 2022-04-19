@@ -2,7 +2,7 @@ import { PlatformModule } from '@angular/cdk/platform';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { MatLuxonDateModule } from '@angular/material-luxon-adapter';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -74,7 +74,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatStepperModule,
 
     PlatformModule,
-    MatMomentDateModule,
+    MatLuxonDateModule,
   ],
   declarations: [],
   exports: [
@@ -115,7 +115,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatStepperModule,
 
     PlatformModule,
-    MatMomentDateModule,
+    MatLuxonDateModule,
   ],
 })
 export class SharedModule {}
