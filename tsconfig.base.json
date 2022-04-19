@@ -25,8 +25,14 @@
         "libs/b-cal/shared/domain/src/index.ts"
       ],
       "@ng-tests/b-cal/shared/util": ["libs/b-cal/shared/util/src/index.ts"],
+      "@ng-tests/b-cal/shell/mobile/feature": [
+        "libs/b-cal/shell/mobile/feature/src/index.ts"
+      ],
       "@ng-tests/b-cal/shell/web/feature": [
         "libs/b-cal/shell/web/feature/src/index.ts"
+      ],
+      "@ng-tests/b-cal/year/mobile/feature": [
+        "libs/b-cal/year/mobile/feature/src/index.ts"
       ],
       "@ng-tests/b-cal/year/shared/data-access": [
         "libs/b-cal/year/shared/data-access/src/index.ts"

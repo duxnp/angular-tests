@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/b-cal/shell/mobile/feature",
+  "sourceRoot": "libs/b-cal/shell/mobile/feature/src",
+  "prefix": "bry",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/b-cal/shell/mobile/feature"],
+      "options": {
+        "jestConfig": "libs/b-cal/shell/mobile/feature/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/b-cal/shell/mobile/feature/src/**/*.ts",
+          "libs/b-cal/shell/mobile/feature/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["application:b-cal-mobile", "scope:shell", "type:feature"]
+}
