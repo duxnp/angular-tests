@@ -6,6 +6,7 @@
     "ng": "nx",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
     "nx": "nx",
+    "b-cal-mobile:start": "nx serve b-cal-mobile --port=8100 --host=0.0.0.0 --open",
     "b-cal-web:start": "nx serve b-cal-web --open",
     "b-cal-web:build": "ng build b-cal-web",
     "b-cal-web:deploy": "firebase deploy -P b-cal --only hosting --config firebase.b-cal-web.json",
@@ -36,7 +37,8 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help",
     "clean": "npx rimraf node_modules package-lock.json",
-    "ngrx-ult:json-server": "json-server --watch apps/ngrx-ultimate/db.json --routes apps/ngrx-ultimate/routes.json"
+    "ngrx-ult:json-server": "json-server --watch apps/ngrx-ultimate/db.json --routes apps/ngrx-ultimate/routes.json",
+    "android-emu": "%ANDROID_HOME%\\emulator\\emulator.exe -avd Pixel_3_API_29"
   },
   "private": true,
   "dependencies": {
@@ -128,4 +130,3 @@
     "typescript": "4.6.3"
   }
 }
-

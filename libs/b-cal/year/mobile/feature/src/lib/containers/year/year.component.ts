@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { Store } from '@ngrx/store';
 import { combineLatest } from 'rxjs';
@@ -11,6 +10,8 @@ import { YearsSelectors } from '@ng-tests/b-cal/year/shared/data-access';
 import { Day } from '@ng-tests/b-cal/year/shared/util';
 import { CalendarModule, DayCardModule } from '@ng-tests/b-cal/year/web/ui';
 import { filterNullish } from '@ng-tests/shared/util';
+
+import { YearNavModule } from '../../components/year-nav/year-nav.component';
 
 @Component({
   selector: 'bry-year',
@@ -27,6 +28,11 @@ export class YearComponent {
 
   constructor(private router: Router, private store: Store) {}
 
+  gotoYear(year: number) {
+    this.router.navigate([year]);
+    // this.router.navigate([year], { replaceUrl: true });
+  }
+
   onDayClick(day: Day) {
     this.router.navigate([day.year, day.beday?.id]);
   }
@@ -36,7 +42,7 @@ export class YearComponent {
   imports: [
     IonicModule,
     CommonModule,
-    FormsModule,
+    YearNavModule,
     CalendarModule,
     DayCardModule,
   ],

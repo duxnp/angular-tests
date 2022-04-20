@@ -6,40 +6,12 @@
           <ion-icon name="calendar"></ion-icon>
         </ion-button>
       </ion-buttons>
-      <ion-buttons slot="end">
-        <ion-button>
-          <ion-icon
-            slot="icon-only"
-            ios="chevron-back"
-            md="chevron-back"
-          ></ion-icon>
-        </ion-button>
-        <ion-button>
-          <ion-icon
-            slot="icon-only"
-            ios="chevron-forward"
-            md="chevron-forward"
-          ></ion-icon>
-        </ion-button>
-        <ion-button id="trigger-button">
-          <ion-icon
-            slot="icon-only"
-            ios="ellipsis-vertical"
-            md="ellipsis-vertical"
-          ></ion-icon>
-        </ion-button>
-      </ion-buttons>
-      <ion-popover trigger="trigger-button">
-        <ng-template>
-          <ion-content>
-            <ion-list>
-              <ion-item button>First</ion-item>
-              <ion-item button>Current</ion-item>
-              <ion-item button>Last</ion-item>
-            </ion-list>
-          </ion-content>
-        </ng-template>
-      </ion-popover>
+
+      <bry-year-nav
+        slot="end"
+        [year]="vm.year.id"
+        (gotoYear)="gotoYear($event)"
+      ></bry-year-nav>
 
       <ion-title> {{ vm.year.id }} </ion-title>
     </ion-toolbar>
@@ -52,16 +24,7 @@
       </ion-toolbar>
     </ion-header>
 
-    <ion-card color="warning">
-      <ion-card-header>
-        <ion-card-title>
-          <ion-icon name="warning-outline" size="medium"></ion-icon> Warning
-        </ion-card-title>
-      </ion-card-header>
-      <ion-card-content> Calendar must be implemented! </ion-card-content>
-    </ion-card>
-
-    <bc-calendar>
+    <bc-calendar class="ion-padding">
       <ng-container *ngFor="let day of vm.year.days">
         <bc-day-card
           [day]="day"
