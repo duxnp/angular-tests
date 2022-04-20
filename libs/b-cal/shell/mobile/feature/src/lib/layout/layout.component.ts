@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'bry-app-layout',
@@ -10,7 +11,7 @@ import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
 export class AppLayoutComponent {}
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [IonicModule, CommonModule],
   declarations: [AppLayoutComponent],
   exports: [AppLayoutComponent],
 })

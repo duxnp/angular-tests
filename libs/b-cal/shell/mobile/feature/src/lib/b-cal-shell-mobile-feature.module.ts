@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, Route, RouterModule } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 
 import { BCalSharedDataAccessModule } from '@ng-tests/b-cal/shared/data-access';
 
@@ -16,8 +17,8 @@ const routes: Route[] = [
       {
         path: '',
         loadChildren: async () =>
-          (await import('@ng-tests/b-cal/year/web/feature'))
-            .BCalYearWebFeatureModule,
+          (await import('@ng-tests/b-cal/year/mobile/feature'))
+            .BCalYearMobileFeatureModule,
       },
     ],
   },
@@ -25,6 +26,7 @@ const routes: Route[] = [
 
 @NgModule({
   imports: [
+    IonicModule,
     CommonModule,
     HttpClientModule,
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),

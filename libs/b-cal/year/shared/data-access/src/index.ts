@@ -7,3 +7,5 @@ export { YearsActions, YearsFeature, YearsSelectors };
 
 // Module
 export * from './lib/b-cal-year-shared-data-access.module';
+
+export * from './lib/guards/year.guard';
