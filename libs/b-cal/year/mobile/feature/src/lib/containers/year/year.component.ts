@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, IonNav, NavController } from '@ionic/angular';
+import { NavOptions } from '@ionic/core';
 import { Store } from '@ngrx/store';
 import { combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -12,6 +13,7 @@ import { CalendarModule, DayCardModule } from '@ng-tests/b-cal/year/web/ui';
 import { filterNullish } from '@ng-tests/shared/util';
 
 import { YearNavModule } from '../../components/year-nav/year-nav.component';
+import { BedayComponent } from '../beday/beday.component';
 
 @Component({
   selector: 'bry-year',
@@ -26,15 +28,20 @@ export class YearComponent {
     map(([year, today]) => ({ year, today }))
   );
 
-  constructor(private router: Router, private store: Store) {}
+  constructor(
+    private router: Router,
+    private store: Store,
+    private navCtrl: NavController
+  ) {}
 
   gotoYear(year: number) {
-    this.router.navigate([year]);
-    // this.router.navigate([year], { replaceUrl: true });
+    // this.router.navigate([year]);
+    this.navCtrl.navigateRoot([year]);
   }
 
   onDayClick(day: Day) {
-    this.router.navigate([day.year, day.beday?.id]);
+    // this.router.navigate(['beday', day.beday?.id]);
+    this.navCtrl.navigateForward(['beday', day.beday?.id]);
   }
 }
 

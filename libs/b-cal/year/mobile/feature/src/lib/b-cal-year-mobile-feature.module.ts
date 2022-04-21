@@ -7,6 +7,7 @@ import {
   YearGuard
 } from '@ng-tests/b-cal/year/shared/data-access';
 
+import { BedayComponent } from './containers/beday/beday.component';
 import { YearComponent } from './containers/year/year.component';
 
 // TODO: figure out how modals work with Ionic
@@ -20,8 +21,8 @@ export const bCalYearFeatureRoutes: Route[] = [
     path: ':yearId',
     canActivate: [YearGuard],
     component: YearComponent,
-    // children: [{ path: ':bedayId', component: BedayComponent }],
   },
+  { path: 'beday/:bedayId', component: BedayComponent },
 ];
 
 @NgModule({

@@ -9,7 +9,7 @@
       md="chevron-forward"
     ></ion-icon>
   </ion-button>
-  <ion-button id="trigger-button">
+  <ion-button id="trigger-button" (click)="presentPopover($event)">
     <ion-icon
       slot="icon-only"
       ios="ellipsis-vertical"
@@ -17,7 +17,7 @@
     ></ion-icon>
   </ion-button>
 </ion-buttons>
-<ion-popover trigger="trigger-button" [dismissOnSelect]="true">
+<!-- <ion-popover trigger="trigger-button" [dismissOnSelect]="true">
   <ng-template>
     <ion-content>
       <ion-list>
@@ -27,4 +27,4 @@
       </ion-list>
     </ion-content>
   </ng-template>
-</ion-popover>
+</ion-popover> -->

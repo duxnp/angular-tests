@@ -6,7 +6,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/b-cal-mobile",
         "index": "apps/b-cal-mobile/src/index.html",
@@ -20,6 +22,11 @@
             "glob": "**/*.svg",
             "input": "node_modules/ionicons/dist/ionicons/svg",
             "output": "./svg"
+          },
+          {
+            "glob": "**/*",
+            "input": "libs/b-cal/shared/assets/src/assets",
+            "output": "assets"
           }
         ],
         "styles": [
@@ -92,7 +99,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/b-cal-mobile"],
+      "outputs": [
+        "coverage/apps/b-cal-mobile"
+      ],
       "options": {
         "jestConfig": "apps/b-cal-mobile/jest.config.js",
         "passWithNoTests": true
@@ -189,5 +198,9 @@
       }
     }
   },
-  "tags": ["application:b-cal-mobile", "scope:b-cal-mobile", "type:app"]
+  "tags": [
+    "application:b-cal-mobile",
+    "scope:b-cal-mobile",
+    "type:app"
+  ]
 }
