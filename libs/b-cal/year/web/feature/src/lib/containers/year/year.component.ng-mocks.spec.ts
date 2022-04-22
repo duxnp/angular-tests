@@ -24,7 +24,7 @@ import {
 import { YearComponent, YearModule } from './year.component';
 
 /**
- * This test suite using the ng-mocks library
+ * This test suite demonstrates using the ng-mocks library
  * */
 describe('YearComponent:ng-mocks', () => {
   ngMocks.faster();

@@ -1,16 +1,11 @@
-import { CommonModule, Location } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  NgModule,
-  OnInit
-} from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { IonicModule, NavController } from '@ionic/angular';
 import { Store } from '@ngrx/store';
 
 import { SharedSelectors } from '@ng-tests/b-cal/shared/data-access';
-import { BedayCardModule, SayBedayModule } from '@ng-tests/b-cal/year/web/ui';
+import { BedayCardModule } from '@ng-tests/b-cal/year/web/ui';
 import { filterNullish } from '@ng-tests/shared/util';
 
 @Component({
@@ -26,16 +21,12 @@ export class BedayComponent {
 
   constructor(
     public route: ActivatedRoute,
-    private router: Router,
     private store: Store,
-    private navCtrl: NavController,
-    private location: Location
+    private navCtrl: NavController
   ) {}
 
   goBack() {
-    // this.router.navigate(['2022']);
     this.navCtrl.back();
-    // this.location.back();
   }
 }
 
@@ -44,4 +35,4 @@ export class BedayComponent {
   declarations: [BedayComponent],
   exports: [BedayComponent],
 })
-export class BedayComponentModule {}
+export class BedayModule {}

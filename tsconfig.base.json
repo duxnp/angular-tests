@@ -34,6 +34,9 @@
       "@ng-tests/b-cal/year/mobile/feature": [
         "libs/b-cal/year/mobile/feature/src/index.ts"
       ],
+      "@ng-tests/b-cal/year/mobile/ui": [
+        "libs/b-cal/year/mobile/ui/src/index.ts"
+      ],
       "@ng-tests/b-cal/year/shared/data-access": [
         "libs/b-cal/year/shared/data-access/src/index.ts"
       ],

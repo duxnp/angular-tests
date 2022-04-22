@@ -1,19 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
-import { NavigationExtras, Router } from '@angular/router';
-import { IonicModule, IonNav, NavController } from '@ionic/angular';
-import { NavOptions } from '@ionic/core';
+import { IonicModule, NavController } from '@ionic/angular';
 import { Store } from '@ngrx/store';
 import { combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+import { YearNavModule } from '@ng-tests/b-cal/year/mobile/ui';
 import { YearsSelectors } from '@ng-tests/b-cal/year/shared/data-access';
 import { Day } from '@ng-tests/b-cal/year/shared/util';
 import { CalendarModule, DayCardModule } from '@ng-tests/b-cal/year/web/ui';
 import { filterNullish } from '@ng-tests/shared/util';
-
-import { YearNavModule } from '../../components/year-nav/year-nav.component';
-import { BedayComponent } from '../beday/beday.component';
 
 @Component({
   selector: 'bry-year',
@@ -28,19 +24,15 @@ export class YearComponent {
     map(([year, today]) => ({ year, today }))
   );
 
-  constructor(
-    private router: Router,
-    private store: Store,
-    private navCtrl: NavController
-  ) {}
+  constructor(private store: Store, private navCtrl: NavController) {}
 
   gotoYear(year: number) {
-    // this.router.navigate([year]);
+    // Normally you'd use Router from @angular/router
+    // but apparently Ionic doesn't like simply changing a route param
     this.navCtrl.navigateRoot([year]);
   }
 
   onDayClick(day: Day) {
-    // this.router.navigate(['beday', day.beday?.id]);
     this.navCtrl.navigateForward(['beday', day.beday?.id]);
   }
 }
@@ -56,4 +48,4 @@ export class YearComponent {
   declarations: [YearComponent],
   exports: [YearComponent],
 })
-export class YearComponentModule {}
+export class YearModule {}

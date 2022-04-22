@@ -1,5 +1,4 @@
 import { ViewportScroller } from '@angular/common';
-import { ComponentFixture } from '@angular/core/testing';
 import { ɵMockMatchMediaProvider } from '@angular/flex-layout';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -22,10 +21,7 @@ import {
 import { YearComponent, YearModule } from './year.component';
 
 /**
- * This test suite demonstrated manually mocking components,
- * but it does not create a robust, versatile fake.
- *
- * year.component.ng-mock.spec.ts demonstrates a more mature solution.
+ * This test suite demonstrates using the spectator library
  * */
 describe('YearComponent:spectator', () => {
   let spectator: Spectator<YearComponent>;
@@ -41,7 +37,6 @@ describe('YearComponent:spectator', () => {
 
   const YEAR = createYearsEntity(2022);
   const TODAY = getDayMock();
-
   const mockStore = provideMockStore({
     selectors: [
       {

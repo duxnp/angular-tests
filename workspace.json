@@ -12,6 +12,7 @@
     "b-cal-web": "apps/b-cal-web",
     "b-cal-web-e2e": "apps/b-cal-web-e2e",
     "b-cal-year-mobile-feature": "libs/b-cal/year/mobile/feature",
+    "b-cal-year-mobile-ui": "libs/b-cal/year/mobile/ui",
     "b-cal-year-shared-data-access": "libs/b-cal/year/shared/data-access",
     "b-cal-year-shared-util": "libs/b-cal/year/shared/util",
     "b-cal-year-web-feature": "libs/b-cal/year/web/feature",

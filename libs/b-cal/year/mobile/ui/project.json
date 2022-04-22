@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/b-cal/year/mobile/ui",
+  "sourceRoot": "libs/b-cal/year/mobile/ui/src",
+  "prefix": "bry",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/b-cal/year/mobile/ui"],
+      "options": {
+        "jestConfig": "libs/b-cal/year/mobile/ui/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/b-cal/year/mobile/ui/src/**/*.ts",
+          "libs/b-cal/year/mobile/ui/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["application:b-cal-mobile", "scope:year", "type:ui"]
+}
