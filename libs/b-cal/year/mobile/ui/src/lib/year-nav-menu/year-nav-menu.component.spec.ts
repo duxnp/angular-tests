@@ -1,24 +1,24 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { createComponentFactory, Spectator } from '@ngneat/spectator/jest';
 
-import { YearNavMenuComponent } from './year-nav-menu.component';
+import {
+  YearNavMenuComponent,
+  YearNavMenuModule
+} from './year-nav-menu.component';
 
 describe('YearNavMenuComponent', () => {
-  let component: YearNavMenuComponent;
-  let fixture: ComponentFixture<YearNavMenuComponent>;
+  let spectator: Spectator<YearNavMenuComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [YearNavMenuComponent],
-    }).compileComponents();
+  const createComponent = createComponentFactory({
+    component: YearNavMenuComponent,
+    imports: [YearNavMenuModule],
+    providers: [],
+    declarations: [],
+    declareComponent: false,
   });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(YearNavMenuComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+  beforeEach(() => (spectator = createComponent()));
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(spectator.component).toBeTruthy();
   });
 });

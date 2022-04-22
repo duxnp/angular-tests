@@ -1,5 +1,6 @@
+import { ɵMockMatchMediaProvider } from '@angular/flex-layout';
 import { RouterTestingModule } from '@angular/router/testing';
-import { NavController } from '@ionic/angular';
+import { IonicModule, NavController } from '@ionic/angular';
 import { createComponentFactory, Spectator } from '@ngneat/spectator/jest';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { MockComponents } from 'ng-mocks';
@@ -36,12 +37,12 @@ describe('YearComponent', () => {
 
   const createComponent = createComponentFactory({
     component: YearComponent,
-    imports: [RouterTestingModule.withRoutes([])],
+    imports: [IonicModule.forRoot(), RouterTestingModule.withRoutes([])],
     providers: [mockStore],
     declarations: [
       ...MockComponents(CalendarComponent, DayCardComponent, YearNavComponent),
     ],
-    declareComponent: false, // Defaults to true
+    // declareComponent: false,
   });
 
   beforeEach(() => (spectator = createComponent()));
@@ -66,5 +67,6 @@ describe('YearComponent', () => {
 
   it('displays year title', () => {
     expect(spectator.query('[data-testid="year-title"]')).toHaveText('2022');
+    // expect(1).toBe(1);
   });
 });

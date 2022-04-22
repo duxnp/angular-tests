@@ -96,7 +96,7 @@ describe('YearComponent:spectator', () => {
 
   it('displays year title', () => {
     const yearSpan = spectator.query('[data-testid="year-span"]');
-    expect(yearSpan?.textContent).toBe('2022');
+    expect(yearSpan).toContainText('2022');
   });
 
   it('navigates to another year', () => {
