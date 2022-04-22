@@ -1,7 +1,5 @@
-import { ViewportScroller } from '@angular/common';
-import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { ReactiveComponentModule } from '@ngrx/component';
+// import { toContainText } from '@ngneat/spectator';
 import { provideMockStore } from '@ngrx/store/testing';
 import {
   MockBuilder,
@@ -65,5 +63,9 @@ describe('YearComponent:ng-mocks', () => {
   it('displays year title', () => {
     const yearSpan = ngMocks.find(['data-testid', 'year-title']);
     expect(yearSpan.nativeElement.textContent).toBe('2022');
+
+    // Doesn't work!
+    // expect.extend({ ...toContainText() });
+    // expect(yearSpan).toContainText('2022');
   });
 });
