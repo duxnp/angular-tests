@@ -1,5 +1,4 @@
 import { RouterTestingModule } from '@angular/router/testing';
-// import { toContainText } from '@ngneat/spectator';
 import { provideMockStore } from '@ngrx/store/testing';
 import {
   MockBuilder,
@@ -13,6 +12,7 @@ import {
   createYearsEntity,
   getDayMock
 } from '@ng-tests/b-cal/year/shared/util';
+import { addCustomMatchers } from '@ng-tests/shared/test-utils';
 
 import { YearComponent, YearModule } from './year.component';
 
@@ -45,6 +45,7 @@ describe('YearComponent:ng-mocks', () => {
   );
 
   beforeAll(() => {
+    addCustomMatchers();
     fixture = MockRender(YearComponent);
     component = fixture.point.componentInstance;
     // router = fixture.point.injector.get(Router);
@@ -64,8 +65,6 @@ describe('YearComponent:ng-mocks', () => {
     const yearSpan = ngMocks.find(['data-testid', 'year-title']);
     expect(yearSpan.nativeElement.textContent).toBe('2022');
 
-    // Doesn't work!
-    // expect.extend({ ...toContainText() });
-    // expect(yearSpan).toContainText('2022');
+    expect('[data-testid="year-title"]').toHaveExactText('2022');
   });
 });

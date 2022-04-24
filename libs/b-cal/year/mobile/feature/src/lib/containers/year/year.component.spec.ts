@@ -67,6 +67,7 @@ describe('YearComponent', () => {
 
   it('displays year title', () => {
     expect(spectator.query('[data-testid="year-title"]')).toHaveText('2022');
+    expect('[data-testid="year-title"]').toHaveText('2022');
     // expect(1).toBe(1);
   });
 });
