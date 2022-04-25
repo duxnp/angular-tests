@@ -39,9 +39,9 @@ describe('MatDialogShellComponent:ng-mocks', () => {
   it('displays title input', () => {
     const fixture = factory({ title: 'Input Title' });
     expect('h1[mat-dialog-title]').toContainText('Input Title');
-    fixture.componentInstance.title = 'foo';
+    fixture.componentInstance.title = '@Input() change';
     fixture.detectChanges();
-    expect('h1[mat-dialog-title]').toContainText('foo');
+    expect('h1[mat-dialog-title]').toContainText('@Input() change');
   });
 
   it('displays projected content', () => {
