@@ -67,8 +67,9 @@ describe('YearComponent:ng-mocks', () => {
   });
 
   beforeEach(() => {
-    routerSpy.mockClear();
-    viewportSpy.mockClear();
+    // routerSpy.mockClear();
+    // viewportSpy.mockClear();
+    jest.clearAllMocks();
   });
 
   /** Smoke test. It merely proves that the Component renders without errors. */
@@ -135,6 +136,7 @@ describe('YearComponent:ng-mocks', () => {
     const dayCardEl = ngMocks.findAll(fixture, DayCardComponent)[1];
     const dayCard = dayCardEl.componentInstance;
     dayCard.dayClick.emit(day);
+    expect(router.navigate).toHaveBeenCalledTimes(1);
     expect(router.navigate).toHaveBeenLastCalledWith([YEAR.id, day.beday?.id]);
   });
 });

@@ -1,4 +1,5 @@
 import { RouterTestingModule } from '@angular/router/testing';
+import { NavController } from '@ionic/angular';
 import { provideMockStore } from '@ngrx/store/testing';
 import {
   MockBuilder,
@@ -7,6 +8,7 @@ import {
   ngMocks
 } from 'ng-mocks';
 
+import { YearNavComponent } from '@ng-tests/b-cal/year/mobile/ui';
 import { YearsSelectors } from '@ng-tests/b-cal/year/shared/data-access';
 import {
   createYearsEntity,
@@ -16,14 +18,12 @@ import { addCustomMatchers } from '@ng-tests/shared/test-utils';
 
 import { YearComponent, YearModule } from './year.component';
 
-/**
- * This test suite demonstrates using the ng-mocks library
- * */
-describe('YearComponent:ng-mocks', () => {
+describe('YearComponent', () => {
   ngMocks.faster();
 
   let component: YearComponent;
   let fixture: MockedComponentFixture<YearComponent>;
+  let navCtrl: NavController;
 
   const YEAR = createYearsEntity(2022);
   const TODAY = getDayMock();
@@ -48,12 +48,12 @@ describe('YearComponent:ng-mocks', () => {
     addCustomMatchers();
     fixture = MockRender(YearComponent);
     component = fixture.point.componentInstance;
-    // router = fixture.point.injector.get(Router);
-    // routerSpy = jest.spyOn(router, 'navigate').mockImplementation();
+    navCtrl = fixture.point.injector.get(NavController);
+    jest.spyOn(navCtrl, 'navigateRoot').mockImplementation();
   });
 
   beforeEach(() => {
-    // routerSpy.mockClear();
+    jest.clearAllMocks();
   });
 
   /** Smoke test. It merely proves that the Component renders without errors. */
@@ -66,5 +66,15 @@ describe('YearComponent:ng-mocks', () => {
     expect(yearSpan.nativeElement.textContent).toBe('2022');
 
     expect('[data-testid="year-title"]').toHaveExactText('2022');
+  });
+
+  it('navigates to another year', () => {
+    // const yearNav = ngMocks.find(YearNavComponent);
+    // yearNav.componentInstance.gotoYear.emit(9000);
+
+    const yearNav = ngMocks.findInstance(YearNavComponent);
+    yearNav.gotoYear.emit(9000);
+
+    expect(navCtrl.navigateRoot).toHaveBeenLastCalledWith([9000]);
   });
 });
