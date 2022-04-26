@@ -29,7 +29,6 @@ describe('BedayModalComponent', () => {
   let component: BedayModalComponent;
   let fixture: MockedComponentFixture<BedayModalComponent>;
   const beday = bedaysEntities[0];
-
   const mockStore = provideMockStore({
     selectors: [{ selector: SharedSelectors.selectBedayEntity, value: beday }],
   });
@@ -58,15 +57,12 @@ describe('BedayModalComponent', () => {
   });
 
   it('passes beday to SayBeday', () => {
-    const sayBeday = ngMocks.find(fixture, SayBedayComponent).componentInstance;
+    const sayBeday = ngMocks.findInstance(fixture, SayBedayComponent);
     expect(sayBeday.beday).toEqual(beday);
   });
 
   it('passes beday to BedayCard', () => {
-    const bedayCard = ngMocks.find(
-      fixture,
-      BedayCardComponent
-    ).componentInstance;
+    const bedayCard = ngMocks.findInstance(fixture, BedayCardComponent);
     expect(bedayCard.beday).toEqual(beday);
   });
 });

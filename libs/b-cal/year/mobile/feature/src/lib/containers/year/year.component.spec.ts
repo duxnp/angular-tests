@@ -1,9 +1,13 @@
-import { ɵMockMatchMediaProvider } from '@angular/flex-layout';
 import { RouterTestingModule } from '@angular/router/testing';
-import { IonicModule, NavController } from '@ionic/angular';
-import { createComponentFactory, Spectator } from '@ngneat/spectator/jest';
-import { MockStore, provideMockStore } from '@ngrx/store/testing';
-import { MockComponents } from 'ng-mocks';
+import { NavController } from '@ionic/angular';
+import { provideMockStore } from '@ngrx/store/testing';
+import { screen } from '@testing-library/dom';
+import {
+  MockBuilder,
+  MockedComponentFixture,
+  MockRender,
+  ngMocks
+} from 'ng-mocks';
 
 import { YearNavComponent } from '@ng-tests/b-cal/year/mobile/ui';
 import { YearsSelectors } from '@ng-tests/b-cal/year/shared/data-access';
@@ -19,10 +23,13 @@ import {
 import { YearComponent, YearModule } from './year.component';
 
 describe('YearComponent', () => {
-  let spectator: Spectator<YearComponent>;
+  ngMocks.faster();
+
   let component: YearComponent;
+  let fixture: MockedComponentFixture<YearComponent>;
   let navCtrl: NavController;
 
+  const { getByTestId } = screen;
   const YEAR = createYearsEntity(2022);
   const TODAY = getDayMock();
   const mockStore = provideMockStore({
@@ -35,39 +42,74 @@ describe('YearComponent', () => {
     ],
   });
 
-  const createComponent = createComponentFactory({
-    component: YearComponent,
-    imports: [IonicModule.forRoot(), RouterTestingModule.withRoutes([])],
-    providers: [mockStore],
-    declarations: [
-      ...MockComponents(CalendarComponent, DayCardComponent, YearNavComponent),
-    ],
-    // declareComponent: false,
-  });
+  beforeAll(() =>
+    MockBuilder(YearComponent, YearModule)
+      .keep(RouterTestingModule.withRoutes([]))
+      .provide(mockStore)
+  );
 
-  beforeEach(() => (spectator = createComponent()));
+  beforeAll(() => {
+    fixture = MockRender(YearComponent);
+    component = fixture.point.componentInstance;
+    navCtrl = fixture.point.injector.get(NavController);
+
+    jest.spyOn(navCtrl, 'navigateRoot').mockImplementation();
+    jest.spyOn(navCtrl, 'navigateForward').mockImplementation();
+  });
 
   beforeEach(() => {
-    navCtrl = spectator.inject(NavController);
-    jest.spyOn(navCtrl, 'navigateRoot').mockImplementation();
-
-    spectator.inject(MockStore);
-
-    component = spectator.component;
-
-    // calendar = spectator.query(CalendarComponent);
-    // miniDayCard = spectator.query(DayCardComponent);
-    // dayCard = spectator.queryLast(DayCardComponent);
-    // yearNav = spectator.query(YearNavComponent);
+    jest.clearAllMocks();
   });
 
-  it('should create', () => {
+  /** Smoke test. It merely proves that the Component renders without errors. */
+  it('renders without errors', () => {
     expect(component).toBeTruthy();
   });
 
   it('displays year title', () => {
-    expect(spectator.query('[data-testid="year-title"]')).toHaveText('2022');
-    expect('[data-testid="year-title"]').toHaveText('2022');
-    // expect(1).toBe(1);
+    expect(getByTestId('year-title')).toHaveTextContent('2022');
+  });
+
+  it('navigates to another year', () => {
+    const yearNav = ngMocks.findInstance(YearNavComponent);
+    yearNav.gotoYear.emit(9000);
+
+    expect(navCtrl.navigateRoot).toHaveBeenLastCalledWith([9000]);
+  });
+
+  it('renders the calendar', () => {
+    const calendar = ngMocks.find(fixture, CalendarComponent);
+    const dayCard = ngMocks.find(fixture, DayCardComponent);
+    expect(calendar).toBeTruthy();
+    expect(dayCard).toBeTruthy();
+  });
+
+  /**
+   * Each DebugElement has a properties object that contains DOM properties together with its values.
+   * This includes the inputs of a child component.
+   * */
+  it('passes the day to DayCard', () => {
+    const day = YEAR.days[0];
+    const dayCard = ngMocks.findInstance(fixture, DayCardComponent);
+    expect(dayCard.day).toEqual(day);
+  });
+
+  it('passes today to DayCard', () => {
+    const dayCard = ngMocks.findInstance(fixture, DayCardComponent);
+    expect(dayCard.today).toEqual(TODAY);
+  });
+
+  it('listens for DayCard dayClick output', () => {
+    const day = YEAR.days[0];
+
+    // Full size day card appears after the mini day card
+    const dayCard = ngMocks.findInstance(fixture, DayCardComponent);
+    dayCard.dayClick.emit(day);
+
+    expect(navCtrl.navigateForward).toHaveBeenCalledTimes(1);
+    expect(navCtrl.navigateForward).toHaveBeenLastCalledWith([
+      'beday',
+      day.beday?.id,
+    ]);
   });
 });

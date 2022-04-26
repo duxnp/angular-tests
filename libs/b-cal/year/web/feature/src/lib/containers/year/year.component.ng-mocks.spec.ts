@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { provideMockStore } from '@ngrx/store/testing';
+import { screen } from '@testing-library/dom';
 import {
   MockBuilder,
   MockedComponentFixture,
@@ -32,9 +33,7 @@ describe('YearComponent:ng-mocks', () => {
   let component: YearComponent;
   let fixture: MockedComponentFixture<YearComponent>;
   let router: Router;
-  let routerSpy: jest.SpyInstance;
   let viewport: ViewportScroller;
-  let viewportSpy: jest.SpyInstance;
 
   const YEAR = createYearsEntity(2022);
   const TODAY = getDayMock();
@@ -60,15 +59,15 @@ describe('YearComponent:ng-mocks', () => {
   beforeAll(() => {
     fixture = MockRender(YearComponent);
     component = fixture.point.componentInstance;
+
     router = fixture.point.injector.get(Router);
-    routerSpy = jest.spyOn(router, 'navigate').mockImplementation();
     viewport = fixture.point.injector.get(ViewportScroller);
-    viewportSpy = jest.spyOn(viewport, 'scrollToAnchor').mockImplementation();
+
+    jest.spyOn(router, 'navigate').mockImplementation();
+    jest.spyOn(viewport, 'scrollToAnchor').mockImplementation();
   });
 
   beforeEach(() => {
-    // routerSpy.mockClear();
-    // viewportSpy.mockClear();
     jest.clearAllMocks();
   });
 
@@ -80,6 +79,8 @@ describe('YearComponent:ng-mocks', () => {
   it('displays year title', () => {
     const yearSpan = ngMocks.find(['data-testid', 'year-span']);
     expect(yearSpan.nativeElement.textContent).toBe('2022');
+    expect(yearSpan.nativeElement).toBeVisible();
+    expect(screen.getByTestId('year-span')).toBeVisible();
   });
 
   it('navigates to another year', () => {
@@ -122,8 +123,7 @@ describe('YearComponent:ng-mocks', () => {
   it('listens for mini DayCard dayClick output', () => {
     const day = YEAR.days[0];
     // Mini day card appears first
-    const dayCardEl = ngMocks.findAll(fixture, DayCardComponent)[0];
-    const dayCard = dayCardEl.componentInstance;
+    const dayCard = ngMocks.findInstances(fixture, DayCardComponent)[0];
     dayCard.dayClick.emit(day);
     expect(viewport.scrollToAnchor).toHaveBeenLastCalledWith(
       `day-${day.dayOfYear}`
@@ -132,10 +132,11 @@ describe('YearComponent:ng-mocks', () => {
 
   it('listens for DayCard dayClick output', () => {
     const day = YEAR.days[0];
+
     // Full size day card appears after the mini day card
-    const dayCardEl = ngMocks.findAll(fixture, DayCardComponent)[1];
-    const dayCard = dayCardEl.componentInstance;
+    const dayCard = ngMocks.findInstances(fixture, DayCardComponent)[1];
     dayCard.dayClick.emit(day);
+
     expect(router.navigate).toHaveBeenCalledTimes(1);
     expect(router.navigate).toHaveBeenLastCalledWith([YEAR.id, day.beday?.id]);
   });

@@ -52,8 +52,9 @@ describe('YearNavComponent', () => {
   });
 
   it('opens menu', async () => {
-    const menu = await loader.getHarness(MatMenuHarness);
-    await menu.open();
+    // const menu = await loader.getHarness(MatMenuHarness);
+    // await menu.open();
+    spectator.click('[data-testid="year-nav-menu"]');
     expect(spectator.query('[data-testid="first"]')).toExist();
   });
 

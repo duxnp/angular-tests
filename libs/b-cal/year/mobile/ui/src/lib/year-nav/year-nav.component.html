@@ -1,15 +1,19 @@
 <ion-buttons>
-  <ion-button (click)="previousYear()">
+  <ion-button (click)="previousYear()" data-testid="previous-button">
     <ion-icon slot="icon-only" ios="chevron-back" md="chevron-back"></ion-icon>
   </ion-button>
-  <ion-button (click)="nextYear()">
+  <ion-button (click)="nextYear()" data-testid="next-button">
     <ion-icon
       slot="icon-only"
       ios="chevron-forward"
       md="chevron-forward"
     ></ion-icon>
   </ion-button>
-  <ion-button id="trigger-button" (click)="presentPopover($event)">
+  <ion-button
+    id="trigger-button"
+    (click)="presentPopover($event)"
+    data-testid="year-nav-menu"
+  >
     <ion-icon
       slot="icon-only"
       ios="ellipsis-vertical"

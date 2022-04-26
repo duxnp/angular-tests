@@ -1,24 +1,54 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { PopoverController } from '@ionic/angular';
+import {
+  MockBuilder,
+  MockedComponentFixture,
+  MockRender,
+  MockRenderFactory,
+  ngMocks
+} from 'ng-mocks';
 
-import { YearNavComponent } from './year-nav.component';
+import { YearNavComponent, YearNavModule } from './year-nav.component';
 
 describe('YearNavComponent', () => {
-  let component: YearNavComponent;
-  let fixture: ComponentFixture<YearNavComponent>;
+  const spy = jest.fn();
+  const factory = MockRenderFactory<YearNavComponent>(
+    `<bry-year-nav
+      slot="end"
+      [year]="year"
+      (gotoYear)="gotoYear($event)"
+    ></bry-year-nav>`,
+    ['year', 'gotoYear']
+  );
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [YearNavComponent],
-    }).compileComponents();
-  });
+  ngMocks.faster();
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(YearNavComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+  beforeAll(() => MockBuilder(YearNavComponent, YearNavModule));
+
+  beforeAll(() => {
+    factory.configureTestBed();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    const fixture = factory({ year: 9000, gotoYear: spy });
+    expect(fixture.point.componentInstance).toBeTruthy();
+  });
+
+  it('emits gotoYear previous event', () => {
+    ngMocks.click('[data-testid="previous-button"]');
+    expect(spy).toHaveBeenLastCalledWith(8999);
+  });
+
+  it('emits gotoYear next event', () => {
+    ngMocks.click('[data-testid="next-button"]');
+    expect(spy).toHaveBeenLastCalledWith(9001);
+  });
+
+  it('opens menu', async () => {
+    const fixture = factory({ year: 9000, gotoYear: spy });
+    const popover = fixture.point.injector.get(PopoverController);
+    jest.spyOn(popover, 'create').mockImplementation();
+
+    ngMocks.click('[data-testid="year-nav-menu"]');
+    expect(popover.create).toBeCalled();
   });
 });

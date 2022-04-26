@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { IonicModule, NavController } from '@ionic/angular';
 import { Store } from '@ngrx/store';
 
 import { SharedSelectors } from '@ng-tests/b-cal/shared/data-access';
+import { DayPipeModule } from '@ng-tests/b-cal/shared/util';
 import { BedayCardModule } from '@ng-tests/b-cal/year/web/ui';
 import { filterNullish } from '@ng-tests/shared/util';
 
@@ -19,11 +19,7 @@ export class BedayComponent {
     .select(SharedSelectors.selectBedayEntity)
     .pipe(filterNullish());
 
-  constructor(
-    public route: ActivatedRoute,
-    private store: Store,
-    private navCtrl: NavController
-  ) {}
+  constructor(private store: Store, private navCtrl: NavController) {}
 
   goBack() {
     this.navCtrl.back();
@@ -31,7 +27,7 @@ export class BedayComponent {
 }
 
 @NgModule({
-  imports: [CommonModule, IonicModule, BedayCardModule],
+  imports: [CommonModule, IonicModule, BedayCardModule, DayPipeModule],
   declarations: [BedayComponent],
   exports: [BedayComponent],
 })

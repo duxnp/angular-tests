@@ -1,7 +1,11 @@
 <ion-content>
   <ion-list>
-    <ion-item button (click)="firstYear()">First</ion-item>
-    <ion-item button (click)="currentYear()">Current</ion-item>
-    <ion-item button (click)="lastYear()">Last</ion-item>
+    <ion-item button (click)="firstYear()" data-testid="first">
+      First
+    </ion-item>
+    <ion-item button (click)="currentYear()" data-testid="current">
+      Current
+    </ion-item>
+    <ion-item button (click)="lastYear()" data-testid="last">Last</ion-item>
   </ion-list>
 </ion-content>

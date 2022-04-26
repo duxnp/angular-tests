@@ -1,3 +1,4 @@
+import { screen } from '@testing-library/dom';
 import {
   MockBuilder,
   MockedComponentFixture,
@@ -5,8 +6,6 @@ import {
   MockRenderFactory,
   ngMocks
 } from 'ng-mocks';
-
-import { addCustomMatchers } from '@ng-tests/shared/test-utils';
 
 import {
   MatDialogShellComponent,
@@ -27,7 +26,6 @@ describe('MatDialogShellComponent:ng-mocks', () => {
   beforeAll(() => MockBuilder(MatDialogShellComponent, MatDialogShellModule));
 
   beforeAll(() => {
-    addCustomMatchers();
     factory.configureTestBed();
   });
 
@@ -38,14 +36,20 @@ describe('MatDialogShellComponent:ng-mocks', () => {
 
   it('displays title input', () => {
     const fixture = factory({ title: 'Input Title' });
-    expect('h1[mat-dialog-title]').toContainText('Input Title');
+    const title = ngMocks.find('h1[mat-dialog-title]').nativeNode;
+
+    expect(title).toHaveTextContent('Input Title');
     fixture.componentInstance.title = '@Input() change';
     fixture.detectChanges();
-    expect('h1[mat-dialog-title]').toContainText('@Input() change');
+    expect(title).toHaveTextContent('@Input() change');
   });
 
   it('displays projected content', () => {
-    expect('h1[mat-dialog-title]').toContainText('Projected Title');
-    expect('div[mat-dialog-content]').toContainText('Projected Body');
+    expect(ngMocks.find('h1[mat-dialog-title]').nativeNode).toHaveTextContent(
+      'Projected Title'
+    );
+    expect(
+      ngMocks.find('div[mat-dialog-content]').nativeNode
+    ).toHaveTextContent('Projected Body');
   });
 });
