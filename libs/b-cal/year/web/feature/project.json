@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/b-cal/year/web/feature",
+  "sourceRoot": "libs/b-cal/year/web/feature/src",
+  "prefix": "bc",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/b-cal/year/web/feature"],
+      "options": {
+        "jestConfig": "libs/b-cal/year/web/feature/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/b-cal/year/web/feature/src/**/*.ts",
+          "libs/b-cal/year/web/feature/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["application:b-cal", "scope:year", "type:feature"]
+}

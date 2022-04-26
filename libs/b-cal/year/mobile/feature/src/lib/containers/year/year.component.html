@@ -1,0 +1,32 @@
+<ng-container *ngIf="vm$ | async as vm">
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <bry-year-nav
+        slot="end"
+        [year]="vm.year.id"
+        (gotoYear)="gotoYear($event)"
+      ></bry-year-nav>
+
+      <ion-title data-testid="year-title">{{ vm.year.id }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content [fullscreen]="true">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">{{ vm.year.id }}</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <bc-calendar class="ion-padding">
+      <ng-container *ngFor="let day of vm.year.days">
+        <bc-day-card
+          [day]="day"
+          [today]="vm.today"
+          [id]="'day-' + day.dayOfYear"
+          (dayClick)="onDayClick(day)"
+        ></bc-day-card>
+      </ng-container>
+    </bc-calendar>
+  </ion-content>
+</ng-container>

@@ -12,7 +12,7 @@
   },
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
+      "runner": "nx/tasks-runners/default",
       "options": {
         "cacheableOperations": ["build", "lint", "test", "e2e"],
         "parallel": 1
@@ -88,5 +88,5 @@
       "jest": true
     }
   },
-  "defaultProject": "b-cal"
+  "defaultProject": "b-cal-web"
 }

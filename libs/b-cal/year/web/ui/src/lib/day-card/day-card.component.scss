@@ -1,0 +1,28 @@
+:host {
+  display: block;
+}
+
+.card {
+  cursor: pointer;
+  border-radius: 2px;
+  border: 1px solid darkgray;
+  min-height: 15px;
+  min-width: 15px;
+
+  .content {
+    margin: 12%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .mini {
+    height: 15px;
+    width: 100%;
+  }
+
+  .ordinal {
+    font-size: small;
+    text-align: center;
+  }
+}

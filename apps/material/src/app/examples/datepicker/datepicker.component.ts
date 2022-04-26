@@ -1,7 +1,7 @@
 import { Platform } from '@angular/cdk/platform';
 import { Component } from '@angular/core';
 
-// import * as moment from 'moment';
+// import DateTime from 'luxon';
 
 @Component({
   selector: 'app-datepicker',
@@ -16,7 +16,7 @@ export class DatepickerComponent {
   constructor(private _platform: Platform) {}
 
   // Used to present the mobile version of the date picker
-  // Use along with @angular/material-moment-adapter
+  // Use along with @angular/material-luxon-adapter
   get isTouchDevice() {
     return this._platform.ANDROID || this._platform.IOS;
     // return true;

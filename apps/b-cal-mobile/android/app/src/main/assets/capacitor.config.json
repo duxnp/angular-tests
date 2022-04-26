@@ -1,0 +1,10 @@
+{
+	"appId": "io.ionic.bcal",
+	"appName": "b-cal-mobile",
+	"webDir": "../../dist/apps/b-cal-mobile",
+	"bundledWebRuntime": false,
+	"server": {
+		"url": "http://192.168.1.248:8100",
+		"cleartext": true
+	}
+}

@@ -25,15 +25,28 @@
         "libs/b-cal/shared/domain/src/index.ts"
       ],
       "@ng-tests/b-cal/shared/util": ["libs/b-cal/shared/util/src/index.ts"],
-      "@ng-tests/b-cal/shell/feature": [
-        "libs/b-cal/shell/feature/src/index.ts"
+      "@ng-tests/b-cal/shell/mobile/feature": [
+        "libs/b-cal/shell/mobile/feature/src/index.ts"
       ],
-      "@ng-tests/b-cal/year/data-access": [
-        "libs/b-cal/year/data-access/src/index.ts"
+      "@ng-tests/b-cal/shell/web/feature": [
+        "libs/b-cal/shell/web/feature/src/index.ts"
       ],
-      "@ng-tests/b-cal/year/feature": ["libs/b-cal/year/feature/src/index.ts"],
-      "@ng-tests/b-cal/year/ui": ["libs/b-cal/year/ui/src/index.ts"],
-      "@ng-tests/b-cal/year/util": ["libs/b-cal/year/util/src/index.ts"],
+      "@ng-tests/b-cal/year/mobile/feature": [
+        "libs/b-cal/year/mobile/feature/src/index.ts"
+      ],
+      "@ng-tests/b-cal/year/mobile/ui": [
+        "libs/b-cal/year/mobile/ui/src/index.ts"
+      ],
+      "@ng-tests/b-cal/year/shared/data-access": [
+        "libs/b-cal/year/shared/data-access/src/index.ts"
+      ],
+      "@ng-tests/b-cal/year/shared/util": [
+        "libs/b-cal/year/shared/util/src/index.ts"
+      ],
+      "@ng-tests/b-cal/year/web/feature": [
+        "libs/b-cal/year/web/feature/src/index.ts"
+      ],
+      "@ng-tests/b-cal/year/web/ui": ["libs/b-cal/year/web/ui/src/index.ts"],
       "@ng-tests/shared/data-access": ["libs/shared/data-access/src/index.ts"],
       "@ng-tests/shared/domain": ["libs/shared/domain/src/index.ts"],
       "@ng-tests/shared/entity-store": [

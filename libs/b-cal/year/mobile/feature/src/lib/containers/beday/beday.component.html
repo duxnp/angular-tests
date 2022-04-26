@@ -1,0 +1,21 @@
+<ng-container *ngIf="beday$ | async as beday">
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+
+      <ion-title data-testid="beday-title"> {{ beday.name | day }} </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content [fullscreen]="true">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">{{ beday.name | day }}</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <bc-beday-card [beday]="beday" class="ion-padding"></bc-beday-card>
+  </ion-content>
+</ng-container>
