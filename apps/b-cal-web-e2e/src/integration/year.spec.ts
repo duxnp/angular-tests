@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon';
 
-import { Year } from '../pages/year.page';
+import { Year } from '../pages/year.po';
 
 describe('year feature', () => {
   const luxon = DateTime.now();

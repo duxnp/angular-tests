@@ -1,4 +1,4 @@
-import { Beday } from '../pages/beday.page';
+import { Beday } from '../pages/beday.po';
 
 describe('beday dialog', () => {
   let page: Beday;
