@@ -21,7 +21,7 @@ export class Year {
 
   // Explicitly typing the return value may be useful sometimes
   public yearTitle = (): Cypress.Chainable<JQuery<HTMLElement>> =>
-    cy.findByTestId('year-span');
+    cy.findByTestId('year-title');
   public nextButton = () => cy.findByTestId('next-button');
   public prevButton = () => cy.findByTestId('previous-button');
   public navMenu = () => cy.findByTestId('year-nav-menu');

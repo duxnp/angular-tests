@@ -5,6 +5,9 @@ export class Beday extends App {
     cy.visit('/beday/3');
   }
 
+  public bedayTitle = (): Cypress.Chainable<JQuery<HTMLElement>> =>
+    cy.findByTestId('beday-title');
+
   public audio = (): Cypress.Chainable<JQuery<HTMLAudioElement>> =>
     cy.get('audio[controls]');
 }

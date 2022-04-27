@@ -18,7 +18,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build b-cal
-        run: npx nx build b-cal
+        run: npx nx build b-cal-web
       - name: Archive production artifact
         uses: actions/upload-artifact@main
         with:
@@ -39,6 +39,6 @@ jobs:
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
-          args: deploy -P b-cal --only hosting --config firebase.b-cal.json
+          args: deploy -P b-cal --only hosting --config firebase.b-cal-web.json
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

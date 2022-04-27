@@ -9,6 +9,6 @@ describe('b-cal-mobile', () => {
   });
 
   it('displays correct title', () => {
-    cy.title().should('eq', 'Beluvian Calendar');
+    cy.title().should('eq', 'Beluvian Calendar Mobile');
   });
 });
