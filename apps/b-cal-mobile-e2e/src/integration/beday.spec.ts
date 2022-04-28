@@ -8,13 +8,12 @@ describe('beday dialog', () => {
     page.visit();
   });
 
-  it('opens dialog', () => {
-    cy.url().should('include', '/2022/3');
-    page.matDialog().should('exist');
+  it('navigates to beday page', () => {
+    cy.url().should('include', '/beday/3');
   });
 
   it('displays beday information', () => {
-    page.dialogTitle().contains('Essissday');
+    page.bedayTitle().contains('Essissday');
   });
 
   it('plays audio', () => {

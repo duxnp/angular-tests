@@ -29,6 +29,7 @@ export class YearNavComponent {
   async presentPopover(ev: any) {
     const popover = await this.popoverController.create({
       component: YearNavMenuComponent,
+      htmlAttributes: { 'data-testid': 'year-nav-menu' },
       cssClass: 'my-custom-class',
       event: ev,
       translucent: true,

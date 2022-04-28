@@ -1,10 +1,28 @@
 {
-  "extends": ["plugin:cypress/recommended", "../../.eslintrc.json"],
-  "ignorePatterns": ["!**/*"],
+  "extends": [
+    "plugin:cypress/recommended",
+    "../../.eslintrc.json"
+  ],
+  "ignorePatterns": [
+    "!**/*"
+  ],
   "overrides": [
     {
-      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
-      "rules": {}
+      "files": [
+        "*.ts",
+        "*.tsx",
+        "*.js",
+        "*.jsx"
+      ],
+      "rules": {
+        "testing-library/await-async-query": "off", // Cypress chains don't use promises
+        "testing-library/prefer-screen-queries": "off", // screen queries don't make sense in the context of Cypress Testing Library
+        "testing-library/prefer-explicit-assert": "off", // we're lazy
+        // No Jest here
+        "jest/valid-expect": "off",
+        "jest/valid-expect-in-promise": "off",
+        "jest/no-conditional-expect": "off"
+      }
     }
   ]
 }

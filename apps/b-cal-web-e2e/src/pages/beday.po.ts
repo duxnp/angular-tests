@@ -1,4 +1,4 @@
-import { App } from './app.page';
+import { App } from './app.po';
 
 export class Beday extends App {
   public visit(): void {

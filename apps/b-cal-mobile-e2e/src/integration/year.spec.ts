@@ -22,8 +22,8 @@ describe('year feature', () => {
   });
 
   it('displays day cards', () => {
-    // With mini cards also displaying, the number should be double since the page is showing two calendars
-    const days = luxon.daysInYear * 2;
+    // Currently, the mobile version doesn't support displaying mini cards
+    const days = luxon.daysInYear;
     page.dayCards().should((t) => expect(t.length).equal(days));
   });
 
@@ -50,10 +50,9 @@ describe('year feature', () => {
   });
 
   it('navigates to beday on click', () => {
-    // This will find two items since two calendars are displaying.
-    // aJust clicking both for now until I can decide on how to differentiate them.
-    page.firstSaturday().click({ multiple: true });
-    cy.url().should('include', '/2022/1');
+    // page.firstSaturday().scrollIntoView({ offset: { top: 100, left: 0 } });
+    page.firstSaturday().click({ scrollBehavior: false });
+    cy.url().should('include', '/beday/1');
   });
 
   it('displays day name for large screens', () => {

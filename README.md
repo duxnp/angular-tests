@@ -68,3 +68,7 @@ nx e2e b-cal-e2e --watch
 ```
 
 This project was generated using [Nx](https://nx.dev).
+
+## Dependencies
+
+jquery is only used for the custom jest matchers. If I end up not using those I can uninstall jquery.

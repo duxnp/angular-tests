@@ -1,13 +1,14 @@
-import { getGreeting } from '../support/app.po';
+import { App } from '../pages/app.po';
 
 describe('b-cal-mobile', () => {
-  beforeEach(() => cy.visit('/'));
+  let page: App;
 
-  it('should display welcome message', () => {
-    // Custom command example, see `../support/commands.ts` file
-    cy.login('my-email@something.com', 'myPassword');
+  beforeEach(() => {
+    page = new App();
+    page.visit();
+  });
 
-    // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome b-cal-mobile');
+  it('displays correct title', () => {
+    cy.title().should('eq', 'Beluvian Calendar Mobile');
   });
 });
