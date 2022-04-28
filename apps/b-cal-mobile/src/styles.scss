@@ -27,28 +27,34 @@
 
 // Global additions
 
-// #container {
-//   text-align: center;
-
-//   position: absolute;
-//   left: 0;
-//   right: 0;
-//   top: 50%;
-//   transform: translateY(-50%);
-// }
-
 .d-none {
   display: none;
 }
 
-.weekend {
-  background: grey;
+@media (prefers-color-scheme: dark) {
+  .weekend {
+    background: grey;
+  }
+
+  .weekday {
+    background: black;
+  }
+
+  .today {
+    background: purple;
+  }
 }
 
-.weekday {
-  background: black;
-}
+@media (prefers-color-scheme: light) {
+  .weekend {
+    background: grey;
+  }
 
-.today {
-  background: purple;
+  .weekday {
+    background: lightgray;
+  }
+
+  .today {
+    background: lightskyblue;
+  }
 }
