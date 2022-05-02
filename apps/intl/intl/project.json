@@ -6,8 +6,8 @@
   "i18n": {
     "sourceLocale": "en-US",
     "locales": {
-      "fr": {
-        "translation": "apps/intl/intl/src/locale/messages.fr.xlf",
+      "fr-CA": {
+        "translation": "apps/intl/intl/src/locale/messages.fr-CA.xlf",
         "baseHref": ""
       }
     }
@@ -32,7 +32,8 @@
         "styles": [
           "apps/intl/intl/src/styles.scss"
         ],
-        "scripts": []
+        "scripts": [],
+        "localize": true
       },
       "configurations": {
         "production": {
