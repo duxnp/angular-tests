@@ -1,6 +1,12 @@
-# Template-Driven Forms Notes
+# forms-ward-bell Template-Driven Forms Notes
 
 These notes elaborate on larger issues with Template-Driven and Reactive Forms as well as particular points in the code.
+
+## Links
+
+[Prefer Template Driven Forms](https://www.youtube.com/watch?v=L7rGogdfe2Q)
+[AC Forms](https://github.com/kara/ac-forms)
+[Kara Erickson Forms](https://github.com/woodsjs/kara-erickson-forms-ngcon17/blob/master/src/app/custom-input/custom-input.component.ts)
 
 ## The `[name]` directive in control bindings
 

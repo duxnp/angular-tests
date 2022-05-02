@@ -19,6 +19,8 @@
     "b-cal-year-web-ui": "libs/b-cal/year/web/ui",
     "forms-ward-bell": "apps/forms-ward-bell",
     "fts": "apps/fts",
+    "intl": "apps/intl/intl",
+    "intl-e2e": "apps/intl/intl-e2e",
     "material": "apps/material",
     "ngrx-ultimate": "apps/ngrx-ultimate",
     "ngx-bootstrap": "apps/ngx-bootstrap",
