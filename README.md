@@ -20,9 +20,19 @@ Initially, I created this Nx workspace to simply deal with that problem. There i
 - [ngx-bootstrap](apps/ngx-bootstrap/README.md)
 - [tailwind](apps/tailwind/README.md)
 
+## Nx Dependency Graph
+
+Nx analyzes how all the libraries within the monorepo are used. When a change is made to a library, Nx is able to use this information to determine which libraries are affected by this change. With the nx affected command you can run certain tasks only for libraries that have been affected by a recent change.
+
 ## Updating Nx
 
 https://nx.dev/using-nx/updating-nx
+
+## CI/CD
+
+The ci.yml workflow is saving time by using the nx affected command to run the build and test targets only on the libraries affected by the PR.
+
+The cd.ylm workflow is building b-cal web, then deploying to Firebase hosting.
 
 ## Deploying to Firebase
 
