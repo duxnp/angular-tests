@@ -104,6 +104,7 @@ nx e2e b-cal-e2e --watch
 ## Code Coverage
 
 ```shell
+nx run-many --target=test --all --parallel --coverage --coverageReporters=json
 node ./tools/coverage/jsonMerger.js
 npx nyc report --temp-dir ./coverage/json --reporter lcov --report-dir ./coverage/report
 npx serve -c ./tools/coverage/serve.json

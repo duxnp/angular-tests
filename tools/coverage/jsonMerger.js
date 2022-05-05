@@ -60,5 +60,5 @@ const getJsonFiles = function (src) {
     );
   }
 
-  console.log('Files have been saved!');
+  console.log('json files have been collected into /coverage/json!');
 })();

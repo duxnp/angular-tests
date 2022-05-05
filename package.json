@@ -38,7 +38,9 @@
     "help": "nx help",
     "clean": "npx rimraf node_modules package-lock.json",
     "ngrx-ult:json-server": "json-server --watch apps/ngrx-ultimate/db.json --routes apps/ngrx-ultimate/routes.json",
-    "android-emu": "%ANDROID_HOME%\\emulator\\emulator.exe -avd Pixel_3_API_29"
+    "android-emu": "%ANDROID_HOME%\\emulator\\emulator.exe -avd Pixel_3_API_29",
+    "test:ci": "ng run-many --target=test --all --parallel --coverage --coverageReporters=json && node ./tools/coverage/jsonMerger.js && npx nyc report --temp-dir ./coverage/json --reporter lcov --report-dir ./coverage/report",
+    "coverage:start": "npx serve -c ./tools/coverage/serve.json"
   },
   "private": true,
   "dependencies": {
