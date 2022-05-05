@@ -1,0 +1,4 @@
+{
+  "public": "coverage/report/lcov-report",
+  "trailingSlash": true
+}
