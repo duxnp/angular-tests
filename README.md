@@ -92,22 +92,39 @@ $ npx serve coverage
 Non-interactive Test Run (Headless)
 
 ```shell
-nx e2e b-cal-e2e
+$ nx e2e b-cal-e2e
 ```
 
 Interactive Test Run
 
 ```shell
-nx e2e b-cal-e2e --watch
+$ nx e2e b-cal-e2e --watch
 ```
 
 ## Code Coverage
 
+Use these commands to generate code coverage data, collect all the files, then generate an html report. Requires coverageReporters to be json.
+
 ```shell
-nx run-many --target=test --all --parallel --coverage --coverageReporters=json
-node ./tools/coverage/jsonMerger.js
-npx nyc report --temp-dir ./coverage/json --reporter lcov --report-dir ./coverage/report
-npx serve -c ./tools/coverage/serve.json
+$ nx run-many --target=test --all --parallel --coverage --coverageReporters=json
+$ node ./tools/coverage/jsonMerger.js
+$ npx nyc report --temp-dir ./coverage/json --reporter lcov --report-dir ./coverage/report
+$ npx serve -c ./tools/coverage/serve.json
+```
+
+This may also work but I haven't tried it yet.
+
+```shell
+$ nyc merge multiple-sources-dir merged-output/merged-coverage.json
+$ nyc report -t merged-output --report-dir merged-report --reporter=html --reporter=cobertura
+```
+
+This would work on macOS and Linux, but would not easily work on Windows. Requires coverageReporters to be lcov and the lcov package to be installed (brew install lcov).
+
+```shell
+$ nx run-many --target=test --all --parallel --coverage --coverageReporters=json
+$ node ./tools/coverage/lcovMerger.js
+$ genhtml coverage/lcov.info -o coverage/html
 ```
 
 ## Dependencies
