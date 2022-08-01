@@ -49,6 +49,8 @@ Here is an example of the folder structure:
 
 ## Deploying to Firebase
 
+Setup for deploying from a monorepo was inspired by [@simondotm/nx-firebase](https://github.com/simondotm/nx-firebase)
+
 ```shell
 $ npm install -g firebase-tools
 $ firebase login

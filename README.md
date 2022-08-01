@@ -20,9 +20,19 @@ Initially, I created this Nx workspace to simply deal with that problem. There i
 - [ngx-bootstrap](apps/ngx-bootstrap/README.md)
 - [tailwind](apps/tailwind/README.md)
 
+## Nx Dependency Graph
+
+Nx analyzes how all the libraries within the monorepo are used. When a change is made to a library, Nx is able to use this information to determine which libraries are affected by this change. With the nx affected command you can run certain tasks only for libraries that have been affected by a recent change.
+
 ## Updating Nx
 
 https://nx.dev/using-nx/updating-nx
+
+## CI/CD
+
+The ci.yml workflow is saving time by using the nx affected command to run the build and test targets only on the libraries affected by the PR.
+
+The cd.ylm workflow is building b-cal web, then deploying to Firebase hosting.
 
 ## Deploying to Firebase
 
@@ -82,13 +92,39 @@ $ npx serve coverage
 Non-interactive Test Run (Headless)
 
 ```shell
-nx e2e b-cal-e2e
+$ nx e2e b-cal-e2e
 ```
 
 Interactive Test Run
 
 ```shell
-nx e2e b-cal-e2e --watch
+$ nx e2e b-cal-e2e --watch
+```
+
+## Code Coverage
+
+Use these commands to generate code coverage data, collect all the files, then generate an html report. Requires coverageReporters to be json.
+
+```shell
+$ nx run-many --target=test --all --parallel --coverage --coverageReporters=json
+$ node ./tools/coverage/jsonMerger.js
+$ npx nyc report --temp-dir ./coverage/json --reporter lcov --report-dir ./coverage/report
+$ npx serve -c ./tools/coverage/serve.json
+```
+
+This may also work but I haven't tried it yet.
+
+```shell
+$ nyc merge multiple-sources-dir merged-output/merged-coverage.json
+$ nyc report -t merged-output --report-dir merged-report --reporter=html --reporter=cobertura
+```
+
+This would work on macOS and Linux, but would not easily work on Windows. Requires coverageReporters to be lcov and the lcov package to be installed (brew install lcov).
+
+```shell
+$ nx run-many --target=test --all --parallel --coverage --coverageReporters=json
+$ node ./tools/coverage/lcovMerger.js
+$ genhtml coverage/lcov.info -o coverage/html
 ```
 
 ## Dependencies
